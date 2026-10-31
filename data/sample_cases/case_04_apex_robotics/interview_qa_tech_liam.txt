@@ -1,0 +1,9 @@
+INTERVIEW TRANSCRIPT: LIAM VANCE
+Case: Apex Robotics Tactical Drone Crash
+Interviewer: Agent Vance
+Interviewee: Liam Vance, QA Safety Specialist
+
+[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.
+[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.
+[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?
+[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.

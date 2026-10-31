@@ -1,0 +1,80 @@
+{
+  "case_id": "case_04_apex_robotics",
+  "case_name": "The Apex Robotics Drone Sabotage",
+  "document_count": 8,
+  "is_held_out": true,
+  "true_entities": {
+    "persons": [
+      "Derek Cole",
+      "Elena Rostova",
+      "Liam Vance",
+      "Marcus Stone"
+    ],
+    "organizations": [
+      "Apex Robotics",
+      "Vanguard Aero",
+      "Federal Aviation Board"
+    ],
+    "locations": [
+      "Hangar 3",
+      "Telemetry Bunker",
+      "Test Range Alpha",
+      "Assembly Bay"
+    ],
+    "objects": [
+      "SkyHarrier-9",
+      "Firmware v2.4",
+      "USB Dongle",
+      "Kill Switch Payload"
+    ]
+  },
+  "planted_contradictions": [
+    {
+      "id": "c4_01",
+      "entity": "Derek Cole Alibi at 20:15",
+      "topic": "Dinner in town vs inside Hangar 3",
+      "doc_a": "interview_lead_eng_derek.txt",
+      "statement_a": "I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "doc_b": "hangar_rfid_access_log.txt",
+      "statement_b": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c4_02",
+      "entity": "Firmware Modification",
+      "topic": "No modifications approved v2.4 vs manual flash overwrite",
+      "doc_a": "interview_lead_eng_derek.txt",
+      "statement_a": "Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "doc_b": "drone_flight_recorder_telemetry.log",
+      "statement_b": "[2024-10-25 20:18:02] FLASH_OVERWRITE: Block 0x000F4000 overwritten with custom binary [PAYLOAD: KILL_OVERRIDE_0x99]",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c4_03",
+      "entity": "Competitor Affiliation",
+      "topic": "No communication with Vanguard Aero vs wire payment agreement",
+      "doc_a": "interview_lead_eng_derek.txt",
+      "statement_a": "No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "doc_b": "competitor_consulting_email.txt",
+      "statement_b": "We have deposited the initial 75,000 USD consulting retainer into your overseas account.",
+      "type": "confirmed_contradiction"
+    }
+  ],
+  "correct_hypothesis": {
+    "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+    "description": "Derek Cole returned to Hangar 3 at 20:12 UTC, physically connected a USB dongle to SkyHarrier-9, and flashed a malicious altitude-triggered motor kill routine to ensure the trial failed in exchange for a 75,000 USD retainer from Vanguard Aero.",
+    "is_correct": true
+  },
+  "decoy_hypotheses": [
+    {
+      "title": "External RF Jamming and Anti-Drone Countermeasure Interference",
+      "description": "An adversary operating high-powered RF jamming equipment from outside the facility flooded the 2.4 GHz control frequency, forcing motor shutdown.",
+      "is_correct": false
+    },
+    {
+      "title": "Lithium Polymer Battery Thermal Runaway and Low Voltage Cutoff",
+      "description": "Defective battery cells in the power distribution board overheated upon reaching 400m altitude, triggering standard BMS safety shutdown.",
+      "is_correct": false
+    }
+  ]
+}

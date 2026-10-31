@@ -333,6 +333,171 @@ def create_case_3_helios():
         json.dump(gt_data, f, indent=2)
 
 
+def create_case_4_apex_robotics():
+    case_id = "case_04_apex_robotics"
+    case_name = "The Apex Robotics Drone Sabotage"
+    case_folder = SAMPLE_DIR / case_id
+    case_folder.mkdir(parents=True, exist_ok=True)
+
+    docs = {
+        "interview_lead_eng_derek.txt": (
+            "INTERVIEW TRANSCRIPT: DEREK COLE\n"
+            "Case: Apex Robotics Tactical Drone Crash\n"
+            "Interviewer: Agent Vance\n"
+            "Interviewee: Derek Cole, Lead Firmware Engineer\n\n"
+            "[09:00 AM] VANCE: State your name and role at Apex Robotics.\n"
+            "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.\n"
+            "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?\n"
+            "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.\n"
+            "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?\n"
+            "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.\n"
+            "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?\n"
+            "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.\n"
+        ),
+        "interview_test_pilot_elena.txt": (
+            "INTERVIEW TRANSCRIPT: ELENA ROSTOVA\n"
+            "Case: Apex Robotics Tactical Drone Crash\n"
+            "Interviewer: Agent Vance\n"
+            "Interviewee: Elena Rostova, Chief Flight Test Pilot\n\n"
+            "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?\n"
+            "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.\n"
+            "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?\n"
+            "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.\n"
+            "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?\n"
+            "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.\n"
+        ),
+        "interview_qa_tech_liam.txt": (
+            "INTERVIEW TRANSCRIPT: LIAM VANCE\n"
+            "Case: Apex Robotics Tactical Drone Crash\n"
+            "Interviewer: Agent Vance\n"
+            "Interviewee: Liam Vance, QA Safety Specialist\n\n"
+            "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.\n"
+            "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.\n"
+            "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?\n"
+            "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.\n"
+        ),
+        "hangar_rfid_access_log.txt": (
+            "APEX ROBOTICS - HANGAR 3 SECURITY ACCESS LOG\n"
+            "Facility: Test Range Alpha | Assembly Hangar 3\n"
+            "Date: 2024-10-25\n\n"
+            "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)\n"
+            "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)\n"
+            "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)\n"
+            "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)\n"
+            "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)\n"
+        ),
+        "drone_flight_recorder_telemetry.log": (
+            "SKYHARRIER-9 BLACK BOX FLASH MEMORY TELEMETRY\n"
+            "Hardware UUID: SH9-00891-TX\n\n"
+            "[2024-10-25 18:00:00] BOOT: Firmware v2.4 (SHA256: e88a91b... VERIFIED)\n"
+            "[2024-10-25 20:17:33] USB_HOST: Device Attached [VID: 0x0781 PID: 0x5581 SanDisk Cruzer]\n"
+            "[2024-10-25 20:18:02] FLASH_OVERWRITE: Block 0x000F4000 overwritten with custom binary [PAYLOAD: KILL_OVERRIDE_0x99]\n"
+            "[2024-10-25 20:20:11] USB_HOST: Device Ejected\n"
+            "[2024-10-25 21:00:15] FLIGHT: Motors Spooled Up - Launch\n"
+            "[2024-10-25 21:05:42] EXEC: Trigger condition reached [ALTITUDE > 350m]. KILL_OVERRIDE executed. Motor PWM disabled.\n"
+        ),
+        "slack_export_engineering.txt": (
+            "SLACK CHANNEL: #firmware-core (Internal Apex Workspace)\n"
+            "Date: October 25, 2024\n\n"
+            "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.\n"
+            "20:07 Liam Vance: Thanks Derek, enjoy dinner.\n"
+            "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.\n"
+            "20:20 Liam Vance: Did someone leave the debug cable plugged in?\n"
+            "20:21 Elena Rostova: Derek was just in the bay a minute ago.\n"
+        ),
+        "incident_investigation_report.txt": (
+            "APEX ROBOTICS - SECURITY FORENSICS REPORT\n"
+            "Incident: Catastrophic Loss of SkyHarrier-9 Prototype\n"
+            "Investigator: Marcus Stone, Chief Security Officer\n"
+            "Date: October 26, 2024\n\n"
+            "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.\n"
+            "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.\n"
+            "3. CODE RECOVERY: The injected firmware payload contained a timer triggered when altitude exceeded 350 meters, cutting power to all electronic speed controllers.\n"
+        ),
+        "competitor_consulting_email.txt": (
+            "CONFIDENTIAL CONSULTING AGREEMENT - VANGUARD AERO\n"
+            "From: hiring@vanguard-aero.com\n"
+            "To: d.cole.personal@fastmail.com\n"
+            "Date: October 24, 2024 18:30 UTC\n"
+            "Subject: Retention Fee and Demonstration Milestone\n\n"
+            "Derek,\n\n"
+            "We have deposited the initial 75,000 USD consulting retainer into your overseas account. "
+            "Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday.\n"
+            "Please confirm once the milestone is concluded.\n\n"
+            "Vanguard Aero Talent Acquisition\n"
+        ),
+    }
+
+    for filename, content in docs.items():
+        with open(case_folder / filename, "w", encoding="utf-8") as f:
+            f.write(content)
+
+    gt_data = {
+        "case_id": case_id,
+        "case_name": case_name,
+        "document_count": len(docs),
+        "is_held_out": True,
+        "true_entities": {
+            "persons": ["Derek Cole", "Elena Rostova", "Liam Vance", "Marcus Stone"],
+            "organizations": ["Apex Robotics", "Vanguard Aero", "Federal Aviation Board"],
+            "locations": ["Hangar 3", "Telemetry Bunker", "Test Range Alpha", "Assembly Bay"],
+            "objects": ["SkyHarrier-9", "Firmware v2.4", "USB Dongle", "Kill Switch Payload"]
+        },
+        "planted_contradictions": [
+            {
+                "id": "c4_01",
+                "entity": "Derek Cole Alibi at 20:15",
+                "topic": "Dinner in town vs inside Hangar 3",
+                "doc_a": "interview_lead_eng_derek.txt",
+                "statement_a": "I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+                "doc_b": "hangar_rfid_access_log.txt",
+                "statement_b": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+                "type": "confirmed_contradiction"
+            },
+            {
+                "id": "c4_02",
+                "entity": "Firmware Modification",
+                "topic": "No modifications approved v2.4 vs manual flash overwrite",
+                "doc_a": "interview_lead_eng_derek.txt",
+                "statement_a": "Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+                "doc_b": "drone_flight_recorder_telemetry.log",
+                "statement_b": "[2024-10-25 20:18:02] FLASH_OVERWRITE: Block 0x000F4000 overwritten with custom binary [PAYLOAD: KILL_OVERRIDE_0x99]",
+                "type": "confirmed_contradiction"
+            },
+            {
+                "id": "c4_03",
+                "entity": "Competitor Affiliation",
+                "topic": "No communication with Vanguard Aero vs wire payment agreement",
+                "doc_a": "interview_lead_eng_derek.txt",
+                "statement_a": "No, none whatsoever. My exclusive contract is with Apex Robotics.",
+                "doc_b": "competitor_consulting_email.txt",
+                "statement_b": "We have deposited the initial 75,000 USD consulting retainer into your overseas account.",
+                "type": "confirmed_contradiction"
+            }
+        ],
+        "correct_hypothesis": {
+            "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+            "description": "Derek Cole returned to Hangar 3 at 20:12 UTC, physically connected a USB dongle to SkyHarrier-9, and flashed a malicious altitude-triggered motor kill routine to ensure the trial failed in exchange for a 75,000 USD retainer from Vanguard Aero.",
+            "is_correct": True
+        },
+        "decoy_hypotheses": [
+            {
+                "title": "External RF Jamming and Anti-Drone Countermeasure Interference",
+                "description": "An adversary operating high-powered RF jamming equipment from outside the facility flooded the 2.4 GHz control frequency, forcing motor shutdown.",
+                "is_correct": False
+            },
+            {
+                "title": "Lithium Polymer Battery Thermal Runaway and Low Voltage Cutoff",
+                "description": "Defective battery cells in the power distribution board overheated upon reaching 400m altitude, triggering standard BMS safety shutdown.",
+                "is_correct": False
+            }
+        ]
+    }
+
+    with open(GROUND_TRUTH_DIR / f"{case_id}_ground_truth.json", "w", encoding="utf-8") as f:
+        json.dump(gt_data, f, indent=2)
+
+
 def main():
     SAMPLE_DIR.mkdir(parents=True, exist_ok=True)
     GROUND_TRUTH_DIR.mkdir(parents=True, exist_ok=True)
@@ -342,6 +507,9 @@ def main():
 
     print("Generating Case 3 (Helios Pharma Clinical Trial Discrepancy - Held-Out)...")
     create_case_3_helios()
+
+    print("Generating Case 4 (Apex Robotics Drone Sabotage - Additional Held-Out)...")
+    create_case_4_apex_robotics()
 
     print("Successfully created sample cases and ground truth files.")
 

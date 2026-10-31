@@ -1,137 +1,137 @@
 {
   "entities": [
     {
-      "entity_id": "ent_9b18ba",
+      "entity_id": "ent_55502a",
       "name": "Clara Sterling",
       "entity_type": "person",
       "mentions_count": 7,
       "document_ids": [
-        "doc_5dcfc507",
-        "doc_78005f2d",
-        "doc_92f00364"
+        "doc_0c0ba6cc",
+        "doc_3b5c07b4",
+        "doc_49e789cc"
       ],
       "source_sentences": [
-        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
-        "From: Clara Sterling <c.sterling@blackwoodestate.co.uk>",
-        "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
         "Clara Sterling",
+        "From: Clara Sterling <c.sterling@blackwoodestate.co.uk>",
+        "Interviewee: Clara Sterling, Gallery Curator",
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
         "Speaker/Author of document: Clara Sterling",
-        "Interviewee: Clara Sterling, Gallery Curator"
+        "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_5950d3",
+      "entity_id": "ent_840dda",
       "name": "Thomas Reynolds",
       "entity_type": "person",
       "mentions_count": 7,
       "document_ids": [
-        "doc_5dcfc507",
-        "doc_92f00364",
-        "doc_830ae5b3",
-        "doc_63ae1e5c"
+        "doc_5fd8f1d3",
+        "doc_0c0ba6cc",
+        "doc_370a137b",
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
-        "Officer: DI Thomas Reynolds, Badge #8841",
-        "Interviewer: Detective Reynolds"
+        "Interviewer: Detective Reynolds",
+        "Officer: DI Thomas Reynolds, Badge #8841"
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_1fc035",
+      "entity_id": "ent_ab7835",
       "name": "Julian Vance",
       "entity_type": "person",
       "mentions_count": 5,
       "document_ids": [
-        "doc_63ae1e5c",
-        "doc_830ae5b3",
-        "doc_667a878f",
-        "doc_5dcfc507"
+        "doc_c50a1ba3",
+        "doc_5fd8f1d3",
+        "doc_370a137b",
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
-        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+        "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+        "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
         "Speaker/Author of document: Julian Vance",
         "Interviewee: Julian Vance, Night Guard",
-        "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
-        "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
-      ],
-      "metadata": {}
-    },
-    {
-      "entity_id": "ent_c7f850",
-      "name": "Blackwood Manor",
-      "entity_type": "person",
-      "mentions_count": 5,
-      "document_ids": [
-        "doc_5dcfc507",
-        "doc_92f00364",
-        "doc_830ae5b3",
-        "doc_63ae1e5c"
-      ],
-      "source_sentences": [
-        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
-        "Location: Blackwood Manor, Surrey",
-        "Case: Blackwood Manor Art Heist"
-      ],
-      "metadata": {}
-    },
-    {
-      "entity_id": "ent_f8bba7",
-      "name": "Console",
-      "entity_type": "object",
-      "mentions_count": 3,
-      "document_ids": [
-        "doc_830ae5b3",
-        "doc_667a878f"
-      ],
-      "source_sentences": [
-        "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
-        "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
-      ],
-      "metadata": {}
-    },
-    {
-      "entity_id": "ent_37b790",
-      "name": "Safe",
-      "entity_type": "object",
-      "mentions_count": 3,
-      "document_ids": [
-        "doc_5dcfc507",
-        "doc_667a878f"
-      ],
-      "source_sentences": [
-        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
-        "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
-        "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
-      ],
-      "metadata": {}
-    },
-    {
-      "entity_id": "ent_64669d",
-      "name": "Lord Blackwood",
-      "entity_type": "person",
-      "mentions_count": 3,
-      "document_ids": [
-        "doc_5dcfc507",
-        "doc_78005f2d",
-        "doc_c7bc7977"
-      ],
-      "source_sentences": [
-        "Lord Blackwood,",
-        "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
         "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_77a4fa",
+      "entity_id": "ent_cfa8fa",
+      "name": "Blackwood Manor",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_5fd8f1d3",
+        "doc_0c0ba6cc",
+        "doc_370a137b",
+        "doc_3b5c07b4"
+      ],
+      "source_sentences": [
+        "Location: Blackwood Manor, Surrey",
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+        "Case: Blackwood Manor Art Heist"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_826ec5",
+      "name": "Console",
+      "entity_type": "object",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_c50a1ba3",
+        "doc_370a137b"
+      ],
+      "source_sentences": [
+        "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+        "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_fbe2ff",
+      "name": "Safe",
+      "entity_type": "object",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_c50a1ba3",
+        "doc_3b5c07b4"
+      ],
+      "source_sentences": [
+        "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+        "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ca8ec1",
+      "name": "Lord Blackwood",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_2e320a31",
+        "doc_3b5c07b4",
+        "doc_49e789cc"
+      ],
+      "source_sentences": [
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+        "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
+        "Lord Blackwood,"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d6253e",
       "name": "Art Heist",
       "entity_type": "person",
       "mentions_count": 3,
       "document_ids": [
-        "doc_5dcfc507",
-        "doc_830ae5b3",
-        "doc_63ae1e5c"
+        "doc_5fd8f1d3",
+        "doc_370a137b",
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
         "Case: Blackwood Manor Art Heist"
@@ -139,12 +139,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_d053e2",
+      "entity_id": "ent_6f6d1e",
       "name": "Forensic Review Of Cctv Hard Drive",
       "entity_type": "object",
       "mentions_count": 2,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "Forensic review of CCTV Hard Drive Unit #1:"
@@ -152,12 +152,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_b832df",
+      "entity_id": "ent_013a7b",
       "name": "Camera",
       "entity_type": "object",
       "mentions_count": 2,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
@@ -166,26 +166,26 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_cf288a",
+      "entity_id": "ent_3d3d03",
       "name": "Marta Gomez",
       "entity_type": "person",
       "mentions_count": 2,
       "document_ids": [
-        "doc_63ae1e5c"
+        "doc_5fd8f1d3"
       ],
       "source_sentences": [
-        "Speaker/Author of document: Marta Gomez",
-        "Interviewee: Marta Gomez, Evening Housekeeper"
+        "Interviewee: Marta Gomez, Evening Housekeeper",
+        "Speaker/Author of document: Marta Gomez"
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_e1015b",
+      "entity_id": "ent_54f76f",
       "name": "Basement Vault",
       "entity_type": "location",
       "mentions_count": 1,
       "document_ids": [
-        "doc_667a878f"
+        "doc_c50a1ba3"
       ],
       "source_sentences": [
         "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)"
@@ -193,12 +193,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_65a4c0",
+      "entity_id": "ent_5370e0",
       "name": "Alarm In Zone 4 Manually Silenced And Acknowledged By Local Console",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_667a878f"
+        "doc_c50a1ba3"
       ],
       "source_sentences": [
         "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
@@ -206,12 +206,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_467039",
+      "entity_id": "ent_c5f769",
       "name": "Marcus Finch",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
@@ -219,12 +219,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_5b10b7",
+      "entity_id": "ent_77c60e",
       "name": "Ford Transit",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
@@ -232,12 +232,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_1a6a02",
+      "entity_id": "ent_755359",
       "name": "Arrived Blackwood",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
@@ -245,12 +245,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_bd1323",
+      "entity_id": "ent_504798",
       "name": "Manor Rear",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
@@ -258,12 +258,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_d40d23",
+      "entity_id": "ent_d26f62",
       "name": "Delivery Gate",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
@@ -271,12 +271,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_5f92f2",
+      "entity_id": "ent_19959e",
       "name": "Driver Statement",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_035c74a0"
+        "doc_2c42b2fd"
       ],
       "source_sentences": [
         "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
@@ -284,12 +284,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_c75ba2",
+      "entity_id": "ent_1c1208",
       "name": "Arthur Blackwood",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_78005f2d"
+        "doc_49e789cc"
       ],
       "source_sentences": [
         "To: Arthur Blackwood <arthur@blackwoodholdings.com>"
@@ -297,12 +297,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_ae653f",
+      "entity_id": "ent_29cddb",
       "name": "Drive",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "Forensic review of CCTV Hard Drive Unit #1:"
@@ -310,12 +310,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_7a052f",
+      "entity_id": "ent_87617b",
       "name": "Hard Drive",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "Forensic review of CCTV Hard Drive Unit #1:"
@@ -323,12 +323,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_bbabf8",
+      "entity_id": "ent_d33d81",
       "name": "Front Driveway",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "- Cameras 1 through 3 (Front Driveway) functioned continuously."
@@ -336,12 +336,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_974e7b",
+      "entity_id": "ent_a2c9cd",
       "name": "Basement Corridor",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
@@ -349,12 +349,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_04b4fc",
+      "entity_id": "ent_a709ed",
       "name": "Gate Camera",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_c7bc7977"
+        "doc_2e320a31"
       ],
       "source_sentences": [
         "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon."
@@ -362,12 +362,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_44c2c2",
+      "entity_id": "ent_390b24",
       "name": "Evening Housekeeper",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_63ae1e5c"
+        "doc_5fd8f1d3"
       ],
       "source_sentences": [
         "Interviewee: Marta Gomez, Evening Housekeeper"
@@ -375,12 +375,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_d58894",
+      "entity_id": "ent_eddb7f",
       "name": "Gallery Curator",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_5dcfc507"
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
         "Interviewee: Clara Sterling, Gallery Curator"
@@ -388,12 +388,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_60e484",
+      "entity_id": "ent_ddf86e",
       "name": "00 Pm On Friday And Locked The Biometric Vault Safe",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_5dcfc507"
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
         "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
@@ -401,12 +401,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_95265c",
+      "entity_id": "ent_8f51ee",
       "name": "Has No Safe",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_5dcfc507"
+        "doc_3b5c07b4"
       ],
       "source_sentences": [
         "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
@@ -414,12 +414,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_2a1272",
+      "entity_id": "ent_c5b7f0",
       "name": "Night Guard",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_830ae5b3"
+        "doc_370a137b"
       ],
       "source_sentences": [
         "Interviewee: Julian Vance, Night Guard"
@@ -427,12 +427,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_a18b6b",
+      "entity_id": "ent_b51dfc",
       "name": "Apex Deliveries",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_830ae5b3"
+        "doc_370a137b"
       ],
       "source_sentences": [
         "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
@@ -440,12 +440,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_237725",
+      "entity_id": "ent_f7f2a5",
       "name": "I Remained At The Security Console",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_830ae5b3"
+        "doc_370a137b"
       ],
       "source_sentences": [
         "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
@@ -453,12 +453,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_6f8ba6",
+      "entity_id": "ent_243ac5",
       "name": "Value Cultural",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_92f00364"
+        "doc_0c0ba6cc"
       ],
       "source_sentences": [
         "Incident: Burglary / Theft of High-Value Cultural Property"
@@ -466,12 +466,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_41b8e0",
+      "entity_id": "ent_c143f8",
       "name": "Badge #8841",
       "entity_type": "object",
       "mentions_count": 1,
       "document_ids": [
-        "doc_92f00364"
+        "doc_0c0ba6cc"
       ],
       "source_sentences": [
         "Officer: DI Thomas Reynolds, Badge #8841"
@@ -481,7 +481,7 @@
   ],
   "events": [
     {
-      "event_id": "ev_doc_667a878f_1",
+      "event_id": "ev_doc_c50a1ba3_1",
       "description": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
       "participants": [
         "Julian Vance"
@@ -490,13 +490,17 @@
       "time_str": "2024-10-18 19:00:00",
       "parsed_timestamp": "2024-10-18T19:00:00",
       "uses_objects": [],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_667a878f_2",
+      "event_id": "ev_doc_c50a1ba3_2",
       "description": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
       "participants": [
         "Delivery Gate"
@@ -505,26 +509,34 @@
       "time_str": "2024-10-18 21:50:12",
       "parsed_timestamp": "2024-10-18T21:50:12",
       "uses_objects": [],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_667a878f_3",
+      "event_id": "ev_doc_c50a1ba3_3",
       "description": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
       "participants": [],
       "location": "Basement Vault",
       "time_str": "2024-10-18 22:15:02",
       "parsed_timestamp": "2024-10-18T22:15:02",
       "uses_objects": [],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_667a878f_4",
+      "event_id": "ev_doc_c50a1ba3_4",
       "description": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
       "participants": [],
       "location": null,
@@ -534,13 +546,17 @@
         "Alarm In Zone 4 Manually Silenced And Acknowledged By Local Console",
         "Console"
       ],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_667a878f_5",
+      "event_id": "ev_doc_c50a1ba3_5",
       "description": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
       "participants": [],
       "location": null,
@@ -549,13 +565,17 @@
       "uses_objects": [
         "Safe"
       ],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_667a878f_6",
+      "event_id": "ev_doc_c50a1ba3_6",
       "description": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
       "participants": [
         "Delivery Gate"
@@ -564,57 +584,73 @@
       "time_str": "2024-10-18 22:31:00",
       "parsed_timestamp": "2024-10-18T22:31:00",
       "uses_objects": [],
-      "document_id": "doc_667a878f",
+      "document_id": "doc_c50a1ba3",
       "document_name": "alarm_system_telemetry.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_035c74a0_7",
+      "event_id": "ev_doc_2c42b2fd_7",
       "description": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
       "participants": [
-        "Delivery Gate",
-        "Blackwood Manor",
+        "Manor Rear",
         "Arrived Blackwood",
-        "Manor Rear"
+        "Blackwood Manor",
+        "Delivery Gate"
       ],
       "location": null,
       "time_str": "2024-10-18 21:50:00",
       "parsed_timestamp": "2024-10-18T21:50:00",
       "uses_objects": [],
-      "document_id": "doc_035c74a0",
+      "document_id": "doc_2c42b2fd",
       "document_name": "courier_delivery_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_035c74a0_8",
+      "event_id": "ev_doc_2c42b2fd_8",
       "description": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
       "participants": [],
       "location": null,
       "time_str": "2024-10-18 22:05:00",
       "parsed_timestamp": "2024-10-18T22:05:00",
       "uses_objects": [],
-      "document_id": "doc_035c74a0",
+      "document_id": "doc_2c42b2fd",
       "document_name": "courier_delivery_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_035c74a0_9",
+      "event_id": "ev_doc_2c42b2fd_9",
       "description": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
       "participants": [],
       "location": null,
       "time_str": "2024-10-18 22:30:45",
       "parsed_timestamp": "2024-10-18T22:30:45",
       "uses_objects": [],
-      "document_id": "doc_035c74a0",
+      "document_id": "doc_2c42b2fd",
       "document_name": "courier_delivery_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_035c74a0_10",
+      "event_id": "ev_doc_2c42b2fd_10",
       "description": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
       "participants": [
         "Driver Statement"
@@ -623,26 +659,34 @@
       "time_str": "10:20 PM",
       "parsed_timestamp": "2024-01-01T22:20:00",
       "uses_objects": [],
-      "document_id": "doc_035c74a0",
+      "document_id": "doc_2c42b2fd",
       "document_name": "courier_delivery_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_78005f2d_11",
+      "event_id": "ev_doc_49e789cc_11",
       "description": "Date: October 17, 2024 04:15 PM",
       "participants": [],
       "location": null,
       "time_str": "04:15 PM",
       "parsed_timestamp": "2024-01-01T16:15:00",
       "uses_objects": [],
-      "document_id": "doc_78005f2d",
+      "document_id": "doc_49e789cc",
       "document_name": "curator_appraisal_email.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Date: October 17, 2024 04:15 PM",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c7bc7977_12",
+      "event_id": "ev_doc_2e320a31_12",
       "description": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
       "participants": [
         "Basement Corridor"
@@ -653,26 +697,34 @@
       "uses_objects": [
         "Camera"
       ],
-      "document_id": "doc_c7bc7977",
+      "document_id": "doc_2e320a31",
       "document_name": "estate_cctv_audit_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_13",
+      "event_id": "ev_doc_5fd8f1d3_13",
       "description": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
       "participants": [],
       "location": null,
       "time_str": "11:15 AM",
       "parsed_timestamp": "2024-01-01T11:15:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_14",
+      "event_id": "ev_doc_5fd8f1d3_14",
       "description": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
       "participants": [
         "Marta Gomez"
@@ -681,13 +733,17 @@
       "time_str": "11:15 AM",
       "parsed_timestamp": "2024-01-01T11:15:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_15",
+      "event_id": "ev_doc_5fd8f1d3_15",
       "description": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
       "participants": [
         "Julian Vance"
@@ -696,13 +752,17 @@
       "time_str": "11:16 AM",
       "parsed_timestamp": "2024-01-01T11:16:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_16",
+      "event_id": "ev_doc_5fd8f1d3_16",
       "description": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
       "participants": [
         "Marta Gomez"
@@ -711,81 +771,105 @@
       "time_str": "11:16 AM",
       "parsed_timestamp": "2024-01-01T11:16:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_17",
+      "event_id": "ev_doc_5fd8f1d3_17",
       "description": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
       "participants": [],
       "location": null,
       "time_str": "11:17 AM",
       "parsed_timestamp": "2024-01-01T11:17:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_63ae1e5c_18",
+      "event_id": "ev_doc_5fd8f1d3_18",
       "description": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
       "participants": [],
       "location": null,
       "time_str": "11:17 AM",
       "parsed_timestamp": "2024-01-01T11:17:00",
       "uses_objects": [],
-      "document_id": "doc_63ae1e5c",
+      "document_id": "doc_5fd8f1d3",
       "document_name": "interview_cleaner_marta.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_19",
+      "event_id": "ev_doc_3b5c07b4_19",
       "description": "[09:00 AM] REYNOLDS: State your name and position.",
       "participants": [],
       "location": null,
       "time_str": "09:00 AM",
       "parsed_timestamp": "2024-01-01T09:00:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] REYNOLDS: State your name and position.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_20",
+      "event_id": "ev_doc_3b5c07b4_20",
       "description": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
       "participants": [
-        "Blackwood Manor",
-        "Clara Sterling"
+        "Clara Sterling",
+        "Blackwood Manor"
       ],
       "location": null,
       "time_str": "09:00 AM",
       "parsed_timestamp": "2024-01-01T09:00:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_21",
+      "event_id": "ev_doc_3b5c07b4_21",
       "description": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
       "participants": [],
       "location": null,
       "time_str": "09:01 AM",
       "parsed_timestamp": "2024-01-01T09:01:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_22",
+      "event_id": "ev_doc_3b5c07b4_22",
       "description": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
       "participants": [
         "Clara Sterling"
@@ -797,30 +881,38 @@
         "Safe",
         "00 Pm On Friday And Locked The Biometric Vault Safe"
       ],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_23",
+      "event_id": "ev_doc_3b5c07b4_23",
       "description": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
       "participants": [],
       "location": null,
       "time_str": "09:02 AM",
       "parsed_timestamp": "2024-01-01T09:02:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_24",
+      "event_id": "ev_doc_3b5c07b4_24",
       "description": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
       "participants": [
-        "Lord Blackwood",
-        "Julian Vance"
+        "Julian Vance",
+        "Lord Blackwood"
       ],
       "location": null,
       "time_str": "09:02 AM",
@@ -829,26 +921,34 @@
         "Safe",
         "Has No Safe"
       ],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_25",
+      "event_id": "ev_doc_3b5c07b4_25",
       "description": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
       "participants": [],
       "location": null,
       "time_str": "09:03 AM",
       "parsed_timestamp": "2024-01-01T09:03:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_5dcfc507_26",
+      "event_id": "ev_doc_3b5c07b4_26",
       "description": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
       "participants": [
         "Clara Sterling"
@@ -857,26 +957,34 @@
       "time_str": "09:03 AM",
       "parsed_timestamp": "2024-01-01T09:03:00",
       "uses_objects": [],
-      "document_id": "doc_5dcfc507",
+      "document_id": "doc_3b5c07b4",
       "document_name": "interview_curator_clara.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_27",
+      "event_id": "ev_doc_370a137b_27",
       "description": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
       "participants": [],
       "location": null,
       "time_str": "10:30 AM",
       "parsed_timestamp": "2024-01-01T10:30:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_28",
+      "event_id": "ev_doc_370a137b_28",
       "description": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
       "participants": [
         "Julian Vance"
@@ -885,52 +993,68 @@
       "time_str": "10:30 AM",
       "parsed_timestamp": "2024-01-01T10:30:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_29",
+      "event_id": "ev_doc_370a137b_29",
       "description": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
       "participants": [],
       "location": null,
       "time_str": "10:31 AM",
       "parsed_timestamp": "2024-01-01T10:31:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_30",
+      "event_id": "ev_doc_370a137b_30",
       "description": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
       "participants": [],
       "location": null,
       "time_str": "10:31 AM",
       "parsed_timestamp": "2024-01-01T10:31:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_31",
+      "event_id": "ev_doc_370a137b_31",
       "description": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
       "participants": [],
       "location": null,
       "time_str": "10:32 AM",
       "parsed_timestamp": "2024-01-01T10:32:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_32",
+      "event_id": "ev_doc_370a137b_32",
       "description": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
       "participants": [
         "Apex Deliveries"
@@ -939,26 +1063,34 @@
       "time_str": "10:32 AM",
       "parsed_timestamp": "2024-01-01T10:32:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_33",
+      "event_id": "ev_doc_370a137b_33",
       "description": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
       "participants": [],
       "location": null,
       "time_str": "10:33 AM",
       "parsed_timestamp": "2024-01-01T10:33:00",
       "uses_objects": [],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_830ae5b3_34",
+      "event_id": "ev_doc_370a137b_34",
       "description": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
       "participants": [
         "Julian Vance"
@@ -970,13 +1102,17 @@
         "I Remained At The Security Console",
         "Console"
       ],
-      "document_id": "doc_830ae5b3",
+      "document_id": "doc_370a137b",
       "document_name": "interview_guard_julian.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_92f00364_35",
+      "event_id": "ev_doc_0c0ba6cc_35",
       "description": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
       "participants": [
         "Clara Sterling"
@@ -985,16 +1121,20 @@
       "time_str": "06:15 AM",
       "parsed_timestamp": "2024-01-01T06:15:00",
       "uses_objects": [],
-      "document_id": "doc_92f00364",
+      "document_id": "doc_0c0ba6cc",
       "document_name": "police_initial_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
       "uncertainty": false
     }
   ],
   "timeline": [
     {
-      "entry_id": "tl_ev_doc_92f00364_35",
-      "event_id": "ev_doc_92f00364_35",
+      "entry_id": "tl_ev_doc_0c0ba6cc_35",
+      "event_id": "ev_doc_0c0ba6cc_35",
       "timestamp_display": "06:15 AM",
       "event_description": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
       "participants": [
@@ -1003,55 +1143,75 @@
       "location": "Basement Vault",
       "document_name": "police_initial_report.txt",
       "document_type": "report",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
       "is_uncertain": false,
       "sort_key": "20240101061500"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_19",
-      "event_id": "ev_doc_5dcfc507_19",
+      "entry_id": "tl_ev_doc_3b5c07b4_19",
+      "event_id": "ev_doc_3b5c07b4_19",
       "timestamp_display": "09:00 AM",
       "event_description": "[09:00 AM] REYNOLDS: State your name and position.",
       "participants": [],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] REYNOLDS: State your name and position.",
       "is_uncertain": false,
       "sort_key": "20240101090000"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_20",
-      "event_id": "ev_doc_5dcfc507_20",
+      "entry_id": "tl_ev_doc_3b5c07b4_20",
+      "event_id": "ev_doc_3b5c07b4_20",
       "timestamp_display": "09:00 AM",
       "event_description": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
       "participants": [
-        "Blackwood Manor",
-        "Clara Sterling"
+        "Clara Sterling",
+        "Blackwood Manor"
       ],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
       "is_uncertain": false,
       "sort_key": "20240101090000"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_21",
-      "event_id": "ev_doc_5dcfc507_21",
+      "entry_id": "tl_ev_doc_3b5c07b4_21",
+      "event_id": "ev_doc_3b5c07b4_21",
       "timestamp_display": "09:01 AM",
       "event_description": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
       "participants": [],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
       "is_uncertain": false,
       "sort_key": "20240101090100"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_22",
-      "event_id": "ev_doc_5dcfc507_22",
+      "entry_id": "tl_ev_doc_3b5c07b4_22",
+      "event_id": "ev_doc_3b5c07b4_22",
       "timestamp_display": "09:01 AM",
       "event_description": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
       "participants": [
@@ -1060,55 +1220,75 @@
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
       "is_uncertain": false,
       "sort_key": "20240101090100"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_23",
-      "event_id": "ev_doc_5dcfc507_23",
+      "entry_id": "tl_ev_doc_3b5c07b4_23",
+      "event_id": "ev_doc_3b5c07b4_23",
       "timestamp_display": "09:02 AM",
       "event_description": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
       "participants": [],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
       "is_uncertain": false,
       "sort_key": "20240101090200"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_24",
-      "event_id": "ev_doc_5dcfc507_24",
+      "entry_id": "tl_ev_doc_3b5c07b4_24",
+      "event_id": "ev_doc_3b5c07b4_24",
       "timestamp_display": "09:02 AM",
       "event_description": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
       "participants": [
-        "Lord Blackwood",
-        "Julian Vance"
+        "Julian Vance",
+        "Lord Blackwood"
       ],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
       "is_uncertain": false,
       "sort_key": "20240101090200"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_25",
-      "event_id": "ev_doc_5dcfc507_25",
+      "entry_id": "tl_ev_doc_3b5c07b4_25",
+      "event_id": "ev_doc_3b5c07b4_25",
       "timestamp_display": "09:03 AM",
       "event_description": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
       "participants": [],
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
       "is_uncertain": false,
       "sort_key": "20240101090300"
     },
     {
-      "entry_id": "tl_ev_doc_5dcfc507_26",
-      "event_id": "ev_doc_5dcfc507_26",
+      "entry_id": "tl_ev_doc_3b5c07b4_26",
+      "event_id": "ev_doc_3b5c07b4_26",
       "timestamp_display": "09:03 AM",
       "event_description": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
       "participants": [
@@ -1117,26 +1297,36 @@
       "location": null,
       "document_name": "interview_curator_clara.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
       "is_uncertain": false,
       "sort_key": "20240101090300"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_27",
-      "event_id": "ev_doc_830ae5b3_27",
+      "entry_id": "tl_ev_doc_370a137b_27",
+      "event_id": "ev_doc_370a137b_27",
       "timestamp_display": "10:30 AM",
       "event_description": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
       "participants": [],
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
       "is_uncertain": false,
       "sort_key": "20240101103000"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_28",
-      "event_id": "ev_doc_830ae5b3_28",
+      "entry_id": "tl_ev_doc_370a137b_28",
+      "event_id": "ev_doc_370a137b_28",
       "timestamp_display": "10:30 AM",
       "event_description": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
       "participants": [
@@ -1145,52 +1335,72 @@
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
       "is_uncertain": false,
       "sort_key": "20240101103000"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_29",
-      "event_id": "ev_doc_830ae5b3_29",
+      "entry_id": "tl_ev_doc_370a137b_29",
+      "event_id": "ev_doc_370a137b_29",
       "timestamp_display": "10:31 AM",
       "event_description": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
       "participants": [],
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
       "is_uncertain": false,
       "sort_key": "20240101103100"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_30",
-      "event_id": "ev_doc_830ae5b3_30",
+      "entry_id": "tl_ev_doc_370a137b_30",
+      "event_id": "ev_doc_370a137b_30",
       "timestamp_display": "10:31 AM",
       "event_description": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
       "participants": [],
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
       "is_uncertain": false,
       "sort_key": "20240101103100"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_31",
-      "event_id": "ev_doc_830ae5b3_31",
+      "entry_id": "tl_ev_doc_370a137b_31",
+      "event_id": "ev_doc_370a137b_31",
       "timestamp_display": "10:32 AM",
       "event_description": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
       "participants": [],
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
       "is_uncertain": false,
       "sort_key": "20240101103200"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_32",
-      "event_id": "ev_doc_830ae5b3_32",
+      "entry_id": "tl_ev_doc_370a137b_32",
+      "event_id": "ev_doc_370a137b_32",
       "timestamp_display": "10:32 AM",
       "event_description": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
       "participants": [
@@ -1199,26 +1409,36 @@
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
       "is_uncertain": false,
       "sort_key": "20240101103200"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_33",
-      "event_id": "ev_doc_830ae5b3_33",
+      "entry_id": "tl_ev_doc_370a137b_33",
+      "event_id": "ev_doc_370a137b_33",
       "timestamp_display": "10:33 AM",
       "event_description": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
       "participants": [],
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
       "is_uncertain": false,
       "sort_key": "20240101103300"
     },
     {
-      "entry_id": "tl_ev_doc_830ae5b3_34",
-      "event_id": "ev_doc_830ae5b3_34",
+      "entry_id": "tl_ev_doc_370a137b_34",
+      "event_id": "ev_doc_370a137b_34",
       "timestamp_display": "10:33 AM",
       "event_description": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
       "participants": [
@@ -1227,26 +1447,36 @@
       "location": null,
       "document_name": "interview_guard_julian.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
       "is_uncertain": false,
       "sort_key": "20240101103300"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_13",
-      "event_id": "ev_doc_63ae1e5c_13",
+      "entry_id": "tl_ev_doc_5fd8f1d3_13",
+      "event_id": "ev_doc_5fd8f1d3_13",
       "timestamp_display": "11:15 AM",
       "event_description": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
       "participants": [],
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
       "is_uncertain": false,
       "sort_key": "20240101111500"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_14",
-      "event_id": "ev_doc_63ae1e5c_14",
+      "entry_id": "tl_ev_doc_5fd8f1d3_14",
+      "event_id": "ev_doc_5fd8f1d3_14",
       "timestamp_display": "11:15 AM",
       "event_description": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
       "participants": [
@@ -1255,13 +1485,18 @@
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
       "is_uncertain": false,
       "sort_key": "20240101111500"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_15",
-      "event_id": "ev_doc_63ae1e5c_15",
+      "entry_id": "tl_ev_doc_5fd8f1d3_15",
+      "event_id": "ev_doc_5fd8f1d3_15",
       "timestamp_display": "11:16 AM",
       "event_description": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
       "participants": [
@@ -1270,13 +1505,18 @@
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
       "is_uncertain": false,
       "sort_key": "20240101111600"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_16",
-      "event_id": "ev_doc_63ae1e5c_16",
+      "entry_id": "tl_ev_doc_5fd8f1d3_16",
+      "event_id": "ev_doc_5fd8f1d3_16",
       "timestamp_display": "11:16 AM",
       "event_description": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
       "participants": [
@@ -1285,52 +1525,72 @@
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
       "is_uncertain": false,
       "sort_key": "20240101111600"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_17",
-      "event_id": "ev_doc_63ae1e5c_17",
+      "entry_id": "tl_ev_doc_5fd8f1d3_17",
+      "event_id": "ev_doc_5fd8f1d3_17",
       "timestamp_display": "11:17 AM",
       "event_description": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
       "participants": [],
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
       "is_uncertain": false,
       "sort_key": "20240101111700"
     },
     {
-      "entry_id": "tl_ev_doc_63ae1e5c_18",
-      "event_id": "ev_doc_63ae1e5c_18",
+      "entry_id": "tl_ev_doc_5fd8f1d3_18",
+      "event_id": "ev_doc_5fd8f1d3_18",
       "timestamp_display": "11:17 AM",
       "event_description": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
       "participants": [],
       "location": null,
       "document_name": "interview_cleaner_marta.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
       "is_uncertain": false,
       "sort_key": "20240101111700"
     },
     {
-      "entry_id": "tl_ev_doc_78005f2d_11",
-      "event_id": "ev_doc_78005f2d_11",
+      "entry_id": "tl_ev_doc_49e789cc_11",
+      "event_id": "ev_doc_49e789cc_11",
       "timestamp_display": "04:15 PM",
       "event_description": "Date: October 17, 2024 04:15 PM",
       "participants": [],
       "location": null,
       "document_name": "curator_appraisal_email.txt",
       "document_type": "email",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Date: October 17, 2024 04:15 PM",
       "is_uncertain": false,
       "sort_key": "20240101161500"
     },
     {
-      "entry_id": "tl_ev_doc_c7bc7977_12",
-      "event_id": "ev_doc_c7bc7977_12",
+      "entry_id": "tl_ev_doc_2e320a31_12",
+      "event_id": "ev_doc_2e320a31_12",
       "timestamp_display": "22:10",
       "event_description": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
       "participants": [
@@ -1339,13 +1599,18 @@
       "location": null,
       "document_name": "estate_cctv_audit_report.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
       "is_uncertain": false,
       "sort_key": "20240101221000"
     },
     {
-      "entry_id": "tl_ev_doc_035c74a0_10",
-      "event_id": "ev_doc_035c74a0_10",
+      "entry_id": "tl_ev_doc_2c42b2fd_10",
+      "event_id": "ev_doc_2c42b2fd_10",
       "timestamp_display": "10:20 PM",
       "event_description": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
       "participants": [
@@ -1354,13 +1619,18 @@
       "location": null,
       "document_name": "courier_delivery_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
       "is_uncertain": false,
       "sort_key": "20240101222000"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_1",
-      "event_id": "ev_doc_667a878f_1",
+      "entry_id": "tl_ev_doc_c50a1ba3_1",
+      "event_id": "ev_doc_c50a1ba3_1",
       "timestamp_display": "2024-10-18 19:00:00",
       "event_description": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
       "participants": [
@@ -1369,31 +1639,41 @@
       "location": null,
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
       "is_uncertain": false,
       "sort_key": "20241018190000"
     },
     {
-      "entry_id": "tl_ev_doc_035c74a0_7",
-      "event_id": "ev_doc_035c74a0_7",
+      "entry_id": "tl_ev_doc_2c42b2fd_7",
+      "event_id": "ev_doc_2c42b2fd_7",
       "timestamp_display": "2024-10-18 21:50:00",
       "event_description": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
       "participants": [
-        "Delivery Gate",
-        "Blackwood Manor",
+        "Manor Rear",
         "Arrived Blackwood",
-        "Manor Rear"
+        "Blackwood Manor",
+        "Delivery Gate"
       ],
       "location": null,
       "document_name": "courier_delivery_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
       "is_uncertain": false,
       "sort_key": "20241018215000"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_2",
-      "event_id": "ev_doc_667a878f_2",
+      "entry_id": "tl_ev_doc_c50a1ba3_2",
+      "event_id": "ev_doc_c50a1ba3_2",
       "timestamp_display": "2024-10-18 21:50:12",
       "event_description": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
       "participants": [
@@ -1402,78 +1682,108 @@
       "location": null,
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
       "is_uncertain": false,
       "sort_key": "20241018215012"
     },
     {
-      "entry_id": "tl_ev_doc_035c74a0_8",
-      "event_id": "ev_doc_035c74a0_8",
+      "entry_id": "tl_ev_doc_2c42b2fd_8",
+      "event_id": "ev_doc_2c42b2fd_8",
       "timestamp_display": "2024-10-18 22:05:00",
       "event_description": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
       "participants": [],
       "location": null,
       "document_name": "courier_delivery_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
       "is_uncertain": false,
       "sort_key": "20241018220500"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_3",
-      "event_id": "ev_doc_667a878f_3",
+      "entry_id": "tl_ev_doc_c50a1ba3_3",
+      "event_id": "ev_doc_c50a1ba3_3",
       "timestamp_display": "2024-10-18 22:15:02",
       "event_description": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
       "participants": [],
       "location": "Basement Vault",
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
       "is_uncertain": false,
       "sort_key": "20241018221502"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_4",
-      "event_id": "ev_doc_667a878f_4",
+      "entry_id": "tl_ev_doc_c50a1ba3_4",
+      "event_id": "ev_doc_c50a1ba3_4",
       "timestamp_display": "2024-10-18 22:15:36",
       "event_description": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
       "participants": [],
       "location": null,
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
       "is_uncertain": false,
       "sort_key": "20241018221536"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_5",
-      "event_id": "ev_doc_667a878f_5",
+      "entry_id": "tl_ev_doc_c50a1ba3_5",
+      "event_id": "ev_doc_c50a1ba3_5",
       "timestamp_display": "2024-10-18 22:28:19",
       "event_description": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
       "participants": [],
       "location": null,
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
       "is_uncertain": false,
       "sort_key": "20241018222819"
     },
     {
-      "entry_id": "tl_ev_doc_035c74a0_9",
-      "event_id": "ev_doc_035c74a0_9",
+      "entry_id": "tl_ev_doc_2c42b2fd_9",
+      "event_id": "ev_doc_2c42b2fd_9",
       "timestamp_display": "2024-10-18 22:30:45",
       "event_description": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
       "participants": [],
       "location": null,
       "document_name": "courier_delivery_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
       "is_uncertain": false,
       "sort_key": "20241018223045"
     },
     {
-      "entry_id": "tl_ev_doc_667a878f_6",
-      "event_id": "ev_doc_667a878f_6",
+      "entry_id": "tl_ev_doc_c50a1ba3_6",
+      "event_id": "ev_doc_c50a1ba3_6",
       "timestamp_display": "2024-10-18 22:31:00",
       "event_description": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
       "participants": [
@@ -1482,6 +1792,11 @@
       "location": null,
       "document_name": "alarm_system_telemetry.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
       "is_uncertain": false,
       "sort_key": "20241018223100"
@@ -1490,7 +1805,7 @@
   "case_graph": {
     "nodes": [
       {
-        "id": "doc_node_doc_667a878f",
+        "id": "doc_node_doc_c50a1ba3",
         "label": "alarm_system_telemetry.txt",
         "node_type": "document",
         "sub_type": "other",
@@ -1501,7 +1816,7 @@
         }
       },
       {
-        "id": "doc_node_doc_035c74a0",
+        "id": "doc_node_doc_2c42b2fd",
         "label": "courier_delivery_log.txt",
         "node_type": "document",
         "sub_type": "log",
@@ -1512,7 +1827,7 @@
         }
       },
       {
-        "id": "doc_node_doc_78005f2d",
+        "id": "doc_node_doc_49e789cc",
         "label": "curator_appraisal_email.txt",
         "node_type": "document",
         "sub_type": "email",
@@ -1523,7 +1838,7 @@
         }
       },
       {
-        "id": "doc_node_doc_c7bc7977",
+        "id": "doc_node_doc_2e320a31",
         "label": "estate_cctv_audit_report.txt",
         "node_type": "document",
         "sub_type": "log",
@@ -1534,7 +1849,7 @@
         }
       },
       {
-        "id": "doc_node_doc_63ae1e5c",
+        "id": "doc_node_doc_5fd8f1d3",
         "label": "interview_cleaner_marta.txt",
         "node_type": "document",
         "sub_type": "interview",
@@ -1545,7 +1860,7 @@
         }
       },
       {
-        "id": "doc_node_doc_5dcfc507",
+        "id": "doc_node_doc_3b5c07b4",
         "label": "interview_curator_clara.txt",
         "node_type": "document",
         "sub_type": "interview",
@@ -1556,7 +1871,7 @@
         }
       },
       {
-        "id": "doc_node_doc_830ae5b3",
+        "id": "doc_node_doc_370a137b",
         "label": "interview_guard_julian.txt",
         "node_type": "document",
         "sub_type": "interview",
@@ -1567,7 +1882,7 @@
         }
       },
       {
-        "id": "doc_node_doc_92f00364",
+        "id": "doc_node_doc_0c0ba6cc",
         "label": "police_initial_report.txt",
         "node_type": "document",
         "sub_type": "report",
@@ -1578,7 +1893,7 @@
         }
       },
       {
-        "id": "ent_node_ent_9b18ba",
+        "id": "ent_node_ent_55502a",
         "label": "Clara Sterling",
         "node_type": "entity",
         "sub_type": "person",
@@ -1588,7 +1903,7 @@
         }
       },
       {
-        "id": "ent_node_ent_5950d3",
+        "id": "ent_node_ent_840dda",
         "label": "Thomas Reynolds",
         "node_type": "entity",
         "sub_type": "person",
@@ -1598,7 +1913,7 @@
         }
       },
       {
-        "id": "ent_node_ent_1fc035",
+        "id": "ent_node_ent_ab7835",
         "label": "Julian Vance",
         "node_type": "entity",
         "sub_type": "person",
@@ -1608,7 +1923,7 @@
         }
       },
       {
-        "id": "ent_node_ent_c7f850",
+        "id": "ent_node_ent_cfa8fa",
         "label": "Blackwood Manor",
         "node_type": "entity",
         "sub_type": "person",
@@ -1618,7 +1933,7 @@
         }
       },
       {
-        "id": "ent_node_ent_f8bba7",
+        "id": "ent_node_ent_826ec5",
         "label": "Console",
         "node_type": "entity",
         "sub_type": "object",
@@ -1628,7 +1943,7 @@
         }
       },
       {
-        "id": "ent_node_ent_37b790",
+        "id": "ent_node_ent_fbe2ff",
         "label": "Safe",
         "node_type": "entity",
         "sub_type": "object",
@@ -1638,7 +1953,7 @@
         }
       },
       {
-        "id": "ent_node_ent_64669d",
+        "id": "ent_node_ent_ca8ec1",
         "label": "Lord Blackwood",
         "node_type": "entity",
         "sub_type": "person",
@@ -1648,7 +1963,7 @@
         }
       },
       {
-        "id": "ent_node_ent_77a4fa",
+        "id": "ent_node_ent_d6253e",
         "label": "Art Heist",
         "node_type": "entity",
         "sub_type": "person",
@@ -1658,7 +1973,7 @@
         }
       },
       {
-        "id": "ent_node_ent_d053e2",
+        "id": "ent_node_ent_6f6d1e",
         "label": "Forensic Review Of Cctv Hard Drive",
         "node_type": "entity",
         "sub_type": "object",
@@ -1668,7 +1983,7 @@
         }
       },
       {
-        "id": "ent_node_ent_b832df",
+        "id": "ent_node_ent_013a7b",
         "label": "Camera",
         "node_type": "entity",
         "sub_type": "object",
@@ -1678,7 +1993,7 @@
         }
       },
       {
-        "id": "ent_node_ent_cf288a",
+        "id": "ent_node_ent_3d3d03",
         "label": "Marta Gomez",
         "node_type": "entity",
         "sub_type": "person",
@@ -1688,7 +2003,7 @@
         }
       },
       {
-        "id": "ent_node_ent_e1015b",
+        "id": "ent_node_ent_54f76f",
         "label": "Basement Vault",
         "node_type": "entity",
         "sub_type": "location",
@@ -1698,7 +2013,7 @@
         }
       },
       {
-        "id": "ent_node_ent_65a4c0",
+        "id": "ent_node_ent_5370e0",
         "label": "Alarm In Zone 4 Manually Silenced And Acknowledged By Local Console",
         "node_type": "entity",
         "sub_type": "object",
@@ -1708,7 +2023,7 @@
         }
       },
       {
-        "id": "ent_node_ent_467039",
+        "id": "ent_node_ent_c5f769",
         "label": "Marcus Finch",
         "node_type": "entity",
         "sub_type": "person",
@@ -1718,7 +2033,7 @@
         }
       },
       {
-        "id": "ent_node_ent_5b10b7",
+        "id": "ent_node_ent_77c60e",
         "label": "Ford Transit",
         "node_type": "entity",
         "sub_type": "person",
@@ -1728,7 +2043,7 @@
         }
       },
       {
-        "id": "ent_node_ent_1a6a02",
+        "id": "ent_node_ent_755359",
         "label": "Arrived Blackwood",
         "node_type": "entity",
         "sub_type": "person",
@@ -1738,7 +2053,7 @@
         }
       },
       {
-        "id": "ent_node_ent_bd1323",
+        "id": "ent_node_ent_504798",
         "label": "Manor Rear",
         "node_type": "entity",
         "sub_type": "person",
@@ -1748,7 +2063,7 @@
         }
       },
       {
-        "id": "ent_node_ent_d40d23",
+        "id": "ent_node_ent_d26f62",
         "label": "Delivery Gate",
         "node_type": "entity",
         "sub_type": "person",
@@ -1758,7 +2073,7 @@
         }
       },
       {
-        "id": "ent_node_ent_5f92f2",
+        "id": "ent_node_ent_19959e",
         "label": "Driver Statement",
         "node_type": "entity",
         "sub_type": "person",
@@ -1768,7 +2083,7 @@
         }
       },
       {
-        "id": "ent_node_ent_c75ba2",
+        "id": "ent_node_ent_1c1208",
         "label": "Arthur Blackwood",
         "node_type": "entity",
         "sub_type": "person",
@@ -1778,7 +2093,7 @@
         }
       },
       {
-        "id": "ent_node_ent_ae653f",
+        "id": "ent_node_ent_29cddb",
         "label": "Drive",
         "node_type": "entity",
         "sub_type": "object",
@@ -1788,7 +2103,7 @@
         }
       },
       {
-        "id": "ent_node_ent_7a052f",
+        "id": "ent_node_ent_87617b",
         "label": "Hard Drive",
         "node_type": "entity",
         "sub_type": "object",
@@ -1798,7 +2113,7 @@
         }
       },
       {
-        "id": "ent_node_ent_bbabf8",
+        "id": "ent_node_ent_d33d81",
         "label": "Front Driveway",
         "node_type": "entity",
         "sub_type": "person",
@@ -1808,7 +2123,7 @@
         }
       },
       {
-        "id": "ent_node_ent_974e7b",
+        "id": "ent_node_ent_a2c9cd",
         "label": "Basement Corridor",
         "node_type": "entity",
         "sub_type": "person",
@@ -1818,7 +2133,7 @@
         }
       },
       {
-        "id": "ent_node_ent_04b4fc",
+        "id": "ent_node_ent_a709ed",
         "label": "Gate Camera",
         "node_type": "entity",
         "sub_type": "object",
@@ -1828,7 +2143,7 @@
         }
       },
       {
-        "id": "ent_node_ent_44c2c2",
+        "id": "ent_node_ent_390b24",
         "label": "Evening Housekeeper",
         "node_type": "entity",
         "sub_type": "person",
@@ -1838,7 +2153,7 @@
         }
       },
       {
-        "id": "ent_node_ent_d58894",
+        "id": "ent_node_ent_eddb7f",
         "label": "Gallery Curator",
         "node_type": "entity",
         "sub_type": "person",
@@ -1848,7 +2163,7 @@
         }
       },
       {
-        "id": "ent_node_ent_60e484",
+        "id": "ent_node_ent_ddf86e",
         "label": "00 Pm On Friday And Locked The Biometric Vault Safe",
         "node_type": "entity",
         "sub_type": "object",
@@ -1858,7 +2173,7 @@
         }
       },
       {
-        "id": "ent_node_ent_95265c",
+        "id": "ent_node_ent_8f51ee",
         "label": "Has No Safe",
         "node_type": "entity",
         "sub_type": "object",
@@ -1868,7 +2183,7 @@
         }
       },
       {
-        "id": "ent_node_ent_2a1272",
+        "id": "ent_node_ent_c5b7f0",
         "label": "Night Guard",
         "node_type": "entity",
         "sub_type": "person",
@@ -1878,7 +2193,7 @@
         }
       },
       {
-        "id": "ent_node_ent_a18b6b",
+        "id": "ent_node_ent_b51dfc",
         "label": "Apex Deliveries",
         "node_type": "entity",
         "sub_type": "person",
@@ -1888,7 +2203,7 @@
         }
       },
       {
-        "id": "ent_node_ent_237725",
+        "id": "ent_node_ent_f7f2a5",
         "label": "I Remained At The Security Console",
         "node_type": "entity",
         "sub_type": "object",
@@ -1898,7 +2213,7 @@
         }
       },
       {
-        "id": "ent_node_ent_6f8ba6",
+        "id": "ent_node_ent_243ac5",
         "label": "Value Cultural",
         "node_type": "entity",
         "sub_type": "person",
@@ -1908,7 +2223,7 @@
         }
       },
       {
-        "id": "ent_node_ent_41b8e0",
+        "id": "ent_node_ent_c143f8",
         "label": "Badge #8841",
         "node_type": "entity",
         "sub_type": "object",
@@ -1918,7 +2233,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_667a878f_1",
+        "id": "ev_node_ev_doc_c50a1ba3_1",
         "label": "[2024-10-18 19:00:00] SYSTEM: Main ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1936,7 +2251,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_667a878f_2",
+        "id": "ev_node_ev_doc_c50a1ba3_2",
         "label": "[2024-10-18 21:50:12] GATE_SENSOR: ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1954,7 +2269,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_667a878f_3",
+        "id": "ev_node_ev_doc_c50a1ba3_3",
         "label": "[2024-10-18 22:15:02] MOTION_SENSOR...",
         "node_type": "event",
         "sub_type": "action",
@@ -1972,7 +2287,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_667a878f_4",
+        "id": "ev_node_ev_doc_c50a1ba3_4",
         "label": "[2024-10-18 22:15:36] CONSOLE: Alar...",
         "node_type": "event",
         "sub_type": "action",
@@ -1990,7 +2305,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_667a878f_5",
+        "id": "ev_node_ev_doc_c50a1ba3_5",
         "label": "[2024-10-18 22:28:19] VAULT_SENSOR:...",
         "node_type": "event",
         "sub_type": "action",
@@ -2008,7 +2323,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_667a878f_6",
+        "id": "ev_node_ev_doc_c50a1ba3_6",
         "label": "[2024-10-18 22:31:00] GATE_SENSOR: ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2026,7 +2341,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_035c74a0_7",
+        "id": "ev_node_ev_doc_2c42b2fd_7",
         "label": "2024-10-18 21:50:00 - Arrived Black...",
         "node_type": "event",
         "sub_type": "action",
@@ -2044,7 +2359,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_035c74a0_8",
+        "id": "ev_node_ev_doc_2c42b2fd_8",
         "label": "2024-10-18 22:05:00 - Consignment o...",
         "node_type": "event",
         "sub_type": "action",
@@ -2062,7 +2377,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_035c74a0_9",
+        "id": "ev_node_ev_doc_2c42b2fd_9",
         "label": "2024-10-18 22:30:45 - Vehicle clear...",
         "node_type": "event",
         "sub_type": "action",
@@ -2080,7 +2395,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_035c74a0_10",
+        "id": "ev_node_ev_doc_2c42b2fd_10",
         "label": "Driver Statement: 'The security gua...",
         "node_type": "event",
         "sub_type": "action",
@@ -2098,7 +2413,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_78005f2d_11",
+        "id": "ev_node_ev_doc_49e789cc_11",
         "label": "Date: October 17, 2024 04:15 PM",
         "node_type": "event",
         "sub_type": "action",
@@ -2116,7 +2431,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c7bc7977_12",
+        "id": "ev_node_ev_doc_2e320a31_12",
         "label": "- Camera 5 (Basement Corridor) was ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2134,7 +2449,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_13",
+        "id": "ev_node_ev_doc_5fd8f1d3_13",
         "label": "[11:15 AM] REYNOLDS: Marta, where w...",
         "node_type": "event",
         "sub_type": "action",
@@ -2152,7 +2467,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_14",
+        "id": "ev_node_ev_doc_5fd8f1d3_14",
         "label": "[11:15 AM] GOMEZ: I was cleaning th...",
         "node_type": "event",
         "sub_type": "action",
@@ -2163,7 +2478,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_15",
+        "id": "ev_node_ev_doc_5fd8f1d3_15",
         "label": "[11:16 AM] REYNOLDS: Did you see Ju...",
         "node_type": "event",
         "sub_type": "action",
@@ -2181,7 +2496,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_16",
+        "id": "ev_node_ev_doc_5fd8f1d3_16",
         "label": "[11:16 AM] GOMEZ: Yes. Julian was n...",
         "node_type": "event",
         "sub_type": "action",
@@ -2192,7 +2507,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_17",
+        "id": "ev_node_ev_doc_5fd8f1d3_17",
         "label": "[11:17 AM] REYNOLDS: Did the galler...",
         "node_type": "event",
         "sub_type": "action",
@@ -2210,7 +2525,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_63ae1e5c_18",
+        "id": "ev_node_ev_doc_5fd8f1d3_18",
         "label": "[11:17 AM] GOMEZ: Yes, the loud aco...",
         "node_type": "event",
         "sub_type": "action",
@@ -2221,7 +2536,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_19",
+        "id": "ev_node_ev_doc_3b5c07b4_19",
         "label": "[09:00 AM] REYNOLDS: State your nam...",
         "node_type": "event",
         "sub_type": "action",
@@ -2239,7 +2554,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_20",
+        "id": "ev_node_ev_doc_3b5c07b4_20",
         "label": "[09:00 AM] STERLING: Clara Sterling...",
         "node_type": "event",
         "sub_type": "action",
@@ -2250,7 +2565,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_21",
+        "id": "ev_node_ev_doc_3b5c07b4_21",
         "label": "[09:01 AM] REYNOLDS: When did you l...",
         "node_type": "event",
         "sub_type": "action",
@@ -2268,7 +2583,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_22",
+        "id": "ev_node_ev_doc_3b5c07b4_22",
         "label": "[09:01 AM] STERLING: I personally i...",
         "node_type": "event",
         "sub_type": "action",
@@ -2279,7 +2594,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_23",
+        "id": "ev_node_ev_doc_3b5c07b4_23",
         "label": "[09:02 AM] REYNOLDS: Did anyone els...",
         "node_type": "event",
         "sub_type": "action",
@@ -2297,7 +2612,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_24",
+        "id": "ev_node_ev_doc_3b5c07b4_24",
         "label": "[09:02 AM] STERLING: No, only Lord ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2308,7 +2623,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_25",
+        "id": "ev_node_ev_doc_3b5c07b4_25",
         "label": "[09:03 AM] REYNOLDS: What time did ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2326,7 +2641,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_5dcfc507_26",
+        "id": "ev_node_ev_doc_3b5c07b4_26",
         "label": "[09:03 AM] STERLING: I drove throug...",
         "node_type": "event",
         "sub_type": "action",
@@ -2337,7 +2652,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_27",
+        "id": "ev_node_ev_doc_370a137b_27",
         "label": "[10:30 AM] REYNOLDS: Julian, descri...",
         "node_type": "event",
         "sub_type": "action",
@@ -2355,7 +2670,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_28",
+        "id": "ev_node_ev_doc_370a137b_28",
         "label": "[10:30 AM] VANCE: I began my shift ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2366,7 +2681,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_29",
+        "id": "ev_node_ev_doc_370a137b_29",
         "label": "[10:31 AM] REYNOLDS: Did you hear t...",
         "node_type": "event",
         "sub_type": "action",
@@ -2384,7 +2699,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_30",
+        "id": "ev_node_ev_doc_370a137b_30",
         "label": "[10:31 AM] VANCE: The motion alarm ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2395,7 +2710,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_31",
+        "id": "ev_node_ev_doc_370a137b_31",
         "label": "[10:32 AM] REYNOLDS: Did anyone vis...",
         "node_type": "event",
         "sub_type": "action",
@@ -2413,7 +2728,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_32",
+        "id": "ev_node_ev_doc_370a137b_32",
         "label": "[10:32 AM] VANCE: The courier van f...",
         "node_type": "event",
         "sub_type": "action",
@@ -2424,7 +2739,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_33",
+        "id": "ev_node_ev_doc_370a137b_33",
         "label": "[10:33 AM] REYNOLDS: Did you leave ...",
         "node_type": "event",
         "sub_type": "action",
@@ -2442,7 +2757,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_830ae5b3_34",
+        "id": "ev_node_ev_doc_370a137b_34",
         "label": "[10:33 AM] VANCE: I remained at the...",
         "node_type": "event",
         "sub_type": "action",
@@ -2453,7 +2768,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_92f00364_35",
+        "id": "ev_node_ev_doc_0c0ba6cc_35",
         "label": "1. SYNOPSIS: At 06:15 AM on October...",
         "node_type": "event",
         "sub_type": "action",
@@ -2473,1220 +2788,1220 @@
     ],
     "edges": [
       {
-        "id": "edge_ent_node_ent_9b18ba_stated_in_doc_node_doc_5dcfc507_0",
-        "source": "ent_node_ent_9b18ba",
-        "target": "doc_node_doc_5dcfc507",
+        "id": "edge_ent_node_ent_55502a_stated_in_doc_node_doc_0c0ba6cc_0",
+        "source": "ent_node_ent_55502a",
+        "target": "doc_node_doc_0c0ba6cc",
         "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
+        "evidence_sentence": "Clara Sterling"
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_stated_in_doc_node_doc_78005f2d_1",
-        "source": "ent_node_ent_9b18ba",
-        "target": "doc_node_doc_78005f2d",
+        "id": "edge_ent_node_ent_55502a_stated_in_doc_node_doc_3b5c07b4_1",
+        "source": "ent_node_ent_55502a",
+        "target": "doc_node_doc_3b5c07b4",
         "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
+        "evidence_sentence": "Clara Sterling"
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_stated_in_doc_node_doc_92f00364_2",
-        "source": "ent_node_ent_9b18ba",
-        "target": "doc_node_doc_92f00364",
+        "id": "edge_ent_node_ent_55502a_stated_in_doc_node_doc_49e789cc_2",
+        "source": "ent_node_ent_55502a",
+        "target": "doc_node_doc_49e789cc",
         "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
+        "evidence_sentence": "Clara Sterling"
       },
       {
-        "id": "edge_ent_node_ent_5950d3_stated_in_doc_node_doc_5dcfc507_3",
-        "source": "ent_node_ent_5950d3",
-        "target": "doc_node_doc_5dcfc507",
+        "id": "edge_ent_node_ent_840dda_stated_in_doc_node_doc_5fd8f1d3_3",
+        "source": "ent_node_ent_840dda",
+        "target": "doc_node_doc_5fd8f1d3",
         "relation": "stated_in",
-        "evidence_sentence": "Officer: DI Thomas Reynolds, Badge #8841"
+        "evidence_sentence": "Interviewer: Detective Reynolds"
       },
       {
-        "id": "edge_ent_node_ent_5950d3_stated_in_doc_node_doc_92f00364_4",
-        "source": "ent_node_ent_5950d3",
-        "target": "doc_node_doc_92f00364",
+        "id": "edge_ent_node_ent_840dda_stated_in_doc_node_doc_0c0ba6cc_4",
+        "source": "ent_node_ent_840dda",
+        "target": "doc_node_doc_0c0ba6cc",
         "relation": "stated_in",
-        "evidence_sentence": "Officer: DI Thomas Reynolds, Badge #8841"
+        "evidence_sentence": "Interviewer: Detective Reynolds"
       },
       {
-        "id": "edge_ent_node_ent_5950d3_stated_in_doc_node_doc_830ae5b3_5",
-        "source": "ent_node_ent_5950d3",
-        "target": "doc_node_doc_830ae5b3",
+        "id": "edge_ent_node_ent_840dda_stated_in_doc_node_doc_370a137b_5",
+        "source": "ent_node_ent_840dda",
+        "target": "doc_node_doc_370a137b",
         "relation": "stated_in",
-        "evidence_sentence": "Officer: DI Thomas Reynolds, Badge #8841"
+        "evidence_sentence": "Interviewer: Detective Reynolds"
       },
       {
-        "id": "edge_ent_node_ent_5950d3_stated_in_doc_node_doc_63ae1e5c_6",
-        "source": "ent_node_ent_5950d3",
-        "target": "doc_node_doc_63ae1e5c",
+        "id": "edge_ent_node_ent_840dda_stated_in_doc_node_doc_3b5c07b4_6",
+        "source": "ent_node_ent_840dda",
+        "target": "doc_node_doc_3b5c07b4",
         "relation": "stated_in",
-        "evidence_sentence": "Officer: DI Thomas Reynolds, Badge #8841"
+        "evidence_sentence": "Interviewer: Detective Reynolds"
       },
       {
-        "id": "edge_ent_node_ent_1fc035_stated_in_doc_node_doc_63ae1e5c_7",
-        "source": "ent_node_ent_1fc035",
-        "target": "doc_node_doc_63ae1e5c",
+        "id": "edge_ent_node_ent_ab7835_stated_in_doc_node_doc_c50a1ba3_7",
+        "source": "ent_node_ent_ab7835",
+        "target": "doc_node_doc_c50a1ba3",
+        "relation": "stated_in",
+        "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      },
+      {
+        "id": "edge_ent_node_ent_ab7835_stated_in_doc_node_doc_5fd8f1d3_8",
+        "source": "ent_node_ent_ab7835",
+        "target": "doc_node_doc_5fd8f1d3",
+        "relation": "stated_in",
+        "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      },
+      {
+        "id": "edge_ent_node_ent_ab7835_stated_in_doc_node_doc_370a137b_9",
+        "source": "ent_node_ent_ab7835",
+        "target": "doc_node_doc_370a137b",
+        "relation": "stated_in",
+        "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      },
+      {
+        "id": "edge_ent_node_ent_ab7835_stated_in_doc_node_doc_3b5c07b4_10",
+        "source": "ent_node_ent_ab7835",
+        "target": "doc_node_doc_3b5c07b4",
+        "relation": "stated_in",
+        "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      },
+      {
+        "id": "edge_ent_node_ent_cfa8fa_stated_in_doc_node_doc_5fd8f1d3_11",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "doc_node_doc_5fd8f1d3",
+        "relation": "stated_in",
+        "evidence_sentence": "Location: Blackwood Manor, Surrey"
+      },
+      {
+        "id": "edge_ent_node_ent_cfa8fa_stated_in_doc_node_doc_0c0ba6cc_12",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "doc_node_doc_0c0ba6cc",
+        "relation": "stated_in",
+        "evidence_sentence": "Location: Blackwood Manor, Surrey"
+      },
+      {
+        "id": "edge_ent_node_ent_cfa8fa_stated_in_doc_node_doc_370a137b_13",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "doc_node_doc_370a137b",
+        "relation": "stated_in",
+        "evidence_sentence": "Location: Blackwood Manor, Surrey"
+      },
+      {
+        "id": "edge_ent_node_ent_cfa8fa_stated_in_doc_node_doc_3b5c07b4_14",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "doc_node_doc_3b5c07b4",
+        "relation": "stated_in",
+        "evidence_sentence": "Location: Blackwood Manor, Surrey"
+      },
+      {
+        "id": "edge_ent_node_ent_ca8ec1_stated_in_doc_node_doc_2e320a31_15",
+        "source": "ent_node_ent_ca8ec1",
+        "target": "doc_node_doc_2e320a31",
         "relation": "stated_in",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_stated_in_doc_node_doc_830ae5b3_8",
-        "source": "ent_node_ent_1fc035",
-        "target": "doc_node_doc_830ae5b3",
+        "id": "edge_ent_node_ent_ca8ec1_stated_in_doc_node_doc_3b5c07b4_16",
+        "source": "ent_node_ent_ca8ec1",
+        "target": "doc_node_doc_3b5c07b4",
         "relation": "stated_in",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_stated_in_doc_node_doc_667a878f_9",
-        "source": "ent_node_ent_1fc035",
-        "target": "doc_node_doc_667a878f",
+        "id": "edge_ent_node_ent_ca8ec1_stated_in_doc_node_doc_49e789cc_17",
+        "source": "ent_node_ent_ca8ec1",
+        "target": "doc_node_doc_49e789cc",
         "relation": "stated_in",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_stated_in_doc_node_doc_5dcfc507_10",
-        "source": "ent_node_ent_1fc035",
-        "target": "doc_node_doc_5dcfc507",
-        "relation": "stated_in",
-        "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
-      },
-      {
-        "id": "edge_ent_node_ent_c7f850_stated_in_doc_node_doc_5dcfc507_11",
-        "source": "ent_node_ent_c7f850",
-        "target": "doc_node_doc_5dcfc507",
-        "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
-      },
-      {
-        "id": "edge_ent_node_ent_c7f850_stated_in_doc_node_doc_92f00364_12",
-        "source": "ent_node_ent_c7f850",
-        "target": "doc_node_doc_92f00364",
-        "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
-      },
-      {
-        "id": "edge_ent_node_ent_c7f850_stated_in_doc_node_doc_830ae5b3_13",
-        "source": "ent_node_ent_c7f850",
-        "target": "doc_node_doc_830ae5b3",
-        "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
-      },
-      {
-        "id": "edge_ent_node_ent_c7f850_stated_in_doc_node_doc_63ae1e5c_14",
-        "source": "ent_node_ent_c7f850",
-        "target": "doc_node_doc_63ae1e5c",
-        "relation": "stated_in",
-        "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
-      },
-      {
-        "id": "edge_ent_node_ent_64669d_stated_in_doc_node_doc_5dcfc507_15",
-        "source": "ent_node_ent_64669d",
-        "target": "doc_node_doc_5dcfc507",
-        "relation": "stated_in",
-        "evidence_sentence": "Lord Blackwood,"
-      },
-      {
-        "id": "edge_ent_node_ent_64669d_stated_in_doc_node_doc_78005f2d_16",
-        "source": "ent_node_ent_64669d",
-        "target": "doc_node_doc_78005f2d",
-        "relation": "stated_in",
-        "evidence_sentence": "Lord Blackwood,"
-      },
-      {
-        "id": "edge_ent_node_ent_64669d_stated_in_doc_node_doc_c7bc7977_17",
-        "source": "ent_node_ent_64669d",
-        "target": "doc_node_doc_c7bc7977",
-        "relation": "stated_in",
-        "evidence_sentence": "Lord Blackwood,"
-      },
-      {
-        "id": "edge_ent_node_ent_77a4fa_stated_in_doc_node_doc_5dcfc507_18",
-        "source": "ent_node_ent_77a4fa",
-        "target": "doc_node_doc_5dcfc507",
+        "id": "edge_ent_node_ent_d6253e_stated_in_doc_node_doc_5fd8f1d3_18",
+        "source": "ent_node_ent_d6253e",
+        "target": "doc_node_doc_5fd8f1d3",
         "relation": "stated_in",
         "evidence_sentence": "Case: Blackwood Manor Art Heist"
       },
       {
-        "id": "edge_ent_node_ent_77a4fa_stated_in_doc_node_doc_830ae5b3_19",
-        "source": "ent_node_ent_77a4fa",
-        "target": "doc_node_doc_830ae5b3",
+        "id": "edge_ent_node_ent_d6253e_stated_in_doc_node_doc_370a137b_19",
+        "source": "ent_node_ent_d6253e",
+        "target": "doc_node_doc_370a137b",
         "relation": "stated_in",
         "evidence_sentence": "Case: Blackwood Manor Art Heist"
       },
       {
-        "id": "edge_ent_node_ent_77a4fa_stated_in_doc_node_doc_63ae1e5c_20",
-        "source": "ent_node_ent_77a4fa",
-        "target": "doc_node_doc_63ae1e5c",
+        "id": "edge_ent_node_ent_d6253e_stated_in_doc_node_doc_3b5c07b4_20",
+        "source": "ent_node_ent_d6253e",
+        "target": "doc_node_doc_3b5c07b4",
         "relation": "stated_in",
         "evidence_sentence": "Case: Blackwood Manor Art Heist"
       },
       {
-        "id": "edge_ent_node_ent_cf288a_stated_in_doc_node_doc_63ae1e5c_21",
-        "source": "ent_node_ent_cf288a",
-        "target": "doc_node_doc_63ae1e5c",
-        "relation": "stated_in",
-        "evidence_sentence": "Speaker/Author of document: Marta Gomez"
-      },
-      {
-        "id": "edge_ent_node_ent_467039_stated_in_doc_node_doc_035c74a0_22",
-        "source": "ent_node_ent_467039",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
-      },
-      {
-        "id": "edge_ent_node_ent_5b10b7_stated_in_doc_node_doc_035c74a0_23",
-        "source": "ent_node_ent_5b10b7",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
-      },
-      {
-        "id": "edge_ent_node_ent_1a6a02_stated_in_doc_node_doc_035c74a0_24",
-        "source": "ent_node_ent_1a6a02",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
-      },
-      {
-        "id": "edge_ent_node_ent_bd1323_stated_in_doc_node_doc_035c74a0_25",
-        "source": "ent_node_ent_bd1323",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
-      },
-      {
-        "id": "edge_ent_node_ent_d40d23_stated_in_doc_node_doc_035c74a0_26",
-        "source": "ent_node_ent_d40d23",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
-      },
-      {
-        "id": "edge_ent_node_ent_5f92f2_stated_in_doc_node_doc_035c74a0_27",
-        "source": "ent_node_ent_5f92f2",
-        "target": "doc_node_doc_035c74a0",
-        "relation": "stated_in",
-        "evidence_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
-      },
-      {
-        "id": "edge_ent_node_ent_c75ba2_stated_in_doc_node_doc_78005f2d_28",
-        "source": "ent_node_ent_c75ba2",
-        "target": "doc_node_doc_78005f2d",
-        "relation": "stated_in",
-        "evidence_sentence": "To: Arthur Blackwood <arthur@blackwoodholdings.com>"
-      },
-      {
-        "id": "edge_ent_node_ent_bbabf8_stated_in_doc_node_doc_c7bc7977_29",
-        "source": "ent_node_ent_bbabf8",
-        "target": "doc_node_doc_c7bc7977",
-        "relation": "stated_in",
-        "evidence_sentence": "- Cameras 1 through 3 (Front Driveway) functioned continuously."
-      },
-      {
-        "id": "edge_ent_node_ent_974e7b_stated_in_doc_node_doc_c7bc7977_30",
-        "source": "ent_node_ent_974e7b",
-        "target": "doc_node_doc_c7bc7977",
-        "relation": "stated_in",
-        "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
-      },
-      {
-        "id": "edge_ent_node_ent_44c2c2_stated_in_doc_node_doc_63ae1e5c_31",
-        "source": "ent_node_ent_44c2c2",
-        "target": "doc_node_doc_63ae1e5c",
+        "id": "edge_ent_node_ent_3d3d03_stated_in_doc_node_doc_5fd8f1d3_21",
+        "source": "ent_node_ent_3d3d03",
+        "target": "doc_node_doc_5fd8f1d3",
         "relation": "stated_in",
         "evidence_sentence": "Interviewee: Marta Gomez, Evening Housekeeper"
       },
       {
-        "id": "edge_ent_node_ent_d58894_stated_in_doc_node_doc_5dcfc507_32",
-        "source": "ent_node_ent_d58894",
-        "target": "doc_node_doc_5dcfc507",
+        "id": "edge_ent_node_ent_c5f769_stated_in_doc_node_doc_2c42b2fd_22",
+        "source": "ent_node_ent_c5f769",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
+      },
+      {
+        "id": "edge_ent_node_ent_77c60e_stated_in_doc_node_doc_2c42b2fd_23",
+        "source": "ent_node_ent_77c60e",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
+      },
+      {
+        "id": "edge_ent_node_ent_755359_stated_in_doc_node_doc_2c42b2fd_24",
+        "source": "ent_node_ent_755359",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      },
+      {
+        "id": "edge_ent_node_ent_504798_stated_in_doc_node_doc_2c42b2fd_25",
+        "source": "ent_node_ent_504798",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      },
+      {
+        "id": "edge_ent_node_ent_d26f62_stated_in_doc_node_doc_2c42b2fd_26",
+        "source": "ent_node_ent_d26f62",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      },
+      {
+        "id": "edge_ent_node_ent_19959e_stated_in_doc_node_doc_2c42b2fd_27",
+        "source": "ent_node_ent_19959e",
+        "target": "doc_node_doc_2c42b2fd",
+        "relation": "stated_in",
+        "evidence_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
+      },
+      {
+        "id": "edge_ent_node_ent_1c1208_stated_in_doc_node_doc_49e789cc_28",
+        "source": "ent_node_ent_1c1208",
+        "target": "doc_node_doc_49e789cc",
+        "relation": "stated_in",
+        "evidence_sentence": "To: Arthur Blackwood <arthur@blackwoodholdings.com>"
+      },
+      {
+        "id": "edge_ent_node_ent_d33d81_stated_in_doc_node_doc_2e320a31_29",
+        "source": "ent_node_ent_d33d81",
+        "target": "doc_node_doc_2e320a31",
+        "relation": "stated_in",
+        "evidence_sentence": "- Cameras 1 through 3 (Front Driveway) functioned continuously."
+      },
+      {
+        "id": "edge_ent_node_ent_a2c9cd_stated_in_doc_node_doc_2e320a31_30",
+        "source": "ent_node_ent_a2c9cd",
+        "target": "doc_node_doc_2e320a31",
+        "relation": "stated_in",
+        "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
+      },
+      {
+        "id": "edge_ent_node_ent_390b24_stated_in_doc_node_doc_5fd8f1d3_31",
+        "source": "ent_node_ent_390b24",
+        "target": "doc_node_doc_5fd8f1d3",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Marta Gomez, Evening Housekeeper"
+      },
+      {
+        "id": "edge_ent_node_ent_eddb7f_stated_in_doc_node_doc_3b5c07b4_32",
+        "source": "ent_node_ent_eddb7f",
+        "target": "doc_node_doc_3b5c07b4",
         "relation": "stated_in",
         "evidence_sentence": "Interviewee: Clara Sterling, Gallery Curator"
       },
       {
-        "id": "edge_ent_node_ent_2a1272_stated_in_doc_node_doc_830ae5b3_33",
-        "source": "ent_node_ent_2a1272",
-        "target": "doc_node_doc_830ae5b3",
+        "id": "edge_ent_node_ent_c5b7f0_stated_in_doc_node_doc_370a137b_33",
+        "source": "ent_node_ent_c5b7f0",
+        "target": "doc_node_doc_370a137b",
         "relation": "stated_in",
         "evidence_sentence": "Interviewee: Julian Vance, Night Guard"
       },
       {
-        "id": "edge_ent_node_ent_a18b6b_stated_in_doc_node_doc_830ae5b3_34",
-        "source": "ent_node_ent_a18b6b",
-        "target": "doc_node_doc_830ae5b3",
+        "id": "edge_ent_node_ent_b51dfc_stated_in_doc_node_doc_370a137b_34",
+        "source": "ent_node_ent_b51dfc",
+        "target": "doc_node_doc_370a137b",
         "relation": "stated_in",
         "evidence_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
       },
       {
-        "id": "edge_ent_node_ent_6f8ba6_stated_in_doc_node_doc_92f00364_35",
-        "source": "ent_node_ent_6f8ba6",
-        "target": "doc_node_doc_92f00364",
+        "id": "edge_ent_node_ent_243ac5_stated_in_doc_node_doc_0c0ba6cc_35",
+        "source": "ent_node_ent_243ac5",
+        "target": "doc_node_doc_0c0ba6cc",
         "relation": "stated_in",
         "evidence_sentence": "Incident: Burglary / Theft of High-Value Cultural Property"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_1_36",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_1",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_1_36",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_1",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]"
       },
       {
-        "id": "edge_ent_node_ent_1fc035_involved_in_ev_node_ev_doc_667a878f_1_37",
-        "source": "ent_node_ent_1fc035",
-        "target": "ev_node_ev_doc_667a878f_1",
+        "id": "edge_ent_node_ent_ab7835_involved_in_ev_node_ev_doc_c50a1ba3_1_37",
+        "source": "ent_node_ent_ab7835",
+        "target": "ev_node_ev_doc_c50a1ba3_1",
         "relation": "involved_in",
         "evidence_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_1_occurs_at_time_time_node_2024-10-18_190000_38",
-        "source": "ev_node_ev_doc_667a878f_1",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_1_occurs_at_time_time_node_2024-10-18_190000_38",
+        "source": "ev_node_ev_doc_c50a1ba3_1",
         "target": "time_node_2024-10-18_190000",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_2_39",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_2",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_2_39",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_2",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer"
       },
       {
-        "id": "edge_ent_node_ent_d40d23_involved_in_ev_node_ev_doc_667a878f_2_40",
-        "source": "ent_node_ent_d40d23",
-        "target": "ev_node_ev_doc_667a878f_2",
+        "id": "edge_ent_node_ent_d26f62_involved_in_ev_node_ev_doc_c50a1ba3_2_40",
+        "source": "ent_node_ent_d26f62",
+        "target": "ev_node_ev_doc_c50a1ba3_2",
         "relation": "involved_in",
         "evidence_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_2_occurs_at_time_time_node_2024-10-18_215012_41",
-        "source": "ev_node_ev_doc_667a878f_2",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_2_occurs_at_time_time_node_2024-10-18_215012_41",
+        "source": "ev_node_ev_doc_c50a1ba3_2",
         "target": "time_node_2024-10-18_215012",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_3_42",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_3",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_3_42",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_3",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_3_located_at_ent_node_ent_e1015b_43",
-        "source": "ev_node_ev_doc_667a878f_3",
-        "target": "ent_node_ent_e1015b",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_3_located_at_ent_node_ent_54f76f_43",
+        "source": "ev_node_ev_doc_c50a1ba3_3",
+        "target": "ent_node_ent_54f76f",
         "relation": "located_at",
         "evidence_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_3_occurs_at_time_time_node_2024-10-18_221502_44",
-        "source": "ev_node_ev_doc_667a878f_3",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_3_occurs_at_time_time_node_2024-10-18_221502_44",
+        "source": "ev_node_ev_doc_c50a1ba3_3",
         "target": "time_node_2024-10-18_221502",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_4_45",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_4",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_4_45",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_4",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_4_uses_ent_node_ent_65a4c0_46",
-        "source": "ev_node_ev_doc_667a878f_4",
-        "target": "ent_node_ent_65a4c0",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_4_uses_ent_node_ent_5370e0_46",
+        "source": "ev_node_ev_doc_c50a1ba3_4",
+        "target": "ent_node_ent_5370e0",
         "relation": "uses",
         "evidence_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_4_uses_ent_node_ent_f8bba7_47",
-        "source": "ev_node_ev_doc_667a878f_4",
-        "target": "ent_node_ent_f8bba7",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_4_uses_ent_node_ent_826ec5_47",
+        "source": "ev_node_ev_doc_c50a1ba3_4",
+        "target": "ent_node_ent_826ec5",
         "relation": "uses",
         "evidence_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_4_occurs_at_time_time_node_2024-10-18_221536_48",
-        "source": "ev_node_ev_doc_667a878f_4",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_4_occurs_at_time_time_node_2024-10-18_221536_48",
+        "source": "ev_node_ev_doc_c50a1ba3_4",
         "target": "time_node_2024-10-18_221536",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_5_49",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_5",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_5_49",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_5",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_5_uses_ent_node_ent_37b790_50",
-        "source": "ev_node_ev_doc_667a878f_5",
-        "target": "ent_node_ent_37b790",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_5_uses_ent_node_ent_fbe2ff_50",
+        "source": "ev_node_ev_doc_c50a1ba3_5",
+        "target": "ent_node_ent_fbe2ff",
         "relation": "uses",
         "evidence_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_5_occurs_at_time_time_node_2024-10-18_222819_51",
-        "source": "ev_node_ev_doc_667a878f_5",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_5_occurs_at_time_time_node_2024-10-18_222819_51",
+        "source": "ev_node_ev_doc_c50a1ba3_5",
         "target": "time_node_2024-10-18_222819",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED"
       },
       {
-        "id": "edge_doc_node_doc_667a878f_provides_evidence_ev_node_ev_doc_667a878f_6_52",
-        "source": "doc_node_doc_667a878f",
-        "target": "ev_node_ev_doc_667a878f_6",
+        "id": "edge_doc_node_doc_c50a1ba3_provides_evidence_ev_node_ev_doc_c50a1ba3_6_52",
+        "source": "doc_node_doc_c50a1ba3",
+        "target": "ev_node_ev_doc_c50a1ba3_6",
         "relation": "provides_evidence",
         "evidence_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed"
       },
       {
-        "id": "edge_ent_node_ent_d40d23_involved_in_ev_node_ev_doc_667a878f_6_53",
-        "source": "ent_node_ent_d40d23",
-        "target": "ev_node_ev_doc_667a878f_6",
+        "id": "edge_ent_node_ent_d26f62_involved_in_ev_node_ev_doc_c50a1ba3_6_53",
+        "source": "ent_node_ent_d26f62",
+        "target": "ev_node_ev_doc_c50a1ba3_6",
         "relation": "involved_in",
         "evidence_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_6_occurs_at_time_time_node_2024-10-18_223100_54",
-        "source": "ev_node_ev_doc_667a878f_6",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_6_occurs_at_time_time_node_2024-10-18_223100_54",
+        "source": "ev_node_ev_doc_c50a1ba3_6",
         "target": "time_node_2024-10-18_223100",
         "relation": "occurs_at_time",
         "evidence_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed"
       },
       {
-        "id": "edge_doc_node_doc_035c74a0_provides_evidence_ev_node_ev_doc_035c74a0_7_55",
-        "source": "doc_node_doc_035c74a0",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_doc_node_doc_2c42b2fd_provides_evidence_ev_node_ev_doc_2c42b2fd_7_55",
+        "source": "doc_node_doc_2c42b2fd",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_ent_node_ent_d40d23_involved_in_ev_node_ev_doc_035c74a0_7_56",
-        "source": "ent_node_ent_d40d23",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ent_node_ent_504798_involved_in_ev_node_ev_doc_2c42b2fd_7_56",
+        "source": "ent_node_ent_504798",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "involved_in",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_ent_node_ent_c7f850_involved_in_ev_node_ev_doc_035c74a0_7_57",
-        "source": "ent_node_ent_c7f850",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ent_node_ent_755359_involved_in_ev_node_ev_doc_2c42b2fd_7_57",
+        "source": "ent_node_ent_755359",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "involved_in",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_ent_node_ent_1a6a02_involved_in_ev_node_ev_doc_035c74a0_7_58",
-        "source": "ent_node_ent_1a6a02",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ent_node_ent_cfa8fa_involved_in_ev_node_ev_doc_2c42b2fd_7_58",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "involved_in",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_ent_node_ent_bd1323_involved_in_ev_node_ev_doc_035c74a0_7_59",
-        "source": "ent_node_ent_bd1323",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ent_node_ent_d26f62_involved_in_ev_node_ev_doc_2c42b2fd_7_59",
+        "source": "ent_node_ent_d26f62",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "involved_in",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_7_occurs_at_time_time_node_2024-10-18_215000_60",
-        "source": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_7_occurs_at_time_time_node_2024-10-18_215000_60",
+        "source": "ev_node_ev_doc_2c42b2fd_7",
         "target": "time_node_2024-10-18_215000",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
       },
       {
-        "id": "edge_doc_node_doc_035c74a0_provides_evidence_ev_node_ev_doc_035c74a0_8_61",
-        "source": "doc_node_doc_035c74a0",
-        "target": "ev_node_ev_doc_035c74a0_8",
+        "id": "edge_doc_node_doc_2c42b2fd_provides_evidence_ev_node_ev_doc_2c42b2fd_8_61",
+        "source": "doc_node_doc_2c42b2fd",
+        "target": "ev_node_ev_doc_2c42b2fd_8",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_8_occurs_at_time_time_node_2024-10-18_220500_62",
-        "source": "ev_node_ev_doc_035c74a0_8",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_8_occurs_at_time_time_node_2024-10-18_220500_62",
+        "source": "ev_node_ev_doc_2c42b2fd_8",
         "target": "time_node_2024-10-18_220500",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse"
       },
       {
-        "id": "edge_doc_node_doc_035c74a0_provides_evidence_ev_node_ev_doc_035c74a0_9_63",
-        "source": "doc_node_doc_035c74a0",
-        "target": "ev_node_ev_doc_035c74a0_9",
+        "id": "edge_doc_node_doc_2c42b2fd_provides_evidence_ev_node_ev_doc_2c42b2fd_9_63",
+        "source": "doc_node_doc_2c42b2fd",
+        "target": "ev_node_ev_doc_2c42b2fd_9",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_9_occurs_at_time_time_node_2024-10-18_223045_64",
-        "source": "ev_node_ev_doc_035c74a0_9",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_9_occurs_at_time_time_node_2024-10-18_223045_64",
+        "source": "ev_node_ev_doc_2c42b2fd_9",
         "target": "time_node_2024-10-18_223045",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway"
       },
       {
-        "id": "edge_doc_node_doc_035c74a0_provides_evidence_ev_node_ev_doc_035c74a0_10_65",
-        "source": "doc_node_doc_035c74a0",
-        "target": "ev_node_ev_doc_035c74a0_10",
+        "id": "edge_doc_node_doc_2c42b2fd_provides_evidence_ev_node_ev_doc_2c42b2fd_10_65",
+        "source": "doc_node_doc_2c42b2fd",
+        "target": "ev_node_ev_doc_2c42b2fd_10",
         "relation": "provides_evidence",
         "evidence_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
       },
       {
-        "id": "edge_ent_node_ent_5f92f2_involved_in_ev_node_ev_doc_035c74a0_10_66",
-        "source": "ent_node_ent_5f92f2",
-        "target": "ev_node_ev_doc_035c74a0_10",
+        "id": "edge_ent_node_ent_19959e_involved_in_ev_node_ev_doc_2c42b2fd_10_66",
+        "source": "ent_node_ent_19959e",
+        "target": "ev_node_ev_doc_2c42b2fd_10",
         "relation": "involved_in",
         "evidence_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_10_occurs_at_time_time_node_1020_PM_67",
-        "source": "ev_node_ev_doc_035c74a0_10",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_10_occurs_at_time_time_node_1020_PM_67",
+        "source": "ev_node_ev_doc_2c42b2fd_10",
         "target": "time_node_1020_PM",
         "relation": "occurs_at_time",
         "evidence_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
       },
       {
-        "id": "edge_doc_node_doc_78005f2d_provides_evidence_ev_node_ev_doc_78005f2d_11_68",
-        "source": "doc_node_doc_78005f2d",
-        "target": "ev_node_ev_doc_78005f2d_11",
+        "id": "edge_doc_node_doc_49e789cc_provides_evidence_ev_node_ev_doc_49e789cc_11_68",
+        "source": "doc_node_doc_49e789cc",
+        "target": "ev_node_ev_doc_49e789cc_11",
         "relation": "provides_evidence",
         "evidence_sentence": "Date: October 17, 2024 04:15 PM"
       },
       {
-        "id": "edge_ev_node_ev_doc_78005f2d_11_occurs_at_time_time_node_0415_PM_69",
-        "source": "ev_node_ev_doc_78005f2d_11",
+        "id": "edge_ev_node_ev_doc_49e789cc_11_occurs_at_time_time_node_0415_PM_69",
+        "source": "ev_node_ev_doc_49e789cc_11",
         "target": "time_node_0415_PM",
         "relation": "occurs_at_time",
         "evidence_sentence": "Date: October 17, 2024 04:15 PM"
       },
       {
-        "id": "edge_doc_node_doc_c7bc7977_provides_evidence_ev_node_ev_doc_c7bc7977_12_70",
-        "source": "doc_node_doc_c7bc7977",
-        "target": "ev_node_ev_doc_c7bc7977_12",
+        "id": "edge_doc_node_doc_2e320a31_provides_evidence_ev_node_ev_doc_2e320a31_12_70",
+        "source": "doc_node_doc_2e320a31",
+        "target": "ev_node_ev_doc_2e320a31_12",
         "relation": "provides_evidence",
         "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
       },
       {
-        "id": "edge_ent_node_ent_974e7b_involved_in_ev_node_ev_doc_c7bc7977_12_71",
-        "source": "ent_node_ent_974e7b",
-        "target": "ev_node_ev_doc_c7bc7977_12",
+        "id": "edge_ent_node_ent_a2c9cd_involved_in_ev_node_ev_doc_2e320a31_12_71",
+        "source": "ent_node_ent_a2c9cd",
+        "target": "ev_node_ev_doc_2e320a31_12",
         "relation": "involved_in",
         "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
       },
       {
-        "id": "edge_ev_node_ev_doc_c7bc7977_12_uses_ent_node_ent_b832df_72",
-        "source": "ev_node_ev_doc_c7bc7977_12",
-        "target": "ent_node_ent_b832df",
+        "id": "edge_ev_node_ev_doc_2e320a31_12_uses_ent_node_ent_013a7b_72",
+        "source": "ev_node_ev_doc_2e320a31_12",
+        "target": "ent_node_ent_013a7b",
         "relation": "uses",
         "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
       },
       {
-        "id": "edge_ev_node_ev_doc_c7bc7977_12_occurs_at_time_time_node_2210_73",
-        "source": "ev_node_ev_doc_c7bc7977_12",
+        "id": "edge_ev_node_ev_doc_2e320a31_12_occurs_at_time_time_node_2210_73",
+        "source": "ev_node_ev_doc_2e320a31_12",
         "target": "time_node_2210",
         "relation": "occurs_at_time",
         "evidence_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_13_74",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_13",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_13_74",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_13",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_13_occurs_at_time_time_node_1115_AM_75",
-        "source": "ev_node_ev_doc_63ae1e5c_13",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_13_occurs_at_time_time_node_1115_AM_75",
+        "source": "ev_node_ev_doc_5fd8f1d3_13",
         "target": "time_node_1115_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?"
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_14_76",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_14",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_14_76",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_14",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room."
       },
       {
-        "id": "edge_ent_node_ent_cf288a_involved_in_ev_node_ev_doc_63ae1e5c_14_77",
-        "source": "ent_node_ent_cf288a",
-        "target": "ev_node_ev_doc_63ae1e5c_14",
+        "id": "edge_ent_node_ent_3d3d03_involved_in_ev_node_ev_doc_5fd8f1d3_14_77",
+        "source": "ent_node_ent_3d3d03",
+        "target": "ev_node_ev_doc_5fd8f1d3_14",
         "relation": "involved_in",
         "evidence_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room."
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_14_occurs_at_time_time_node_1115_AM_78",
-        "source": "ev_node_ev_doc_63ae1e5c_14",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_14_occurs_at_time_time_node_1115_AM_78",
+        "source": "ev_node_ev_doc_5fd8f1d3_14",
         "target": "time_node_1115_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room."
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_15_79",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_15",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_15_79",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_15",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
       },
       {
-        "id": "edge_ent_node_ent_1fc035_involved_in_ev_node_ev_doc_63ae1e5c_15_80",
-        "source": "ent_node_ent_1fc035",
-        "target": "ev_node_ev_doc_63ae1e5c_15",
+        "id": "edge_ent_node_ent_ab7835_involved_in_ev_node_ev_doc_5fd8f1d3_15_80",
+        "source": "ent_node_ent_ab7835",
+        "target": "ev_node_ev_doc_5fd8f1d3_15",
         "relation": "involved_in",
         "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_15_occurs_at_time_time_node_1116_AM_81",
-        "source": "ev_node_ev_doc_63ae1e5c_15",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_15_occurs_at_time_time_node_1116_AM_81",
+        "source": "ev_node_ev_doc_5fd8f1d3_15",
         "target": "time_node_1116_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_16_82",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_16",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_16_82",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_16",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM."
       },
       {
-        "id": "edge_ent_node_ent_cf288a_involved_in_ev_node_ev_doc_63ae1e5c_16_83",
-        "source": "ent_node_ent_cf288a",
-        "target": "ev_node_ev_doc_63ae1e5c_16",
+        "id": "edge_ent_node_ent_3d3d03_involved_in_ev_node_ev_doc_5fd8f1d3_16_83",
+        "source": "ent_node_ent_3d3d03",
+        "target": "ev_node_ev_doc_5fd8f1d3_16",
         "relation": "involved_in",
         "evidence_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM."
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_16_occurs_at_time_time_node_1116_AM_84",
-        "source": "ev_node_ev_doc_63ae1e5c_16",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_16_occurs_at_time_time_node_1116_AM_84",
+        "source": "ev_node_ev_doc_5fd8f1d3_16",
         "target": "time_node_1116_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM."
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_17_85",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_17",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_17_85",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_17",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_17_occurs_at_time_time_node_1117_AM_86",
-        "source": "ev_node_ev_doc_63ae1e5c_17",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_17_occurs_at_time_time_node_1117_AM_86",
+        "source": "ev_node_ev_doc_5fd8f1d3_17",
         "target": "time_node_1117_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?"
       },
       {
-        "id": "edge_doc_node_doc_63ae1e5c_provides_evidence_ev_node_ev_doc_63ae1e5c_18_87",
-        "source": "doc_node_doc_63ae1e5c",
-        "target": "ev_node_ev_doc_63ae1e5c_18",
+        "id": "edge_doc_node_doc_5fd8f1d3_provides_evidence_ev_node_ev_doc_5fd8f1d3_18_87",
+        "source": "doc_node_doc_5fd8f1d3",
+        "target": "ev_node_ev_doc_5fd8f1d3_18",
         "relation": "provides_evidence",
         "evidence_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds."
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_18_occurs_at_time_time_node_1117_AM_88",
-        "source": "ev_node_ev_doc_63ae1e5c_18",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_18_occurs_at_time_time_node_1117_AM_88",
+        "source": "ev_node_ev_doc_5fd8f1d3_18",
         "target": "time_node_1117_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds."
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_19_89",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_19",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_19_89",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_19",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:00 AM] REYNOLDS: State your name and position."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_19_occurs_at_time_time_node_0900_AM_90",
-        "source": "ev_node_ev_doc_5dcfc507_19",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_19_occurs_at_time_time_node_0900_AM_90",
+        "source": "ev_node_ev_doc_3b5c07b4_19",
         "target": "time_node_0900_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:00 AM] REYNOLDS: State your name and position."
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_20_91",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_20",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_20_91",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_20",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
       },
       {
-        "id": "edge_ent_node_ent_c7f850_involved_in_ev_node_ev_doc_5dcfc507_20_92",
-        "source": "ent_node_ent_c7f850",
-        "target": "ev_node_ev_doc_5dcfc507_20",
+        "id": "edge_ent_node_ent_55502a_involved_in_ev_node_ev_doc_3b5c07b4_20_92",
+        "source": "ent_node_ent_55502a",
+        "target": "ev_node_ev_doc_3b5c07b4_20",
         "relation": "involved_in",
         "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_involved_in_ev_node_ev_doc_5dcfc507_20_93",
-        "source": "ent_node_ent_9b18ba",
-        "target": "ev_node_ev_doc_5dcfc507_20",
+        "id": "edge_ent_node_ent_cfa8fa_involved_in_ev_node_ev_doc_3b5c07b4_20_93",
+        "source": "ent_node_ent_cfa8fa",
+        "target": "ev_node_ev_doc_3b5c07b4_20",
         "relation": "involved_in",
         "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_20_occurs_at_time_time_node_0900_AM_94",
-        "source": "ev_node_ev_doc_5dcfc507_20",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_20_occurs_at_time_time_node_0900_AM_94",
+        "source": "ev_node_ev_doc_3b5c07b4_20",
         "target": "time_node_0900_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_21_95",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_21",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_21_95",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_21",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_21_occurs_at_time_time_node_0901_AM_96",
-        "source": "ev_node_ev_doc_5dcfc507_21",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_21_occurs_at_time_time_node_0901_AM_96",
+        "source": "ev_node_ev_doc_3b5c07b4_21",
         "target": "time_node_0901_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?"
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_22_97",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_22",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_22_97",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_22",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_involved_in_ev_node_ev_doc_5dcfc507_22_98",
-        "source": "ent_node_ent_9b18ba",
-        "target": "ev_node_ev_doc_5dcfc507_22",
+        "id": "edge_ent_node_ent_55502a_involved_in_ev_node_ev_doc_3b5c07b4_22_98",
+        "source": "ent_node_ent_55502a",
+        "target": "ev_node_ev_doc_3b5c07b4_22",
         "relation": "involved_in",
         "evidence_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_22_uses_ent_node_ent_37b790_99",
-        "source": "ev_node_ev_doc_5dcfc507_22",
-        "target": "ent_node_ent_37b790",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_22_uses_ent_node_ent_fbe2ff_99",
+        "source": "ev_node_ev_doc_3b5c07b4_22",
+        "target": "ent_node_ent_fbe2ff",
         "relation": "uses",
         "evidence_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_22_uses_ent_node_ent_60e484_100",
-        "source": "ev_node_ev_doc_5dcfc507_22",
-        "target": "ent_node_ent_60e484",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_22_uses_ent_node_ent_ddf86e_100",
+        "source": "ev_node_ev_doc_3b5c07b4_22",
+        "target": "ent_node_ent_ddf86e",
         "relation": "uses",
         "evidence_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_22_occurs_at_time_time_node_0901_AM_101",
-        "source": "ev_node_ev_doc_5dcfc507_22",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_22_occurs_at_time_time_node_0901_AM_101",
+        "source": "ev_node_ev_doc_3b5c07b4_22",
         "target": "time_node_0901_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_23_102",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_23",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_23_102",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_23",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_23_occurs_at_time_time_node_0902_AM_103",
-        "source": "ev_node_ev_doc_5dcfc507_23",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_23_occurs_at_time_time_node_0902_AM_103",
+        "source": "ev_node_ev_doc_3b5c07b4_23",
         "target": "time_node_0902_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?"
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_24_104",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_24",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_24_104",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_24",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ent_node_ent_64669d_involved_in_ev_node_ev_doc_5dcfc507_24_105",
-        "source": "ent_node_ent_64669d",
-        "target": "ev_node_ev_doc_5dcfc507_24",
+        "id": "edge_ent_node_ent_ab7835_involved_in_ev_node_ev_doc_3b5c07b4_24_105",
+        "source": "ent_node_ent_ab7835",
+        "target": "ev_node_ev_doc_3b5c07b4_24",
         "relation": "involved_in",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_involved_in_ev_node_ev_doc_5dcfc507_24_106",
-        "source": "ent_node_ent_1fc035",
-        "target": "ev_node_ev_doc_5dcfc507_24",
+        "id": "edge_ent_node_ent_ca8ec1_involved_in_ev_node_ev_doc_3b5c07b4_24_106",
+        "source": "ent_node_ent_ca8ec1",
+        "target": "ev_node_ev_doc_3b5c07b4_24",
         "relation": "involved_in",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_24_uses_ent_node_ent_37b790_107",
-        "source": "ev_node_ev_doc_5dcfc507_24",
-        "target": "ent_node_ent_37b790",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_24_uses_ent_node_ent_fbe2ff_107",
+        "source": "ev_node_ev_doc_3b5c07b4_24",
+        "target": "ent_node_ent_fbe2ff",
         "relation": "uses",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_24_uses_ent_node_ent_95265c_108",
-        "source": "ev_node_ev_doc_5dcfc507_24",
-        "target": "ent_node_ent_95265c",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_24_uses_ent_node_ent_8f51ee_108",
+        "source": "ev_node_ev_doc_3b5c07b4_24",
+        "target": "ent_node_ent_8f51ee",
         "relation": "uses",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_24_occurs_at_time_time_node_0902_AM_109",
-        "source": "ev_node_ev_doc_5dcfc507_24",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_24_occurs_at_time_time_node_0902_AM_109",
+        "source": "ev_node_ev_doc_3b5c07b4_24",
         "target": "time_node_0902_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_25_110",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_25",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_25_110",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_25",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_25_occurs_at_time_time_node_0903_AM_111",
-        "source": "ev_node_ev_doc_5dcfc507_25",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_25_occurs_at_time_time_node_0903_AM_111",
+        "source": "ev_node_ev_doc_3b5c07b4_25",
         "target": "time_node_0903_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?"
       },
       {
-        "id": "edge_doc_node_doc_5dcfc507_provides_evidence_ev_node_ev_doc_5dcfc507_26_112",
-        "source": "doc_node_doc_5dcfc507",
-        "target": "ev_node_ev_doc_5dcfc507_26",
+        "id": "edge_doc_node_doc_3b5c07b4_provides_evidence_ev_node_ev_doc_3b5c07b4_26_112",
+        "source": "doc_node_doc_3b5c07b4",
+        "target": "ev_node_ev_doc_3b5c07b4_26",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight."
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_involved_in_ev_node_ev_doc_5dcfc507_26_113",
-        "source": "ent_node_ent_9b18ba",
-        "target": "ev_node_ev_doc_5dcfc507_26",
+        "id": "edge_ent_node_ent_55502a_involved_in_ev_node_ev_doc_3b5c07b4_26_113",
+        "source": "ent_node_ent_55502a",
+        "target": "ev_node_ev_doc_3b5c07b4_26",
         "relation": "involved_in",
         "evidence_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight."
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_26_occurs_at_time_time_node_0903_AM_114",
-        "source": "ev_node_ev_doc_5dcfc507_26",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_26_occurs_at_time_time_node_0903_AM_114",
+        "source": "ev_node_ev_doc_3b5c07b4_26",
         "target": "time_node_0903_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight."
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_27_115",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_27",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_27_115",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_27",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_27_occurs_at_time_time_node_1030_AM_116",
-        "source": "ev_node_ev_doc_830ae5b3_27",
+        "id": "edge_ev_node_ev_doc_370a137b_27_occurs_at_time_time_node_1030_AM_116",
+        "source": "ev_node_ev_doc_370a137b_27",
         "target": "time_node_1030_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night."
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_28_117",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_28",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_28_117",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_28",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_involved_in_ev_node_ev_doc_830ae5b3_28_118",
-        "source": "ent_node_ent_1fc035",
-        "target": "ev_node_ev_doc_830ae5b3_28",
+        "id": "edge_ent_node_ent_ab7835_involved_in_ev_node_ev_doc_370a137b_28_118",
+        "source": "ent_node_ent_ab7835",
+        "target": "ev_node_ev_doc_370a137b_28",
         "relation": "involved_in",
         "evidence_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_28_occurs_at_time_time_node_1030_AM_119",
-        "source": "ev_node_ev_doc_830ae5b3_28",
+        "id": "edge_ev_node_ev_doc_370a137b_28_occurs_at_time_time_node_1030_AM_119",
+        "source": "ev_node_ev_doc_370a137b_28",
         "target": "time_node_1030_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM."
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_29_120",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_29",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_29_120",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_29",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_29_occurs_at_time_time_node_1031_AM_121",
-        "source": "ev_node_ev_doc_830ae5b3_29",
+        "id": "edge_ev_node_ev_doc_370a137b_29_occurs_at_time_time_node_1031_AM_121",
+        "source": "ev_node_ev_doc_370a137b_29",
         "target": "time_node_1031_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?"
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_30_122",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_30",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_30_122",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_30",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_30_occurs_at_time_time_node_1031_AM_123",
-        "source": "ev_node_ev_doc_830ae5b3_30",
+        "id": "edge_ev_node_ev_doc_370a137b_30_occurs_at_time_time_node_1031_AM_123",
+        "source": "ev_node_ev_doc_370a137b_30",
         "target": "time_node_1031_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night."
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_31_124",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_31",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_31_124",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_31",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_31_occurs_at_time_time_node_1032_AM_125",
-        "source": "ev_node_ev_doc_830ae5b3_31",
+        "id": "edge_ev_node_ev_doc_370a137b_31_occurs_at_time_time_node_1032_AM_125",
+        "source": "ev_node_ev_doc_370a137b_31",
         "target": "time_node_1032_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?"
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_32_126",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_32",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_32_126",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_32",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
       },
       {
-        "id": "edge_ent_node_ent_a18b6b_involved_in_ev_node_ev_doc_830ae5b3_32_127",
-        "source": "ent_node_ent_a18b6b",
-        "target": "ev_node_ev_doc_830ae5b3_32",
+        "id": "edge_ent_node_ent_b51dfc_involved_in_ev_node_ev_doc_370a137b_32_127",
+        "source": "ent_node_ent_b51dfc",
+        "target": "ev_node_ev_doc_370a137b_32",
         "relation": "involved_in",
         "evidence_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_32_occurs_at_time_time_node_1032_AM_128",
-        "source": "ev_node_ev_doc_830ae5b3_32",
+        "id": "edge_ev_node_ev_doc_370a137b_32_occurs_at_time_time_node_1032_AM_128",
+        "source": "ev_node_ev_doc_370a137b_32",
         "target": "time_node_1032_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_33_129",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_33",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_33_129",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_33",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_33_occurs_at_time_time_node_1033_AM_130",
-        "source": "ev_node_ev_doc_830ae5b3_33",
+        "id": "edge_ev_node_ev_doc_370a137b_33_occurs_at_time_time_node_1033_AM_130",
+        "source": "ev_node_ev_doc_370a137b_33",
         "target": "time_node_1033_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?"
       },
       {
-        "id": "edge_doc_node_doc_830ae5b3_provides_evidence_ev_node_ev_doc_830ae5b3_34_131",
-        "source": "doc_node_doc_830ae5b3",
-        "target": "ev_node_ev_doc_830ae5b3_34",
+        "id": "edge_doc_node_doc_370a137b_provides_evidence_ev_node_ev_doc_370a137b_34_131",
+        "source": "doc_node_doc_370a137b",
+        "target": "ev_node_ev_doc_370a137b_34",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
       },
       {
-        "id": "edge_ent_node_ent_1fc035_involved_in_ev_node_ev_doc_830ae5b3_34_132",
-        "source": "ent_node_ent_1fc035",
-        "target": "ev_node_ev_doc_830ae5b3_34",
+        "id": "edge_ent_node_ent_ab7835_involved_in_ev_node_ev_doc_370a137b_34_132",
+        "source": "ent_node_ent_ab7835",
+        "target": "ev_node_ev_doc_370a137b_34",
         "relation": "involved_in",
         "evidence_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_34_uses_ent_node_ent_237725_133",
-        "source": "ev_node_ev_doc_830ae5b3_34",
-        "target": "ent_node_ent_237725",
+        "id": "edge_ev_node_ev_doc_370a137b_34_uses_ent_node_ent_f7f2a5_133",
+        "source": "ev_node_ev_doc_370a137b_34",
+        "target": "ent_node_ent_f7f2a5",
         "relation": "uses",
         "evidence_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_34_uses_ent_node_ent_f8bba7_134",
-        "source": "ev_node_ev_doc_830ae5b3_34",
-        "target": "ent_node_ent_f8bba7",
+        "id": "edge_ev_node_ev_doc_370a137b_34_uses_ent_node_ent_826ec5_134",
+        "source": "ev_node_ev_doc_370a137b_34",
+        "target": "ent_node_ent_826ec5",
         "relation": "uses",
         "evidence_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_34_occurs_at_time_time_node_1033_AM_135",
-        "source": "ev_node_ev_doc_830ae5b3_34",
+        "id": "edge_ev_node_ev_doc_370a137b_34_occurs_at_time_time_node_1033_AM_135",
+        "source": "ev_node_ev_doc_370a137b_34",
         "target": "time_node_1033_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
       },
       {
-        "id": "edge_doc_node_doc_92f00364_provides_evidence_ev_node_ev_doc_92f00364_35_136",
-        "source": "doc_node_doc_92f00364",
-        "target": "ev_node_ev_doc_92f00364_35",
+        "id": "edge_doc_node_doc_0c0ba6cc_provides_evidence_ev_node_ev_doc_0c0ba6cc_35_136",
+        "source": "doc_node_doc_0c0ba6cc",
+        "target": "ev_node_ev_doc_0c0ba6cc_35",
         "relation": "provides_evidence",
         "evidence_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
       },
       {
-        "id": "edge_ent_node_ent_9b18ba_involved_in_ev_node_ev_doc_92f00364_35_137",
-        "source": "ent_node_ent_9b18ba",
-        "target": "ev_node_ev_doc_92f00364_35",
+        "id": "edge_ent_node_ent_55502a_involved_in_ev_node_ev_doc_0c0ba6cc_35_137",
+        "source": "ent_node_ent_55502a",
+        "target": "ev_node_ev_doc_0c0ba6cc_35",
         "relation": "involved_in",
         "evidence_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
       },
       {
-        "id": "edge_ev_node_ev_doc_92f00364_35_located_at_ent_node_ent_e1015b_138",
-        "source": "ev_node_ev_doc_92f00364_35",
-        "target": "ent_node_ent_e1015b",
+        "id": "edge_ev_node_ev_doc_0c0ba6cc_35_located_at_ent_node_ent_54f76f_138",
+        "source": "ev_node_ev_doc_0c0ba6cc_35",
+        "target": "ent_node_ent_54f76f",
         "relation": "located_at",
         "evidence_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
       },
       {
-        "id": "edge_ev_node_ev_doc_92f00364_35_occurs_at_time_time_node_0615_AM_139",
-        "source": "ev_node_ev_doc_92f00364_35",
+        "id": "edge_ev_node_ev_doc_0c0ba6cc_35_occurs_at_time_time_node_0615_AM_139",
+        "source": "ev_node_ev_doc_0c0ba6cc_35",
         "target": "time_node_0615_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
       },
       {
-        "id": "edge_ev_node_ev_doc_92f00364_35_before_ev_node_ev_doc_5dcfc507_19_140",
-        "source": "ev_node_ev_doc_92f00364_35",
-        "target": "ev_node_ev_doc_5dcfc507_19",
+        "id": "edge_ev_node_ev_doc_0c0ba6cc_35_before_ev_node_ev_doc_3b5c07b4_19_140",
+        "source": "ev_node_ev_doc_0c0ba6cc_35",
+        "target": "ev_node_ev_doc_3b5c07b4_19",
         "relation": "before",
         "evidence_sentence": "06:15 AM -> 09:00 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_19_same_time_ev_node_ev_doc_5dcfc507_20_141",
-        "source": "ev_node_ev_doc_5dcfc507_19",
-        "target": "ev_node_ev_doc_5dcfc507_20",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_19_same_time_ev_node_ev_doc_3b5c07b4_20_141",
+        "source": "ev_node_ev_doc_3b5c07b4_19",
+        "target": "ev_node_ev_doc_3b5c07b4_20",
         "relation": "same_time",
         "evidence_sentence": "09:00 AM -> 09:00 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_20_before_ev_node_ev_doc_5dcfc507_21_142",
-        "source": "ev_node_ev_doc_5dcfc507_20",
-        "target": "ev_node_ev_doc_5dcfc507_21",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_20_before_ev_node_ev_doc_3b5c07b4_21_142",
+        "source": "ev_node_ev_doc_3b5c07b4_20",
+        "target": "ev_node_ev_doc_3b5c07b4_21",
         "relation": "before",
         "evidence_sentence": "09:00 AM -> 09:01 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_21_same_time_ev_node_ev_doc_5dcfc507_22_143",
-        "source": "ev_node_ev_doc_5dcfc507_21",
-        "target": "ev_node_ev_doc_5dcfc507_22",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_21_same_time_ev_node_ev_doc_3b5c07b4_22_143",
+        "source": "ev_node_ev_doc_3b5c07b4_21",
+        "target": "ev_node_ev_doc_3b5c07b4_22",
         "relation": "same_time",
         "evidence_sentence": "09:01 AM -> 09:01 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_22_before_ev_node_ev_doc_5dcfc507_23_144",
-        "source": "ev_node_ev_doc_5dcfc507_22",
-        "target": "ev_node_ev_doc_5dcfc507_23",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_22_before_ev_node_ev_doc_3b5c07b4_23_144",
+        "source": "ev_node_ev_doc_3b5c07b4_22",
+        "target": "ev_node_ev_doc_3b5c07b4_23",
         "relation": "before",
         "evidence_sentence": "09:01 AM -> 09:02 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_23_same_time_ev_node_ev_doc_5dcfc507_24_145",
-        "source": "ev_node_ev_doc_5dcfc507_23",
-        "target": "ev_node_ev_doc_5dcfc507_24",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_23_same_time_ev_node_ev_doc_3b5c07b4_24_145",
+        "source": "ev_node_ev_doc_3b5c07b4_23",
+        "target": "ev_node_ev_doc_3b5c07b4_24",
         "relation": "same_time",
         "evidence_sentence": "09:02 AM -> 09:02 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_24_before_ev_node_ev_doc_5dcfc507_25_146",
-        "source": "ev_node_ev_doc_5dcfc507_24",
-        "target": "ev_node_ev_doc_5dcfc507_25",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_24_before_ev_node_ev_doc_3b5c07b4_25_146",
+        "source": "ev_node_ev_doc_3b5c07b4_24",
+        "target": "ev_node_ev_doc_3b5c07b4_25",
         "relation": "before",
         "evidence_sentence": "09:02 AM -> 09:03 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_25_same_time_ev_node_ev_doc_5dcfc507_26_147",
-        "source": "ev_node_ev_doc_5dcfc507_25",
-        "target": "ev_node_ev_doc_5dcfc507_26",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_25_same_time_ev_node_ev_doc_3b5c07b4_26_147",
+        "source": "ev_node_ev_doc_3b5c07b4_25",
+        "target": "ev_node_ev_doc_3b5c07b4_26",
         "relation": "same_time",
         "evidence_sentence": "09:03 AM -> 09:03 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_5dcfc507_26_before_ev_node_ev_doc_830ae5b3_27_148",
-        "source": "ev_node_ev_doc_5dcfc507_26",
-        "target": "ev_node_ev_doc_830ae5b3_27",
+        "id": "edge_ev_node_ev_doc_3b5c07b4_26_before_ev_node_ev_doc_370a137b_27_148",
+        "source": "ev_node_ev_doc_3b5c07b4_26",
+        "target": "ev_node_ev_doc_370a137b_27",
         "relation": "before",
         "evidence_sentence": "09:03 AM -> 10:30 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_27_same_time_ev_node_ev_doc_830ae5b3_28_149",
-        "source": "ev_node_ev_doc_830ae5b3_27",
-        "target": "ev_node_ev_doc_830ae5b3_28",
+        "id": "edge_ev_node_ev_doc_370a137b_27_same_time_ev_node_ev_doc_370a137b_28_149",
+        "source": "ev_node_ev_doc_370a137b_27",
+        "target": "ev_node_ev_doc_370a137b_28",
         "relation": "same_time",
         "evidence_sentence": "10:30 AM -> 10:30 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_28_before_ev_node_ev_doc_830ae5b3_29_150",
-        "source": "ev_node_ev_doc_830ae5b3_28",
-        "target": "ev_node_ev_doc_830ae5b3_29",
+        "id": "edge_ev_node_ev_doc_370a137b_28_before_ev_node_ev_doc_370a137b_29_150",
+        "source": "ev_node_ev_doc_370a137b_28",
+        "target": "ev_node_ev_doc_370a137b_29",
         "relation": "before",
         "evidence_sentence": "10:30 AM -> 10:31 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_29_same_time_ev_node_ev_doc_830ae5b3_30_151",
-        "source": "ev_node_ev_doc_830ae5b3_29",
-        "target": "ev_node_ev_doc_830ae5b3_30",
+        "id": "edge_ev_node_ev_doc_370a137b_29_same_time_ev_node_ev_doc_370a137b_30_151",
+        "source": "ev_node_ev_doc_370a137b_29",
+        "target": "ev_node_ev_doc_370a137b_30",
         "relation": "same_time",
         "evidence_sentence": "10:31 AM -> 10:31 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_30_before_ev_node_ev_doc_830ae5b3_31_152",
-        "source": "ev_node_ev_doc_830ae5b3_30",
-        "target": "ev_node_ev_doc_830ae5b3_31",
+        "id": "edge_ev_node_ev_doc_370a137b_30_before_ev_node_ev_doc_370a137b_31_152",
+        "source": "ev_node_ev_doc_370a137b_30",
+        "target": "ev_node_ev_doc_370a137b_31",
         "relation": "before",
         "evidence_sentence": "10:31 AM -> 10:32 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_31_same_time_ev_node_ev_doc_830ae5b3_32_153",
-        "source": "ev_node_ev_doc_830ae5b3_31",
-        "target": "ev_node_ev_doc_830ae5b3_32",
+        "id": "edge_ev_node_ev_doc_370a137b_31_same_time_ev_node_ev_doc_370a137b_32_153",
+        "source": "ev_node_ev_doc_370a137b_31",
+        "target": "ev_node_ev_doc_370a137b_32",
         "relation": "same_time",
         "evidence_sentence": "10:32 AM -> 10:32 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_32_before_ev_node_ev_doc_830ae5b3_33_154",
-        "source": "ev_node_ev_doc_830ae5b3_32",
-        "target": "ev_node_ev_doc_830ae5b3_33",
+        "id": "edge_ev_node_ev_doc_370a137b_32_before_ev_node_ev_doc_370a137b_33_154",
+        "source": "ev_node_ev_doc_370a137b_32",
+        "target": "ev_node_ev_doc_370a137b_33",
         "relation": "before",
         "evidence_sentence": "10:32 AM -> 10:33 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_33_same_time_ev_node_ev_doc_830ae5b3_34_155",
-        "source": "ev_node_ev_doc_830ae5b3_33",
-        "target": "ev_node_ev_doc_830ae5b3_34",
+        "id": "edge_ev_node_ev_doc_370a137b_33_same_time_ev_node_ev_doc_370a137b_34_155",
+        "source": "ev_node_ev_doc_370a137b_33",
+        "target": "ev_node_ev_doc_370a137b_34",
         "relation": "same_time",
         "evidence_sentence": "10:33 AM -> 10:33 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_830ae5b3_34_before_ev_node_ev_doc_63ae1e5c_13_156",
-        "source": "ev_node_ev_doc_830ae5b3_34",
-        "target": "ev_node_ev_doc_63ae1e5c_13",
+        "id": "edge_ev_node_ev_doc_370a137b_34_before_ev_node_ev_doc_5fd8f1d3_13_156",
+        "source": "ev_node_ev_doc_370a137b_34",
+        "target": "ev_node_ev_doc_5fd8f1d3_13",
         "relation": "before",
         "evidence_sentence": "10:33 AM -> 11:15 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_13_same_time_ev_node_ev_doc_63ae1e5c_14_157",
-        "source": "ev_node_ev_doc_63ae1e5c_13",
-        "target": "ev_node_ev_doc_63ae1e5c_14",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_13_same_time_ev_node_ev_doc_5fd8f1d3_14_157",
+        "source": "ev_node_ev_doc_5fd8f1d3_13",
+        "target": "ev_node_ev_doc_5fd8f1d3_14",
         "relation": "same_time",
         "evidence_sentence": "11:15 AM -> 11:15 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_14_before_ev_node_ev_doc_63ae1e5c_15_158",
-        "source": "ev_node_ev_doc_63ae1e5c_14",
-        "target": "ev_node_ev_doc_63ae1e5c_15",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_14_before_ev_node_ev_doc_5fd8f1d3_15_158",
+        "source": "ev_node_ev_doc_5fd8f1d3_14",
+        "target": "ev_node_ev_doc_5fd8f1d3_15",
         "relation": "before",
         "evidence_sentence": "11:15 AM -> 11:16 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_15_same_time_ev_node_ev_doc_63ae1e5c_16_159",
-        "source": "ev_node_ev_doc_63ae1e5c_15",
-        "target": "ev_node_ev_doc_63ae1e5c_16",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_15_same_time_ev_node_ev_doc_5fd8f1d3_16_159",
+        "source": "ev_node_ev_doc_5fd8f1d3_15",
+        "target": "ev_node_ev_doc_5fd8f1d3_16",
         "relation": "same_time",
         "evidence_sentence": "11:16 AM -> 11:16 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_16_before_ev_node_ev_doc_63ae1e5c_17_160",
-        "source": "ev_node_ev_doc_63ae1e5c_16",
-        "target": "ev_node_ev_doc_63ae1e5c_17",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_16_before_ev_node_ev_doc_5fd8f1d3_17_160",
+        "source": "ev_node_ev_doc_5fd8f1d3_16",
+        "target": "ev_node_ev_doc_5fd8f1d3_17",
         "relation": "before",
         "evidence_sentence": "11:16 AM -> 11:17 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_17_same_time_ev_node_ev_doc_63ae1e5c_18_161",
-        "source": "ev_node_ev_doc_63ae1e5c_17",
-        "target": "ev_node_ev_doc_63ae1e5c_18",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_17_same_time_ev_node_ev_doc_5fd8f1d3_18_161",
+        "source": "ev_node_ev_doc_5fd8f1d3_17",
+        "target": "ev_node_ev_doc_5fd8f1d3_18",
         "relation": "same_time",
         "evidence_sentence": "11:17 AM -> 11:17 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_63ae1e5c_18_before_ev_node_ev_doc_78005f2d_11_162",
-        "source": "ev_node_ev_doc_63ae1e5c_18",
-        "target": "ev_node_ev_doc_78005f2d_11",
+        "id": "edge_ev_node_ev_doc_5fd8f1d3_18_before_ev_node_ev_doc_49e789cc_11_162",
+        "source": "ev_node_ev_doc_5fd8f1d3_18",
+        "target": "ev_node_ev_doc_49e789cc_11",
         "relation": "before",
         "evidence_sentence": "11:17 AM -> 04:15 PM"
       },
       {
-        "id": "edge_ev_node_ev_doc_78005f2d_11_before_ev_node_ev_doc_c7bc7977_12_163",
-        "source": "ev_node_ev_doc_78005f2d_11",
-        "target": "ev_node_ev_doc_c7bc7977_12",
+        "id": "edge_ev_node_ev_doc_49e789cc_11_before_ev_node_ev_doc_2e320a31_12_163",
+        "source": "ev_node_ev_doc_49e789cc_11",
+        "target": "ev_node_ev_doc_2e320a31_12",
         "relation": "before",
         "evidence_sentence": "04:15 PM -> 22:10"
       },
       {
-        "id": "edge_ev_node_ev_doc_c7bc7977_12_before_ev_node_ev_doc_035c74a0_10_164",
-        "source": "ev_node_ev_doc_c7bc7977_12",
-        "target": "ev_node_ev_doc_035c74a0_10",
+        "id": "edge_ev_node_ev_doc_2e320a31_12_before_ev_node_ev_doc_2c42b2fd_10_164",
+        "source": "ev_node_ev_doc_2e320a31_12",
+        "target": "ev_node_ev_doc_2c42b2fd_10",
         "relation": "before",
         "evidence_sentence": "22:10 -> 10:20 PM"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_10_before_ev_node_ev_doc_667a878f_1_165",
-        "source": "ev_node_ev_doc_035c74a0_10",
-        "target": "ev_node_ev_doc_667a878f_1",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_10_before_ev_node_ev_doc_c50a1ba3_1_165",
+        "source": "ev_node_ev_doc_2c42b2fd_10",
+        "target": "ev_node_ev_doc_c50a1ba3_1",
         "relation": "before",
         "evidence_sentence": "10:20 PM -> 2024-10-18 19:00:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_1_before_ev_node_ev_doc_035c74a0_7_166",
-        "source": "ev_node_ev_doc_667a878f_1",
-        "target": "ev_node_ev_doc_035c74a0_7",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_1_before_ev_node_ev_doc_2c42b2fd_7_166",
+        "source": "ev_node_ev_doc_c50a1ba3_1",
+        "target": "ev_node_ev_doc_2c42b2fd_7",
         "relation": "before",
         "evidence_sentence": "2024-10-18 19:00:00 -> 2024-10-18 21:50:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_7_before_ev_node_ev_doc_667a878f_2_167",
-        "source": "ev_node_ev_doc_035c74a0_7",
-        "target": "ev_node_ev_doc_667a878f_2",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_7_before_ev_node_ev_doc_c50a1ba3_2_167",
+        "source": "ev_node_ev_doc_2c42b2fd_7",
+        "target": "ev_node_ev_doc_c50a1ba3_2",
         "relation": "before",
         "evidence_sentence": "2024-10-18 21:50:00 -> 2024-10-18 21:50:12"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_2_before_ev_node_ev_doc_035c74a0_8_168",
-        "source": "ev_node_ev_doc_667a878f_2",
-        "target": "ev_node_ev_doc_035c74a0_8",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_2_before_ev_node_ev_doc_2c42b2fd_8_168",
+        "source": "ev_node_ev_doc_c50a1ba3_2",
+        "target": "ev_node_ev_doc_2c42b2fd_8",
         "relation": "before",
         "evidence_sentence": "2024-10-18 21:50:12 -> 2024-10-18 22:05:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_8_before_ev_node_ev_doc_667a878f_3_169",
-        "source": "ev_node_ev_doc_035c74a0_8",
-        "target": "ev_node_ev_doc_667a878f_3",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_8_before_ev_node_ev_doc_c50a1ba3_3_169",
+        "source": "ev_node_ev_doc_2c42b2fd_8",
+        "target": "ev_node_ev_doc_c50a1ba3_3",
         "relation": "before",
         "evidence_sentence": "2024-10-18 22:05:00 -> 2024-10-18 22:15:02"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_3_before_ev_node_ev_doc_667a878f_4_170",
-        "source": "ev_node_ev_doc_667a878f_3",
-        "target": "ev_node_ev_doc_667a878f_4",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_3_before_ev_node_ev_doc_c50a1ba3_4_170",
+        "source": "ev_node_ev_doc_c50a1ba3_3",
+        "target": "ev_node_ev_doc_c50a1ba3_4",
         "relation": "before",
         "evidence_sentence": "2024-10-18 22:15:02 -> 2024-10-18 22:15:36"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_4_before_ev_node_ev_doc_667a878f_5_171",
-        "source": "ev_node_ev_doc_667a878f_4",
-        "target": "ev_node_ev_doc_667a878f_5",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_4_before_ev_node_ev_doc_c50a1ba3_5_171",
+        "source": "ev_node_ev_doc_c50a1ba3_4",
+        "target": "ev_node_ev_doc_c50a1ba3_5",
         "relation": "before",
         "evidence_sentence": "2024-10-18 22:15:36 -> 2024-10-18 22:28:19"
       },
       {
-        "id": "edge_ev_node_ev_doc_667a878f_5_before_ev_node_ev_doc_035c74a0_9_172",
-        "source": "ev_node_ev_doc_667a878f_5",
-        "target": "ev_node_ev_doc_035c74a0_9",
+        "id": "edge_ev_node_ev_doc_c50a1ba3_5_before_ev_node_ev_doc_2c42b2fd_9_172",
+        "source": "ev_node_ev_doc_c50a1ba3_5",
+        "target": "ev_node_ev_doc_2c42b2fd_9",
         "relation": "before",
         "evidence_sentence": "2024-10-18 22:28:19 -> 2024-10-18 22:30:45"
       },
       {
-        "id": "edge_ev_node_ev_doc_035c74a0_9_before_ev_node_ev_doc_667a878f_6_173",
-        "source": "ev_node_ev_doc_035c74a0_9",
-        "target": "ev_node_ev_doc_667a878f_6",
+        "id": "edge_ev_node_ev_doc_2c42b2fd_9_before_ev_node_ev_doc_c50a1ba3_6_173",
+        "source": "ev_node_ev_doc_2c42b2fd_9",
+        "target": "ev_node_ev_doc_c50a1ba3_6",
         "relation": "before",
         "evidence_sentence": "2024-10-18 22:30:45 -> 2024-10-18 22:31:00"
       }

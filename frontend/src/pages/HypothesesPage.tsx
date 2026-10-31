@@ -103,6 +103,9 @@ export const HypothesesPage: React.FC = () => {
           <div><strong>Corroboration:</strong> +1 bonus per claim supported by 2+ documents & 2+ authors.</div>
           <div><strong>Penalty:</strong> -1 subtracted for each unresolved contradiction.</div>
         </div>
+        <div className="mt-2 text-[10px] text-gray-500 italic border-t border-gray-200/60 pt-1.5">
+          Forensic Guidance: The hypothesis score is an auditable mathematical ranking heuristic. It is not a probability of truth or legal finding.
+        </div>
       </div>
 
       {/* Hypotheses List */}

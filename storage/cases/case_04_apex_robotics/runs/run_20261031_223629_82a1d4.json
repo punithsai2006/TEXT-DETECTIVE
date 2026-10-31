@@ -1,0 +1,42 @@
+{
+  "run_id": "run_20261031_223629_82a1d4",
+  "case_id": "case_04_apex_robotics",
+  "timestamp": "2026-10-31T22:36:29.728769+00:00",
+  "parser_version": "1.1.0",
+  "model_provider": "mock",
+  "model_name": "mock-investigator-v1",
+  "prompt_version": "v1.0",
+  "retrieval_settings": {
+    "method": "hybrid_semantic_bm25",
+    "rrf_k": 60,
+    "top_k": 15
+  },
+  "nli_model": "cross-encoder-nli-heuristics",
+  "scoring_config": {
+    "formula": "Support - Conflict + Corroboration - ConflictPenalty",
+    "slide": 18
+  },
+  "controller_loop_counts": {
+    "loop_1_iterations": 0,
+    "loop_2_iterations": 1,
+    "loop_3_iterations": 1
+  },
+  "document_hashes": {
+    "competitor_consulting_email.txt": "14cd79d412cd2b912e700f9dc3b3551c3d2dbdee1f94bba8c7c6dcaa01a47dc2",
+    "hangar_rfid_access_log.txt": "84bad70de8024a4860052de1e89668634373feb6a7b32304e41117b0658ca1e7",
+    "incident_investigation_report.txt": "69f424424b2d05512ba68e6c4ac0508111eaba5f6945cc6ca2626b86211cfa66",
+    "interview_lead_eng_derek.txt": "836436127ed1999160e707d5d333f27c9362c76854971f89bb8e57c015d7f5c7",
+    "interview_qa_tech_liam.txt": "3bd31581d73e1af3b729d66b5b487fa2fbd5213ed84bfb6ab28820dd4f01037b",
+    "interview_test_pilot_elena.txt": "2dabb311baee59f5ac9975448d9e04ae9918540b80938f85093ca36c3d9aa915",
+    "slack_export_engineering.txt": "f321b7113456555383b8f02930217040d2e408333a14d0db250c22bfa0c8b0c8"
+  },
+  "is_outdated": false,
+  "metrics_summary": {
+    "entities_count": 37,
+    "events_count": 31,
+    "contradictions_count": 21,
+    "hypotheses_count": 3,
+    "top_hypothesis": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+    "top_score": 11
+  }
+}

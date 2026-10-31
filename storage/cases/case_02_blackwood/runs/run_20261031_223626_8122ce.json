@@ -1,0 +1,43 @@
+{
+  "run_id": "run_20261031_223626_8122ce",
+  "case_id": "case_02_blackwood",
+  "timestamp": "2026-10-31T22:36:26.297442+00:00",
+  "parser_version": "1.1.0",
+  "model_provider": "mock",
+  "model_name": "mock-investigator-v1",
+  "prompt_version": "v1.0",
+  "retrieval_settings": {
+    "method": "hybrid_semantic_bm25",
+    "rrf_k": 60,
+    "top_k": 15
+  },
+  "nli_model": "cross-encoder-nli-heuristics",
+  "scoring_config": {
+    "formula": "Support - Conflict + Corroboration - ConflictPenalty",
+    "slide": 18
+  },
+  "controller_loop_counts": {
+    "loop_1_iterations": 0,
+    "loop_2_iterations": 1,
+    "loop_3_iterations": 1
+  },
+  "document_hashes": {
+    "alarm_system_telemetry.txt": "a6ae55d9f9bc4136f573ef4c84eacad71435bbfc2d08c7a53bea5eeaae323808",
+    "courier_delivery_log.txt": "32a937c38d57c7ec535964e755f00ab44258181699b116716c680c7bff01b3b4",
+    "curator_appraisal_email.txt": "0f2e8386dd331c2f3a3ab450682ef5133548b1f24174c6ce8a81ad7a2ae2971a",
+    "estate_cctv_audit_report.txt": "a6b8a3add77c97076260294f0e14c79daf7a65e4a56ac430ba504217655344b5",
+    "interview_cleaner_marta.txt": "4dc23fe0210df218de504371e527d8dabb4094b03c10fcd689aa4c428f7e6e55",
+    "interview_curator_clara.txt": "f4e3906c59eb962af1fb13306d367704769ced53c12c57406adb0264597b4fc1",
+    "interview_guard_julian.txt": "9f7cde56c836e76e5b1bed80ddfde287c20dd2b25a71a4ef59d14e094c75d80f",
+    "police_initial_report.txt": "071edfaf8172c2a8ce770949c36a5537413e5ae929379658cca0730af46f4ba6"
+  },
+  "is_outdated": false,
+  "metrics_summary": {
+    "entities_count": 34,
+    "events_count": 35,
+    "contradictions_count": 12,
+    "hypotheses_count": 3,
+    "top_hypothesis": "Insider Theft by Security Guard Julian Vance",
+    "top_score": 10
+  }
+}

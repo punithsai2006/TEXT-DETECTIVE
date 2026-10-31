@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import re
 import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -10,6 +11,7 @@ from fastapi.responses import PlainTextResponse, Response
 
 from app.config import settings
 from app.models.schemas import (
+    AnalysisRunRecord,
     AnalysisStatus,
     AskQuestionRequest,
     AskQuestionResponse,
@@ -18,6 +20,7 @@ from app.models.schemas import (
     CaseGraph,
     CaseUpdateRequest,
     ContradictionItem,
+    ContradictionReviewRequest,
     DocumentMetadata,
     DocumentType,
     Entity,
@@ -27,11 +30,13 @@ from app.models.schemas import (
     Hypothesis,
     HypothesisInput,
     InvestigationReport,
+    ReviewStatus,
     TimelineEntry,
 )
 from app.services.ingestion.preprocessor import process_uploaded_file
 from app.services.llm_provider import get_llm_provider
 from app.services.orchestration.controller import controller
+from app.services.provenance.provenance_validator import ProvenanceValidationReport, ProvenanceValidator
 from app.services.reporting.reporter import export_report_to_json, export_report_to_markdown
 from app.services.retrieval.retriever import retriever
 from app.storage.case_store import case_store
@@ -39,6 +44,11 @@ from app.storage.case_store import case_store
 logger = logging.getLogger(__name__)
 
 api_router = APIRouter()
+
+MAX_FILES_PER_UPLOAD = 20
+MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024  # 10 MB per file
+MAX_BATCH_SIZE_BYTES = 50 * 1024 * 1024  # 50 MB per batch
+ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx", ".log", ".csv", ".json"}
 
 
 # ==========================================
@@ -125,6 +135,12 @@ def upload_documents(
     if not c:
         raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
 
+    if len(files) > MAX_FILES_PER_UPLOAD:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Exceeded maximum batch limit of {MAX_FILES_PER_UPLOAD} files per upload request."
+        )
+
     uploaded_docs: List[DocumentMetadata] = []
     case_uploads_dir = case_store.uploads_dir / case_id
     case_uploads_dir.mkdir(parents=True, exist_ok=True)
@@ -136,17 +152,54 @@ def upload_documents(
         except ValueError:
             pass
 
+    total_batch_size = 0
+
     for file in files:
         if not file.filename:
             continue
 
-        # Prevent path traversal in filename
-        safe_name = os.path.basename(file.filename)
-        dest_path = case_uploads_dir / safe_name
+        raw_filename = file.filename
+
+        # Filename sanitization & path traversal defense (Task 3)
+        if "\x00" in raw_filename or ".." in raw_filename:
+            raise HTTPException(status_code=400, detail="Invalid filename: illegal path traversal characters detected.")
+
+        safe_name = Path(raw_filename).name.strip()
+        safe_name = re.sub(r'[\/\\:*?"<>|]', '_', safe_name)
+        if not safe_name:
+            continue
+
+        ext = Path(safe_name).suffix.lower()
+        if ext not in ALLOWED_EXTENSIONS:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Unsupported file extension '{ext}'. Allowed extensions are: {', '.join(sorted(ALLOWED_EXTENSIONS))}"
+            )
+
+        dest_path = (case_uploads_dir / safe_name).resolve()
+        # Verify resolved destination path stays strictly inside case_uploads_dir
+        if not dest_path.is_relative_to(case_uploads_dir.resolve()):
+            raise HTTPException(status_code=400, detail="Security violation: Path traversal detected.")
+
+        file_bytes = file.file.read()
+        file_size = len(file_bytes)
+        total_batch_size += file_size
+
+        if file_size > MAX_FILE_SIZE_BYTES:
+            raise HTTPException(
+                status_code=413,
+                detail=f"File '{safe_name}' ({file_size} bytes) exceeds maximum limit of {MAX_FILE_SIZE_BYTES // (1024*1024)}MB."
+            )
+
+        if total_batch_size > MAX_BATCH_SIZE_BYTES:
+            raise HTTPException(
+                status_code=413,
+                detail=f"Batch size exceeds maximum limit of {MAX_BATCH_SIZE_BYTES // (1024*1024)}MB."
+            )
 
         try:
             with open(dest_path, "wb") as f_out:
-                shutil.copyfileobj(file.file, f_out)
+                f_out.write(file_bytes)
 
             doc_meta = process_uploaded_file(
                 case_id=case_id,
@@ -173,6 +226,17 @@ def get_document_details(document_id: str) -> DocumentMetadata:
     if not doc:
         raise HTTPException(status_code=404, detail=f"Document '{document_id}' not found.")
     return doc
+
+
+@api_router.delete("/cases/{case_id}/documents/{document_id}")
+def delete_case_document(case_id: str, document_id: str) -> Dict[str, Any]:
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+    deleted = case_store.delete_document(case_id, document_id)
+    if not deleted:
+        raise HTTPException(status_code=404, detail=f"Document '{document_id}' not found in case '{case_id}'.")
+    return {"message": f"Document '{document_id}' deleted.", "case_id": case_id, "remaining_count": c.document_count}
 
 
 @api_router.delete("/documents/{document_id}")
@@ -400,6 +464,88 @@ def ask_question(case_id: str, req: AskQuestionRequest) -> AskQuestionResponse:
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
     return controller.ask_case_question(case_id=case_id, question=req.question.strip(), top_k=req.top_k)
+
+
+# ==========================================
+# CONTRADICTION REVIEW (TASK 5)
+# ==========================================
+
+@api_router.patch("/cases/{case_id}/contradictions/{contradiction_id}/review", response_model=ContradictionItem)
+def review_contradiction(
+    case_id: str,
+    contradiction_id: str,
+    req: ContradictionReviewRequest,
+) -> ContradictionItem:
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+
+    updated = case_store.update_contradiction_review(
+        case_id=case_id,
+        contradiction_id=contradiction_id,
+        review_status=req.review_status,
+        reviewer_id=req.reviewer_id,
+        review_notes=req.review_notes,
+    )
+    if not updated:
+        raise HTTPException(status_code=404, detail=f"Contradiction '{contradiction_id}' not found in case '{case_id}'.")
+    return updated
+
+
+# ==========================================
+# EVIDENCE PROVENANCE VALIDATION (TASK 2)
+# ==========================================
+
+@api_router.get("/cases/{case_id}/provenance", response_model=ProvenanceValidationReport)
+def validate_case_provenance(case_id: str) -> ProvenanceValidationReport:
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+
+    docs = case_store.get_documents(case_id)
+    extraction = case_store.get_extraction(case_id)
+    contradictions = case_store.get_contradictions(case_id)
+    hypotheses = case_store.get_hypotheses(case_id)
+    report = case_store.get_report(case_id)
+
+    events = [Event(**e) for e in extraction.get("events", [])]
+    timeline = [TimelineEntry(**t) for t in extraction.get("timeline", [])]
+    key_evidence = report.key_evidence if report else []
+
+    val_report = ProvenanceValidator.validate_case(
+        case_id=case_id,
+        documents=docs,
+        events=events,
+        timeline=timeline,
+        contradictions=contradictions,
+        hypotheses=hypotheses,
+        evidence_items=key_evidence,
+        report=report,
+    )
+    return val_report
+
+
+# ==========================================
+# REPRODUCIBLE ANALYSIS RUNS (TASK 6)
+# ==========================================
+
+@api_router.get("/cases/{case_id}/runs", response_model=List[AnalysisRunRecord])
+def list_analysis_runs(case_id: str) -> List[AnalysisRunRecord]:
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+    return case_store.list_run_records(case_id)
+
+
+@api_router.get("/cases/{case_id}/runs/{run_id}", response_model=AnalysisRunRecord)
+def get_analysis_run(case_id: str, run_id: str) -> AnalysisRunRecord:
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+    record = case_store.get_run_record(case_id, run_id)
+    if not record:
+        raise HTTPException(status_code=404, detail=f"Run record '{run_id}' not found.")
+    return record
 
 
 # ==========================================

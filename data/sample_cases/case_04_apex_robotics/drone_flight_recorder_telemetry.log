@@ -1,0 +1,9 @@
+SKYHARRIER-9 BLACK BOX FLASH MEMORY TELEMETRY
+Hardware UUID: SH9-00891-TX
+
+[2024-10-25 18:00:00] BOOT: Firmware v2.4 (SHA256: e88a91b... VERIFIED)
+[2024-10-25 20:17:33] USB_HOST: Device Attached [VID: 0x0781 PID: 0x5581 SanDisk Cruzer]
+[2024-10-25 20:18:02] FLASH_OVERWRITE: Block 0x000F4000 overwritten with custom binary [PAYLOAD: KILL_OVERRIDE_0x99]
+[2024-10-25 20:20:11] USB_HOST: Device Ejected
+[2024-10-25 21:00:15] FLIGHT: Motors Spooled Up - Launch
+[2024-10-25 21:05:42] EXEC: Trigger condition reached [ALTITUDE > 350m]. KILL_OVERRIDE executed. Motor PWM disabled.

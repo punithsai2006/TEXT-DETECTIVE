@@ -1,19 +1,19 @@
 [
   {
-    "hypothesis_id": "hyp_user_0da689",
+    "hypothesis_id": "hyp_user_1a5199",
     "case_id": "case_01_meridian",
     "title": "Subcontractor Physical USB Exfiltration via Compromised Credentials",
     "description": "Contractor David Wright bypassed the taped lock on Server Room B, accessed Console 2 using Alice Vance's credentials, and downloaded customer data onto a Kingston USB drive before exiting at 10:42 PM.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_74d590be",
+        "claim_id": "clm_0b84fdb0",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_35dbf54c_3",
-          "evid_chk_doc_dbf79ee0_1",
-          "evid_chk_doc_35dbf54c_2",
-          "evid_chk_doc_35dbf54c_1"
+          "evid_chk_doc_d49009ab_3",
+          "evid_chk_doc_cd67f7e8_1",
+          "evid_chk_doc_d49009ab_2",
+          "evid_chk_doc_d49009ab_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -29,19 +29,19 @@
           "Elena Rostova"
         ],
         "is_corroborated": true,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_8d0a339b",
+        "claim_id": "clm_fcbf3471",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_3",
-          "evid_chk_doc_dbf79ee0_5",
-          "evid_chk_doc_150c9d94_2",
-          "evid_chk_doc_35dbf54c_5"
+          "evid_chk_doc_cd67f7e8_3",
+          "evid_chk_doc_cd67f7e8_5",
+          "evid_chk_doc_976c54d7_2",
+          "evid_chk_doc_d49009ab_5"
         ],
         "conflicting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_5"
+          "evid_chk_doc_cd67f7e8_5"
         ],
         "contributing_documents": [
           "security_incident_report.txt",
@@ -55,16 +55,16 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 25
+        "unresolved_conflicts_count": 31
       },
       {
-        "claim_id": "clm_6cbf28b5",
+        "claim_id": "clm_1a56f6a7",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_35dbf54c_3",
-          "evid_chk_doc_150c9d94_1",
-          "evid_chk_doc_dbf79ee0_5",
-          "evid_chk_doc_150c9d94_2"
+          "evid_chk_doc_d49009ab_3",
+          "evid_chk_doc_976c54d7_1",
+          "evid_chk_doc_cd67f7e8_5",
+          "evid_chk_doc_976c54d7_2"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -78,44 +78,44 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 1
+        "unresolved_conflicts_count": 18
       }
     ],
     "support_score": 9,
     "conflict_score": 1,
     "corroboration_score": 1,
-    "conflict_penalty": 26,
-    "total_score": -17,
+    "conflict_penalty": 50,
+    "total_score": -41,
     "rank": 1,
     "is_proposed_explanation": true,
-    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (26) = -25. Evaluated against 3 verifiable claims.",
-    "uncertainty_warning": "Notice: Top two hypotheses ('Subcontractor Physical USB Exfiltration via Compromised Credentials' and 'External APT Group Network SFTP Exfiltration') share an identical score of -25. Evidence is currently insufficient to establish a single proposed explanation."
+    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (50) = -49. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Subcontractor Physical USB Exfiltration via Compromised Credentials' and 'External APT Group Network SFTP Exfiltration') share an identical score of -49. Evidence is currently insufficient to establish a single proposed explanation."
   },
   {
-    "hypothesis_id": "hyp_user_8dcc28",
+    "hypothesis_id": "hyp_user_76e089",
     "case_id": "case_01_meridian",
     "title": "External APT Group Network SFTP Exfiltration",
     "description": "An external hacking syndicate compromised the external firewall and exfiltrated databases remotely over encrypted SFTP tunnels.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_721f8e94",
+        "claim_id": "clm_7492b723",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [],
         "conflicting_evidence_ids": [],
         "contributing_documents": [],
         "contributing_speakers": [],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_ace6d8fe",
+        "claim_id": "clm_1538c237",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_3"
+          "evid_chk_doc_cd67f7e8_3"
         ],
         "conflicting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_5"
+          "evid_chk_doc_cd67f7e8_5"
         ],
         "contributing_documents": [
           "security_incident_report.txt"
@@ -124,13 +124,13 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 25
+        "unresolved_conflicts_count": 31
       },
       {
-        "claim_id": "clm_1c3598ba",
+        "claim_id": "clm_f8a588ea",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_35dbf54c_3"
+          "evid_chk_doc_d49009ab_3"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -140,44 +140,44 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 1
+        "unresolved_conflicts_count": 18
       }
     ],
     "support_score": 2,
     "conflict_score": 1,
     "corroboration_score": 0,
-    "conflict_penalty": 26,
-    "total_score": -25,
+    "conflict_penalty": 50,
+    "total_score": -49,
     "rank": 2,
     "is_proposed_explanation": false,
-    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (26) = -25. Evaluated against 3 verifiable claims.",
-    "uncertainty_warning": "Notice: Top two hypotheses ('Subcontractor Physical USB Exfiltration via Compromised Credentials' and 'External APT Group Network SFTP Exfiltration') share an identical score of -25. Evidence is currently insufficient to establish a single proposed explanation."
+    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (50) = -49. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Subcontractor Physical USB Exfiltration via Compromised Credentials' and 'External APT Group Network SFTP Exfiltration') share an identical score of -49. Evidence is currently insufficient to establish a single proposed explanation."
   },
   {
-    "hypothesis_id": "hyp_user_75eb93",
+    "hypothesis_id": "hyp_user_7489af",
     "case_id": "case_01_meridian",
     "title": "Rogue DBA Insider Sabotage by Alice Vance",
     "description": "Lead Engineer Alice Vance intentionally copied the databases herself at her desk on Floor 3 to sell to competitors.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_55d9e281",
+        "claim_id": "clm_a563e88f",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [],
         "conflicting_evidence_ids": [],
         "contributing_documents": [],
         "contributing_speakers": [],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_4fa035f8",
+        "claim_id": "clm_867a3b87",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_3"
+          "evid_chk_doc_cd67f7e8_3"
         ],
         "conflicting_evidence_ids": [
-          "evid_chk_doc_dbf79ee0_5"
+          "evid_chk_doc_cd67f7e8_5"
         ],
         "contributing_documents": [
           "security_incident_report.txt"
@@ -186,13 +186,13 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 25
+        "unresolved_conflicts_count": 31
       },
       {
-        "claim_id": "clm_a8dd1f3a",
+        "claim_id": "clm_c18682c2",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_35dbf54c_3"
+          "evid_chk_doc_d49009ab_3"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -202,17 +202,17 @@
           "Elena Rostova"
         ],
         "is_corroborated": false,
-        "unresolved_conflicts_count": 1
+        "unresolved_conflicts_count": 18
       }
     ],
     "support_score": 2,
     "conflict_score": 1,
     "corroboration_score": 0,
-    "conflict_penalty": 26,
-    "total_score": -25,
+    "conflict_penalty": 50,
+    "total_score": -49,
     "rank": 3,
     "is_proposed_explanation": false,
-    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (26) = -25. Evaluated against 3 verifiable claims.",
+    "explanation": "Score calculation: Support (2) - Conflict (1) + Corroboration (0) - Conflict Penalty (50) = -49. Evaluated against 3 verifiable claims.",
     "uncertainty_warning": null
   }
 ]

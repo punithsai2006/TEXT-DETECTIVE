@@ -119,6 +119,8 @@ export interface EvidenceItem {
   retrieval_method: string;
 }
 
+export type ReviewStatus = 'pending_review' | 'confirmed' | 'rejected' | 'needs_further_investigation';
+
 export interface ContradictionItem {
   id: string;
   case_id: string;
@@ -138,6 +140,12 @@ export interface ContradictionItem {
   confidence: number;
   explanation: string;
   resolution_status: 'unresolved' | 'resolved' | 'investigating';
+  review_status?: ReviewStatus;
+  reviewer_id?: string;
+  review_timestamp?: string;
+  previous_review_status?: string;
+  review_notes?: string;
+  calculation_source?: string;
   source_sentences: string[];
 }
 
@@ -271,4 +279,39 @@ export interface AskQuestionResponse {
   model_used: string;
   is_mock: boolean;
   uncertainty_note?: string;
+}
+
+export interface AnalysisRunRecord {
+  run_id: string;
+  case_id: string;
+  timestamp: string;
+  parser_version: string;
+  model_provider: string;
+  model_name: string;
+  prompt_version: string;
+  retrieval_settings: Record<string, any>;
+  nli_model: string;
+  scoring_config: Record<string, any>;
+  controller_loop_counts: Record<string, number>;
+  document_hashes: Record<string, string>;
+  is_outdated: boolean;
+  metrics_summary: Record<string, any>;
+}
+
+export interface ProvenanceValidationReport {
+  case_id: string;
+  is_valid: boolean;
+  total_checks: number;
+  passed_checks: number;
+  failed_checks: number;
+  failures: Array<{
+    module: string;
+    item_id: string;
+    field: string;
+    document_id?: string;
+    reason: string;
+    invalid_reference?: string;
+  }>;
+  warnings: string[];
+  breakdown_by_module: Record<string, { passed: number; failed: number }>;
 }

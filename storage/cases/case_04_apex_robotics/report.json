@@ -1,0 +1,3671 @@
+{
+  "report_id": "rep_case_04_apex_robotics_c397e9",
+  "case_id": "case_04_apex_robotics",
+  "case_name": "The Apex Robotics Drone Sabotage",
+  "generated_at": "2026-10-31T22:36:29.723162+00:00",
+  "case_overview": "Investigation into unauthorized motor-kill firmware flashing and catastrophic failure of SkyHarrier-9 prototype.",
+  "documents_analyzed": [
+    {
+      "document_id": "doc_f548e0ce",
+      "filename": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "chunk_count": 4,
+      "file_size_bytes": 554
+    },
+    {
+      "document_id": "doc_df2b34c8",
+      "filename": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "speaker": null,
+      "timestamp": "2024-10-25",
+      "chunk_count": 3,
+      "file_size_bytes": 559
+    },
+    {
+      "document_id": "doc_a98fd3c1",
+      "filename": "incident_investigation_report.txt",
+      "document_type": "report",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "chunk_count": 4,
+      "file_size_bytes": 606
+    },
+    {
+      "document_id": "doc_cadcdad8",
+      "filename": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 885
+    },
+    {
+      "document_id": "doc_ad357e19",
+      "filename": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "speaker": "Liam Vance",
+      "timestamp": null,
+      "chunk_count": 3,
+      "file_size_bytes": 567
+    },
+    {
+      "document_id": "doc_246b2801",
+      "filename": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "speaker": "Elena Rostova",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 869
+    },
+    {
+      "document_id": "doc_9b93e8ff",
+      "filename": "slack_export_engineering.txt",
+      "document_type": "other",
+      "speaker": null,
+      "timestamp": "October 25, 2024",
+      "chunk_count": 3,
+      "file_size_bytes": 438
+    }
+  ],
+  "investigation_summary": "Investigation analysis completed for Case 'The Apex Robotics Drone Sabotage'. A total of 7 documents were processed, revealing 37 unique named entities and 31 ordered timeline events. Cross-document comparison established 20 conflicts and 1 corroborated agreements. The system's proposed explanation is 'Insider Firmware Sabotage by Derek Cole for Competitor Payoff' with an evidence score of 11.",
+  "extracted_entities": [
+    {
+      "entity_id": "ent_b8574e",
+      "name": "Liam Vance",
+      "entity_type": "person",
+      "mentions_count": 10,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_9b93e8ff",
+        "doc_ad357e19",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Speaker/Author of document: Liam Vance",
+        "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+        "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+        "Interviewee: Liam Vance, QA Safety Specialist",
+        "Interviewer: Agent Vance"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_73d94e",
+      "name": "Derek Cole",
+      "entity_type": "person",
+      "mentions_count": 9,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_df2b34c8",
+        "doc_a98fd3c1",
+        "doc_9b93e8ff",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "Interviewee: Derek Cole, Lead Firmware Engineer",
+        "Speaker/Author of document: Derek Cole",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ba273d",
+      "name": "Elena Rostova",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_df2b34c8",
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+        "Speaker/Author of document: Elena Rostova",
+        "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+        "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d79609",
+      "name": "Apex Robotics",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_ad357e19",
+        "doc_246b2801",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+        "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+        "Case: Apex Robotics Tactical Drone Crash"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c8cfdb",
+      "name": "Tactical Drone",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_ad357e19",
+        "doc_246b2801",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Case: Apex Robotics Tactical Drone Crash"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9ba371",
+      "name": "Vanguard Aero",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_f548e0ce",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+        "Vanguard Aero Talent Acquisition"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b22cbd",
+      "name": "Rear Hangar",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_97a675",
+      "name": "Service Door",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2c1a21",
+      "name": "hiring",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Speaker/Author of document: hiring"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_564991",
+      "name": "Retention Fee",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Subject: Retention Fee and Demonstration Milestone"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b33bc8",
+      "name": "Demonstration Milestone",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Subject: Retention Fee and Demonstration Milestone"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2682c8",
+      "name": "Principal Flight",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_214cc9",
+      "name": "Talent Acquisition",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Vanguard Aero Talent Acquisition"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5dd9fa",
+      "name": "Test Range",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "Facility: Test Range Alpha | Assembly Hangar 3"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_74b069",
+      "name": "Assembly Hangar",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "Facility: Test Range Alpha | Assembly Hangar 3"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_76a9aa",
+      "name": "Main Bay",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9dc9c2",
+      "name": "Exit Front",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b82dda",
+      "name": "Flight Deck",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_6a3ba3",
+      "name": "Catastrophic Loss",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Incident: Catastrophic Loss of SkyHarrier-9 Prototype"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b2dcdf",
+      "name": "Security Officer",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_80cf16",
+      "name": "Marcus Stone",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_fb9fd5",
+      "name": "Security",
+      "entity_type": "organization",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_19116c",
+      "name": "Physical Access To Hangar 3 Required Badge",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_60f88d",
+      "name": "Badge",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ee7e19",
+      "name": "Lead Firmware",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Interviewee: Derek Cole, Lead Firmware Engineer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_89deb5",
+      "name": "Bistro Laurent",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2c7d31",
+      "name": "Safety Specialist",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_ad357e19"
+      ],
+      "source_sentences": [
+        "Interviewee: Liam Vance, QA Safety Specialist"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_16fb7c",
+      "name": "Flight Test",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_54f4d9",
+      "name": "Test Pilot",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5df662",
+      "name": "Assembly Bay",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_3e0565",
+      "name": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop And A Flashing Blue Usb",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d3e23f",
+      "name": "Usb",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_fc062e",
+      "name": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c07bcc",
+      "name": "Laptop",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_86655a",
+      "name": "Internal Apex",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "SLACK CHANNEL: #firmware-core (Internal Apex Workspace)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_3e2eff",
+      "name": "Thanks Derek",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9a39f2",
+      "name": "Hardware Debug",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      ],
+      "metadata": {}
+    }
+  ],
+  "important_events": [
+    {
+      "event_id": "ev_doc_f548e0ce_1",
+      "description": "Date: October 24, 2024 18:30 UTC",
+      "participants": [],
+      "location": null,
+      "time_str": "18:30",
+      "parsed_timestamp": "2024-01-01T18:30:00",
+      "uses_objects": [],
+      "document_id": "doc_f548e0ce",
+      "document_name": "competitor_consulting_email.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "Date: October 24, 2024 18:30 UTC",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_2",
+      "description": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "participants": [
+        "Main Bay",
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 18:02:11",
+      "parsed_timestamp": "2024-10-25T18:02:11",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_3",
+      "description": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "participants": [
+        "Exit Front",
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 19:42:00",
+      "parsed_timestamp": "2024-10-25T19:42:00",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_4",
+      "description": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:12:44",
+      "parsed_timestamp": "2024-10-25T20:12:44",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_5",
+      "description": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:25:19",
+      "parsed_timestamp": "2024-10-25T20:25:19",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_6",
+      "description": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "participants": [
+        "Elena Rostova",
+        "Flight Deck"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:55:00",
+      "parsed_timestamp": "2024-10-25T20:55:00",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_a98fd3c1_7",
+      "description": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "participants": [],
+      "location": null,
+      "time_str": "21:05",
+      "parsed_timestamp": "2024-01-01T21:05:00",
+      "uses_objects": [],
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_a98fd3c1_8",
+      "description": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "20:12",
+      "parsed_timestamp": "2024-01-01T20:12:00",
+      "uses_objects": [
+        "Badge",
+        "Physical Access To Hangar 3 Required Badge"
+      ],
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_9",
+      "description": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_10",
+      "description": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_11",
+      "description": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_12",
+      "description": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_13",
+      "description": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_14",
+      "description": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "participants": [
+        "Bistro Laurent"
+      ],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_15",
+      "description": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "participants": [
+        "Vanguard Aero"
+      ],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_16",
+      "description": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_17",
+      "description": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:45 AM",
+      "parsed_timestamp": "2024-01-01T11:45:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_18",
+      "description": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:45 AM",
+      "parsed_timestamp": "2024-01-01T11:45:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_19",
+      "description": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "participants": [],
+      "location": null,
+      "time_str": "11:46 AM",
+      "parsed_timestamp": "2024-01-01T11:46:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_20",
+      "description": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:46 AM",
+      "parsed_timestamp": "2024-01-01T11:46:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_21",
+      "description": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_22",
+      "description": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_23",
+      "description": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_24",
+      "description": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "participants": [
+        "Assembly Bay",
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [
+        "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop",
+        "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop And A Flashing Blue Usb",
+        "Usb",
+        "Laptop"
+      ],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_25",
+      "description": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_26",
+      "description": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_27",
+      "description": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "20:05",
+      "parsed_timestamp": "2024-01-01T20:05:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_28",
+      "description": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "participants": [
+        "Liam Vance",
+        "Thanks Derek"
+      ],
+      "location": null,
+      "time_str": "20:07",
+      "parsed_timestamp": "2024-01-01T20:07:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_29",
+      "description": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "participants": [
+        "Hardware Debug"
+      ],
+      "location": null,
+      "time_str": "20:19",
+      "parsed_timestamp": "2024-01-01T20:19:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_30",
+      "description": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "participants": [
+        "Liam Vance"
+      ],
+      "location": null,
+      "time_str": "20:20",
+      "parsed_timestamp": "2024-01-01T20:20:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_31",
+      "description": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "20:21",
+      "parsed_timestamp": "2024-01-01T20:21:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "uncertainty": false
+    }
+  ],
+  "chronological_timeline": [
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_9",
+      "event_id": "ev_doc_cadcdad8_9",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_10",
+      "event_id": "ev_doc_cadcdad8_10",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_11",
+      "event_id": "ev_doc_cadcdad8_11",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_12",
+      "event_id": "ev_doc_cadcdad8_12",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_13",
+      "event_id": "ev_doc_cadcdad8_13",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_14",
+      "event_id": "ev_doc_cadcdad8_14",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "participants": [
+        "Bistro Laurent"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_15",
+      "event_id": "ev_doc_cadcdad8_15",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "participants": [
+        "Vanguard Aero"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_16",
+      "event_id": "ev_doc_cadcdad8_16",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_21",
+      "event_id": "ev_doc_246b2801_21",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_22",
+      "event_id": "ev_doc_246b2801_22",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_23",
+      "event_id": "ev_doc_246b2801_23",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_24",
+      "event_id": "ev_doc_246b2801_24",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "participants": [
+        "Assembly Bay",
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_25",
+      "event_id": "ev_doc_246b2801_25",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_26",
+      "event_id": "ev_doc_246b2801_26",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_17",
+      "event_id": "ev_doc_ad357e19_17",
+      "timestamp_display": "11:45 AM",
+      "event_description": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "is_uncertain": false,
+      "sort_key": "20240101114500"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_18",
+      "event_id": "ev_doc_ad357e19_18",
+      "timestamp_display": "11:45 AM",
+      "event_description": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "is_uncertain": false,
+      "sort_key": "20240101114500"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_19",
+      "event_id": "ev_doc_ad357e19_19",
+      "timestamp_display": "11:46 AM",
+      "event_description": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "is_uncertain": false,
+      "sort_key": "20240101114600"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_20",
+      "event_id": "ev_doc_ad357e19_20",
+      "timestamp_display": "11:46 AM",
+      "event_description": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "is_uncertain": false,
+      "sort_key": "20240101114600"
+    },
+    {
+      "entry_id": "tl_ev_doc_f548e0ce_1",
+      "event_id": "ev_doc_f548e0ce_1",
+      "timestamp_display": "18:30",
+      "event_description": "Date: October 24, 2024 18:30 UTC",
+      "participants": [],
+      "location": null,
+      "document_name": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "Date: October 24, 2024 18:30 UTC",
+      "is_uncertain": false,
+      "sort_key": "20240101183000"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_27",
+      "event_id": "ev_doc_9b93e8ff_27",
+      "timestamp_display": "20:05",
+      "event_description": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "is_uncertain": false,
+      "sort_key": "20240101200500"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_28",
+      "event_id": "ev_doc_9b93e8ff_28",
+      "timestamp_display": "20:07",
+      "event_description": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "participants": [
+        "Liam Vance",
+        "Thanks Derek"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "is_uncertain": false,
+      "sort_key": "20240101200700"
+    },
+    {
+      "entry_id": "tl_ev_doc_a98fd3c1_8",
+      "event_id": "ev_doc_a98fd3c1_8",
+      "timestamp_display": "20:12",
+      "event_description": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "is_uncertain": false,
+      "sort_key": "20240101201200"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_29",
+      "event_id": "ev_doc_9b93e8ff_29",
+      "timestamp_display": "20:19",
+      "event_description": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "participants": [
+        "Hardware Debug"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "is_uncertain": false,
+      "sort_key": "20240101201900"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_30",
+      "event_id": "ev_doc_9b93e8ff_30",
+      "timestamp_display": "20:20",
+      "event_description": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "participants": [
+        "Liam Vance"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "is_uncertain": false,
+      "sort_key": "20240101202000"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_31",
+      "event_id": "ev_doc_9b93e8ff_31",
+      "timestamp_display": "20:21",
+      "event_description": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "is_uncertain": false,
+      "sort_key": "20240101202100"
+    },
+    {
+      "entry_id": "tl_ev_doc_a98fd3c1_7",
+      "event_id": "ev_doc_a98fd3c1_7",
+      "timestamp_display": "21:05",
+      "event_description": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "participants": [],
+      "location": null,
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "is_uncertain": false,
+      "sort_key": "20240101210500"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_2",
+      "event_id": "ev_doc_df2b34c8_2",
+      "timestamp_display": "2024-10-25 18:02:11",
+      "event_description": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "participants": [
+        "Main Bay",
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025180211"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_3",
+      "event_id": "ev_doc_df2b34c8_3",
+      "timestamp_display": "2024-10-25 19:42:00",
+      "event_description": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "participants": [
+        "Exit Front",
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "is_uncertain": false,
+      "sort_key": "20241025194200"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_4",
+      "event_id": "ev_doc_df2b34c8_4",
+      "timestamp_display": "2024-10-25 20:12:44",
+      "event_description": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025201244"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_5",
+      "event_id": "ev_doc_df2b34c8_5",
+      "timestamp_display": "2024-10-25 20:25:19",
+      "event_description": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "is_uncertain": false,
+      "sort_key": "20241025202519"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_6",
+      "event_id": "ev_doc_df2b34c8_6",
+      "timestamp_display": "2024-10-25 20:55:00",
+      "event_description": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "participants": [
+        "Elena Rostova",
+        "Flight Deck"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025205500"
+    }
+  ],
+  "key_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_a98fd3c1_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_a98fd3c1_1",
+      "text": "APEX ROBOTICS - SECURITY FORENSICS REPORT Incident: Catastrophic Loss of SkyHarrier-9 Prototype Investigator: Marcus Stone, Chief Security Officer",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.425,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_2",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_2",
+      "text": "Interviewee: Derek Cole, Lead Firmware Engineer [09:00 AM] VANCE: State your name and role at Apex Robotics. [09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3711,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_1",
+      "text": "INTERVIEW TRANSCRIPT: DEREK COLE Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3684,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_246b2801_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_246b2801_1",
+      "text": "INTERVIEW TRANSCRIPT: ELENA ROSTOVA Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3582,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_ad357e19_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_ad357e19_1",
+      "text": "INTERVIEW TRANSCRIPT: LIAM VANCE Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3559,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_246b2801_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_246b2801_3",
+      "text": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3? [10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle. [10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "speaker": "Elena Rostova",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3438,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_ad357e19_2",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_ad357e19_2",
+      "text": "Interviewee: Liam Vance, QA Safety Specialist [11:45 AM] VANCE: Liam, describe the firmware validation telemetry. [11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "speaker": "Liam Vance",
+      "timestamp": null,
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3407,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_a98fd3c1_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_a98fd3c1_3",
+      "text": "Root-cause forensic memory analysis confirms deliberate firmware sabotage. 2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication.",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3312,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_df2b34c8_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_df2b34c8_1",
+      "text": "APEX ROBOTICS - HANGAR 3 SECURITY ACCESS LOG Facility: Test Range Alpha | Assembly Hangar 3 Date: 2024-10-25",
+      "speaker": null,
+      "timestamp": "2024-10-25",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.304,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_9b93e8ff_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_9b93e8ff_1",
+      "text": "SLACK CHANNEL: #firmware-core (Internal Apex Workspace) Date: October 25, 2024 20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "speaker": "SLACK CHANNEL",
+      "timestamp": "October 25, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3011,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_4",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_4",
+      "text": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC. [09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters? [09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2996,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_3",
+      "text": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration? [09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum. [09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2991,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_246b2801_2",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_246b2801_2",
+      "text": "Interviewee: Elena Rostova, Chief Flight Test Pilot [10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight? [10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "speaker": "Elena Rostova",
+      "timestamp": null,
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2987,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_a98fd3c1_2",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_a98fd3c1_2",
+      "text": "Date: October 26, 2024 1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC.",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2939,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_f548e0ce_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_f548e0ce",
+      "document_name": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_f548e0ce_3",
+      "text": "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday. Please confirm once the milestone is concluded.",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2929,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    }
+  ],
+  "agreements": [
+    {
+      "id": "contra_70f64a50",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "Case: Apex Robotics Tactical Drone Crash",
+      "statement_b": "Case: Apex Robotics Tactical Drone Crash",
+      "doc_a_id": "doc_cadcdad8",
+      "doc_b_id": "doc_ad357e19",
+      "doc_a_name": "interview_lead_eng_derek.txt",
+      "doc_b_name": "interview_qa_tech_liam.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": "Derek Cole",
+      "speaker_b": "Liam Vance",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Apex Robotics",
+      "contradiction_type": "agreement",
+      "nli_label": "entailment",
+      "confidence": 0.95,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Both statements assert the identical factual detail across sources.",
+      "resolution_status": "resolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "Case: Apex Robotics Tactical Drone Crash",
+        "Case: Apex Robotics Tactical Drone Crash"
+      ]
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "contra_da5be846",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "statement_b": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Elena Rostova",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 18:02 while Statement B references 20:21 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+        "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+      ]
+    },
+    {
+      "id": "contra_48c10c0c",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "statement_b": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Elena Rostova",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:55 while Statement B references 20:21 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+        "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+      ]
+    },
+    {
+      "id": "contra_9f569e95",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "statement_b": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_a98fd3c1",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "incident_investigation_report.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 26, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 19:42 while Statement B references 20:12 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ]
+    },
+    {
+      "id": "contra_f6ca0237",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "statement_b": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_cadcdad8",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_lead_eng_derek.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Derek Cole",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 19:42 while Statement B references 09:00 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      ]
+    },
+    {
+      "id": "contra_f6ef1390",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "statement_b": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_246b2801",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_test_pilot_elena.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Elena Rostova",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 19:42 while Statement B references 10:31 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ]
+    },
+    {
+      "id": "contra_8763be36",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 19:42 while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    },
+    {
+      "id": "contra_07df377a",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "statement_b": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_a98fd3c1",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "incident_investigation_report.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 26, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12 while Statement B references 20:12 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ]
+    },
+    {
+      "id": "contra_04719b53",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "statement_b": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_cadcdad8",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_lead_eng_derek.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Derek Cole",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12 while Statement B references 09:00 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      ]
+    },
+    {
+      "id": "contra_92f7e24d",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "statement_b": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_246b2801",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_test_pilot_elena.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Elena Rostova",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12 while Statement B references 10:31 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ]
+    },
+    {
+      "id": "contra_123445cc",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12 while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    },
+    {
+      "id": "contra_9b1719fd",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "statement_b": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_a98fd3c1",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "incident_investigation_report.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 26, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:25 while Statement B references 20:12 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ]
+    },
+    {
+      "id": "contra_100e03c1",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "statement_b": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_cadcdad8",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_lead_eng_derek.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Derek Cole",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:25 while Statement B references 09:00 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      ]
+    },
+    {
+      "id": "contra_7872c49a",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "statement_b": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_246b2801",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "interview_test_pilot_elena.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Elena Rostova",
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:25 while Statement B references 10:31 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ]
+    },
+    {
+      "id": "contra_2eabae2b",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_df2b34c8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "hangar_rfid_access_log.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "2024-10-25",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:25 while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    },
+    {
+      "id": "contra_a5b99c02",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "statement_b": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "doc_a_id": "doc_a98fd3c1",
+      "doc_b_id": "doc_cadcdad8",
+      "doc_a_name": "incident_investigation_report.txt",
+      "doc_b_name": "interview_lead_eng_derek.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Derek Cole",
+      "timestamp_a": "October 26, 2024",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12  while Statement B references 09:00 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      ]
+    },
+    {
+      "id": "contra_384ad61f",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "statement_b": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "doc_a_id": "doc_a98fd3c1",
+      "doc_b_id": "doc_246b2801",
+      "doc_a_name": "incident_investigation_report.txt",
+      "doc_b_name": "interview_test_pilot_elena.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": "Elena Rostova",
+      "timestamp_a": "October 26, 2024",
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12  while Statement B references 10:31 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ]
+    },
+    {
+      "id": "contra_bd8409c0",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_a98fd3c1",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "incident_investigation_report.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": "October 26, 2024",
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 20:12  while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    },
+    {
+      "id": "contra_c28e7f17",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "statement_b": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "doc_a_id": "doc_cadcdad8",
+      "doc_b_id": "doc_246b2801",
+      "doc_a_name": "interview_lead_eng_derek.txt",
+      "doc_b_name": "interview_test_pilot_elena.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": "Derek Cole",
+      "speaker_b": "Elena Rostova",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 10:31 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ]
+    },
+    {
+      "id": "contra_d5698912",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_cadcdad8",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "interview_lead_eng_derek.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": "Derek Cole",
+      "speaker_b": null,
+      "timestamp_a": null,
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    },
+    {
+      "id": "contra_315fea48",
+      "case_id": "case_04_apex_robotics",
+      "statement_a": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "statement_b": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "doc_a_id": "doc_246b2801",
+      "doc_b_id": "doc_9b93e8ff",
+      "doc_a_name": "interview_test_pilot_elena.txt",
+      "doc_b_name": "slack_export_engineering.txt",
+      "chunk_a_id": null,
+      "chunk_b_id": null,
+      "sentence_a_idx": null,
+      "sentence_b_idx": null,
+      "speaker_a": "Elena Rostova",
+      "speaker_b": null,
+      "timestamp_a": null,
+      "timestamp_b": "October 25, 2024",
+      "entity_event_link": "Derek Cole",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "calculation_source": "cross_encoder_nli_and_conflict_rules",
+      "explanation": "Temporal discrepancy: Statement A references 10:31 AM while Statement B references 20:05 . (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "review_status": "pending_review",
+      "reviewer_id": null,
+      "review_timestamp": null,
+      "previous_review_status": null,
+      "review_notes": null,
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      ]
+    }
+  ],
+  "candidate_hypotheses": [
+    {
+      "hypothesis_id": "hyp_user_5e9989",
+      "case_id": "case_04_apex_robotics",
+      "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+      "description": "Derek Cole returned to Hangar 3 at 20:12 UTC, physically connected a USB dongle to SkyHarrier-9, and flashed a malicious altitude-triggered motor kill routine to ensure the trial failed in exchange for a 75,000 USD retainer from Vanguard Aero.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_03120b54",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_a98fd3c1_4",
+            "evid_chk_doc_a98fd3c1_1",
+            "evid_chk_doc_f548e0ce_3",
+            "evid_chk_doc_f548e0ce_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "incident_investigation_report.txt",
+            "incident_investigation_report.txt",
+            "competitor_consulting_email.txt",
+            "competitor_consulting_email.txt"
+          ],
+          "contributing_speakers": [
+            "hiring",
+            "hiring"
+          ],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_68fb5498",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_a98fd3c1_1",
+            "evid_chk_doc_df2b34c8_1",
+            "evid_chk_doc_f548e0ce_3",
+            "evid_chk_doc_cadcdad8_4"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "incident_investigation_report.txt",
+            "hangar_rfid_access_log.txt",
+            "competitor_consulting_email.txt",
+            "interview_lead_eng_derek.txt"
+          ],
+          "contributing_speakers": [
+            "hiring",
+            "Derek Cole"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_464aeb5d",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_a98fd3c1_3",
+            "evid_chk_doc_f548e0ce_3",
+            "evid_chk_doc_f548e0ce_2",
+            "evid_chk_doc_cadcdad8_3"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "incident_investigation_report.txt",
+            "competitor_consulting_email.txt",
+            "competitor_consulting_email.txt",
+            "interview_lead_eng_derek.txt"
+          ],
+          "contributing_speakers": [
+            "hiring",
+            "hiring",
+            "Derek Cole"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 9,
+      "conflict_score": 0,
+      "corroboration_score": 2,
+      "conflict_penalty": 0,
+      "total_score": 11,
+      "rank": 1,
+      "is_proposed_explanation": true,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Insider Firmware Sabotage by Derek Cole for Competitor Payoff' and 'External RF Jamming and Anti-Drone Countermeasure Interference') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_4fba4b",
+      "case_id": "case_04_apex_robotics",
+      "title": "External RF Jamming and Anti-Drone Countermeasure Interference",
+      "description": "An adversary operating high-powered RF jamming equipment from outside the facility flooded the 2.4 GHz control frequency, forcing motor shutdown.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_9051f85e",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_cbcb5723",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_fe0193b1",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 0,
+      "conflict_score": 0,
+      "corroboration_score": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "rank": 2,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Insider Firmware Sabotage by Derek Cole for Competitor Payoff' and 'External RF Jamming and Anti-Drone Countermeasure Interference') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_20ba86",
+      "case_id": "case_04_apex_robotics",
+      "title": "Lithium Polymer Battery Thermal Runaway and Low Voltage Cutoff",
+      "description": "Defective battery cells in the power distribution board overheated upon reaching 400m altitude, triggering standard BMS safety shutdown.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_4aac8904",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_f70f2d89",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_03414393",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 0,
+      "conflict_score": 0,
+      "corroboration_score": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "rank": 3,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": null
+    }
+  ],
+  "score_breakdown": [
+    {
+      "rank": 1,
+      "hypothesis_id": "hyp_user_5e9989",
+      "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+      "origin": "user",
+      "support": 9,
+      "conflict": 0,
+      "corroboration": 2,
+      "conflict_penalty": 0,
+      "total_score": 11,
+      "is_proposed_explanation": true
+    },
+    {
+      "rank": 2,
+      "hypothesis_id": "hyp_user_4fba4b",
+      "title": "External RF Jamming and Anti-Drone Countermeasure Interference",
+      "origin": "user",
+      "support": 0,
+      "conflict": 0,
+      "corroboration": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "is_proposed_explanation": false
+    },
+    {
+      "rank": 3,
+      "hypothesis_id": "hyp_user_20ba86",
+      "title": "Lithium Polymer Battery Thermal Runaway and Low Voltage Cutoff",
+      "origin": "user",
+      "support": 0,
+      "conflict": 0,
+      "corroboration": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "is_proposed_explanation": false
+    }
+  ],
+  "proposed_explanation": {
+    "hypothesis_id": "hyp_user_5e9989",
+    "case_id": "case_04_apex_robotics",
+    "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+    "description": "Derek Cole returned to Hangar 3 at 20:12 UTC, physically connected a USB dongle to SkyHarrier-9, and flashed a malicious altitude-triggered motor kill routine to ensure the trial failed in exchange for a 75,000 USD retainer from Vanguard Aero.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_03120b54",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_4",
+          "evid_chk_doc_a98fd3c1_1",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_f548e0ce_1"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "incident_investigation_report.txt",
+          "competitor_consulting_email.txt",
+          "competitor_consulting_email.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "hiring"
+        ],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_68fb5498",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_1",
+          "evid_chk_doc_df2b34c8_1",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_cadcdad8_4"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "hangar_rfid_access_log.txt",
+          "competitor_consulting_email.txt",
+          "interview_lead_eng_derek.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "Derek Cole"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_464aeb5d",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_3",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_f548e0ce_2",
+          "evid_chk_doc_cadcdad8_3"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "competitor_consulting_email.txt",
+          "competitor_consulting_email.txt",
+          "interview_lead_eng_derek.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "hiring",
+          "Derek Cole"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 9,
+    "conflict_score": 0,
+    "corroboration_score": 2,
+    "conflict_penalty": 0,
+    "total_score": 11,
+    "rank": 1,
+    "is_proposed_explanation": true,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Firmware Sabotage by Derek Cole for Competitor Payoff' and 'External RF Jamming and Anti-Drone Countermeasure Interference') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  "supporting_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_a98fd3c1_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_a98fd3c1_1",
+      "text": "APEX ROBOTICS - SECURITY FORENSICS REPORT Incident: Catastrophic Loss of SkyHarrier-9 Prototype Investigator: Marcus Stone, Chief Security Officer",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.425,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_a98fd3c1_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_a98fd3c1_3",
+      "text": "Root-cause forensic memory analysis confirms deliberate firmware sabotage. 2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication.",
+      "speaker": null,
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.3312,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_df2b34c8_1",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_df2b34c8_1",
+      "text": "APEX ROBOTICS - HANGAR 3 SECURITY ACCESS LOG Facility: Test Range Alpha | Assembly Hangar 3 Date: 2024-10-25",
+      "speaker": null,
+      "timestamp": "2024-10-25",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.304,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_4",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_4",
+      "text": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC. [09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters? [09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2996,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_cadcdad8_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_cadcdad8_3",
+      "text": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration? [09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum. [09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "speaker": "Derek Cole",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2991,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    },
+    {
+      "evidence_id": "evid_chk_doc_f548e0ce_3",
+      "case_id": "case_04_apex_robotics",
+      "document_id": "doc_f548e0ce",
+      "document_name": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_f548e0ce_3",
+      "text": "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday. Please confirm once the milestone is concluded.",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "char_start": 0,
+      "char_end": 0,
+      "page_number": null,
+      "score": 0.2929,
+      "retrieval_method": "hybrid",
+      "classification": "supporting_evidence"
+    }
+  ],
+  "conflicting_evidence": [],
+  "unresolved_questions": [
+    "Discrepancy concerning Elena Rostova: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:21 Elena Rostova: Derek was just in the bay a minute ago.'.",
+    "Discrepancy concerning Elena Rostova: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:21 Elena Rostova: Derek was just in the bay a minute ago.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)', which conflicts with 'incident_investigation_report.txt' (Unknown) claiming 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)', which conflicts with 'interview_lead_eng_derek.txt' (Derek Cole) claiming '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)', which conflicts with 'interview_test_pilot_elena.txt' (Elena Rostova) claiming '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)', which conflicts with 'incident_investigation_report.txt' (Unknown) claiming 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)', which conflicts with 'interview_lead_eng_derek.txt' (Derek Cole) claiming '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)', which conflicts with 'interview_test_pilot_elena.txt' (Elena Rostova) claiming '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)', which conflicts with 'incident_investigation_report.txt' (Unknown) claiming 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)', which conflicts with 'interview_lead_eng_derek.txt' (Derek Cole) claiming '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)', which conflicts with 'interview_test_pilot_elena.txt' (Elena Rostova) claiming '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.'.",
+    "Discrepancy concerning Derek Cole: 'hangar_rfid_access_log.txt' (Unknown) states '[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'.",
+    "Discrepancy concerning Derek Cole: 'incident_investigation_report.txt' (Unknown) states 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.', which conflicts with 'interview_lead_eng_derek.txt' (Derek Cole) claiming '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.'.",
+    "Discrepancy concerning Derek Cole: 'incident_investigation_report.txt' (Unknown) states 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.', which conflicts with 'interview_test_pilot_elena.txt' (Elena Rostova) claiming '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.'.",
+    "Discrepancy concerning Derek Cole: 'incident_investigation_report.txt' (Unknown) states 'Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'.",
+    "Discrepancy concerning Derek Cole: 'interview_lead_eng_derek.txt' (Derek Cole) states '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.', which conflicts with 'interview_test_pilot_elena.txt' (Elena Rostova) claiming '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.'.",
+    "Discrepancy concerning Derek Cole: 'interview_lead_eng_derek.txt' (Derek Cole) states '[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'.",
+    "Discrepancy concerning Derek Cole: 'interview_test_pilot_elena.txt' (Elena Rostova) states '[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.', which conflicts with 'slack_export_engineering.txt' (Unknown) claiming '20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.'."
+  ],
+  "limitations_and_uncertainty": "LIMITATIONS & UNCERTAINTY STATEMENT:\n1. This analysis was generated by the Text Detective agentic framework based strictly on user-supplied documents.\n2. System conclusions reflect mathematical evidence scoring (Support - Conflict + Corroboration - ConflictPenalty) and do not constitute legal proof or a substitute for professional forensic determinations.\n3. Unknown timestamps and ambiguous coreferences have been preserved rather than assumed.",
+  "source_references": [
+    {
+      "ref_id": "chk_doc_f548e0ce_1",
+      "document_id": "doc_f548e0ce",
+      "filename": "competitor_consulting_email.txt",
+      "document": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "CONFIDENTIAL CONSULTING AGREEMENT - VANGUARD AERO From: hiring@vanguard-aero.com To: d.cole.personal@fastmail.com"
+    },
+    {
+      "ref_id": "chk_doc_f548e0ce_2",
+      "document_id": "doc_f548e0ce",
+      "filename": "competitor_consulting_email.txt",
+      "document": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Date: October 24, 2024 18:30 UTC Subject: Retention Fee and Demonstration Milestone Derek,"
+    },
+    {
+      "ref_id": "chk_doc_f548e0ce_3",
+      "document_id": "doc_f548e0ce",
+      "filename": "competitor_consulting_email.txt",
+      "document": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Fli..."
+    },
+    {
+      "ref_id": "chk_doc_f548e0ce_4",
+      "document_id": "doc_f548e0ce",
+      "filename": "competitor_consulting_email.txt",
+      "document": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "speaker": "hiring",
+      "timestamp": "October 24, 2024 18:30 UTC",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "Vanguard Aero Talent Acquisition"
+    },
+    {
+      "ref_id": "chk_doc_df2b34c8_1",
+      "document_id": "doc_df2b34c8",
+      "filename": "hangar_rfid_access_log.txt",
+      "document": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "2024-10-25",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "APEX ROBOTICS - HANGAR 3 SECURITY ACCESS LOG Facility: Test Range Alpha | Assembly Hangar 3 Date: 2024-10-25"
+    },
+    {
+      "ref_id": "chk_doc_df2b34c8_2",
+      "document_id": "doc_df2b34c8",
+      "filename": "hangar_rfid_access_log.txt",
+      "document": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "2024-10-25",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry) [2024-10-25 19:42:00] CARD #4412 [Derek..."
+    },
+    {
+      "ref_id": "chk_doc_df2b34c8_3",
+      "document_id": "doc_df2b34c8",
+      "filename": "hangar_rfid_access_log.txt",
+      "document": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "2024-10-25",
+      "sentence_indices": [
+        6,
+        7
+      ],
+      "excerpt": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit) [2024-10-25 20:55:00] CAR..."
+    },
+    {
+      "ref_id": "chk_doc_a98fd3c1_1",
+      "document_id": "doc_a98fd3c1",
+      "filename": "incident_investigation_report.txt",
+      "document": "incident_investigation_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "APEX ROBOTICS - SECURITY FORENSICS REPORT Incident: Catastrophic Loss of SkyHarrier-9 Prototype Investigator: Marcus Sto..."
+    },
+    {
+      "ref_id": "chk_doc_a98fd3c1_2",
+      "document_id": "doc_a98fd3c1",
+      "filename": "incident_investigation_report.txt",
+      "document": "incident_investigation_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Date: October 26, 2024 1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC."
+    },
+    {
+      "ref_id": "chk_doc_a98fd3c1_3",
+      "document_id": "doc_a98fd3c1",
+      "filename": "incident_investigation_report.txt",
+      "document": "incident_investigation_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "Root-cause forensic memory analysis confirms deliberate firmware sabotage. 2. ATTRIBUTION: Physical access to Hangar 3 r..."
+    },
+    {
+      "ref_id": "chk_doc_a98fd3c1_4",
+      "document_id": "doc_a98fd3c1",
+      "filename": "incident_investigation_report.txt",
+      "document": "incident_investigation_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "October 26, 2024",
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "excerpt": "Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC. 3. CODE RECOVERY: The injected firmware payload contained a ti..."
+    },
+    {
+      "ref_id": "chk_doc_cadcdad8_1",
+      "document_id": "doc_cadcdad8",
+      "filename": "interview_lead_eng_derek.txt",
+      "document": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: DEREK COLE Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance"
+    },
+    {
+      "ref_id": "chk_doc_cadcdad8_2",
+      "document_id": "doc_cadcdad8",
+      "filename": "interview_lead_eng_derek.txt",
+      "document": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "speaker": "Derek Cole",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Derek Cole, Lead Firmware Engineer [09:00 AM] VANCE: State your name and role at Apex Robotics. [09:00 AM] ..."
+    },
+    {
+      "ref_id": "chk_doc_cadcdad8_3",
+      "document_id": "doc_cadcdad8",
+      "filename": "interview_lead_eng_derek.txt",
+      "document": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "speaker": "Derek Cole",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration? [09:01 AM] COLE: ..."
+    },
+    {
+      "ref_id": "chk_doc_cadcdad8_4",
+      "document_id": "doc_cadcdad8",
+      "filename": "interview_lead_eng_derek.txt",
+      "document": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "speaker": "Derek Cole",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "excerpt": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC. [09:03 AM]..."
+    },
+    {
+      "ref_id": "chk_doc_ad357e19_1",
+      "document_id": "doc_ad357e19",
+      "filename": "interview_qa_tech_liam.txt",
+      "document": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: LIAM VANCE Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance"
+    },
+    {
+      "ref_id": "chk_doc_ad357e19_2",
+      "document_id": "doc_ad357e19",
+      "filename": "interview_qa_tech_liam.txt",
+      "document": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "speaker": "Liam Vance",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Liam Vance, QA Safety Specialist [11:45 AM] VANCE: Liam, describe the firmware validation telemetry. [11:45..."
+    },
+    {
+      "ref_id": "chk_doc_ad357e19_3",
+      "document_id": "doc_ad357e19",
+      "filename": "interview_qa_tech_liam.txt",
+      "document": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "speaker": "Liam Vance",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7
+      ],
+      "excerpt": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert? [11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboar..."
+    },
+    {
+      "ref_id": "chk_doc_246b2801_1",
+      "document_id": "doc_246b2801",
+      "filename": "interview_test_pilot_elena.txt",
+      "document": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: ELENA ROSTOVA Case: Apex Robotics Tactical Drone Crash Interviewer: Agent Vance"
+    },
+    {
+      "ref_id": "chk_doc_246b2801_2",
+      "document_id": "doc_246b2801",
+      "filename": "interview_test_pilot_elena.txt",
+      "document": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "speaker": "Elena Rostova",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Elena Rostova, Chief Flight Test Pilot [10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC..."
+    },
+    {
+      "ref_id": "chk_doc_246b2801_3",
+      "document_id": "doc_246b2801",
+      "filename": "interview_test_pilot_elena.txt",
+      "document": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "speaker": "Elena Rostova",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3? [10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked..."
+    },
+    {
+      "ref_id": "chk_doc_246b2801_4",
+      "document_id": "doc_246b2801",
+      "filename": "interview_test_pilot_elena.txt",
+      "document": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "speaker": "Elena Rostova",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery..."
+    },
+    {
+      "ref_id": "chk_doc_9b93e8ff_1",
+      "document_id": "doc_9b93e8ff",
+      "filename": "slack_export_engineering.txt",
+      "document": "slack_export_engineering.txt",
+      "document_type": "other",
+      "speaker": "SLACK CHANNEL",
+      "timestamp": "October 25, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "SLACK CHANNEL: #firmware-core (Internal Apex Workspace) Date: October 25, 2024 20:05 Derek Cole: Hey team, grabbing dinn..."
+    },
+    {
+      "ref_id": "chk_doc_9b93e8ff_2",
+      "document_id": "doc_9b93e8ff",
+      "filename": "slack_export_engineering.txt",
+      "document": "slack_export_engineering.txt",
+      "document_type": "other",
+      "speaker": "20",
+      "timestamp": "October 25, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "20:07 Liam Vance: Thanks Derek, enjoy dinner. 20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe ..."
+    },
+    {
+      "ref_id": "chk_doc_9b93e8ff_3",
+      "document_id": "doc_9b93e8ff",
+      "filename": "slack_export_engineering.txt",
+      "document": "slack_export_engineering.txt",
+      "document_type": "other",
+      "speaker": "20",
+      "timestamp": "October 25, 2024",
+      "sentence_indices": [
+        6
+      ],
+      "excerpt": "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+    }
+  ]
+}

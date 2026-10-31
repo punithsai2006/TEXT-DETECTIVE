@@ -1,11 +1,22 @@
 {
-  "evaluation_date": "2026-10-31T22:10:26.430509",
+  "evaluation_date": "2026-10-31T22:38:09.346166+00:00",
   "llm_provider": "mock",
   "llm_model": "mock-investigator-v1",
   "is_mock": true,
-  "total_cases_evaluated": 3,
-  "total_documents": 25,
-  "hypothesis_accuracy_top1_percent": 100.0,
+  "total_cases_evaluated": 4,
+  "total_documents": 33,
+  "aggregate_metrics": {
+    "hypothesis_top1_accuracy_percent": 100.0,
+    "average_timeline_order_accuracy": 1.0,
+    "average_retrieval_mrr": 0.975,
+    "average_retrieval_recall_at_5": 1.0,
+    "average_entity_f1": 0.2962,
+    "average_event_f1": 0.6488
+  },
+  "held_out_cases": [
+    "case_03_helios",
+    "case_04_apex_robotics"
+  ],
   "case_results": [
     {
       "case_id": "case_01_meridian",
@@ -13,9 +24,38 @@
       "is_held_out": false,
       "documents_count": 9,
       "entity_metrics": {
+        "tp": 15,
+        "fp": 81,
+        "fn": 3,
         "precision": 0.1562,
         "recall": 0.8333,
-        "f1": 0.2632
+        "f1": 0.2632,
+        "tp_examples": [
+          "alice vance",
+          "apex solutions",
+          "badge #3301",
+          "badge #4092",
+          "badge #7810"
+        ],
+        "fp_examples": [
+          " - local terminal",
+          "0 device",
+          "0 flash drive",
+          "0 flash drive directly mounted at console",
+          "00 - database administrative session initiated on console"
+        ],
+        "fn_examples": [
+          "console 2",
+          "electrical tape",
+          "kingston datatraveler 3.0"
+        ]
+      },
+      "event_metrics": {
+        "total_extracted": 67,
+        "grounded_events": 37,
+        "precision": 0.5522,
+        "recall": 1.0,
+        "f1": 0.7115
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -23,9 +63,21 @@
         "mrr": 0.9
       },
       "contradiction_metrics": {
-        "precision": 0.016,
+        "tp": 3,
+        "fp": 196,
+        "fn": 2,
+        "precision": 0.0151,
         "recall": 0.6,
-        "f1": 0.0312
+        "f1": 0.0295,
+        "matched_examples": [
+          "Alice Vance",
+          "Bob Chen",
+          "David Wright"
+        ],
+        "unmatched_examples": [
+          "Server Room B Door",
+          "Exfiltration Channel"
+        ]
       },
       "hypothesis_top1_correct": true
     },
@@ -35,9 +87,40 @@
       "is_held_out": false,
       "documents_count": 8,
       "entity_metrics": {
+        "tp": 8,
+        "fp": 26,
+        "fn": 10,
         "precision": 0.2353,
         "recall": 0.4444,
-        "f1": 0.3077
+        "f1": 0.3077,
+        "tp_examples": [
+          "apex deliveries",
+          "arthur blackwood",
+          "basement vault",
+          "clara sterling",
+          "julian vance"
+        ],
+        "fp_examples": [
+          "00 pm on friday and locked the biometric vault safe",
+          "alarm in zone 4 manually silenced and acknowledged by local console",
+          "arrived blackwood",
+          "art heist",
+          "badge #8841"
+        ],
+        "fn_examples": [
+          "black duffel bag",
+          "blackwood manor gallery",
+          "ford transit lk68 ytr",
+          "greenhouse",
+          "metropolitan police"
+        ]
+      },
+      "event_metrics": {
+        "total_extracted": 35,
+        "grounded_events": 18,
+        "precision": 0.5143,
+        "recall": 1.0,
+        "f1": 0.6793
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -45,9 +128,19 @@
         "mrr": 1.0
       },
       "contradiction_metrics": {
-        "precision": 0.1,
+        "tp": 1,
+        "fp": 10,
+        "fn": 2,
+        "precision": 0.0909,
         "recall": 0.3333,
-        "f1": 0.1538
+        "f1": 0.1428,
+        "matched_examples": [
+          "Julian Vance"
+        ],
+        "unmatched_examples": [
+          "Motion Alarm",
+          "Vault Key Security"
+        ]
       },
       "hypothesis_top1_correct": true
     },
@@ -57,9 +150,40 @@
       "is_held_out": true,
       "documents_count": 8,
       "entity_metrics": {
+        "tp": 5,
+        "fp": 11,
+        "fn": 8,
         "precision": 0.3125,
         "recall": 0.3846,
-        "f1": 0.3448
+        "f1": 0.3448,
+        "tp_examples": [
+          "arlo kaufman",
+          "helios pharma",
+          "priya sharma",
+          "raymond vance",
+          "sarah jenkins"
+        ],
+        "fp_examples": [
+          "clinical research",
+          "clinical supply",
+          "freezer unit",
+          "inspection report",
+          "lead inspector"
+        ],
+        "fn_examples": [
+          "batch hl-902b",
+          "clinical safety board",
+          "cold storage vault",
+          "cryoexpress",
+          "dry ice"
+        ]
+      },
+      "event_metrics": {
+        "total_extracted": 21,
+        "grounded_events": 6,
+        "precision": 0.2857,
+        "recall": 1.0,
+        "f1": 0.4444
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -67,12 +191,84 @@
         "mrr": 1.0
       },
       "contradiction_metrics": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 3,
         "precision": 0.0,
         "recall": 0.0,
-        "f1": 0.0
+        "f1": 0.0,
+        "matched_examples": [],
+        "unmatched_examples": [
+          "Freezer Unit 4 Temperature",
+          "Power and Backup Generator",
+          "Courier Dispatch Time"
+        ]
+      },
+      "hypothesis_top1_correct": true
+    },
+    {
+      "case_id": "case_04_apex_robotics",
+      "case_name": "The Apex Robotics Drone Sabotage",
+      "is_held_out": true,
+      "documents_count": 8,
+      "entity_metrics": {
+        "tp": 7,
+        "fp": 30,
+        "fn": 8,
+        "precision": 0.1892,
+        "recall": 0.4667,
+        "f1": 0.2692,
+        "tp_examples": [
+          "apex robotics",
+          "assembly bay",
+          "derek cole",
+          "elena rostova",
+          "liam vance"
+        ],
+        "fp_examples": [
+          "assembly hangar",
+          "badge",
+          "bistro laurent",
+          "catastrophic loss",
+          "demonstration milestone"
+        ],
+        "fn_examples": [
+          "federal aviation board",
+          "firmware v2.4",
+          "hangar 3",
+          "kill switch payload",
+          "skyharrier-9"
+        ]
+      },
+      "event_metrics": {
+        "total_extracted": 31,
+        "grounded_events": 19,
+        "precision": 0.6129,
+        "recall": 1.0,
+        "f1": 0.76
+      },
+      "timeline_order_accuracy": 1.0,
+      "retrieval_metrics": {
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "contradiction_metrics": {
+        "tp": 0,
+        "fp": 20,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_examples": [],
+        "unmatched_examples": [
+          "Derek Cole Alibi at 20:15",
+          "Firmware Modification",
+          "Competitor Affiliation"
+        ]
       },
       "hypothesis_top1_correct": true
     }
   ],
+  "methodology_notes": "Ground truth was curated manually for all 4 benchmark cases. Case 3 (Helios Pharma) and Case 4 (Apex Robotics) serve as strictly held-out evaluation datasets and were never used to tune extraction heuristics, NLI rules, or scoring formulas. Note: Performance on synthetic benchmark datasets should not be equated directly with real-world operational accuracy.",
   "human_evaluation_template": "docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv"
 }

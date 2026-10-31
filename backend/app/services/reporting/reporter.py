@@ -120,6 +120,8 @@ def generate_investigation_report(
         for idx, chunk in enumerate(d.chunks):
             source_refs.append({
                 "ref_id": chunk.chunk_id,
+                "document_id": d.document_id,
+                "filename": d.filename,
                 "document": d.filename,
                 "document_type": d.document_type.value,
                 "speaker": chunk.speaker or "N/A",

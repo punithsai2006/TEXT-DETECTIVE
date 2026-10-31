@@ -1,0 +1,44 @@
+{
+  "run_id": "run_20261031_223624_673a58",
+  "case_id": "case_01_meridian",
+  "timestamp": "2026-10-31T22:36:24.449761+00:00",
+  "parser_version": "1.1.0",
+  "model_provider": "mock",
+  "model_name": "mock-investigator-v1",
+  "prompt_version": "v1.0",
+  "retrieval_settings": {
+    "method": "hybrid_semantic_bm25",
+    "rrf_k": 60,
+    "top_k": 15
+  },
+  "nli_model": "cross-encoder-nli-heuristics",
+  "scoring_config": {
+    "formula": "Support - Conflict + Corroboration - ConflictPenalty",
+    "slide": 18
+  },
+  "controller_loop_counts": {
+    "loop_1_iterations": 0,
+    "loop_2_iterations": 1,
+    "loop_3_iterations": 1
+  },
+  "document_hashes": {
+    "badge_swipe_logs.txt": "ef97c69ede75a2a517030aa553649968983eec6986bf8d9af3d0f983cd770f06",
+    "forensic_workstation_analysis.txt": "4bfbfe9e3434e8a7fb279a18992323e8eace0d8ec80b0e52ef9e5604f7610ee9",
+    "interview_alice_vance.txt": "6fd69a4cf51bc7bf5dffb809983cea99a28297318a35a892946be316a1842409",
+    "interview_bob_chen.txt": "32294ce36f6b50f6c73a829b936b90fc2d9680a5290b409e501dcda6ac127a60",
+    "interview_david_wright.txt": "40fdd504fe3577c31f701c860aa9b65c87de6e50544a4e5c36900921648c4e05",
+    "security_incident_report.txt": "4be7f64c197876f45491f8e00a0772c1b7171c4c24a4c51c78fb27dee7149fec",
+    "server_access_logs.txt": "84e7af33729ce421856116f773048db4dba3ddbe8fd4366665fc7c255e5bb53e",
+    "subcontractor_memo_email.txt": "1839bdd13bcea0232f3f3dac653abe787f29a517c3440b118fa13df3f590ef76",
+    "urgent_security_alert_email.txt": "3ccdff83f1734ca205cdbb6a0e9bade3493209d60599bd5d5cc387d6311897ce"
+  },
+  "is_outdated": false,
+  "metrics_summary": {
+    "entities_count": 96,
+    "events_count": 67,
+    "contradictions_count": 202,
+    "hypotheses_count": 3,
+    "top_hypothesis": "Subcontractor Physical USB Exfiltration via Compromised Credentials",
+    "top_score": -41
+  }
+}

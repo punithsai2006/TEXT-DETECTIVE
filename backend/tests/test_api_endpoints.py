@@ -99,6 +99,32 @@ def test_api_report_downloads():
     assert res_json.status_code == 200
     assert b"case_name" in res_json.body
 
+
+def test_api_provenance_validation():
+    from app.api.routes import validate_case_provenance
+    val_rep = validate_case_provenance("case_01_meridian")
+    assert val_rep.case_id == "case_01_meridian"
+    assert val_rep.is_valid is True
+    assert val_rep.passed_checks > 0
+
+
+def test_api_contradiction_review():
+    from app.api.routes import review_contradiction
+    from app.models.schemas import ContradictionReviewRequest, ReviewStatus
+    conflicts = get_case_contradictions("case_01_meridian")
+    assert len(conflicts) > 0
+    cid = conflicts[0].id
+
+    req = ContradictionReviewRequest(
+        review_status=ReviewStatus.CONFIRMED,
+        reviewer_id="lead_investigator_1",
+        review_notes="Cross-referenced with physical telemetry logs.",
+    )
+    updated = review_contradiction("case_01_meridian", cid, req)
+    assert updated.review_status == ReviewStatus.CONFIRMED
+    assert updated.reviewer_id == "lead_investigator_1"
+
+
     res_html = download_report("case_01_meridian", format="html")
     assert res_html.status_code == 200
     assert b"<!DOCTYPE html>" in res_html.body

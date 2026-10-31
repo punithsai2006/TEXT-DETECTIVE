@@ -1,12 +1,14 @@
 import json
+import os
 import shutil
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from app.config import settings
 from app.models.schemas import (
+    AnalysisRunRecord,
     AnalysisStatus,
     Case,
     CaseGraph,
@@ -19,7 +21,9 @@ from app.models.schemas import (
     Event,
     Hypothesis,
     InvestigationReport,
+    ReviewStatus,
     TimelineEntry,
+    get_utc_now_iso,
 )
 
 
@@ -63,13 +67,22 @@ class CaseStore:
     def _status_file(self, case_id: str) -> Path:
         return self._case_dir(case_id) / "status.json"
 
+    def _runs_dir(self, case_id: str) -> Path:
+        d = self._case_dir(case_id) / "runs"
+        d.mkdir(parents=True, exist_ok=True)
+        return d
+        return self._case_dir(case_id) / "audit_log.json"
+
+    def _status_file(self, case_id: str) -> Path:
+        return self._case_dir(case_id) / "status.json"
+
     # ==========================================
     # CASES CRUD
     # ==========================================
 
     def create_case(self, name: str, description: str = "", is_demo: bool = False, custom_id: Optional[str] = None) -> Case:
         case_id = custom_id or f"case_{uuid.uuid4().hex[:8]}"
-        now = datetime.utcnow().isoformat()
+        now = get_utc_now_iso()
         case = Case(
             case_id=case_id,
             name=name,
@@ -96,7 +109,7 @@ class CaseStore:
         return case
 
     def save_case(self, case: Case) -> None:
-        case.updated_at = datetime.utcnow().isoformat()
+        case.updated_at = get_utc_now_iso()
         f = self._case_file(case.case_id)
         with open(f, "w", encoding="utf-8") as fp:
             json.dump(case.model_dump(), fp, indent=2)
@@ -174,17 +187,32 @@ class CaseStore:
 
     def delete_document(self, case_id: str, document_id: str) -> bool:
         docs = self.get_documents(case_id)
-        initial_len = len(docs)
-        docs = [d for d in docs if d.document_id != document_id]
-        if len(docs) < initial_len:
-            self.save_documents(case_id, docs)
-            # Mark case status as outdated since document set changed
-            case = self.get_case(case_id)
-            if case and case.status == CaseStatus.COMPLETED:
-                case.status = CaseStatus.OUTDATED
-                self.save_case(case)
-            return True
-        return False
+        target_doc = next((d for d in docs if d.document_id == document_id), None)
+        if not target_doc:
+            return False
+
+        # 1. Remove physical file from uploads folder if it exists
+        uploaded_path = self.uploads_dir / case_id / target_doc.filename
+        if uploaded_path.exists() and uploaded_path.is_file():
+            try:
+                uploaded_path.unlink()
+            except Exception:
+                pass
+
+        # 2. Filter document list and save
+        remaining_docs = [d for d in docs if d.document_id != document_id]
+        self.save_documents(case_id, remaining_docs)
+
+        # 3. Update case metadata and mark status as OUTDATED
+        case = self.get_case(case_id)
+        if case:
+            case.document_count = len(remaining_docs)
+            case.status = CaseStatus.OUTDATED
+            self.save_case(case)
+
+        # 4. Mark all past runs as outdated
+        self.mark_runs_outdated(case_id)
+        return True
 
     def get_document(self, document_id: str) -> Optional[DocumentMetadata]:
         for case in self.list_cases():
@@ -258,6 +286,31 @@ class CaseStore:
             data = json.load(fp)
             return [ContradictionItem(**item) for item in data]
 
+    def update_contradiction_review(
+        self,
+        case_id: str,
+        contradiction_id: str,
+        review_status: ReviewStatus,
+        reviewer_id: Optional[str] = "analyst_1",
+        review_notes: Optional[str] = None,
+    ) -> Optional[ContradictionItem]:
+        """Updates the human review status for a detected contradiction."""
+        contradictions = self.get_contradictions(case_id)
+        target = None
+        for c in contradictions:
+            if c.id == contradiction_id:
+                c.previous_review_status = c.review_status.value if hasattr(c.review_status, "value") else str(c.review_status)
+                c.review_status = review_status
+                c.reviewer_id = reviewer_id
+                c.review_timestamp = get_utc_now_iso()
+                c.review_notes = review_notes
+                target = c
+                break
+
+        if target:
+            self.save_contradictions(case_id, contradictions)
+        return target
+
     # ==========================================
     # HYPOTHESES
     # ==========================================
@@ -297,6 +350,49 @@ class CaseStore:
             return InvestigationReport(**data)
 
     # ==========================================
+    # REPRODUCIBLE ANALYSIS RUN RECORDS (TASK 6)
+    # ==========================================
+
+    def save_run_record(self, case_id: str, record: AnalysisRunRecord) -> None:
+        """Persists an immutable analysis run record."""
+        runs_dir = self._runs_dir(case_id)
+        record_file = runs_dir / f"{record.run_id}.json"
+        with open(record_file, "w", encoding="utf-8") as fp:
+            json.dump(record.model_dump(), fp, indent=2)
+
+    def list_run_records(self, case_id: str) -> List[AnalysisRunRecord]:
+        """Lists all historical analysis runs for a case."""
+        runs_dir = self._runs_dir(case_id)
+        records = []
+        for f in sorted(runs_dir.glob("*.json"), reverse=True):
+            try:
+                with open(f, "r", encoding="utf-8") as fp:
+                    records.append(AnalysisRunRecord(**json.load(fp)))
+            except Exception:
+                continue
+        return records
+
+    def get_run_record(self, case_id: str, run_id: str) -> Optional[AnalysisRunRecord]:
+        f = self._runs_dir(case_id) / f"{run_id}.json"
+        if not f.exists():
+            return None
+        with open(f, "r", encoding="utf-8") as fp:
+            return AnalysisRunRecord(**json.load(fp))
+
+    def mark_runs_outdated(self, case_id: str) -> None:
+        """Marks past run records as outdated when case documents change."""
+        runs_dir = self._runs_dir(case_id)
+        for f in runs_dir.glob("*.json"):
+            try:
+                with open(f, "r", encoding="utf-8") as fp:
+                    data = json.load(fp)
+                data["is_outdated"] = True
+                with open(f, "w", encoding="utf-8") as fp:
+                    json.dump(data, fp, indent=2)
+            except Exception:
+                continue
+
+    # ==========================================
     # AUDIT LOG & STATUS TRACKING
     # ==========================================
 
@@ -315,7 +411,7 @@ class CaseStore:
             trigger_reason=trigger_reason,
             action_taken=action_taken,
             result_summary=result_summary,
-            timestamp=datetime.utcnow().isoformat(),
+            timestamp=get_utc_now_iso(),
         )
         logs = self.get_audit_log(case_id)
         logs.append(event)
@@ -353,7 +449,7 @@ class CaseStore:
             progress_percentage=progress_percentage,
             message=message,
             feedback_loops=existing.feedback_loops,
-            updated_at=datetime.utcnow().isoformat(),
+            updated_at=get_utc_now_iso(),
             error=error,
         )
         self._save_status(updated)

@@ -1,88 +1,88 @@
 {
   "entities": [
     {
-      "entity_id": "ent_77b4bd",
+      "entity_id": "ent_3cf9a3",
       "name": "Arlo Kaufman",
       "entity_type": "person",
       "mentions_count": 11,
       "document_ids": [
-        "doc_62efc5bd",
-        "doc_7b9e3504",
-        "doc_739dc466",
-        "doc_031c918c",
-        "doc_b11e006a"
+        "doc_5d26236d",
+        "doc_64d1a66b",
+        "doc_4e6ee528",
+        "doc_9cd957d0",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
-        "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman",
-        "Interviewee: Dr. Arlo Kaufman, Principal Investigator",
-        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman.",
-        "Speaker/Author of document: Dr. Arlo Kaufman",
+        "From: Dr. Arlo Kaufman",
         "To: Arlo Kaufman <a.kaufman@heliospharma.org>",
-        "From: Dr. Arlo Kaufman"
+        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman.",
+        "Interviewee: Dr. Arlo Kaufman, Principal Investigator",
+        "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman",
+        "Speaker/Author of document: Dr. Arlo Kaufman"
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_86738a",
+      "entity_id": "ent_63bf82",
       "name": "Helios Pharma",
       "entity_type": "organization",
       "mentions_count": 4,
       "document_ids": [
-        "doc_62efc5bd",
-        "doc_739dc466",
-        "doc_031c918c",
-        "doc_6803f900"
+        "doc_4e6ee528",
+        "doc_5d26236d",
+        "doc_26a05e75",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
         "Case: Helios Pharma Trial HL-902",
-        "Sender: Helios Pharma Clinical Research Site 03",
-        "Helios Pharma Site 03 Inspection Report"
+        "Helios Pharma Site 03 Inspection Report",
+        "Sender: Helios Pharma Clinical Research Site 03"
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_512a59",
+      "entity_id": "ent_e1cf49",
       "name": "Freezer Unit",
       "entity_type": "person",
       "mentions_count": 4,
       "document_ids": [
-        "doc_7b9e3504",
-        "doc_031c918c",
-        "doc_6803f900"
+        "doc_9cd957d0",
+        "doc_26a05e75",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
         "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
         "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
-        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
-        "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
+        "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_25135c",
+      "entity_id": "ent_db9753",
       "name": "Priya Sharma",
       "entity_type": "person",
       "mentions_count": 4,
       "document_ids": [
-        "doc_7b9e3504",
-        "doc_6803f900"
+        "doc_26a05e75",
+        "doc_9cd957d0"
       ],
       "source_sentences": [
+        "Speaker/Author of document: Priya Sharma",
         "From: Priya Sharma <p.sharma@heliospharma.org>",
-        "Interviewee: Priya Sharma, Senior Laboratory Technician",
-        "Speaker/Author of document: Priya Sharma"
+        "Interviewee: Priya Sharma, Senior Laboratory Technician"
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_b7ef5e",
+      "entity_id": "ent_249665",
       "name": "Sarah Jenkins",
       "entity_type": "person",
       "mentions_count": 3,
       "document_ids": [
-        "doc_62efc5bd",
-        "doc_031c918c",
-        "doc_6803f900"
+        "doc_4e6ee528",
+        "doc_26a05e75",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
         "Interviewer: Regulatory Auditor Sarah Jenkins",
@@ -91,13 +91,13 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_f0d6e3",
+      "entity_id": "ent_f44db7",
       "name": "Regulatory Auditor",
       "entity_type": "person",
       "mentions_count": 2,
       "document_ids": [
-        "doc_031c918c",
-        "doc_6803f900"
+        "doc_26a05e75",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
         "Interviewer: Regulatory Auditor Sarah Jenkins"
@@ -105,27 +105,27 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_bf0082",
+      "entity_id": "ent_880b64",
       "name": "Principal Investigator",
       "entity_type": "person",
       "mentions_count": 2,
       "document_ids": [
-        "doc_62efc5bd",
-        "doc_031c918c"
+        "doc_4e6ee528",
+        "doc_3bf26cac"
       ],
       "source_sentences": [
-        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman.",
-        "Interviewee: Dr. Arlo Kaufman, Principal Investigator"
+        "Interviewee: Dr. Arlo Kaufman, Principal Investigator",
+        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman."
       ],
       "metadata": {}
     },
     {
-      "entity_id": "ent_d1a05f",
+      "entity_id": "ent_76503a",
       "name": "Clinical Research",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_739dc466"
+        "doc_5d26236d"
       ],
       "source_sentences": [
         "Sender: Helios Pharma Clinical Research Site 03"
@@ -133,12 +133,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_e32f1e",
+      "entity_id": "ent_5ad2d3",
       "name": "Pickup Timestamp",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_739dc466"
+        "doc_5d26236d"
       ],
       "source_sentences": [
         "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
@@ -146,12 +146,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_bc9cd0",
+      "entity_id": "ent_072bc8",
       "name": "Package Temperature",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_739dc466"
+        "doc_5d26236d"
       ],
       "source_sentences": [
         "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard)"
@@ -159,12 +159,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_2ee0e4",
+      "entity_id": "ent_1df5ab",
       "name": "Raymond Vance",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_739dc466"
+        "doc_5d26236d"
       ],
       "source_sentences": [
         "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
@@ -172,12 +172,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_e49f4d",
+      "entity_id": "ent_fdc1b1",
       "name": "Clinical Supply",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_b11e006a"
+        "doc_64d1a66b"
       ],
       "source_sentences": [
         "To: Clinical Supply Operations"
@@ -185,12 +185,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_c3f064",
+      "entity_id": "ent_5f1b1e",
       "name": "Senior Laboratory",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_6803f900"
+        "doc_26a05e75"
       ],
       "source_sentences": [
         "Interviewee: Priya Sharma, Senior Laboratory Technician"
@@ -198,12 +198,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_d93fd7",
+      "entity_id": "ent_dc9881",
       "name": "Inspection Report",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_62efc5bd"
+        "doc_4e6ee528"
       ],
       "source_sentences": [
         "Helios Pharma Site 03 Inspection Report"
@@ -211,12 +211,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_52cfb2",
+      "entity_id": "ent_1841b9",
       "name": "Lead Inspector",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_62efc5bd"
+        "doc_4e6ee528"
       ],
       "source_sentences": [
         "Lead Inspector: Sarah Jenkins"
@@ -224,12 +224,12 @@
       "metadata": {}
     },
     {
-      "entity_id": "ent_8549e1",
+      "entity_id": "ent_e0a10e",
       "name": "Violations Noted",
       "entity_type": "person",
       "mentions_count": 1,
       "document_ids": [
-        "doc_62efc5bd"
+        "doc_4e6ee528"
       ],
       "source_sentences": [
         "Violations Noted:"
@@ -239,7 +239,7 @@
   ],
   "events": [
     {
-      "event_id": "ev_doc_739dc466_1",
+      "event_id": "ev_doc_5d26236d_1",
       "description": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
       "participants": [
         "Pickup Timestamp"
@@ -248,104 +248,136 @@
       "time_str": "2024-08-16 14:30:00",
       "parsed_timestamp": "2024-08-16T14:30:00",
       "uses_objects": [],
-      "document_id": "doc_739dc466",
+      "document_id": "doc_5d26236d",
       "document_name": "courier_shipping_manifest.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_2",
+      "event_id": "ev_doc_4a071757_2",
       "description": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 01:45:00",
       "parsed_timestamp": "2024-08-14T01:45:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_3",
+      "event_id": "ev_doc_4a071757_3",
       "description": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 02:10:00",
       "parsed_timestamp": "2024-08-14T02:10:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_4",
+      "event_id": "ev_doc_4a071757_4",
       "description": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 04:30:00",
       "parsed_timestamp": "2024-08-14T04:30:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_5",
+      "event_id": "ev_doc_4a071757_5",
       "description": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 06:15:00",
       "parsed_timestamp": "2024-08-14T06:15:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_6",
+      "event_id": "ev_doc_4a071757_6",
       "description": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 07:45:00",
       "parsed_timestamp": "2024-08-14T07:45:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_c1c0293a_7",
+      "event_id": "ev_doc_4a071757_7",
       "description": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
       "participants": [],
       "location": null,
       "time_str": "2024-08-14 11:00:00",
       "parsed_timestamp": "2024-08-14T11:00:00",
       "uses_objects": [],
-      "document_id": "doc_c1c0293a",
+      "document_id": "doc_4a071757",
       "document_name": "freezer_iot_telemetry_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_8",
+      "event_id": "ev_doc_3bf26cac_8",
       "description": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
       "participants": [],
       "location": null,
       "time_str": "09:00 AM",
       "parsed_timestamp": "2024-01-01T09:00:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_9",
+      "event_id": "ev_doc_3bf26cac_9",
       "description": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
       "participants": [
         "Freezer Unit"
@@ -354,65 +386,85 @@
       "time_str": "09:00 AM",
       "parsed_timestamp": "2024-01-01T09:00:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_10",
+      "event_id": "ev_doc_3bf26cac_10",
       "description": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
       "participants": [],
       "location": null,
       "time_str": "09:01 AM",
       "parsed_timestamp": "2024-01-01T09:01:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_11",
+      "event_id": "ev_doc_3bf26cac_11",
       "description": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
       "participants": [],
       "location": null,
       "time_str": "09:01 AM",
       "parsed_timestamp": "2024-01-01T09:01:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_12",
+      "event_id": "ev_doc_3bf26cac_12",
       "description": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
       "participants": [],
       "location": null,
       "time_str": "09:02 AM",
       "parsed_timestamp": "2024-01-01T09:02:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_031c918c_13",
+      "event_id": "ev_doc_3bf26cac_13",
       "description": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
       "participants": [],
       "location": null,
       "time_str": "09:02 AM",
       "parsed_timestamp": "2024-01-01T09:02:00",
       "uses_objects": [],
-      "document_id": "doc_031c918c",
+      "document_id": "doc_3bf26cac",
       "document_name": "interview_dr_kaufman.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_14",
+      "event_id": "ev_doc_26a05e75_14",
       "description": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
       "participants": [
         "Freezer Unit"
@@ -421,13 +473,17 @@
       "time_str": "10:30 AM",
       "parsed_timestamp": "2024-01-01T10:30:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_15",
+      "event_id": "ev_doc_26a05e75_15",
       "description": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
       "participants": [
         "Freezer Unit"
@@ -436,26 +492,34 @@
       "time_str": "10:30 AM",
       "parsed_timestamp": "2024-01-01T10:30:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_16",
+      "event_id": "ev_doc_26a05e75_16",
       "description": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
       "participants": [],
       "location": null,
       "time_str": "10:31 AM",
       "parsed_timestamp": "2024-01-01T10:31:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_17",
+      "event_id": "ev_doc_26a05e75_17",
       "description": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
       "participants": [
         "Priya Sharma"
@@ -464,52 +528,68 @@
       "time_str": "10:31 AM",
       "parsed_timestamp": "2024-01-01T10:31:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_18",
+      "event_id": "ev_doc_26a05e75_18",
       "description": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
       "participants": [],
       "location": null,
       "time_str": "10:32 AM",
       "parsed_timestamp": "2024-01-01T10:32:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_6803f900_19",
+      "event_id": "ev_doc_26a05e75_19",
       "description": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
       "participants": [],
       "location": null,
       "time_str": "10:32 AM",
       "parsed_timestamp": "2024-01-01T10:32:00",
       "uses_objects": [],
-      "document_id": "doc_6803f900",
+      "document_id": "doc_26a05e75",
       "document_name": "interview_lab_tech_priya.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_7b9e3504_20",
+      "event_id": "ev_doc_9cd957d0_20",
       "description": "Date: August 14, 2024 08:15 AM",
       "participants": [],
       "location": null,
       "time_str": "08:15 AM",
       "parsed_timestamp": "2024-01-01T08:15:00",
       "uses_objects": [],
-      "document_id": "doc_7b9e3504",
+      "document_id": "doc_9cd957d0",
       "document_name": "urgent_tech_email.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Date: August 14, 2024 08:15 AM",
       "uncertainty": false
     },
     {
-      "event_id": "ev_doc_7b9e3504_21",
+      "event_id": "ev_doc_9cd957d0_21",
       "description": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
       "participants": [
         "Freezer Unit"
@@ -518,16 +598,20 @@
       "time_str": "2:10 AM",
       "parsed_timestamp": "2024-01-01T02:10:00",
       "uses_objects": [],
-      "document_id": "doc_7b9e3504",
+      "document_id": "doc_9cd957d0",
       "document_name": "urgent_tech_email.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
       "uncertainty": false
     }
   ],
   "timeline": [
     {
-      "entry_id": "tl_ev_doc_7b9e3504_21",
-      "event_id": "ev_doc_7b9e3504_21",
+      "entry_id": "tl_ev_doc_9cd957d0_21",
+      "event_id": "ev_doc_9cd957d0_21",
       "timestamp_display": "2:10 AM",
       "event_description": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
       "participants": [
@@ -536,39 +620,54 @@
       "location": null,
       "document_name": "urgent_tech_email.txt",
       "document_type": "email",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
       "is_uncertain": false,
       "sort_key": "20240101021000"
     },
     {
-      "entry_id": "tl_ev_doc_7b9e3504_20",
-      "event_id": "ev_doc_7b9e3504_20",
+      "entry_id": "tl_ev_doc_9cd957d0_20",
+      "event_id": "ev_doc_9cd957d0_20",
       "timestamp_display": "08:15 AM",
       "event_description": "Date: August 14, 2024 08:15 AM",
       "participants": [],
       "location": null,
       "document_name": "urgent_tech_email.txt",
       "document_type": "email",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Date: August 14, 2024 08:15 AM",
       "is_uncertain": false,
       "sort_key": "20240101081500"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_8",
-      "event_id": "ev_doc_031c918c_8",
+      "entry_id": "tl_ev_doc_3bf26cac_8",
+      "event_id": "ev_doc_3bf26cac_8",
       "timestamp_display": "09:00 AM",
       "event_description": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
       "participants": [],
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
       "is_uncertain": false,
       "sort_key": "20240101090000"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_9",
-      "event_id": "ev_doc_031c918c_9",
+      "entry_id": "tl_ev_doc_3bf26cac_9",
+      "event_id": "ev_doc_3bf26cac_9",
       "timestamp_display": "09:00 AM",
       "event_description": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
       "participants": [
@@ -577,65 +676,90 @@
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
       "is_uncertain": false,
       "sort_key": "20240101090000"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_10",
-      "event_id": "ev_doc_031c918c_10",
+      "entry_id": "tl_ev_doc_3bf26cac_10",
+      "event_id": "ev_doc_3bf26cac_10",
       "timestamp_display": "09:01 AM",
       "event_description": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
       "participants": [],
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
       "is_uncertain": false,
       "sort_key": "20240101090100"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_11",
-      "event_id": "ev_doc_031c918c_11",
+      "entry_id": "tl_ev_doc_3bf26cac_11",
+      "event_id": "ev_doc_3bf26cac_11",
       "timestamp_display": "09:01 AM",
       "event_description": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
       "participants": [],
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
       "is_uncertain": false,
       "sort_key": "20240101090100"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_12",
-      "event_id": "ev_doc_031c918c_12",
+      "entry_id": "tl_ev_doc_3bf26cac_12",
+      "event_id": "ev_doc_3bf26cac_12",
       "timestamp_display": "09:02 AM",
       "event_description": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
       "participants": [],
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
       "is_uncertain": false,
       "sort_key": "20240101090200"
     },
     {
-      "entry_id": "tl_ev_doc_031c918c_13",
-      "event_id": "ev_doc_031c918c_13",
+      "entry_id": "tl_ev_doc_3bf26cac_13",
+      "event_id": "ev_doc_3bf26cac_13",
       "timestamp_display": "09:02 AM",
       "event_description": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
       "participants": [],
       "location": null,
       "document_name": "interview_dr_kaufman.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
       "is_uncertain": false,
       "sort_key": "20240101090200"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_14",
-      "event_id": "ev_doc_6803f900_14",
+      "entry_id": "tl_ev_doc_26a05e75_14",
+      "event_id": "ev_doc_26a05e75_14",
       "timestamp_display": "10:30 AM",
       "event_description": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
       "participants": [
@@ -644,13 +768,18 @@
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
       "is_uncertain": false,
       "sort_key": "20240101103000"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_15",
-      "event_id": "ev_doc_6803f900_15",
+      "entry_id": "tl_ev_doc_26a05e75_15",
+      "event_id": "ev_doc_26a05e75_15",
       "timestamp_display": "10:30 AM",
       "event_description": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
       "participants": [
@@ -659,26 +788,36 @@
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
       "is_uncertain": false,
       "sort_key": "20240101103000"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_16",
-      "event_id": "ev_doc_6803f900_16",
+      "entry_id": "tl_ev_doc_26a05e75_16",
+      "event_id": "ev_doc_26a05e75_16",
       "timestamp_display": "10:31 AM",
       "event_description": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
       "participants": [],
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
       "is_uncertain": false,
       "sort_key": "20240101103100"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_17",
-      "event_id": "ev_doc_6803f900_17",
+      "entry_id": "tl_ev_doc_26a05e75_17",
+      "event_id": "ev_doc_26a05e75_17",
       "timestamp_display": "10:31 AM",
       "event_description": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
       "participants": [
@@ -687,117 +826,162 @@
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
       "is_uncertain": false,
       "sort_key": "20240101103100"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_18",
-      "event_id": "ev_doc_6803f900_18",
+      "entry_id": "tl_ev_doc_26a05e75_18",
+      "event_id": "ev_doc_26a05e75_18",
       "timestamp_display": "10:32 AM",
       "event_description": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
       "participants": [],
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
       "is_uncertain": false,
       "sort_key": "20240101103200"
     },
     {
-      "entry_id": "tl_ev_doc_6803f900_19",
-      "event_id": "ev_doc_6803f900_19",
+      "entry_id": "tl_ev_doc_26a05e75_19",
+      "event_id": "ev_doc_26a05e75_19",
       "timestamp_display": "10:32 AM",
       "event_description": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
       "participants": [],
       "location": null,
       "document_name": "interview_lab_tech_priya.txt",
       "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
       "is_uncertain": false,
       "sort_key": "20240101103200"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_2",
-      "event_id": "ev_doc_c1c0293a_2",
+      "entry_id": "tl_ev_doc_4a071757_2",
+      "event_id": "ev_doc_4a071757_2",
       "timestamp_display": "2024-08-14 01:45:00",
       "event_description": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
       "is_uncertain": false,
       "sort_key": "20240814014500"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_3",
-      "event_id": "ev_doc_c1c0293a_3",
+      "entry_id": "tl_ev_doc_4a071757_3",
+      "event_id": "ev_doc_4a071757_3",
       "timestamp_display": "2024-08-14 02:10:00",
       "event_description": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
       "is_uncertain": false,
       "sort_key": "20240814021000"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_4",
-      "event_id": "ev_doc_c1c0293a_4",
+      "entry_id": "tl_ev_doc_4a071757_4",
+      "event_id": "ev_doc_4a071757_4",
       "timestamp_display": "2024-08-14 04:30:00",
       "event_description": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
       "is_uncertain": false,
       "sort_key": "20240814043000"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_5",
-      "event_id": "ev_doc_c1c0293a_5",
+      "entry_id": "tl_ev_doc_4a071757_5",
+      "event_id": "ev_doc_4a071757_5",
       "timestamp_display": "2024-08-14 06:15:00",
       "event_description": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
       "is_uncertain": false,
       "sort_key": "20240814061500"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_6",
-      "event_id": "ev_doc_c1c0293a_6",
+      "entry_id": "tl_ev_doc_4a071757_6",
+      "event_id": "ev_doc_4a071757_6",
       "timestamp_display": "2024-08-14 07:45:00",
       "event_description": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
       "is_uncertain": false,
       "sort_key": "20240814074500"
     },
     {
-      "entry_id": "tl_ev_doc_c1c0293a_7",
-      "event_id": "ev_doc_c1c0293a_7",
+      "entry_id": "tl_ev_doc_4a071757_7",
+      "event_id": "ev_doc_4a071757_7",
       "timestamp_display": "2024-08-14 11:00:00",
       "event_description": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
       "participants": [],
       "location": null,
       "document_name": "freezer_iot_telemetry_log.txt",
       "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
       "is_uncertain": false,
       "sort_key": "20240814110000"
     },
     {
-      "entry_id": "tl_ev_doc_739dc466_1",
-      "event_id": "ev_doc_739dc466_1",
+      "entry_id": "tl_ev_doc_5d26236d_1",
+      "event_id": "ev_doc_5d26236d_1",
       "timestamp_display": "2024-08-16 14:30:00",
       "event_description": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
       "participants": [
@@ -806,6 +990,11 @@
       "location": null,
       "document_name": "courier_shipping_manifest.txt",
       "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
       "source_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
       "is_uncertain": false,
       "sort_key": "20240816143000"
@@ -814,7 +1003,7 @@
   "case_graph": {
     "nodes": [
       {
-        "id": "doc_node_doc_739dc466",
+        "id": "doc_node_doc_5d26236d",
         "label": "courier_shipping_manifest.txt",
         "node_type": "document",
         "sub_type": "other",
@@ -825,7 +1014,7 @@
         }
       },
       {
-        "id": "doc_node_doc_c1c0293a",
+        "id": "doc_node_doc_4a071757",
         "label": "freezer_iot_telemetry_log.txt",
         "node_type": "document",
         "sub_type": "log",
@@ -836,7 +1025,7 @@
         }
       },
       {
-        "id": "doc_node_doc_b11e006a",
+        "id": "doc_node_doc_64d1a66b",
         "label": "internal_memo_coverup.txt",
         "node_type": "document",
         "sub_type": "email",
@@ -847,7 +1036,7 @@
         }
       },
       {
-        "id": "doc_node_doc_031c918c",
+        "id": "doc_node_doc_3bf26cac",
         "label": "interview_dr_kaufman.txt",
         "node_type": "document",
         "sub_type": "interview",
@@ -858,7 +1047,7 @@
         }
       },
       {
-        "id": "doc_node_doc_6803f900",
+        "id": "doc_node_doc_26a05e75",
         "label": "interview_lab_tech_priya.txt",
         "node_type": "document",
         "sub_type": "interview",
@@ -869,7 +1058,7 @@
         }
       },
       {
-        "id": "doc_node_doc_e3279b56",
+        "id": "doc_node_doc_c2f1942e",
         "label": "patient_safety_adverse_event_report.txt",
         "node_type": "document",
         "sub_type": "report",
@@ -880,7 +1069,7 @@
         }
       },
       {
-        "id": "doc_node_doc_62efc5bd",
+        "id": "doc_node_doc_4e6ee528",
         "label": "sponsor_audit_findings.txt",
         "node_type": "document",
         "sub_type": "log",
@@ -891,7 +1080,7 @@
         }
       },
       {
-        "id": "doc_node_doc_7b9e3504",
+        "id": "doc_node_doc_9cd957d0",
         "label": "urgent_tech_email.txt",
         "node_type": "document",
         "sub_type": "email",
@@ -902,7 +1091,7 @@
         }
       },
       {
-        "id": "ent_node_ent_77b4bd",
+        "id": "ent_node_ent_3cf9a3",
         "label": "Arlo Kaufman",
         "node_type": "entity",
         "sub_type": "person",
@@ -912,7 +1101,7 @@
         }
       },
       {
-        "id": "ent_node_ent_86738a",
+        "id": "ent_node_ent_63bf82",
         "label": "Helios Pharma",
         "node_type": "entity",
         "sub_type": "organization",
@@ -922,7 +1111,7 @@
         }
       },
       {
-        "id": "ent_node_ent_512a59",
+        "id": "ent_node_ent_e1cf49",
         "label": "Freezer Unit",
         "node_type": "entity",
         "sub_type": "person",
@@ -932,7 +1121,7 @@
         }
       },
       {
-        "id": "ent_node_ent_25135c",
+        "id": "ent_node_ent_db9753",
         "label": "Priya Sharma",
         "node_type": "entity",
         "sub_type": "person",
@@ -942,7 +1131,7 @@
         }
       },
       {
-        "id": "ent_node_ent_b7ef5e",
+        "id": "ent_node_ent_249665",
         "label": "Sarah Jenkins",
         "node_type": "entity",
         "sub_type": "person",
@@ -952,7 +1141,7 @@
         }
       },
       {
-        "id": "ent_node_ent_f0d6e3",
+        "id": "ent_node_ent_f44db7",
         "label": "Regulatory Auditor",
         "node_type": "entity",
         "sub_type": "person",
@@ -962,7 +1151,7 @@
         }
       },
       {
-        "id": "ent_node_ent_bf0082",
+        "id": "ent_node_ent_880b64",
         "label": "Principal Investigator",
         "node_type": "entity",
         "sub_type": "person",
@@ -972,7 +1161,7 @@
         }
       },
       {
-        "id": "ent_node_ent_d1a05f",
+        "id": "ent_node_ent_76503a",
         "label": "Clinical Research",
         "node_type": "entity",
         "sub_type": "person",
@@ -982,7 +1171,7 @@
         }
       },
       {
-        "id": "ent_node_ent_e32f1e",
+        "id": "ent_node_ent_5ad2d3",
         "label": "Pickup Timestamp",
         "node_type": "entity",
         "sub_type": "person",
@@ -992,7 +1181,7 @@
         }
       },
       {
-        "id": "ent_node_ent_bc9cd0",
+        "id": "ent_node_ent_072bc8",
         "label": "Package Temperature",
         "node_type": "entity",
         "sub_type": "person",
@@ -1002,7 +1191,7 @@
         }
       },
       {
-        "id": "ent_node_ent_2ee0e4",
+        "id": "ent_node_ent_1df5ab",
         "label": "Raymond Vance",
         "node_type": "entity",
         "sub_type": "person",
@@ -1012,7 +1201,7 @@
         }
       },
       {
-        "id": "ent_node_ent_e49f4d",
+        "id": "ent_node_ent_fdc1b1",
         "label": "Clinical Supply",
         "node_type": "entity",
         "sub_type": "person",
@@ -1022,7 +1211,7 @@
         }
       },
       {
-        "id": "ent_node_ent_c3f064",
+        "id": "ent_node_ent_5f1b1e",
         "label": "Senior Laboratory",
         "node_type": "entity",
         "sub_type": "person",
@@ -1032,7 +1221,7 @@
         }
       },
       {
-        "id": "ent_node_ent_d93fd7",
+        "id": "ent_node_ent_dc9881",
         "label": "Inspection Report",
         "node_type": "entity",
         "sub_type": "person",
@@ -1042,7 +1231,7 @@
         }
       },
       {
-        "id": "ent_node_ent_52cfb2",
+        "id": "ent_node_ent_1841b9",
         "label": "Lead Inspector",
         "node_type": "entity",
         "sub_type": "person",
@@ -1052,7 +1241,7 @@
         }
       },
       {
-        "id": "ent_node_ent_8549e1",
+        "id": "ent_node_ent_e0a10e",
         "label": "Violations Noted",
         "node_type": "entity",
         "sub_type": "person",
@@ -1062,7 +1251,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_739dc466_1",
+        "id": "ev_node_ev_doc_5d26236d_1",
         "label": "Pickup Timestamp: 2024-08-16 14:30:...",
         "node_type": "event",
         "sub_type": "action",
@@ -1080,7 +1269,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_2",
+        "id": "ev_node_ev_doc_4a071757_2",
         "label": "2024-08-14 01:45:00 - Temp: -80.2 C...",
         "node_type": "event",
         "sub_type": "action",
@@ -1098,7 +1287,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_3",
+        "id": "ev_node_ev_doc_4a071757_3",
         "label": "2024-08-14 02:10:00 - POWER FAULT: ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1116,7 +1305,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_4",
+        "id": "ev_node_ev_doc_4a071757_4",
         "label": "2024-08-14 04:30:00 - Temp: -22.5 C...",
         "node_type": "event",
         "sub_type": "action",
@@ -1134,7 +1323,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_5",
+        "id": "ev_node_ev_doc_4a071757_5",
         "label": "2024-08-14 06:15:00 - Temp: +4.1 C ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1152,7 +1341,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_6",
+        "id": "ev_node_ev_doc_4a071757_6",
         "label": "2024-08-14 07:45:00 - Mains power r...",
         "node_type": "event",
         "sub_type": "action",
@@ -1170,7 +1359,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_c1c0293a_7",
+        "id": "ev_node_ev_doc_4a071757_7",
         "label": "2024-08-14 11:00:00 - Temp: -78.9 C...",
         "node_type": "event",
         "sub_type": "action",
@@ -1188,7 +1377,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_031c918c_8",
+        "id": "ev_node_ev_doc_3bf26cac_8",
         "label": "[09:00 AM] JENKINS: Dr. Kaufman, we...",
         "node_type": "event",
         "sub_type": "action",
@@ -1206,7 +1395,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_031c918c_9",
+        "id": "ev_node_ev_doc_3bf26cac_9",
         "label": "[09:00 AM] KAUFMAN: Yes, absolutely...",
         "node_type": "event",
         "sub_type": "action",
@@ -1217,7 +1406,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_031c918c_10",
+        "id": "ev_node_ev_doc_3bf26cac_10",
         "label": "[09:01 AM] JENKINS: Did any power o...",
         "node_type": "event",
         "sub_type": "action",
@@ -1235,7 +1424,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_031c918c_11",
+        "id": "ev_node_ev_doc_3bf26cac_11",
         "label": "[09:01 AM] KAUFMAN: There was zero ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1246,7 +1435,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_031c918c_12",
+        "id": "ev_node_ev_doc_3bf26cac_12",
         "label": "[09:02 AM] JENKINS: When were the e...",
         "node_type": "event",
         "sub_type": "action",
@@ -1264,7 +1453,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_031c918c_13",
+        "id": "ev_node_ev_doc_3bf26cac_13",
         "label": "[09:02 AM] KAUFMAN: They were dispa...",
         "node_type": "event",
         "sub_type": "action",
@@ -1275,7 +1464,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_6803f900_14",
+        "id": "ev_node_ev_doc_26a05e75_14",
         "label": "[10:30 AM] JENKINS: Priya, tell us ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1293,7 +1482,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_6803f900_15",
+        "id": "ev_node_ev_doc_26a05e75_15",
         "label": "[10:30 AM] SHARMA: The backup gener...",
         "node_type": "event",
         "sub_type": "action",
@@ -1304,7 +1493,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_6803f900_16",
+        "id": "ev_node_ev_doc_26a05e75_16",
         "label": "[10:31 AM] JENKINS: Did you report ...",
         "node_type": "event",
         "sub_type": "action",
@@ -1322,7 +1511,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_6803f900_17",
+        "id": "ev_node_ev_doc_26a05e75_17",
         "label": "[10:31 AM] SHARMA: Yes, I sent an u...",
         "node_type": "event",
         "sub_type": "action",
@@ -1333,7 +1522,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_6803f900_18",
+        "id": "ev_node_ev_doc_26a05e75_18",
         "label": "[10:32 AM] JENKINS: What did Dr. Ka...",
         "node_type": "event",
         "sub_type": "action",
@@ -1351,7 +1540,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_6803f900_19",
+        "id": "ev_node_ev_doc_26a05e75_19",
         "label": "[10:32 AM] SHARMA: He told me to di...",
         "node_type": "event",
         "sub_type": "action",
@@ -1362,7 +1551,7 @@
         }
       },
       {
-        "id": "ev_node_ev_doc_7b9e3504_20",
+        "id": "ev_node_ev_doc_9cd957d0_20",
         "label": "Date: August 14, 2024 08:15 AM",
         "node_type": "event",
         "sub_type": "action",
@@ -1380,7 +1569,7 @@
         "properties": {}
       },
       {
-        "id": "ev_node_ev_doc_7b9e3504_21",
+        "id": "ev_node_ev_doc_9cd957d0_21",
         "label": "Freezer Unit 4 lost power at 2:10 A...",
         "node_type": "event",
         "sub_type": "action",
@@ -1400,674 +1589,674 @@
     ],
     "edges": [
       {
-        "id": "edge_ent_node_ent_77b4bd_stated_in_doc_node_doc_62efc5bd_0",
-        "source": "ent_node_ent_77b4bd",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_3cf9a3_stated_in_doc_node_doc_5d26236d_0",
+        "source": "ent_node_ent_3cf9a3",
+        "target": "doc_node_doc_5d26236d",
         "relation": "stated_in",
-        "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+        "evidence_sentence": "From: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_77b4bd_stated_in_doc_node_doc_7b9e3504_1",
-        "source": "ent_node_ent_77b4bd",
-        "target": "doc_node_doc_7b9e3504",
+        "id": "edge_ent_node_ent_3cf9a3_stated_in_doc_node_doc_64d1a66b_1",
+        "source": "ent_node_ent_3cf9a3",
+        "target": "doc_node_doc_64d1a66b",
         "relation": "stated_in",
-        "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+        "evidence_sentence": "From: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_77b4bd_stated_in_doc_node_doc_739dc466_2",
-        "source": "ent_node_ent_77b4bd",
-        "target": "doc_node_doc_739dc466",
+        "id": "edge_ent_node_ent_3cf9a3_stated_in_doc_node_doc_4e6ee528_2",
+        "source": "ent_node_ent_3cf9a3",
+        "target": "doc_node_doc_4e6ee528",
         "relation": "stated_in",
-        "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+        "evidence_sentence": "From: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_77b4bd_stated_in_doc_node_doc_031c918c_3",
-        "source": "ent_node_ent_77b4bd",
-        "target": "doc_node_doc_031c918c",
+        "id": "edge_ent_node_ent_3cf9a3_stated_in_doc_node_doc_9cd957d0_3",
+        "source": "ent_node_ent_3cf9a3",
+        "target": "doc_node_doc_9cd957d0",
         "relation": "stated_in",
-        "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+        "evidence_sentence": "From: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_77b4bd_stated_in_doc_node_doc_b11e006a_4",
-        "source": "ent_node_ent_77b4bd",
-        "target": "doc_node_doc_b11e006a",
+        "id": "edge_ent_node_ent_3cf9a3_stated_in_doc_node_doc_3bf26cac_4",
+        "source": "ent_node_ent_3cf9a3",
+        "target": "doc_node_doc_3bf26cac",
         "relation": "stated_in",
-        "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+        "evidence_sentence": "From: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_512a59_stated_in_doc_node_doc_7b9e3504_5",
-        "source": "ent_node_ent_512a59",
-        "target": "doc_node_doc_7b9e3504",
-        "relation": "stated_in",
-        "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
-      },
-      {
-        "id": "edge_ent_node_ent_512a59_stated_in_doc_node_doc_031c918c_6",
-        "source": "ent_node_ent_512a59",
-        "target": "doc_node_doc_031c918c",
+        "id": "edge_ent_node_ent_e1cf49_stated_in_doc_node_doc_9cd957d0_5",
+        "source": "ent_node_ent_e1cf49",
+        "target": "doc_node_doc_9cd957d0",
         "relation": "stated_in",
         "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_ent_node_ent_512a59_stated_in_doc_node_doc_6803f900_7",
-        "source": "ent_node_ent_512a59",
-        "target": "doc_node_doc_6803f900",
+        "id": "edge_ent_node_ent_e1cf49_stated_in_doc_node_doc_26a05e75_6",
+        "source": "ent_node_ent_e1cf49",
+        "target": "doc_node_doc_26a05e75",
         "relation": "stated_in",
         "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_ent_node_ent_25135c_stated_in_doc_node_doc_7b9e3504_8",
-        "source": "ent_node_ent_25135c",
-        "target": "doc_node_doc_7b9e3504",
+        "id": "edge_ent_node_ent_e1cf49_stated_in_doc_node_doc_3bf26cac_7",
+        "source": "ent_node_ent_e1cf49",
+        "target": "doc_node_doc_3bf26cac",
         "relation": "stated_in",
-        "evidence_sentence": "From: Priya Sharma <p.sharma@heliospharma.org>"
+        "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_ent_node_ent_25135c_stated_in_doc_node_doc_6803f900_9",
-        "source": "ent_node_ent_25135c",
-        "target": "doc_node_doc_6803f900",
+        "id": "edge_ent_node_ent_db9753_stated_in_doc_node_doc_26a05e75_8",
+        "source": "ent_node_ent_db9753",
+        "target": "doc_node_doc_26a05e75",
         "relation": "stated_in",
-        "evidence_sentence": "From: Priya Sharma <p.sharma@heliospharma.org>"
+        "evidence_sentence": "Speaker/Author of document: Priya Sharma"
       },
       {
-        "id": "edge_ent_node_ent_b7ef5e_stated_in_doc_node_doc_62efc5bd_10",
-        "source": "ent_node_ent_b7ef5e",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_db9753_stated_in_doc_node_doc_9cd957d0_9",
+        "source": "ent_node_ent_db9753",
+        "target": "doc_node_doc_9cd957d0",
         "relation": "stated_in",
-        "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
+        "evidence_sentence": "Speaker/Author of document: Priya Sharma"
       },
       {
-        "id": "edge_ent_node_ent_b7ef5e_stated_in_doc_node_doc_031c918c_11",
-        "source": "ent_node_ent_b7ef5e",
-        "target": "doc_node_doc_031c918c",
-        "relation": "stated_in",
-        "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
-      },
-      {
-        "id": "edge_ent_node_ent_b7ef5e_stated_in_doc_node_doc_6803f900_12",
-        "source": "ent_node_ent_b7ef5e",
-        "target": "doc_node_doc_6803f900",
+        "id": "edge_ent_node_ent_249665_stated_in_doc_node_doc_4e6ee528_10",
+        "source": "ent_node_ent_249665",
+        "target": "doc_node_doc_4e6ee528",
         "relation": "stated_in",
         "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_f0d6e3_stated_in_doc_node_doc_031c918c_13",
-        "source": "ent_node_ent_f0d6e3",
-        "target": "doc_node_doc_031c918c",
+        "id": "edge_ent_node_ent_249665_stated_in_doc_node_doc_26a05e75_11",
+        "source": "ent_node_ent_249665",
+        "target": "doc_node_doc_26a05e75",
         "relation": "stated_in",
         "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_f0d6e3_stated_in_doc_node_doc_6803f900_14",
-        "source": "ent_node_ent_f0d6e3",
-        "target": "doc_node_doc_6803f900",
+        "id": "edge_ent_node_ent_249665_stated_in_doc_node_doc_3bf26cac_12",
+        "source": "ent_node_ent_249665",
+        "target": "doc_node_doc_3bf26cac",
         "relation": "stated_in",
         "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_bf0082_stated_in_doc_node_doc_62efc5bd_15",
-        "source": "ent_node_ent_bf0082",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_f44db7_stated_in_doc_node_doc_26a05e75_13",
+        "source": "ent_node_ent_f44db7",
+        "target": "doc_node_doc_26a05e75",
         "relation": "stated_in",
-        "evidence_sentence": "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman."
+        "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_bf0082_stated_in_doc_node_doc_031c918c_16",
-        "source": "ent_node_ent_bf0082",
-        "target": "doc_node_doc_031c918c",
+        "id": "edge_ent_node_ent_f44db7_stated_in_doc_node_doc_3bf26cac_14",
+        "source": "ent_node_ent_f44db7",
+        "target": "doc_node_doc_3bf26cac",
         "relation": "stated_in",
-        "evidence_sentence": "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman."
+        "evidence_sentence": "Interviewer: Regulatory Auditor Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_d1a05f_stated_in_doc_node_doc_739dc466_17",
-        "source": "ent_node_ent_d1a05f",
-        "target": "doc_node_doc_739dc466",
+        "id": "edge_ent_node_ent_880b64_stated_in_doc_node_doc_4e6ee528_15",
+        "source": "ent_node_ent_880b64",
+        "target": "doc_node_doc_4e6ee528",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Dr. Arlo Kaufman, Principal Investigator"
+      },
+      {
+        "id": "edge_ent_node_ent_880b64_stated_in_doc_node_doc_3bf26cac_16",
+        "source": "ent_node_ent_880b64",
+        "target": "doc_node_doc_3bf26cac",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Dr. Arlo Kaufman, Principal Investigator"
+      },
+      {
+        "id": "edge_ent_node_ent_76503a_stated_in_doc_node_doc_5d26236d_17",
+        "source": "ent_node_ent_76503a",
+        "target": "doc_node_doc_5d26236d",
         "relation": "stated_in",
         "evidence_sentence": "Sender: Helios Pharma Clinical Research Site 03"
       },
       {
-        "id": "edge_ent_node_ent_e32f1e_stated_in_doc_node_doc_739dc466_18",
-        "source": "ent_node_ent_e32f1e",
-        "target": "doc_node_doc_739dc466",
+        "id": "edge_ent_node_ent_5ad2d3_stated_in_doc_node_doc_5d26236d_18",
+        "source": "ent_node_ent_5ad2d3",
+        "target": "doc_node_doc_5d26236d",
         "relation": "stated_in",
         "evidence_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
       },
       {
-        "id": "edge_ent_node_ent_bc9cd0_stated_in_doc_node_doc_739dc466_19",
-        "source": "ent_node_ent_bc9cd0",
-        "target": "doc_node_doc_739dc466",
+        "id": "edge_ent_node_ent_072bc8_stated_in_doc_node_doc_5d26236d_19",
+        "source": "ent_node_ent_072bc8",
+        "target": "doc_node_doc_5d26236d",
         "relation": "stated_in",
         "evidence_sentence": "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard)"
       },
       {
-        "id": "edge_ent_node_ent_2ee0e4_stated_in_doc_node_doc_739dc466_20",
-        "source": "ent_node_ent_2ee0e4",
-        "target": "doc_node_doc_739dc466",
+        "id": "edge_ent_node_ent_1df5ab_stated_in_doc_node_doc_5d26236d_20",
+        "source": "ent_node_ent_1df5ab",
+        "target": "doc_node_doc_5d26236d",
         "relation": "stated_in",
         "evidence_sentence": "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
       },
       {
-        "id": "edge_ent_node_ent_e49f4d_stated_in_doc_node_doc_b11e006a_21",
-        "source": "ent_node_ent_e49f4d",
-        "target": "doc_node_doc_b11e006a",
+        "id": "edge_ent_node_ent_fdc1b1_stated_in_doc_node_doc_64d1a66b_21",
+        "source": "ent_node_ent_fdc1b1",
+        "target": "doc_node_doc_64d1a66b",
         "relation": "stated_in",
         "evidence_sentence": "To: Clinical Supply Operations"
       },
       {
-        "id": "edge_ent_node_ent_c3f064_stated_in_doc_node_doc_6803f900_22",
-        "source": "ent_node_ent_c3f064",
-        "target": "doc_node_doc_6803f900",
+        "id": "edge_ent_node_ent_5f1b1e_stated_in_doc_node_doc_26a05e75_22",
+        "source": "ent_node_ent_5f1b1e",
+        "target": "doc_node_doc_26a05e75",
         "relation": "stated_in",
         "evidence_sentence": "Interviewee: Priya Sharma, Senior Laboratory Technician"
       },
       {
-        "id": "edge_ent_node_ent_d93fd7_stated_in_doc_node_doc_62efc5bd_23",
-        "source": "ent_node_ent_d93fd7",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_dc9881_stated_in_doc_node_doc_4e6ee528_23",
+        "source": "ent_node_ent_dc9881",
+        "target": "doc_node_doc_4e6ee528",
         "relation": "stated_in",
         "evidence_sentence": "Helios Pharma Site 03 Inspection Report"
       },
       {
-        "id": "edge_ent_node_ent_52cfb2_stated_in_doc_node_doc_62efc5bd_24",
-        "source": "ent_node_ent_52cfb2",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_1841b9_stated_in_doc_node_doc_4e6ee528_24",
+        "source": "ent_node_ent_1841b9",
+        "target": "doc_node_doc_4e6ee528",
         "relation": "stated_in",
         "evidence_sentence": "Lead Inspector: Sarah Jenkins"
       },
       {
-        "id": "edge_ent_node_ent_8549e1_stated_in_doc_node_doc_62efc5bd_25",
-        "source": "ent_node_ent_8549e1",
-        "target": "doc_node_doc_62efc5bd",
+        "id": "edge_ent_node_ent_e0a10e_stated_in_doc_node_doc_4e6ee528_25",
+        "source": "ent_node_ent_e0a10e",
+        "target": "doc_node_doc_4e6ee528",
         "relation": "stated_in",
         "evidence_sentence": "Violations Noted:"
       },
       {
-        "id": "edge_ent_node_ent_d1a05f_works_for_ent_node_ent_86738a_26",
-        "source": "ent_node_ent_d1a05f",
-        "target": "ent_node_ent_86738a",
+        "id": "edge_ent_node_ent_76503a_works_for_ent_node_ent_63bf82_26",
+        "source": "ent_node_ent_76503a",
+        "target": "ent_node_ent_63bf82",
         "relation": "works_for",
         "evidence_sentence": "Sender: Helios Pharma Clinical Research Site 03"
       },
       {
-        "id": "edge_ent_node_ent_d93fd7_works_for_ent_node_ent_86738a_27",
-        "source": "ent_node_ent_d93fd7",
-        "target": "ent_node_ent_86738a",
+        "id": "edge_ent_node_ent_dc9881_works_for_ent_node_ent_63bf82_27",
+        "source": "ent_node_ent_dc9881",
+        "target": "ent_node_ent_63bf82",
         "relation": "works_for",
         "evidence_sentence": "Helios Pharma Site 03 Inspection Report"
       },
       {
-        "id": "edge_doc_node_doc_739dc466_provides_evidence_ev_node_ev_doc_739dc466_1_28",
-        "source": "doc_node_doc_739dc466",
-        "target": "ev_node_ev_doc_739dc466_1",
+        "id": "edge_doc_node_doc_5d26236d_provides_evidence_ev_node_ev_doc_5d26236d_1_28",
+        "source": "doc_node_doc_5d26236d",
+        "target": "ev_node_ev_doc_5d26236d_1",
         "relation": "provides_evidence",
         "evidence_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
       },
       {
-        "id": "edge_ent_node_ent_e32f1e_involved_in_ev_node_ev_doc_739dc466_1_29",
-        "source": "ent_node_ent_e32f1e",
-        "target": "ev_node_ev_doc_739dc466_1",
+        "id": "edge_ent_node_ent_5ad2d3_involved_in_ev_node_ev_doc_5d26236d_1_29",
+        "source": "ent_node_ent_5ad2d3",
+        "target": "ev_node_ev_doc_5d26236d_1",
         "relation": "involved_in",
         "evidence_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
       },
       {
-        "id": "edge_ev_node_ev_doc_739dc466_1_occurs_at_time_time_node_2024-08-16_143000_30",
-        "source": "ev_node_ev_doc_739dc466_1",
+        "id": "edge_ev_node_ev_doc_5d26236d_1_occurs_at_time_time_node_2024-08-16_143000_30",
+        "source": "ev_node_ev_doc_5d26236d_1",
         "target": "time_node_2024-08-16_143000",
         "relation": "occurs_at_time",
         "evidence_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_2_31",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_2",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_2_31",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_2",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_2_occurs_at_time_time_node_2024-08-14_014500_32",
-        "source": "ev_node_ev_doc_c1c0293a_2",
+        "id": "edge_ev_node_ev_doc_4a071757_2_occurs_at_time_time_node_2024-08-14_014500_32",
+        "source": "ev_node_ev_doc_4a071757_2",
         "target": "time_node_2024-08-14_014500",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_3_33",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_3",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_3_33",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_3",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_3_occurs_at_time_time_node_2024-08-14_021000_34",
-        "source": "ev_node_ev_doc_c1c0293a_3",
+        "id": "edge_ev_node_ev_doc_4a071757_3_occurs_at_time_time_node_2024-08-14_021000_34",
+        "source": "ev_node_ev_doc_4a071757_3",
         "target": "time_node_2024-08-14_021000",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_4_35",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_4",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_4_35",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_4",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_4_occurs_at_time_time_node_2024-08-14_043000_36",
-        "source": "ev_node_ev_doc_c1c0293a_4",
+        "id": "edge_ev_node_ev_doc_4a071757_4_occurs_at_time_time_node_2024-08-14_043000_36",
+        "source": "ev_node_ev_doc_4a071757_4",
         "target": "time_node_2024-08-14_043000",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_5_37",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_5",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_5_37",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_5",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_5_occurs_at_time_time_node_2024-08-14_061500_38",
-        "source": "ev_node_ev_doc_c1c0293a_5",
+        "id": "edge_ev_node_ev_doc_4a071757_5_occurs_at_time_time_node_2024-08-14_061500_38",
+        "source": "ev_node_ev_doc_4a071757_5",
         "target": "time_node_2024-08-14_061500",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_6_39",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_6",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_6_39",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_6",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_6_occurs_at_time_time_node_2024-08-14_074500_40",
-        "source": "ev_node_ev_doc_c1c0293a_6",
+        "id": "edge_ev_node_ev_doc_4a071757_6_occurs_at_time_time_node_2024-08-14_074500_40",
+        "source": "ev_node_ev_doc_4a071757_6",
         "target": "time_node_2024-08-14_074500",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active"
       },
       {
-        "id": "edge_doc_node_doc_c1c0293a_provides_evidence_ev_node_ev_doc_c1c0293a_7_41",
-        "source": "doc_node_doc_c1c0293a",
-        "target": "ev_node_ev_doc_c1c0293a_7",
+        "id": "edge_doc_node_doc_4a071757_provides_evidence_ev_node_ev_doc_4a071757_7_41",
+        "source": "doc_node_doc_4a071757",
+        "target": "ev_node_ev_doc_4a071757_7",
         "relation": "provides_evidence",
         "evidence_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_7_occurs_at_time_time_node_2024-08-14_110000_42",
-        "source": "ev_node_ev_doc_c1c0293a_7",
+        "id": "edge_ev_node_ev_doc_4a071757_7_occurs_at_time_time_node_2024-08-14_110000_42",
+        "source": "ev_node_ev_doc_4a071757_7",
         "target": "time_node_2024-08-14_110000",
         "relation": "occurs_at_time",
         "evidence_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED"
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_8_43",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_8",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_8_43",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_8",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_8_occurs_at_time_time_node_0900_AM_44",
-        "source": "ev_node_ev_doc_031c918c_8",
+        "id": "edge_ev_node_ev_doc_3bf26cac_8_occurs_at_time_time_node_0900_AM_44",
+        "source": "ev_node_ev_doc_3bf26cac_8",
         "target": "time_node_0900_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?"
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_9_45",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_9",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_9_45",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_9",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window."
       },
       {
-        "id": "edge_ent_node_ent_512a59_involved_in_ev_node_ev_doc_031c918c_9_46",
-        "source": "ent_node_ent_512a59",
-        "target": "ev_node_ev_doc_031c918c_9",
+        "id": "edge_ent_node_ent_e1cf49_involved_in_ev_node_ev_doc_3bf26cac_9_46",
+        "source": "ent_node_ent_e1cf49",
+        "target": "ev_node_ev_doc_3bf26cac_9",
         "relation": "involved_in",
         "evidence_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window."
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_9_occurs_at_time_time_node_0900_AM_47",
-        "source": "ev_node_ev_doc_031c918c_9",
+        "id": "edge_ev_node_ev_doc_3bf26cac_9_occurs_at_time_time_node_0900_AM_47",
+        "source": "ev_node_ev_doc_3bf26cac_9",
         "target": "time_node_0900_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window."
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_10_48",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_10",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_10_48",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_10",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_10_occurs_at_time_time_node_0901_AM_49",
-        "source": "ev_node_ev_doc_031c918c_10",
+        "id": "edge_ev_node_ev_doc_3bf26cac_10_occurs_at_time_time_node_0901_AM_49",
+        "source": "ev_node_ev_doc_3bf26cac_10",
         "target": "time_node_0901_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?"
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_11_50",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_11",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_11_50",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_11",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm."
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_11_occurs_at_time_time_node_0901_AM_51",
-        "source": "ev_node_ev_doc_031c918c_11",
+        "id": "edge_ev_node_ev_doc_3bf26cac_11_occurs_at_time_time_node_0901_AM_51",
+        "source": "ev_node_ev_doc_3bf26cac_11",
         "target": "time_node_0901_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm."
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_12_52",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_12",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_12_52",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_12",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_12_occurs_at_time_time_node_0902_AM_53",
-        "source": "ev_node_ev_doc_031c918c_12",
+        "id": "edge_ev_node_ev_doc_3bf26cac_12_occurs_at_time_time_node_0902_AM_53",
+        "source": "ev_node_ev_doc_3bf26cac_12",
         "target": "time_node_0902_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?"
       },
       {
-        "id": "edge_doc_node_doc_031c918c_provides_evidence_ev_node_ev_doc_031c918c_13_54",
-        "source": "doc_node_doc_031c918c",
-        "target": "ev_node_ev_doc_031c918c_13",
+        "id": "edge_doc_node_doc_3bf26cac_provides_evidence_ev_node_ev_doc_3bf26cac_13_54",
+        "source": "doc_node_doc_3bf26cac",
+        "target": "ev_node_ev_doc_3bf26cac_13",
         "relation": "provides_evidence",
         "evidence_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice."
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_13_occurs_at_time_time_node_0902_AM_55",
-        "source": "ev_node_ev_doc_031c918c_13",
+        "id": "edge_ev_node_ev_doc_3bf26cac_13_occurs_at_time_time_node_0902_AM_55",
+        "source": "ev_node_ev_doc_3bf26cac_13",
         "target": "time_node_0902_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice."
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_14_56",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_14",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_14_56",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_14",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_ent_node_ent_512a59_involved_in_ev_node_ev_doc_6803f900_14_57",
-        "source": "ent_node_ent_512a59",
-        "target": "ev_node_ev_doc_6803f900_14",
+        "id": "edge_ent_node_ent_e1cf49_involved_in_ev_node_ev_doc_26a05e75_14_57",
+        "source": "ent_node_ent_e1cf49",
+        "target": "ev_node_ev_doc_26a05e75_14",
         "relation": "involved_in",
         "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_14_occurs_at_time_time_node_1030_AM_58",
-        "source": "ev_node_ev_doc_6803f900_14",
+        "id": "edge_ev_node_ev_doc_26a05e75_14_occurs_at_time_time_node_1030_AM_58",
+        "source": "ev_node_ev_doc_26a05e75_14",
         "target": "time_node_1030_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_15_59",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_15",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_15_59",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_15",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
       },
       {
-        "id": "edge_ent_node_ent_512a59_involved_in_ev_node_ev_doc_6803f900_15_60",
-        "source": "ent_node_ent_512a59",
-        "target": "ev_node_ev_doc_6803f900_15",
+        "id": "edge_ent_node_ent_e1cf49_involved_in_ev_node_ev_doc_26a05e75_15_60",
+        "source": "ent_node_ent_e1cf49",
+        "target": "ev_node_ev_doc_26a05e75_15",
         "relation": "involved_in",
         "evidence_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_15_occurs_at_time_time_node_1030_AM_61",
-        "source": "ev_node_ev_doc_6803f900_15",
+        "id": "edge_ev_node_ev_doc_26a05e75_15_occurs_at_time_time_node_1030_AM_61",
+        "source": "ev_node_ev_doc_26a05e75_15",
         "target": "time_node_1030_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_16_62",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_16",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_16_62",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_16",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_16_occurs_at_time_time_node_1031_AM_63",
-        "source": "ev_node_ev_doc_6803f900_16",
+        "id": "edge_ev_node_ev_doc_26a05e75_16_occurs_at_time_time_node_1031_AM_63",
+        "source": "ev_node_ev_doc_26a05e75_16",
         "target": "time_node_1031_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?"
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_17_64",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_17",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_17_64",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_17",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder."
       },
       {
-        "id": "edge_ent_node_ent_25135c_involved_in_ev_node_ev_doc_6803f900_17_65",
-        "source": "ent_node_ent_25135c",
-        "target": "ev_node_ev_doc_6803f900_17",
+        "id": "edge_ent_node_ent_db9753_involved_in_ev_node_ev_doc_26a05e75_17_65",
+        "source": "ent_node_ent_db9753",
+        "target": "ev_node_ev_doc_26a05e75_17",
         "relation": "involved_in",
         "evidence_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder."
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_17_occurs_at_time_time_node_1031_AM_66",
-        "source": "ev_node_ev_doc_6803f900_17",
+        "id": "edge_ev_node_ev_doc_26a05e75_17_occurs_at_time_time_node_1031_AM_66",
+        "source": "ev_node_ev_doc_26a05e75_17",
         "target": "time_node_1031_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder."
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_18_67",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_18",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_18_67",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_18",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_18_occurs_at_time_time_node_1032_AM_68",
-        "source": "ev_node_ev_doc_6803f900_18",
+        "id": "edge_ev_node_ev_doc_26a05e75_18_occurs_at_time_time_node_1032_AM_68",
+        "source": "ev_node_ev_doc_26a05e75_18",
         "target": "time_node_1032_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?"
       },
       {
-        "id": "edge_doc_node_doc_6803f900_provides_evidence_ev_node_ev_doc_6803f900_19_69",
-        "source": "doc_node_doc_6803f900",
-        "target": "ev_node_ev_doc_6803f900_19",
+        "id": "edge_doc_node_doc_26a05e75_provides_evidence_ev_node_ev_doc_26a05e75_19_69",
+        "source": "doc_node_doc_26a05e75",
+        "target": "ev_node_ev_doc_26a05e75_19",
         "relation": "provides_evidence",
         "evidence_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled."
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_19_occurs_at_time_time_node_1032_AM_70",
-        "source": "ev_node_ev_doc_6803f900_19",
+        "id": "edge_ev_node_ev_doc_26a05e75_19_occurs_at_time_time_node_1032_AM_70",
+        "source": "ev_node_ev_doc_26a05e75_19",
         "target": "time_node_1032_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled."
       },
       {
-        "id": "edge_doc_node_doc_7b9e3504_provides_evidence_ev_node_ev_doc_7b9e3504_20_71",
-        "source": "doc_node_doc_7b9e3504",
-        "target": "ev_node_ev_doc_7b9e3504_20",
+        "id": "edge_doc_node_doc_9cd957d0_provides_evidence_ev_node_ev_doc_9cd957d0_20_71",
+        "source": "doc_node_doc_9cd957d0",
+        "target": "ev_node_ev_doc_9cd957d0_20",
         "relation": "provides_evidence",
         "evidence_sentence": "Date: August 14, 2024 08:15 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_7b9e3504_20_occurs_at_time_time_node_0815_AM_72",
-        "source": "ev_node_ev_doc_7b9e3504_20",
+        "id": "edge_ev_node_ev_doc_9cd957d0_20_occurs_at_time_time_node_0815_AM_72",
+        "source": "ev_node_ev_doc_9cd957d0_20",
         "target": "time_node_0815_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "Date: August 14, 2024 08:15 AM"
       },
       {
-        "id": "edge_doc_node_doc_7b9e3504_provides_evidence_ev_node_ev_doc_7b9e3504_21_73",
-        "source": "doc_node_doc_7b9e3504",
-        "target": "ev_node_ev_doc_7b9e3504_21",
+        "id": "edge_doc_node_doc_9cd957d0_provides_evidence_ev_node_ev_doc_9cd957d0_21_73",
+        "source": "doc_node_doc_9cd957d0",
+        "target": "ev_node_ev_doc_9cd957d0_21",
         "relation": "provides_evidence",
         "evidence_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
       },
       {
-        "id": "edge_ent_node_ent_512a59_involved_in_ev_node_ev_doc_7b9e3504_21_74",
-        "source": "ent_node_ent_512a59",
-        "target": "ev_node_ev_doc_7b9e3504_21",
+        "id": "edge_ent_node_ent_e1cf49_involved_in_ev_node_ev_doc_9cd957d0_21_74",
+        "source": "ent_node_ent_e1cf49",
+        "target": "ev_node_ev_doc_9cd957d0_21",
         "relation": "involved_in",
         "evidence_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
       },
       {
-        "id": "edge_ev_node_ev_doc_7b9e3504_21_occurs_at_time_time_node_210_AM_75",
-        "source": "ev_node_ev_doc_7b9e3504_21",
+        "id": "edge_ev_node_ev_doc_9cd957d0_21_occurs_at_time_time_node_210_AM_75",
+        "source": "ev_node_ev_doc_9cd957d0_21",
         "target": "time_node_210_AM",
         "relation": "occurs_at_time",
         "evidence_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
       },
       {
-        "id": "edge_ev_node_ev_doc_7b9e3504_21_before_ev_node_ev_doc_7b9e3504_20_76",
-        "source": "ev_node_ev_doc_7b9e3504_21",
-        "target": "ev_node_ev_doc_7b9e3504_20",
+        "id": "edge_ev_node_ev_doc_9cd957d0_21_before_ev_node_ev_doc_9cd957d0_20_76",
+        "source": "ev_node_ev_doc_9cd957d0_21",
+        "target": "ev_node_ev_doc_9cd957d0_20",
         "relation": "before",
         "evidence_sentence": "2:10 AM -> 08:15 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_7b9e3504_20_before_ev_node_ev_doc_031c918c_8_77",
-        "source": "ev_node_ev_doc_7b9e3504_20",
-        "target": "ev_node_ev_doc_031c918c_8",
+        "id": "edge_ev_node_ev_doc_9cd957d0_20_before_ev_node_ev_doc_3bf26cac_8_77",
+        "source": "ev_node_ev_doc_9cd957d0_20",
+        "target": "ev_node_ev_doc_3bf26cac_8",
         "relation": "before",
         "evidence_sentence": "08:15 AM -> 09:00 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_8_same_time_ev_node_ev_doc_031c918c_9_78",
-        "source": "ev_node_ev_doc_031c918c_8",
-        "target": "ev_node_ev_doc_031c918c_9",
+        "id": "edge_ev_node_ev_doc_3bf26cac_8_same_time_ev_node_ev_doc_3bf26cac_9_78",
+        "source": "ev_node_ev_doc_3bf26cac_8",
+        "target": "ev_node_ev_doc_3bf26cac_9",
         "relation": "same_time",
         "evidence_sentence": "09:00 AM -> 09:00 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_9_before_ev_node_ev_doc_031c918c_10_79",
-        "source": "ev_node_ev_doc_031c918c_9",
-        "target": "ev_node_ev_doc_031c918c_10",
+        "id": "edge_ev_node_ev_doc_3bf26cac_9_before_ev_node_ev_doc_3bf26cac_10_79",
+        "source": "ev_node_ev_doc_3bf26cac_9",
+        "target": "ev_node_ev_doc_3bf26cac_10",
         "relation": "before",
         "evidence_sentence": "09:00 AM -> 09:01 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_10_same_time_ev_node_ev_doc_031c918c_11_80",
-        "source": "ev_node_ev_doc_031c918c_10",
-        "target": "ev_node_ev_doc_031c918c_11",
+        "id": "edge_ev_node_ev_doc_3bf26cac_10_same_time_ev_node_ev_doc_3bf26cac_11_80",
+        "source": "ev_node_ev_doc_3bf26cac_10",
+        "target": "ev_node_ev_doc_3bf26cac_11",
         "relation": "same_time",
         "evidence_sentence": "09:01 AM -> 09:01 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_11_before_ev_node_ev_doc_031c918c_12_81",
-        "source": "ev_node_ev_doc_031c918c_11",
-        "target": "ev_node_ev_doc_031c918c_12",
+        "id": "edge_ev_node_ev_doc_3bf26cac_11_before_ev_node_ev_doc_3bf26cac_12_81",
+        "source": "ev_node_ev_doc_3bf26cac_11",
+        "target": "ev_node_ev_doc_3bf26cac_12",
         "relation": "before",
         "evidence_sentence": "09:01 AM -> 09:02 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_12_same_time_ev_node_ev_doc_031c918c_13_82",
-        "source": "ev_node_ev_doc_031c918c_12",
-        "target": "ev_node_ev_doc_031c918c_13",
+        "id": "edge_ev_node_ev_doc_3bf26cac_12_same_time_ev_node_ev_doc_3bf26cac_13_82",
+        "source": "ev_node_ev_doc_3bf26cac_12",
+        "target": "ev_node_ev_doc_3bf26cac_13",
         "relation": "same_time",
         "evidence_sentence": "09:02 AM -> 09:02 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_031c918c_13_before_ev_node_ev_doc_6803f900_14_83",
-        "source": "ev_node_ev_doc_031c918c_13",
-        "target": "ev_node_ev_doc_6803f900_14",
+        "id": "edge_ev_node_ev_doc_3bf26cac_13_before_ev_node_ev_doc_26a05e75_14_83",
+        "source": "ev_node_ev_doc_3bf26cac_13",
+        "target": "ev_node_ev_doc_26a05e75_14",
         "relation": "before",
         "evidence_sentence": "09:02 AM -> 10:30 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_14_same_time_ev_node_ev_doc_6803f900_15_84",
-        "source": "ev_node_ev_doc_6803f900_14",
-        "target": "ev_node_ev_doc_6803f900_15",
+        "id": "edge_ev_node_ev_doc_26a05e75_14_same_time_ev_node_ev_doc_26a05e75_15_84",
+        "source": "ev_node_ev_doc_26a05e75_14",
+        "target": "ev_node_ev_doc_26a05e75_15",
         "relation": "same_time",
         "evidence_sentence": "10:30 AM -> 10:30 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_15_before_ev_node_ev_doc_6803f900_16_85",
-        "source": "ev_node_ev_doc_6803f900_15",
-        "target": "ev_node_ev_doc_6803f900_16",
+        "id": "edge_ev_node_ev_doc_26a05e75_15_before_ev_node_ev_doc_26a05e75_16_85",
+        "source": "ev_node_ev_doc_26a05e75_15",
+        "target": "ev_node_ev_doc_26a05e75_16",
         "relation": "before",
         "evidence_sentence": "10:30 AM -> 10:31 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_16_same_time_ev_node_ev_doc_6803f900_17_86",
-        "source": "ev_node_ev_doc_6803f900_16",
-        "target": "ev_node_ev_doc_6803f900_17",
+        "id": "edge_ev_node_ev_doc_26a05e75_16_same_time_ev_node_ev_doc_26a05e75_17_86",
+        "source": "ev_node_ev_doc_26a05e75_16",
+        "target": "ev_node_ev_doc_26a05e75_17",
         "relation": "same_time",
         "evidence_sentence": "10:31 AM -> 10:31 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_17_before_ev_node_ev_doc_6803f900_18_87",
-        "source": "ev_node_ev_doc_6803f900_17",
-        "target": "ev_node_ev_doc_6803f900_18",
+        "id": "edge_ev_node_ev_doc_26a05e75_17_before_ev_node_ev_doc_26a05e75_18_87",
+        "source": "ev_node_ev_doc_26a05e75_17",
+        "target": "ev_node_ev_doc_26a05e75_18",
         "relation": "before",
         "evidence_sentence": "10:31 AM -> 10:32 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_18_same_time_ev_node_ev_doc_6803f900_19_88",
-        "source": "ev_node_ev_doc_6803f900_18",
-        "target": "ev_node_ev_doc_6803f900_19",
+        "id": "edge_ev_node_ev_doc_26a05e75_18_same_time_ev_node_ev_doc_26a05e75_19_88",
+        "source": "ev_node_ev_doc_26a05e75_18",
+        "target": "ev_node_ev_doc_26a05e75_19",
         "relation": "same_time",
         "evidence_sentence": "10:32 AM -> 10:32 AM"
       },
       {
-        "id": "edge_ev_node_ev_doc_6803f900_19_before_ev_node_ev_doc_c1c0293a_2_89",
-        "source": "ev_node_ev_doc_6803f900_19",
-        "target": "ev_node_ev_doc_c1c0293a_2",
+        "id": "edge_ev_node_ev_doc_26a05e75_19_before_ev_node_ev_doc_4a071757_2_89",
+        "source": "ev_node_ev_doc_26a05e75_19",
+        "target": "ev_node_ev_doc_4a071757_2",
         "relation": "before",
         "evidence_sentence": "10:32 AM -> 2024-08-14 01:45:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_2_before_ev_node_ev_doc_c1c0293a_3_90",
-        "source": "ev_node_ev_doc_c1c0293a_2",
-        "target": "ev_node_ev_doc_c1c0293a_3",
+        "id": "edge_ev_node_ev_doc_4a071757_2_before_ev_node_ev_doc_4a071757_3_90",
+        "source": "ev_node_ev_doc_4a071757_2",
+        "target": "ev_node_ev_doc_4a071757_3",
         "relation": "before",
         "evidence_sentence": "2024-08-14 01:45:00 -> 2024-08-14 02:10:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_3_before_ev_node_ev_doc_c1c0293a_4_91",
-        "source": "ev_node_ev_doc_c1c0293a_3",
-        "target": "ev_node_ev_doc_c1c0293a_4",
+        "id": "edge_ev_node_ev_doc_4a071757_3_before_ev_node_ev_doc_4a071757_4_91",
+        "source": "ev_node_ev_doc_4a071757_3",
+        "target": "ev_node_ev_doc_4a071757_4",
         "relation": "before",
         "evidence_sentence": "2024-08-14 02:10:00 -> 2024-08-14 04:30:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_4_before_ev_node_ev_doc_c1c0293a_5_92",
-        "source": "ev_node_ev_doc_c1c0293a_4",
-        "target": "ev_node_ev_doc_c1c0293a_5",
+        "id": "edge_ev_node_ev_doc_4a071757_4_before_ev_node_ev_doc_4a071757_5_92",
+        "source": "ev_node_ev_doc_4a071757_4",
+        "target": "ev_node_ev_doc_4a071757_5",
         "relation": "before",
         "evidence_sentence": "2024-08-14 04:30:00 -> 2024-08-14 06:15:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_5_before_ev_node_ev_doc_c1c0293a_6_93",
-        "source": "ev_node_ev_doc_c1c0293a_5",
-        "target": "ev_node_ev_doc_c1c0293a_6",
+        "id": "edge_ev_node_ev_doc_4a071757_5_before_ev_node_ev_doc_4a071757_6_93",
+        "source": "ev_node_ev_doc_4a071757_5",
+        "target": "ev_node_ev_doc_4a071757_6",
         "relation": "before",
         "evidence_sentence": "2024-08-14 06:15:00 -> 2024-08-14 07:45:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_6_before_ev_node_ev_doc_c1c0293a_7_94",
-        "source": "ev_node_ev_doc_c1c0293a_6",
-        "target": "ev_node_ev_doc_c1c0293a_7",
+        "id": "edge_ev_node_ev_doc_4a071757_6_before_ev_node_ev_doc_4a071757_7_94",
+        "source": "ev_node_ev_doc_4a071757_6",
+        "target": "ev_node_ev_doc_4a071757_7",
         "relation": "before",
         "evidence_sentence": "2024-08-14 07:45:00 -> 2024-08-14 11:00:00"
       },
       {
-        "id": "edge_ev_node_ev_doc_c1c0293a_7_before_ev_node_ev_doc_739dc466_1_95",
-        "source": "ev_node_ev_doc_c1c0293a_7",
-        "target": "ev_node_ev_doc_739dc466_1",
+        "id": "edge_ev_node_ev_doc_4a071757_7_before_ev_node_ev_doc_5d26236d_1_95",
+        "source": "ev_node_ev_doc_4a071757_7",
+        "target": "ev_node_ev_doc_5d26236d_1",
         "relation": "before",
         "evidence_sentence": "2024-08-14 11:00:00 -> 2024-08-16 14:30:00"
       }

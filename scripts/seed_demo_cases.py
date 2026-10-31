@@ -96,6 +96,11 @@ def main():
         case_name="The Helios Pharma Clinical Trial Discrepancy",
         description="Audit of cryogenic cold chain excursion in Trial HL-902 and adverse event reporting discrepancies."
     )
+    seed_case(
+        case_id="case_04_apex_robotics",
+        case_name="The Apex Robotics Drone Sabotage",
+        description="Investigation into unauthorized motor-kill firmware flashing and catastrophic failure of SkyHarrier-9 prototype."
+    )
     print("\nAll demo cases successfully seeded and analyzed!")
 
 

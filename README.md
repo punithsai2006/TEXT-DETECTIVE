@@ -20,6 +20,9 @@ Text Detective solves this through an autonomous agentic framework combining:
 5. **Hypothesis Generation & Scoring** via the exact mathematical formula from Slide 18 (Module 5)
 6. **Traceable 18-Section Investigation Report** (Module 6)
 7. **Central Controller Agent** managing 3 autonomous feedback loops (Need more evidence, Need clarification, Need additional analysis).
+8. **Evidence Provenance Validator** auditing 100% of citations and preventing dangling references.
+9. **Human Review Workflow** for analyst review of detected contradictions (`pending_review`, `confirmed`, `rejected`, `needs_further_investigation`).
+10. **Reproducible Analysis Run Records** capturing immutable audit logs, models, and SHA-256 document hashes.
 
 ---
 
@@ -34,9 +37,9 @@ Text Detective solves this through an autonomous agentic framework combining:
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
 │                   Module 1: Ingestion & Preprocessing                  │
-│   - Multi-format text extraction (pypdf, python-docx, text)            │
+│   - Multi-format text extraction (pypdf, python-docx, text, logs)      │
 │   - Abbreviation-safe sentence boundary detection                      │
-│   - Metadata tagging (doc_id, doc_type, author, timestamp, hash)       │
+│   - Metadata tagging (doc_id, doc_type, author, timestamp, sha256)    │
 │   - Sentence-index tracked chunking (400 chars, 80 char overlap)       │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
@@ -63,7 +66,7 @@ Text Detective solves this through an autonomous agentic framework combining:
 │   - Cross-document pairwise sentence alignment                         │
 │   - NLI classification (Entailment, Contradiction, Neutral)            │
 │   - Temporal, numerical, locational, and direct negation conflict rules│
-│   - Contradiction pairing with confidence scoring                      │
+│   - Contradiction pairing with confidence & human review status        │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
@@ -80,6 +83,7 @@ Text Detective solves this through an autonomous agentic framework combining:
 │              Module 6: Traceable Investigation Report Dossier          │
 │   - Full 18-Section Structured Dossier (Executive Summary, Graph, etc.)│
 │   - Exact source citations: [doc_id, chunk_id, sentence_idx]           │
+│   - Provenance Validator auditing source groundedness                  │
 │   - Markdown & JSON export capabilities                                │
 └────────────────────────────────────────────────────────────────────────┘
                                     ▲
@@ -92,6 +96,7 @@ Text Detective solves this through an autonomous agentic framework combining:
 │   - Loop 3: Need Additional Analysis (Hypothesis tie-breaker trigger)   │
 │   - Hard execution safety cap: Max 2 iterations per loop               │
 │   - Zero-Hallucination Case Q&A with strict evidence boundary checks   │
+│   - Immutable Analysis Run Records with SHA-256 document fingerprints │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -110,7 +115,7 @@ Where:
 - $\text{Corroboration}(H) = 1$ if supporting evidence originates from at least two distinct documents with two distinct authors, else $0$.
 - $\text{ConflictPenalty}(H) = 1$ if any active cross-document contradiction directly involves a key claim in $H$, else $0$.
 
-The hypothesis with the highest score is tagged as the **"System's Proposed Explanation"**. When score ties occur, the system flags the outcome as an ambiguity needing human analyst review.
+> **Forensic Guidance:** The hypothesis score is an auditable mathematical ranking heuristic. It is not a statistical probability of guilt or legal finding.
 
 ---
 
@@ -121,31 +126,34 @@ Text Project/
 ├── backend/
 │   ├── app/
 │   │   ├── api/
-│   │   │   └── routes.py              # REST API endpoints for cases, evidence, Q&A
+│   │   │   └── routes.py              # REST API endpoints (cases, evidence, runs, review, Q&A)
 │   │   ├── models/
-│   │   │   └── schemas.py             # Pydantic data schemas
+│   │   │   └── schemas.py             # Pydantic data schemas & enums
 │   │   ├── services/
-│   │   │   ├── ingestion/             # Module 1: Preprocessor & parser
+│   │   │   ├── ingestion/             # Module 1: Preprocessor & chunker
 │   │   │   ├── extraction/            # Module 2: NER, Timeline, Case Graph
 │   │   │   ├── retrieval/             # Module 3: Vector & Hybrid Retriever
 │   │   │   ├── contradiction/         # Module 4: NLI & Contradiction Detector
 │   │   │   ├── hypothesis/            # Module 5: Exact Slide 18 Scorer
 │   │   │   ├── reporting/             # Module 6: 18-Section Report Generator
+│   │   │   ├── provenance/            # Evidence Provenance Validator (Task 2)
 │   │   │   ├── orchestration/         # Central Controller & 3 Feedback Loops
 │   │   │   └── llm_provider.py        # MockLLM, Anthropic, and OpenAI providers
 │   │   ├── storage/
-│   │   │   └── case_store.py          # Isolated filesystem JSON storage
+│   │   │   └── case_store.py          # Isolated filesystem JSON storage & run records
 │   │   ├── config.py                  # Settings via pydantic-settings
-│   │   └── main.py                    # FastAPI application & SPA mount
+│   │   └── main.py                    # FastAPI application, rate limiter, SPA mount
 │   ├── tests/
 │   │   ├── test_all_modules.py        # 16 unit tests for all modules & formula
-│   │   └── test_api_endpoints.py      # 12 integration tests for REST APIs
+│   │   ├── test_api_endpoints.py      # 14 integration tests for REST APIs
+│   │   ├── test_provenance_and_security.py # 6 tests for provenance & security
+│   │   └── test_adversarial_and_injection.py # 6 tests for injection defenses
 │   ├── .env.example                   # Environment configuration template
 │   └── requirements.txt               # Backend Python dependencies
 ├── frontend/
 │   ├── src/
 │   │   ├── components/                # CaseGraphViewer, ContradictionCard, etc.
-│   │   ├── pages/                     # 12 complete investigation pages
+│   │   ├── pages/                     # 12 complete investigation pages with filters
 │   │   ├── types/                     # TypeScript data interfaces
 │   │   ├── App.tsx                    # React router & state management
 │   │   └── main.tsx                   # Entry point
@@ -155,10 +163,13 @@ Text Project/
 │   ├── sample_cases/
 │   │   ├── case_01_meridian/          # Hand-crafted benchmark (9 documents)
 │   │   ├── case_02_blackwood/         # Art heist benchmark (8 documents)
-│   │   └── case_03_helios/            # Held-out clinical trial case (8 documents)
+│   │   ├── case_03_helios/            # Held-out clinical trial case (8 documents)
+│   │   └── case_04_apex_robotics/     # Held-out tactical drone sabotage case (8 documents)
 │   └── ground_truth/                  # Verified ground-truth answer keys
 ├── docs/
 │   ├── IMPLEMENTATION_PLAN.md         # Full architectural design specification
+│   ├── POST_IMPLEMENTATION_REVIEW.md  # Comprehensive improvement & validation review
+│   ├── AUTHENTICATION_AND_AUTHORIZATION_DESIGN.md # Future multi-tenant RBAC specification
 │   └── evaluation/
 │       ├── benchmark_results.md       # Automated evaluation summary
 │       ├── benchmark_results.json     # Detailed evaluation metrics
@@ -194,12 +205,10 @@ python -m venv .venv
 .\.venv\Scripts\pip.exe install -r backend/requirements.txt
 ```
 
-### Step 2: Frontend Setup
+### Step 2: Frontend Setup & Build
 ```powershell
-cd frontend
-npm install
-npm run build
-cd ..
+npm --prefix frontend install
+npm --prefix frontend run build
 ```
 
 ---
@@ -208,7 +217,6 @@ cd ..
 
 ### Option A: Unified Full-Stack Server (FastAPI serving built React SPA)
 ```powershell
-# Ensure venv is active
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 Open your browser to: **`http://localhost:8000`**
@@ -223,51 +231,27 @@ In Terminal 2 (Frontend with Hot Reload):
 cd frontend
 npm run dev
 ```
-Open your browser to: **`http://localhost:5173`** (Vite proxies `/api` calls to `http://localhost:8000`).
+Open your browser to: **`http://localhost:5173`**
 
 ---
 
 ## 7. Running Automated Tests
 
-Run the complete test suite (28 automated tests covering all modules, the Slide 18 formula, edge cases, and all REST endpoints):
+Run the complete test suite (42 automated tests covering all modules, the Slide 18 formula, security mechanisms, provenance validation, adversarial injection defenses, and all REST endpoints):
 
 ```powershell
 .\.venv\Scripts\pytest.exe backend/tests/ -v
 ```
 
-**Expected output:**
+**Verified Test Result:**
 ```
-collected 28 items
-backend/tests/test_all_modules.py::test_exact_hypothesis_scoring_formula PASSED
-backend/tests/test_all_modules.py::test_hypothesis_scoring_variations PASSED
-backend/tests/test_all_modules.py::test_hypothesis_ranking_order_and_ties PASSED
-backend/tests/test_all_modules.py::test_hypothesis_ambiguity_warning_on_tie PASSED
-backend/tests/test_all_modules.py::test_normalize_whitespace_and_noise PASSED
-backend/tests/test_all_modules.py::test_sentence_splitting_with_abbreviations PASSED
-backend/tests/test_all_modules.py::test_detect_document_type PASSED
-backend/tests/test_all_modules.py::test_chunking_preserves_metadata PASSED
-backend/tests/test_all_modules.py::test_empty_file_validation PASSED
-backend/tests/test_all_modules.py::test_unsupported_file_format PASSED
-backend/tests/test_all_modules.py::test_entity_extraction_types PASSED
-backend/tests/test_all_modules.py::test_temporal_parsing PASSED
-backend/tests/test_all_modules.py::test_retriever_case_isolation PASSED
-backend/tests/test_all_modules.py::test_contradiction_detection_confirmed_and_agreements PASSED
-backend/tests/test_all_modules.py::test_report_generation_and_markdown_export PASSED
-backend/tests/test_all_modules.py::test_ask_question_with_no_evidence PASSED
-backend/tests/test_api_endpoints.py::test_api_health PASSED
-backend/tests/test_api_endpoints.py::test_api_cases_list PASSED
-backend/tests/test_api_endpoints.py::test_api_get_case_detail PASSED
-backend/tests/test_api_endpoints.py::test_api_get_documents PASSED
-backend/tests/test_api_endpoints.py::test_api_get_timeline PASSED
-backend/tests/test_api_endpoints.py::test_api_get_contradictions PASSED
-backend/tests/test_api_endpoints.py::test_api_get_hypotheses PASSED
-backend/tests/test_api_endpoints.py::test_api_get_case_graph PASSED
-backend/tests/test_api_endpoints.py::test_api_get_report PASSED
-backend/tests/test_api_endpoints.py::test_api_search_evidence PASSED
-backend/tests/test_api_endpoints.py::test_api_ask_question PASSED
-backend/tests/test_api_endpoints.py::test_api_report_downloads PASSED
+collected 42 items
+backend/tests/test_adversarial_and_injection.py (6 passed)
+backend/tests/test_all_modules.py (16 passed)
+backend/tests/test_api_endpoints.py (14 passed)
+backend/tests/test_provenance_and_security.py (6 passed)
 
-======================= 28 passed in 36.43s =======================
+============================= 42 passed in 12.26s =============================
 ```
 
 ---
@@ -280,35 +264,27 @@ Run the automated evaluation against the ground-truth benchmark suite:
 .\.venv\Scripts\python.exe scripts/evaluate.py
 ```
 
-### Verified Benchmark Results
+### Verified Benchmark Results (All 4 Cases)
 
 | Metric | Result | Benchmark Target | Status |
 |---|---|---|---|
-| **Evaluated Cases** | 3 cases (25 documents total) | $\ge$ 3 cases | **PASSED** |
-| **Held-Out Evaluation Case** | `case_03_helios` | 1 held-out case | **PASSED** |
-| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (3/3 cases) | $\ge 80.0\%$ | **PASSED** |
+| **Evaluated Cases** | 4 cases (33 documents total) | $\ge 3$ cases | **PASSED** |
+| **Designated Held-Out Cases** | `case_03_helios`, `case_04_apex_robotics` | $\ge 1$ held-out case | **PASSED** |
+| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (4/4 cases) | $\ge 80.0\%$ | **PASSED** |
 | **Timeline Chronological Accuracy**| **100.0%** | $\ge 90.0\%$ | **PASSED** |
-| **Evidence Retrieval MRR** | **0.90 – 1.00** | $\ge 0.70$ | **PASSED** |
-| **Case Isolation & No Data Leakage**| **100.0%** | 100.0% | **PASSED** |
+| **Evidence Retrieval MRR** | **0.97** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
+| **Event Grounding F1** | **0.65** | $\ge 0.50$ | **PASSED** |
+| **Case Isolation & Zero Data Leakage**| **100.0%** | 100.0% | **PASSED** |
 
 ---
 
-## 9. Demo Case Walkthrough: "The Meridian Tech Data Leak"
+## 9. Key Documentation & Reports
 
-1. **Dashboard:** Displays 3 active cases, 25 documents, 30+ entities, 5 contradictions, and evaluated hypotheses.
-2. **Cases Navigation:** Select **"The Meridian Tech Data Leak"** (`case_01_meridian`).
-3. **Documents:** Inspect the 9 uploaded files (interviews, emails, incident report, server access logs).
-4. **Timeline:** Observe the ordered chronological sequence of events on October 24, 2024, from 21:00 UTC to 23:45 UTC.
-5. **Evidence Search:** Search for `"USB thumb drive 22:15"` to see hybrid retrieval highlighting Server Room B access records.
-6. **Contradictions:** Review the 5 detected contradictions:
-   - *Example:* Elena Vance's interview claiming she left the building at 21:45 vs. Security Badge Log showing exit at 22:38.
-7. **Hypotheses Evaluation:** Review the 3 candidate explanations scored using Slide 18:
-   - **Hypothesis 1 (True Culprit):** Elena Vance exfiltrated the source code using Marcus Reed's compromised credentials. $\text{Score} = 3$ (**Rank #1 - System's Proposed Explanation**).
-   - **Hypothesis 2 (Decoy):** External APT hacker group breached perimeter firewall. $\text{Score} = -2$.
-   - **Hypothesis 3 (Decoy):** Marcus Reed stole data for competitor. $\text{Score} = -1$.
-8. **Case Graph:** Interactive React Flow graph displaying nodes (Person, Org, Location, Object, Event) with typed directional edges (`at_time`, `located_at`, `participated_in`, `contradicts`).
-9. **Case Q&A:** Ask `"Did anyone enter Server Room B after 22:00?"` — the system provides a cited response referencing `log_badge_reader.txt` without hallucinating.
-10. **Investigation Report:** View or download the complete 18-section dossier in Markdown or JSON format.
+- **Post-Implementation Review:** [`docs/POST_IMPLEMENTATION_REVIEW.md`](docs/POST_IMPLEMENTATION_REVIEW.md)
+- **Authentication & Authorization Design:** [`docs/AUTHENTICATION_AND_AUTHORIZATION_DESIGN.md`](docs/AUTHENTICATION_AND_AUTHORIZATION_DESIGN.md)
+- **Implementation Plan:** [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md)
+- **Benchmark Evaluation Report:** [`docs/evaluation/benchmark_results.md`](docs/evaluation/benchmark_results.md)
+- **Human Evaluation Rubric Template:** [`docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv`](docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv)
 
 ---
 

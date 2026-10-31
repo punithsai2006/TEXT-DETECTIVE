@@ -1,7 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
+
+
+def get_utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
 
 
 # ==========================================
@@ -42,6 +46,22 @@ class ContradictionType(str, Enum):
     POSSIBLE_CONTRADICTION = "possible_contradiction"
     AGREEMENT = "agreement"
     NEUTRAL = "neutral"
+
+
+class ReviewStatus(str, Enum):
+    PENDING_REVIEW = "pending_review"
+    CONFIRMED = "confirmed"
+    REJECTED = "rejected"
+    NEEDS_FURTHER_INVESTIGATION = "needs_further_investigation"
+
+
+class EvidenceClassification(str, Enum):
+    DIRECT_FACT = "direct_fact"
+    SUPPORTING_EVIDENCE = "supporting_evidence"
+    CONFLICTING_EVIDENCE = "conflicting_evidence"
+    INCONCLUSIVE_EVIDENCE = "inconclusive_evidence"
+    MODEL_INTERPRETATION = "model_interpretation"
+    SYSTEM_INFERENCE = "system_inference"
 
 
 class CaseStatus(str, Enum):
@@ -86,10 +106,11 @@ class DocumentMetadata(BaseModel):
     timestamp: Optional[str] = None
     description: Optional[str] = None
     file_size_bytes: int = 0
+    sha256_hash: str = ""
     raw_text: str = ""
     cleaned_text: str = ""
     chunks: List[TextChunk] = Field(default_factory=list)
-    uploaded_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    uploaded_at: str = Field(default_factory=get_utc_now_iso)
     status: str = "processed"
     warning: Optional[str] = None
 
@@ -118,6 +139,10 @@ class Event(BaseModel):
     uses_objects: List[str] = Field(default_factory=list)
     document_id: str
     document_name: str
+    chunk_id: Optional[str] = None
+    sentence_idx: Optional[int] = None
+    char_start: int = 0
+    char_end: int = 0
     source_sentence: str
     uncertainty: bool = False
 
@@ -138,6 +163,11 @@ class TimelineEntry(BaseModel):
     location: Optional[str] = None
     document_name: str
     document_type: DocumentType
+    document_id: Optional[str] = None
+    chunk_id: Optional[str] = None
+    sentence_idx: Optional[int] = None
+    char_start: int = 0
+    char_end: int = 0
     source_sentence: str
     is_uncertain: bool = False
     sort_key: str = ""
@@ -179,8 +209,12 @@ class EvidenceItem(BaseModel):
     speaker: Optional[str] = None
     timestamp: Optional[str] = None
     sentence_indices: List[int] = Field(default_factory=list)
+    char_start: int = 0
+    char_end: int = 0
+    page_number: Optional[int] = None
     score: float
     retrieval_method: str = "hybrid"  # semantic, keyword, hybrid
+    classification: EvidenceClassification = EvidenceClassification.SUPPORTING_EVIDENCE
 
 
 class EvidenceSearchRequest(BaseModel):
@@ -203,6 +237,10 @@ class ContradictionItem(BaseModel):
     doc_b_id: str
     doc_a_name: str
     doc_b_name: str
+    chunk_a_id: Optional[str] = None
+    chunk_b_id: Optional[str] = None
+    sentence_a_idx: Optional[int] = None
+    sentence_b_idx: Optional[int] = None
     speaker_a: Optional[str] = None
     speaker_b: Optional[str] = None
     timestamp_a: Optional[str] = None
@@ -211,9 +249,21 @@ class ContradictionItem(BaseModel):
     contradiction_type: ContradictionType
     nli_label: NLILabel
     confidence: float
+    calculation_source: str = "cross_encoder_nli_and_conflict_rules"
     explanation: str
     resolution_status: str = "unresolved"  # unresolved, resolved, investigating
+    review_status: ReviewStatus = ReviewStatus.PENDING_REVIEW
+    reviewer_id: Optional[str] = None
+    review_timestamp: Optional[str] = None
+    previous_review_status: Optional[str] = None
+    review_notes: Optional[str] = None
     source_sentences: List[str] = Field(default_factory=list)
+
+
+class ContradictionReviewRequest(BaseModel):
+    review_status: ReviewStatus
+    reviewer_id: Optional[str] = "analyst_1"
+    review_notes: Optional[str] = None
 
 
 # ==========================================
@@ -262,7 +312,7 @@ class InvestigationReport(BaseModel):
     report_id: str
     case_id: str
     case_name: str
-    generated_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    generated_at: str = Field(default_factory=get_utc_now_iso)
     case_overview: str
     documents_analyzed: List[Dict[str, Any]]
     investigation_summary: str
@@ -283,6 +333,27 @@ class InvestigationReport(BaseModel):
 
 
 # ==========================================
+# REPRODUCIBLE ANALYSIS RECORD (TASK 6)
+# ==========================================
+
+class AnalysisRunRecord(BaseModel):
+    run_id: str
+    case_id: str
+    timestamp: str = Field(default_factory=get_utc_now_iso)
+    parser_version: str = "1.1.0"
+    model_provider: str = "mock"
+    model_name: str = "mock-investigator-v1"
+    prompt_version: str = "v1.0"
+    retrieval_settings: Dict[str, Any] = Field(default_factory=dict)
+    nli_model: str = "cross-encoder-nli-heuristics"
+    scoring_config: Dict[str, Any] = Field(default_factory=dict)
+    controller_loop_counts: Dict[str, int] = Field(default_factory=dict)
+    document_hashes: Dict[str, str] = Field(default_factory=dict)
+    is_outdated: bool = False
+    metrics_summary: Dict[str, Any] = Field(default_factory=dict)
+
+
+# ==========================================
 # CONTROLLER AUDIT & PROGRESS
 # ==========================================
 
@@ -292,7 +363,7 @@ class ControllerFeedbackLoopEvent(BaseModel):
     trigger_reason: str
     action_taken: str
     result_summary: str
-    timestamp: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    timestamp: str = Field(default_factory=get_utc_now_iso)
 
 
 class AnalysisStatus(BaseModel):
@@ -302,7 +373,7 @@ class AnalysisStatus(BaseModel):
     progress_percentage: int
     message: str
     feedback_loops: List[ControllerFeedbackLoopEvent] = Field(default_factory=list)
-    updated_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    updated_at: str = Field(default_factory=get_utc_now_iso)
     error: Optional[str] = None
 
 
@@ -315,8 +386,8 @@ class Case(BaseModel):
     name: str
     description: str
     is_demo: bool = False
-    created_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
-    updated_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = Field(default_factory=get_utc_now_iso)
+    updated_at: str = Field(default_factory=get_utc_now_iso)
     status: CaseStatus = CaseStatus.CREATED
     document_count: int = 0
     entity_count: int = 0
@@ -350,3 +421,4 @@ class AskQuestionResponse(BaseModel):
     model_used: str
     is_mock: bool = False
     uncertainty_note: Optional[str] = None
+

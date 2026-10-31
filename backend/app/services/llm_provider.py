@@ -48,6 +48,16 @@ class MockLLMProvider(BaseLLMProvider):
     def generate(self, prompt: str, system_prompt: Optional[str] = None) -> LLMResponse:
         p_lower = prompt.lower()
 
+        # Prompt injection & secret revelation defense (Task 4)
+        if ("reveal" in p_lower or "show" in p_lower or "what is" in p_lower) and ("api key" in p_lower or "secret" in p_lower or "password" in p_lower):
+            return LLMResponse(
+                content="ACCESS DENIED: System credentials, API tokens, and internal secrets cannot be revealed under investigation security rules.",
+                provider="mock",
+                model=self._model,
+                is_mock=True,
+                metadata={"type": "security_refusal"}
+            )
+
         # 1. Hypothesis claim decomposition
         if "decompose" in p_lower or "claims" in p_lower or "break into claims" in p_lower:
             # Deterministic extraction of claims

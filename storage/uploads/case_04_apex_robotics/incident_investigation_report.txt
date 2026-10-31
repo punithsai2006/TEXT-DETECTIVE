@@ -1,0 +1,8 @@
+APEX ROBOTICS - SECURITY FORENSICS REPORT
+Incident: Catastrophic Loss of SkyHarrier-9 Prototype
+Investigator: Marcus Stone, Chief Security Officer
+Date: October 26, 2024
+
+1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.
+2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.
+3. CODE RECOVERY: The injected firmware payload contained a timer triggered when altitude exceeded 350 meters, cutting power to all electronic speed controllers.

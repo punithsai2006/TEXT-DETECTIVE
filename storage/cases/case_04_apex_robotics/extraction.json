@@ -1,0 +1,3863 @@
+{
+  "entities": [
+    {
+      "entity_id": "ent_b8574e",
+      "name": "Liam Vance",
+      "entity_type": "person",
+      "mentions_count": 10,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_9b93e8ff",
+        "doc_ad357e19",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Speaker/Author of document: Liam Vance",
+        "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+        "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+        "Interviewee: Liam Vance, QA Safety Specialist",
+        "Interviewer: Agent Vance"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_73d94e",
+      "name": "Derek Cole",
+      "entity_type": "person",
+      "mentions_count": 9,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_df2b34c8",
+        "doc_a98fd3c1",
+        "doc_9b93e8ff",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+        "Interviewee: Derek Cole, Lead Firmware Engineer",
+        "Speaker/Author of document: Derek Cole",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+        "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ba273d",
+      "name": "Elena Rostova",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_246b2801",
+        "doc_df2b34c8",
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+        "Speaker/Author of document: Elena Rostova",
+        "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+        "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d79609",
+      "name": "Apex Robotics",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_ad357e19",
+        "doc_246b2801",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+        "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+        "Case: Apex Robotics Tactical Drone Crash"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c8cfdb",
+      "name": "Tactical Drone",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_ad357e19",
+        "doc_246b2801",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Case: Apex Robotics Tactical Drone Crash"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9ba371",
+      "name": "Vanguard Aero",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_f548e0ce",
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+        "Vanguard Aero Talent Acquisition"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b22cbd",
+      "name": "Rear Hangar",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_97a675",
+      "name": "Service Door",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+        "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2c1a21",
+      "name": "hiring",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Speaker/Author of document: hiring"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_564991",
+      "name": "Retention Fee",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Subject: Retention Fee and Demonstration Milestone"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b33bc8",
+      "name": "Demonstration Milestone",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Subject: Retention Fee and Demonstration Milestone"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2682c8",
+      "name": "Principal Flight",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_214cc9",
+      "name": "Talent Acquisition",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_f548e0ce"
+      ],
+      "source_sentences": [
+        "Vanguard Aero Talent Acquisition"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5dd9fa",
+      "name": "Test Range",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "Facility: Test Range Alpha | Assembly Hangar 3"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_74b069",
+      "name": "Assembly Hangar",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "Facility: Test Range Alpha | Assembly Hangar 3"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_76a9aa",
+      "name": "Main Bay",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9dc9c2",
+      "name": "Exit Front",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b82dda",
+      "name": "Flight Deck",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_df2b34c8"
+      ],
+      "source_sentences": [
+        "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_6a3ba3",
+      "name": "Catastrophic Loss",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Incident: Catastrophic Loss of SkyHarrier-9 Prototype"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b2dcdf",
+      "name": "Security Officer",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_80cf16",
+      "name": "Marcus Stone",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_fb9fd5",
+      "name": "Security",
+      "entity_type": "organization",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "Investigator: Marcus Stone, Chief Security Officer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_19116c",
+      "name": "Physical Access To Hangar 3 Required Badge",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_60f88d",
+      "name": "Badge",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_a98fd3c1"
+      ],
+      "source_sentences": [
+        "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ee7e19",
+      "name": "Lead Firmware",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "Interviewee: Derek Cole, Lead Firmware Engineer"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_89deb5",
+      "name": "Bistro Laurent",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_cadcdad8"
+      ],
+      "source_sentences": [
+        "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2c7d31",
+      "name": "Safety Specialist",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_ad357e19"
+      ],
+      "source_sentences": [
+        "Interviewee: Liam Vance, QA Safety Specialist"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_16fb7c",
+      "name": "Flight Test",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_54f4d9",
+      "name": "Test Pilot",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5df662",
+      "name": "Assembly Bay",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_3e0565",
+      "name": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop And A Flashing Blue Usb",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d3e23f",
+      "name": "Usb",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_fc062e",
+      "name": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c07bcc",
+      "name": "Laptop",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_246b2801"
+      ],
+      "source_sentences": [
+        "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_86655a",
+      "name": "Internal Apex",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "SLACK CHANNEL: #firmware-core (Internal Apex Workspace)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_3e2eff",
+      "name": "Thanks Derek",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_9a39f2",
+      "name": "Hardware Debug",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_9b93e8ff"
+      ],
+      "source_sentences": [
+        "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      ],
+      "metadata": {}
+    }
+  ],
+  "events": [
+    {
+      "event_id": "ev_doc_f548e0ce_1",
+      "description": "Date: October 24, 2024 18:30 UTC",
+      "participants": [],
+      "location": null,
+      "time_str": "18:30",
+      "parsed_timestamp": "2024-01-01T18:30:00",
+      "uses_objects": [],
+      "document_id": "doc_f548e0ce",
+      "document_name": "competitor_consulting_email.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "Date: October 24, 2024 18:30 UTC",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_2",
+      "description": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "participants": [
+        "Main Bay",
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 18:02:11",
+      "parsed_timestamp": "2024-10-25T18:02:11",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_3",
+      "description": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "participants": [
+        "Exit Front",
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 19:42:00",
+      "parsed_timestamp": "2024-10-25T19:42:00",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_4",
+      "description": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:12:44",
+      "parsed_timestamp": "2024-10-25T20:12:44",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_5",
+      "description": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:25:19",
+      "parsed_timestamp": "2024-10-25T20:25:19",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_df2b34c8_6",
+      "description": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "participants": [
+        "Elena Rostova",
+        "Flight Deck"
+      ],
+      "location": null,
+      "time_str": "2024-10-25 20:55:00",
+      "parsed_timestamp": "2024-10-25T20:55:00",
+      "uses_objects": [],
+      "document_id": "doc_df2b34c8",
+      "document_name": "hangar_rfid_access_log.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_a98fd3c1_7",
+      "description": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "participants": [],
+      "location": null,
+      "time_str": "21:05",
+      "parsed_timestamp": "2024-01-01T21:05:00",
+      "uses_objects": [],
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_a98fd3c1_8",
+      "description": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "20:12",
+      "parsed_timestamp": "2024-01-01T20:12:00",
+      "uses_objects": [
+        "Badge",
+        "Physical Access To Hangar 3 Required Badge"
+      ],
+      "document_id": "doc_a98fd3c1",
+      "document_name": "incident_investigation_report.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_9",
+      "description": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_10",
+      "description": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_11",
+      "description": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_12",
+      "description": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_13",
+      "description": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_14",
+      "description": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "participants": [
+        "Bistro Laurent"
+      ],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_15",
+      "description": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "participants": [
+        "Vanguard Aero"
+      ],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_cadcdad8_16",
+      "description": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_cadcdad8",
+      "document_name": "interview_lead_eng_derek.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_17",
+      "description": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:45 AM",
+      "parsed_timestamp": "2024-01-01T11:45:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_18",
+      "description": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:45 AM",
+      "parsed_timestamp": "2024-01-01T11:45:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_19",
+      "description": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "participants": [],
+      "location": null,
+      "time_str": "11:46 AM",
+      "parsed_timestamp": "2024-01-01T11:46:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_ad357e19_20",
+      "description": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:46 AM",
+      "parsed_timestamp": "2024-01-01T11:46:00",
+      "uses_objects": [],
+      "document_id": "doc_ad357e19",
+      "document_name": "interview_qa_tech_liam.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_21",
+      "description": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_22",
+      "description": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_23",
+      "description": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_24",
+      "description": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "participants": [
+        "Assembly Bay",
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [
+        "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop",
+        "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop And A Flashing Blue Usb",
+        "Usb",
+        "Laptop"
+      ],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_25",
+      "description": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_246b2801_26",
+      "description": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_246b2801",
+      "document_name": "interview_test_pilot_elena.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_27",
+      "description": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "time_str": "20:05",
+      "parsed_timestamp": "2024-01-01T20:05:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_28",
+      "description": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "participants": [
+        "Liam Vance",
+        "Thanks Derek"
+      ],
+      "location": null,
+      "time_str": "20:07",
+      "parsed_timestamp": "2024-01-01T20:07:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_29",
+      "description": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "participants": [
+        "Hardware Debug"
+      ],
+      "location": null,
+      "time_str": "20:19",
+      "parsed_timestamp": "2024-01-01T20:19:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_30",
+      "description": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "participants": [
+        "Liam Vance"
+      ],
+      "location": null,
+      "time_str": "20:20",
+      "parsed_timestamp": "2024-01-01T20:20:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_9b93e8ff_31",
+      "description": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "time_str": "20:21",
+      "parsed_timestamp": "2024-01-01T20:21:00",
+      "uses_objects": [],
+      "document_id": "doc_9b93e8ff",
+      "document_name": "slack_export_engineering.txt",
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "uncertainty": false
+    }
+  ],
+  "timeline": [
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_9",
+      "event_id": "ev_doc_cadcdad8_9",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_10",
+      "event_id": "ev_doc_cadcdad8_10",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_11",
+      "event_id": "ev_doc_cadcdad8_11",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_12",
+      "event_id": "ev_doc_cadcdad8_12",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_13",
+      "event_id": "ev_doc_cadcdad8_13",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_14",
+      "event_id": "ev_doc_cadcdad8_14",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "participants": [
+        "Bistro Laurent"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_15",
+      "event_id": "ev_doc_cadcdad8_15",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "participants": [
+        "Vanguard Aero"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_cadcdad8_16",
+      "event_id": "ev_doc_cadcdad8_16",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "participants": [
+        "Apex Robotics"
+      ],
+      "location": null,
+      "document_name": "interview_lead_eng_derek.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_21",
+      "event_id": "ev_doc_246b2801_21",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_22",
+      "event_id": "ev_doc_246b2801_22",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_23",
+      "event_id": "ev_doc_246b2801_23",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_24",
+      "event_id": "ev_doc_246b2801_24",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "participants": [
+        "Assembly Bay",
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_25",
+      "event_id": "ev_doc_246b2801_25",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_246b2801_26",
+      "event_id": "ev_doc_246b2801_26",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_test_pilot_elena.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_17",
+      "event_id": "ev_doc_ad357e19_17",
+      "timestamp_display": "11:45 AM",
+      "event_description": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+      "is_uncertain": false,
+      "sort_key": "20240101114500"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_18",
+      "event_id": "ev_doc_ad357e19_18",
+      "timestamp_display": "11:45 AM",
+      "event_description": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+      "is_uncertain": false,
+      "sort_key": "20240101114500"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_19",
+      "event_id": "ev_doc_ad357e19_19",
+      "timestamp_display": "11:46 AM",
+      "event_description": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+      "is_uncertain": false,
+      "sort_key": "20240101114600"
+    },
+    {
+      "entry_id": "tl_ev_doc_ad357e19_20",
+      "event_id": "ev_doc_ad357e19_20",
+      "timestamp_display": "11:46 AM",
+      "event_description": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_qa_tech_liam.txt",
+      "document_type": "interview",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+      "is_uncertain": false,
+      "sort_key": "20240101114600"
+    },
+    {
+      "entry_id": "tl_ev_doc_f548e0ce_1",
+      "event_id": "ev_doc_f548e0ce_1",
+      "timestamp_display": "18:30",
+      "event_description": "Date: October 24, 2024 18:30 UTC",
+      "participants": [],
+      "location": null,
+      "document_name": "competitor_consulting_email.txt",
+      "document_type": "email",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "Date: October 24, 2024 18:30 UTC",
+      "is_uncertain": false,
+      "sort_key": "20240101183000"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_27",
+      "event_id": "ev_doc_9b93e8ff_27",
+      "timestamp_display": "20:05",
+      "event_description": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+      "is_uncertain": false,
+      "sort_key": "20240101200500"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_28",
+      "event_id": "ev_doc_9b93e8ff_28",
+      "timestamp_display": "20:07",
+      "event_description": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "participants": [
+        "Liam Vance",
+        "Thanks Derek"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+      "is_uncertain": false,
+      "sort_key": "20240101200700"
+    },
+    {
+      "entry_id": "tl_ev_doc_a98fd3c1_8",
+      "event_id": "ev_doc_a98fd3c1_8",
+      "timestamp_display": "20:12",
+      "event_description": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "participants": [
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+      "is_uncertain": false,
+      "sort_key": "20240101201200"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_29",
+      "event_id": "ev_doc_9b93e8ff_29",
+      "timestamp_display": "20:19",
+      "event_description": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "participants": [
+        "Hardware Debug"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+      "is_uncertain": false,
+      "sort_key": "20240101201900"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_30",
+      "event_id": "ev_doc_9b93e8ff_30",
+      "timestamp_display": "20:20",
+      "event_description": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "participants": [
+        "Liam Vance"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+      "is_uncertain": false,
+      "sort_key": "20240101202000"
+    },
+    {
+      "entry_id": "tl_ev_doc_9b93e8ff_31",
+      "event_id": "ev_doc_9b93e8ff_31",
+      "timestamp_display": "20:21",
+      "event_description": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "participants": [
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "slack_export_engineering.txt",
+      "document_type": "other",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+      "is_uncertain": false,
+      "sort_key": "20240101202100"
+    },
+    {
+      "entry_id": "tl_ev_doc_a98fd3c1_7",
+      "event_id": "ev_doc_a98fd3c1_7",
+      "timestamp_display": "21:05",
+      "event_description": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "participants": [],
+      "location": null,
+      "document_name": "incident_investigation_report.txt",
+      "document_type": "report",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+      "is_uncertain": false,
+      "sort_key": "20240101210500"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_2",
+      "event_id": "ev_doc_df2b34c8_2",
+      "timestamp_display": "2024-10-25 18:02:11",
+      "event_description": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "participants": [
+        "Main Bay",
+        "Elena Rostova"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025180211"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_3",
+      "event_id": "ev_doc_df2b34c8_3",
+      "timestamp_display": "2024-10-25 19:42:00",
+      "event_description": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "participants": [
+        "Exit Front",
+        "Derek Cole"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+      "is_uncertain": false,
+      "sort_key": "20241025194200"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_4",
+      "event_id": "ev_doc_df2b34c8_4",
+      "timestamp_display": "2024-10-25 20:12:44",
+      "event_description": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025201244"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_5",
+      "event_id": "ev_doc_df2b34c8_5",
+      "timestamp_display": "2024-10-25 20:25:19",
+      "event_description": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "participants": [
+        "Service Door",
+        "Derek Cole",
+        "Rear Hangar"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+      "is_uncertain": false,
+      "sort_key": "20241025202519"
+    },
+    {
+      "entry_id": "tl_ev_doc_df2b34c8_6",
+      "event_id": "ev_doc_df2b34c8_6",
+      "timestamp_display": "2024-10-25 20:55:00",
+      "event_description": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "participants": [
+        "Elena Rostova",
+        "Flight Deck"
+      ],
+      "location": null,
+      "document_name": "hangar_rfid_access_log.txt",
+      "document_type": "log",
+      "document_id": null,
+      "chunk_id": null,
+      "sentence_idx": null,
+      "char_start": 0,
+      "char_end": 0,
+      "source_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+      "is_uncertain": false,
+      "sort_key": "20241025205500"
+    }
+  ],
+  "case_graph": {
+    "nodes": [
+      {
+        "id": "doc_node_doc_f548e0ce",
+        "label": "competitor_consulting_email.txt",
+        "node_type": "document",
+        "sub_type": "email",
+        "properties": {
+          "filename": "competitor_consulting_email.txt",
+          "document_type": "email",
+          "speaker": "hiring"
+        }
+      },
+      {
+        "id": "doc_node_doc_df2b34c8",
+        "label": "hangar_rfid_access_log.txt",
+        "node_type": "document",
+        "sub_type": "log",
+        "properties": {
+          "filename": "hangar_rfid_access_log.txt",
+          "document_type": "log",
+          "speaker": null
+        }
+      },
+      {
+        "id": "doc_node_doc_a98fd3c1",
+        "label": "incident_investigation_report.txt",
+        "node_type": "document",
+        "sub_type": "report",
+        "properties": {
+          "filename": "incident_investigation_report.txt",
+          "document_type": "report",
+          "speaker": null
+        }
+      },
+      {
+        "id": "doc_node_doc_cadcdad8",
+        "label": "interview_lead_eng_derek.txt",
+        "node_type": "document",
+        "sub_type": "interview",
+        "properties": {
+          "filename": "interview_lead_eng_derek.txt",
+          "document_type": "interview",
+          "speaker": "Derek Cole"
+        }
+      },
+      {
+        "id": "doc_node_doc_ad357e19",
+        "label": "interview_qa_tech_liam.txt",
+        "node_type": "document",
+        "sub_type": "interview",
+        "properties": {
+          "filename": "interview_qa_tech_liam.txt",
+          "document_type": "interview",
+          "speaker": "Liam Vance"
+        }
+      },
+      {
+        "id": "doc_node_doc_246b2801",
+        "label": "interview_test_pilot_elena.txt",
+        "node_type": "document",
+        "sub_type": "interview",
+        "properties": {
+          "filename": "interview_test_pilot_elena.txt",
+          "document_type": "interview",
+          "speaker": "Elena Rostova"
+        }
+      },
+      {
+        "id": "doc_node_doc_9b93e8ff",
+        "label": "slack_export_engineering.txt",
+        "node_type": "document",
+        "sub_type": "other",
+        "properties": {
+          "filename": "slack_export_engineering.txt",
+          "document_type": "other",
+          "speaker": null
+        }
+      },
+      {
+        "id": "ent_node_ent_b8574e",
+        "label": "Liam Vance",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 10,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_73d94e",
+        "label": "Derek Cole",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 9,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_ba273d",
+        "label": "Elena Rostova",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 5,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_d79609",
+        "label": "Apex Robotics",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 5,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_c8cfdb",
+        "label": "Tactical Drone",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 3,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_9ba371",
+        "label": "Vanguard Aero",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 2,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_b22cbd",
+        "label": "Rear Hangar",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 2,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_97a675",
+        "label": "Service Door",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 2,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_2c1a21",
+        "label": "hiring",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_564991",
+        "label": "Retention Fee",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_b33bc8",
+        "label": "Demonstration Milestone",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_2682c8",
+        "label": "Principal Flight",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_214cc9",
+        "label": "Talent Acquisition",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_5dd9fa",
+        "label": "Test Range",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_74b069",
+        "label": "Assembly Hangar",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_76a9aa",
+        "label": "Main Bay",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_9dc9c2",
+        "label": "Exit Front",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_b82dda",
+        "label": "Flight Deck",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_6a3ba3",
+        "label": "Catastrophic Loss",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_b2dcdf",
+        "label": "Security Officer",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_80cf16",
+        "label": "Marcus Stone",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_fb9fd5",
+        "label": "Security",
+        "node_type": "entity",
+        "sub_type": "organization",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "organization"
+        }
+      },
+      {
+        "id": "ent_node_ent_19116c",
+        "label": "Physical Access To Hangar 3 Required Badge",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_60f88d",
+        "label": "Badge",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_ee7e19",
+        "label": "Lead Firmware",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_89deb5",
+        "label": "Bistro Laurent",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_2c7d31",
+        "label": "Safety Specialist",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_16fb7c",
+        "label": "Flight Test",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_54f4d9",
+        "label": "Test Pilot",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_5df662",
+        "label": "Assembly Bay",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_3e0565",
+        "label": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop And A Flashing Blue Usb",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_d3e23f",
+        "label": "Usb",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_fc062e",
+        "label": "I Saw Derek Cole Standing By The Drone'S Avionics Bay With A Laptop",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_c07bcc",
+        "label": "Laptop",
+        "node_type": "entity",
+        "sub_type": "object",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "object"
+        }
+      },
+      {
+        "id": "ent_node_ent_86655a",
+        "label": "Internal Apex",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_3e2eff",
+        "label": "Thanks Derek",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ent_node_ent_9a39f2",
+        "label": "Hardware Debug",
+        "node_type": "entity",
+        "sub_type": "person",
+        "properties": {
+          "mentions": 1,
+          "entity_type": "person"
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_f548e0ce_1",
+        "label": "Date: October 24, 2024 18:30 UTC",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "Date: October 24, 2024 18:30 UTC",
+          "time": "18:30",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1830",
+        "label": "18:30",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_df2b34c8_2",
+        "label": "[2024-10-25 18:02:11] CARD #1088 [E...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)",
+          "time": "2024-10-25 18:02:11",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2024-10-25_180211",
+        "label": "2024-10-25 18:02:11",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_df2b34c8_3",
+        "label": "[2024-10-25 19:42:00] CARD #4412 [D...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)",
+          "time": "2024-10-25 19:42:00",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2024-10-25_194200",
+        "label": "2024-10-25 19:42:00",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_df2b34c8_4",
+        "label": "[2024-10-25 20:12:44] CARD #4412 [D...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)",
+          "time": "2024-10-25 20:12:44",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2024-10-25_201244",
+        "label": "2024-10-25 20:12:44",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_df2b34c8_5",
+        "label": "[2024-10-25 20:25:19] CARD #4412 [D...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)",
+          "time": "2024-10-25 20:25:19",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2024-10-25_202519",
+        "label": "2024-10-25 20:25:19",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_df2b34c8_6",
+        "label": "[2024-10-25 20:55:00] CARD #1088 [E...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)",
+          "time": "2024-10-25 20:55:00",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2024-10-25_205500",
+        "label": "2024-10-25 20:55:00",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_a98fd3c1_7",
+        "label": "1. EXECUTIVE SUMMARY: SkyHarrier-9 ...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage.",
+          "time": "21:05",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2105",
+        "label": "21:05",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_a98fd3c1_8",
+        "label": "2. ATTRIBUTION: Physical access to ...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC.",
+          "time": "20:12",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2012",
+        "label": "20:12",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_9",
+        "label": "[09:00 AM] VANCE: State your name a...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:00 AM] VANCE: State your name and role at Apex Robotics.",
+          "time": "09:00 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_0900_AM",
+        "label": "09:00 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_10",
+        "label": "[09:00 AM] COLE: Derek Cole, lead e...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.",
+          "time": "09:00 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_11",
+        "label": "[09:01 AM] VANCE: Did you modify th...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?",
+          "time": "09:01 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_0901_AM",
+        "label": "09:01 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_12",
+        "label": "[09:01 AM] COLE: Absolutely not. I ...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.",
+          "time": "09:01 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_13",
+        "label": "[09:02 AM] VANCE: Where were you be...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?",
+          "time": "09:02 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_0902_AM",
+        "label": "09:02 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_14",
+        "label": "[09:02 AM] COLE: I left the facilit...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.",
+          "time": "09:02 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_15",
+        "label": "[09:03 AM] VANCE: Did you have any ...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?",
+          "time": "09:03 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_0903_AM",
+        "label": "09:03 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_cadcdad8_16",
+        "label": "[09:03 AM] COLE: No, none whatsoeve...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.",
+          "time": "09:03 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_ad357e19_17",
+        "label": "[11:45 AM] VANCE: Liam, describe th...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry.",
+          "time": "11:45 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1145_AM",
+        "label": "11:45 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_ad357e19_18",
+        "label": "[11:45 AM] LIAM: Standard protocol ...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware.",
+          "time": "11:45 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_ad357e19_19",
+        "label": "[11:46 AM] VANCE: Did the automated...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?",
+          "time": "11:46 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1146_AM",
+        "label": "11:46 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_ad357e19_20",
+        "label": "[11:46 AM] LIAM: Yes. At 20:18 UTC,...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification.",
+          "time": "11:46 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_21",
+        "label": "[10:30 AM] VANCE: Elena, what did y...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?",
+          "time": "10:30 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1030_AM",
+        "label": "10:30 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_22",
+        "label": "[10:30 AM] ROSTOVA: I conducted the...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.",
+          "time": "10:30 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_23",
+        "label": "[10:31 AM] VANCE: Did you see anyon...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?",
+          "time": "10:31 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1031_AM",
+        "label": "10:31 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_24",
+        "label": "[10:31 AM] ROSTOVA: Yes. Around 20:...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.",
+          "time": "10:31 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_25",
+        "label": "[10:32 AM] VANCE: What happened dur...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?",
+          "time": "10:32 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_1032_AM",
+        "label": "10:32 AM",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_246b2801_26",
+        "label": "[10:32 AM] ROSTOVA: At altitude 400...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.",
+          "time": "10:32 AM",
+          "location": null
+        }
+      },
+      {
+        "id": "ev_node_ev_doc_9b93e8ff_27",
+        "label": "20:05 Derek Cole: Hey team, grabbin...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.",
+          "time": "20:05",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2005",
+        "label": "20:05",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_9b93e8ff_28",
+        "label": "20:07 Liam Vance: Thanks Derek, enj...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "20:07 Liam Vance: Thanks Derek, enjoy dinner.",
+          "time": "20:07",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2007",
+        "label": "20:07",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_9b93e8ff_29",
+        "label": "20:19 BOT-ALARM: Warning - Hardware...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.",
+          "time": "20:19",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2019",
+        "label": "20:19",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_9b93e8ff_30",
+        "label": "20:20 Liam Vance: Did someone leave...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "20:20 Liam Vance: Did someone leave the debug cable plugged in?",
+          "time": "20:20",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2020",
+        "label": "20:20",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      },
+      {
+        "id": "ev_node_ev_doc_9b93e8ff_31",
+        "label": "20:21 Elena Rostova: Derek was just...",
+        "node_type": "event",
+        "sub_type": "action",
+        "properties": {
+          "description": "20:21 Elena Rostova: Derek was just in the bay a minute ago.",
+          "time": "20:21",
+          "location": null
+        }
+      },
+      {
+        "id": "time_node_2021",
+        "label": "20:21",
+        "node_type": "time",
+        "sub_type": "temporal",
+        "properties": {}
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_ent_node_ent_b8574e_stated_in_doc_node_doc_246b2801_0",
+        "source": "ent_node_ent_b8574e",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "Speaker/Author of document: Liam Vance"
+      },
+      {
+        "id": "edge_ent_node_ent_b8574e_stated_in_doc_node_doc_9b93e8ff_1",
+        "source": "ent_node_ent_b8574e",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "Speaker/Author of document: Liam Vance"
+      },
+      {
+        "id": "edge_ent_node_ent_b8574e_stated_in_doc_node_doc_ad357e19_2",
+        "source": "ent_node_ent_b8574e",
+        "target": "doc_node_doc_ad357e19",
+        "relation": "stated_in",
+        "evidence_sentence": "Speaker/Author of document: Liam Vance"
+      },
+      {
+        "id": "edge_ent_node_ent_b8574e_stated_in_doc_node_doc_cadcdad8_3",
+        "source": "ent_node_ent_b8574e",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "Speaker/Author of document: Liam Vance"
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_stated_in_doc_node_doc_246b2801_4",
+        "source": "ent_node_ent_73d94e",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_stated_in_doc_node_doc_df2b34c8_5",
+        "source": "ent_node_ent_73d94e",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_stated_in_doc_node_doc_a98fd3c1_6",
+        "source": "ent_node_ent_73d94e",
+        "target": "doc_node_doc_a98fd3c1",
+        "relation": "stated_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_stated_in_doc_node_doc_9b93e8ff_7",
+        "source": "ent_node_ent_73d94e",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_stated_in_doc_node_doc_cadcdad8_8",
+        "source": "ent_node_ent_73d94e",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_stated_in_doc_node_doc_246b2801_9",
+        "source": "ent_node_ent_ba273d",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_stated_in_doc_node_doc_df2b34c8_10",
+        "source": "ent_node_ent_ba273d",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_stated_in_doc_node_doc_9b93e8ff_11",
+        "source": "ent_node_ent_ba273d",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_d79609_stated_in_doc_node_doc_ad357e19_12",
+        "source": "ent_node_ent_d79609",
+        "target": "doc_node_doc_ad357e19",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_ent_node_ent_d79609_stated_in_doc_node_doc_246b2801_13",
+        "source": "ent_node_ent_d79609",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_ent_node_ent_d79609_stated_in_doc_node_doc_cadcdad8_14",
+        "source": "ent_node_ent_d79609",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_ent_node_ent_c8cfdb_stated_in_doc_node_doc_ad357e19_15",
+        "source": "ent_node_ent_c8cfdb",
+        "target": "doc_node_doc_ad357e19",
+        "relation": "stated_in",
+        "evidence_sentence": "Case: Apex Robotics Tactical Drone Crash"
+      },
+      {
+        "id": "edge_ent_node_ent_c8cfdb_stated_in_doc_node_doc_246b2801_16",
+        "source": "ent_node_ent_c8cfdb",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "Case: Apex Robotics Tactical Drone Crash"
+      },
+      {
+        "id": "edge_ent_node_ent_c8cfdb_stated_in_doc_node_doc_cadcdad8_17",
+        "source": "ent_node_ent_c8cfdb",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "Case: Apex Robotics Tactical Drone Crash"
+      },
+      {
+        "id": "edge_ent_node_ent_9ba371_stated_in_doc_node_doc_f548e0ce_18",
+        "source": "ent_node_ent_9ba371",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?"
+      },
+      {
+        "id": "edge_ent_node_ent_9ba371_stated_in_doc_node_doc_cadcdad8_19",
+        "source": "ent_node_ent_9ba371",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?"
+      },
+      {
+        "id": "edge_ent_node_ent_b22cbd_stated_in_doc_node_doc_df2b34c8_20",
+        "source": "ent_node_ent_b22cbd",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_97a675_stated_in_doc_node_doc_df2b34c8_21",
+        "source": "ent_node_ent_97a675",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_2c1a21_stated_in_doc_node_doc_f548e0ce_22",
+        "source": "ent_node_ent_2c1a21",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "Speaker/Author of document: hiring"
+      },
+      {
+        "id": "edge_ent_node_ent_564991_stated_in_doc_node_doc_f548e0ce_23",
+        "source": "ent_node_ent_564991",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "Subject: Retention Fee and Demonstration Milestone"
+      },
+      {
+        "id": "edge_ent_node_ent_b33bc8_stated_in_doc_node_doc_f548e0ce_24",
+        "source": "ent_node_ent_b33bc8",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "Subject: Retention Fee and Demonstration Milestone"
+      },
+      {
+        "id": "edge_ent_node_ent_2682c8_stated_in_doc_node_doc_f548e0ce_25",
+        "source": "ent_node_ent_2682c8",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "We have deposited the initial 75,000 USD consulting retainer into your overseas account. Our offer for the Principal Flight Architect position remains contingent on the upcoming Apex government trial failing to achieve flight certification this Friday."
+      },
+      {
+        "id": "edge_ent_node_ent_214cc9_stated_in_doc_node_doc_f548e0ce_26",
+        "source": "ent_node_ent_214cc9",
+        "target": "doc_node_doc_f548e0ce",
+        "relation": "stated_in",
+        "evidence_sentence": "Vanguard Aero Talent Acquisition"
+      },
+      {
+        "id": "edge_ent_node_ent_5dd9fa_stated_in_doc_node_doc_df2b34c8_27",
+        "source": "ent_node_ent_5dd9fa",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "Facility: Test Range Alpha | Assembly Hangar 3"
+      },
+      {
+        "id": "edge_ent_node_ent_74b069_stated_in_doc_node_doc_df2b34c8_28",
+        "source": "ent_node_ent_74b069",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "Facility: Test Range Alpha | Assembly Hangar 3"
+      },
+      {
+        "id": "edge_ent_node_ent_76a9aa_stated_in_doc_node_doc_df2b34c8_29",
+        "source": "ent_node_ent_76a9aa",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_9dc9c2_stated_in_doc_node_doc_df2b34c8_30",
+        "source": "ent_node_ent_9dc9c2",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      },
+      {
+        "id": "edge_ent_node_ent_b82dda_stated_in_doc_node_doc_df2b34c8_31",
+        "source": "ent_node_ent_b82dda",
+        "target": "doc_node_doc_df2b34c8",
+        "relation": "stated_in",
+        "evidence_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_6a3ba3_stated_in_doc_node_doc_a98fd3c1_32",
+        "source": "ent_node_ent_6a3ba3",
+        "target": "doc_node_doc_a98fd3c1",
+        "relation": "stated_in",
+        "evidence_sentence": "Incident: Catastrophic Loss of SkyHarrier-9 Prototype"
+      },
+      {
+        "id": "edge_ent_node_ent_b2dcdf_stated_in_doc_node_doc_a98fd3c1_33",
+        "source": "ent_node_ent_b2dcdf",
+        "target": "doc_node_doc_a98fd3c1",
+        "relation": "stated_in",
+        "evidence_sentence": "Investigator: Marcus Stone, Chief Security Officer"
+      },
+      {
+        "id": "edge_ent_node_ent_80cf16_stated_in_doc_node_doc_a98fd3c1_34",
+        "source": "ent_node_ent_80cf16",
+        "target": "doc_node_doc_a98fd3c1",
+        "relation": "stated_in",
+        "evidence_sentence": "Investigator: Marcus Stone, Chief Security Officer"
+      },
+      {
+        "id": "edge_ent_node_ent_ee7e19_stated_in_doc_node_doc_cadcdad8_35",
+        "source": "ent_node_ent_ee7e19",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Derek Cole, Lead Firmware Engineer"
+      },
+      {
+        "id": "edge_ent_node_ent_89deb5_stated_in_doc_node_doc_cadcdad8_36",
+        "source": "ent_node_ent_89deb5",
+        "target": "doc_node_doc_cadcdad8",
+        "relation": "stated_in",
+        "evidence_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      },
+      {
+        "id": "edge_ent_node_ent_2c7d31_stated_in_doc_node_doc_ad357e19_37",
+        "source": "ent_node_ent_2c7d31",
+        "target": "doc_node_doc_ad357e19",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Liam Vance, QA Safety Specialist"
+      },
+      {
+        "id": "edge_ent_node_ent_16fb7c_stated_in_doc_node_doc_246b2801_38",
+        "source": "ent_node_ent_16fb7c",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      },
+      {
+        "id": "edge_ent_node_ent_54f4d9_stated_in_doc_node_doc_246b2801_39",
+        "source": "ent_node_ent_54f4d9",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "Interviewee: Elena Rostova, Chief Flight Test Pilot"
+      },
+      {
+        "id": "edge_ent_node_ent_5df662_stated_in_doc_node_doc_246b2801_40",
+        "source": "ent_node_ent_5df662",
+        "target": "doc_node_doc_246b2801",
+        "relation": "stated_in",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ent_node_ent_86655a_stated_in_doc_node_doc_9b93e8ff_41",
+        "source": "ent_node_ent_86655a",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "SLACK CHANNEL: #firmware-core (Internal Apex Workspace)"
+      },
+      {
+        "id": "edge_ent_node_ent_3e2eff_stated_in_doc_node_doc_9b93e8ff_42",
+        "source": "ent_node_ent_3e2eff",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      },
+      {
+        "id": "edge_ent_node_ent_9a39f2_stated_in_doc_node_doc_9b93e8ff_43",
+        "source": "ent_node_ent_9a39f2",
+        "target": "doc_node_doc_9b93e8ff",
+        "relation": "stated_in",
+        "evidence_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      },
+      {
+        "id": "edge_ent_node_ent_b2dcdf_works_for_ent_node_ent_fb9fd5_44",
+        "source": "ent_node_ent_b2dcdf",
+        "target": "ent_node_ent_fb9fd5",
+        "relation": "works_for",
+        "evidence_sentence": "Investigator: Marcus Stone, Chief Security Officer"
+      },
+      {
+        "id": "edge_ent_node_ent_80cf16_works_for_ent_node_ent_fb9fd5_45",
+        "source": "ent_node_ent_80cf16",
+        "target": "ent_node_ent_fb9fd5",
+        "relation": "works_for",
+        "evidence_sentence": "Investigator: Marcus Stone, Chief Security Officer"
+      },
+      {
+        "id": "edge_doc_node_doc_f548e0ce_provides_evidence_ev_node_ev_doc_f548e0ce_1_46",
+        "source": "doc_node_doc_f548e0ce",
+        "target": "ev_node_ev_doc_f548e0ce_1",
+        "relation": "provides_evidence",
+        "evidence_sentence": "Date: October 24, 2024 18:30 UTC"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_f548e0ce_1_occurs_at_time_time_node_1830_47",
+        "source": "ev_node_ev_doc_f548e0ce_1",
+        "target": "time_node_1830",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "Date: October 24, 2024 18:30 UTC"
+      },
+      {
+        "id": "edge_doc_node_doc_df2b34c8_provides_evidence_ev_node_ev_doc_df2b34c8_2_48",
+        "source": "doc_node_doc_df2b34c8",
+        "target": "ev_node_ev_doc_df2b34c8_2",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_76a9aa_involved_in_ev_node_ev_doc_df2b34c8_2_49",
+        "source": "ent_node_ent_76a9aa",
+        "target": "ev_node_ev_doc_df2b34c8_2",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_involved_in_ev_node_ev_doc_df2b34c8_2_50",
+        "source": "ent_node_ent_ba273d",
+        "target": "ev_node_ev_doc_df2b34c8_2",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_2_occurs_at_time_time_node_2024-10-25_180211_51",
+        "source": "ev_node_ev_doc_df2b34c8_2",
+        "target": "time_node_2024-10-25_180211",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Main Bay Entry)"
+      },
+      {
+        "id": "edge_doc_node_doc_df2b34c8_provides_evidence_ev_node_ev_doc_df2b34c8_3_52",
+        "source": "doc_node_doc_df2b34c8",
+        "target": "ev_node_ev_doc_df2b34c8_3",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      },
+      {
+        "id": "edge_ent_node_ent_9dc9c2_involved_in_ev_node_ev_doc_df2b34c8_3_53",
+        "source": "ent_node_ent_9dc9c2",
+        "target": "ev_node_ev_doc_df2b34c8_3",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_df2b34c8_3_54",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_df2b34c8_3",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_3_occurs_at_time_time_node_2024-10-25_194200_55",
+        "source": "ev_node_ev_doc_df2b34c8_3",
+        "target": "time_node_2024-10-25_194200",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED (Exit Front Turnstile)"
+      },
+      {
+        "id": "edge_doc_node_doc_df2b34c8_provides_evidence_ev_node_ev_doc_df2b34c8_4_56",
+        "source": "doc_node_doc_df2b34c8",
+        "target": "ev_node_ev_doc_df2b34c8_4",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_97a675_involved_in_ev_node_ev_doc_df2b34c8_4_57",
+        "source": "ent_node_ent_97a675",
+        "target": "ev_node_ev_doc_df2b34c8_4",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_df2b34c8_4_58",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_df2b34c8_4",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_b22cbd_involved_in_ev_node_ev_doc_df2b34c8_4_59",
+        "source": "ent_node_ent_b22cbd",
+        "target": "ev_node_ev_doc_df2b34c8_4",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_4_occurs_at_time_time_node_2024-10-25_201244_60",
+        "source": "ev_node_ev_doc_df2b34c8_4",
+        "target": "time_node_2024-10-25_201244",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Entry)"
+      },
+      {
+        "id": "edge_doc_node_doc_df2b34c8_provides_evidence_ev_node_ev_doc_df2b34c8_5_61",
+        "source": "doc_node_doc_df2b34c8",
+        "target": "ev_node_ev_doc_df2b34c8_5",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      },
+      {
+        "id": "edge_ent_node_ent_97a675_involved_in_ev_node_ev_doc_df2b34c8_5_62",
+        "source": "ent_node_ent_97a675",
+        "target": "ev_node_ev_doc_df2b34c8_5",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_df2b34c8_5_63",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_df2b34c8_5",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      },
+      {
+        "id": "edge_ent_node_ent_b22cbd_involved_in_ev_node_ev_doc_df2b34c8_5_64",
+        "source": "ent_node_ent_b22cbd",
+        "target": "ev_node_ev_doc_df2b34c8_5",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_5_occurs_at_time_time_node_2024-10-25_202519_65",
+        "source": "ev_node_ev_doc_df2b34c8_5",
+        "target": "time_node_2024-10-25_202519",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED (Rear Hangar 3 Service Door Exit)"
+      },
+      {
+        "id": "edge_doc_node_doc_df2b34c8_provides_evidence_ev_node_ev_doc_df2b34c8_6_66",
+        "source": "doc_node_doc_df2b34c8",
+        "target": "ev_node_ev_doc_df2b34c8_6",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_involved_in_ev_node_ev_doc_df2b34c8_6_67",
+        "source": "ent_node_ent_ba273d",
+        "target": "ev_node_ev_doc_df2b34c8_6",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      },
+      {
+        "id": "edge_ent_node_ent_b82dda_involved_in_ev_node_ev_doc_df2b34c8_6_68",
+        "source": "ent_node_ent_b82dda",
+        "target": "ev_node_ev_doc_df2b34c8_6",
+        "relation": "involved_in",
+        "evidence_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_6_occurs_at_time_time_node_2024-10-25_205500_69",
+        "source": "ev_node_ev_doc_df2b34c8_6",
+        "target": "time_node_2024-10-25_205500",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED (Flight Deck Entry)"
+      },
+      {
+        "id": "edge_doc_node_doc_a98fd3c1_provides_evidence_ev_node_ev_doc_a98fd3c1_7_70",
+        "source": "doc_node_doc_a98fd3c1",
+        "target": "ev_node_ev_doc_a98fd3c1_7",
+        "relation": "provides_evidence",
+        "evidence_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_7_occurs_at_time_time_node_2105_71",
+        "source": "ev_node_ev_doc_a98fd3c1_7",
+        "target": "time_node_2105",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "1. EXECUTIVE SUMMARY: SkyHarrier-9 crashed at 21:05 UTC. Root-cause forensic memory analysis confirms deliberate firmware sabotage."
+      },
+      {
+        "id": "edge_doc_node_doc_a98fd3c1_provides_evidence_ev_node_ev_doc_a98fd3c1_8_72",
+        "source": "doc_node_doc_a98fd3c1",
+        "target": "ev_node_ev_doc_a98fd3c1_8",
+        "relation": "provides_evidence",
+        "evidence_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_a98fd3c1_8_73",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_a98fd3c1_8",
+        "relation": "involved_in",
+        "evidence_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_8_uses_ent_node_ent_19116c_74",
+        "source": "ev_node_ev_doc_a98fd3c1_8",
+        "target": "ent_node_ent_19116c",
+        "relation": "uses",
+        "evidence_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_8_uses_ent_node_ent_19116c_75",
+        "source": "ev_node_ev_doc_a98fd3c1_8",
+        "target": "ent_node_ent_19116c",
+        "relation": "uses",
+        "evidence_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_8_occurs_at_time_time_node_2012_76",
+        "source": "ev_node_ev_doc_a98fd3c1_8",
+        "target": "time_node_2012",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "2. ATTRIBUTION: Physical access to Hangar 3 required badge authentication. Card #4412 (Derek Cole) accessed the hangar at 20:12 UTC."
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_9_77",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_9",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_ent_node_ent_d79609_involved_in_ev_node_ev_doc_cadcdad8_9_78",
+        "source": "ent_node_ent_d79609",
+        "target": "ev_node_ev_doc_cadcdad8_9",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_9_occurs_at_time_time_node_0900_AM_79",
+        "source": "ev_node_ev_doc_cadcdad8_9",
+        "target": "time_node_0900_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:00 AM] VANCE: State your name and role at Apex Robotics."
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_10_80",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_10",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_cadcdad8_10_81",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_cadcdad8_10",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_10_occurs_at_time_time_node_0900_AM_82",
+        "source": "ev_node_ev_doc_cadcdad8_10",
+        "target": "time_node_0900_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9."
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_11_83",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_11",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_11_occurs_at_time_time_node_0901_AM_84",
+        "source": "ev_node_ev_doc_cadcdad8_11",
+        "target": "time_node_0901_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?"
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_12_85",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_12",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_cadcdad8_12_86",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_cadcdad8_12",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_12_occurs_at_time_time_node_0901_AM_87",
+        "source": "ev_node_ev_doc_cadcdad8_12",
+        "target": "time_node_0901_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum."
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_13_88",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_13",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_13_occurs_at_time_time_node_0902_AM_89",
+        "source": "ev_node_ev_doc_cadcdad8_13",
+        "target": "time_node_0902_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?"
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_14_90",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_14",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      },
+      {
+        "id": "edge_ent_node_ent_89deb5_involved_in_ev_node_ev_doc_cadcdad8_14_91",
+        "source": "ent_node_ent_89deb5",
+        "target": "ev_node_ev_doc_cadcdad8_14",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_14_occurs_at_time_time_node_0902_AM_92",
+        "source": "ev_node_ev_doc_cadcdad8_14",
+        "target": "time_node_0902_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC."
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_15_93",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_15",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?"
+      },
+      {
+        "id": "edge_ent_node_ent_9ba371_involved_in_ev_node_ev_doc_cadcdad8_15_94",
+        "source": "ent_node_ent_9ba371",
+        "target": "ev_node_ev_doc_cadcdad8_15",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_15_occurs_at_time_time_node_0903_AM_95",
+        "source": "ev_node_ev_doc_cadcdad8_15",
+        "target": "time_node_0903_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?"
+      },
+      {
+        "id": "edge_doc_node_doc_cadcdad8_provides_evidence_ev_node_ev_doc_cadcdad8_16_96",
+        "source": "doc_node_doc_cadcdad8",
+        "target": "ev_node_ev_doc_cadcdad8_16",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics."
+      },
+      {
+        "id": "edge_ent_node_ent_d79609_involved_in_ev_node_ev_doc_cadcdad8_16_97",
+        "source": "ent_node_ent_d79609",
+        "target": "ev_node_ev_doc_cadcdad8_16",
+        "relation": "involved_in",
+        "evidence_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_16_occurs_at_time_time_node_0903_AM_98",
+        "source": "ev_node_ev_doc_cadcdad8_16",
+        "target": "time_node_0903_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics."
+      },
+      {
+        "id": "edge_doc_node_doc_ad357e19_provides_evidence_ev_node_ev_doc_ad357e19_17_99",
+        "source": "doc_node_doc_ad357e19",
+        "target": "ev_node_ev_doc_ad357e19_17",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_17_occurs_at_time_time_node_1145_AM_100",
+        "source": "ev_node_ev_doc_ad357e19_17",
+        "target": "time_node_1145_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[11:45 AM] VANCE: Liam, describe the firmware validation telemetry."
+      },
+      {
+        "id": "edge_doc_node_doc_ad357e19_provides_evidence_ev_node_ev_doc_ad357e19_18_101",
+        "source": "doc_node_doc_ad357e19",
+        "target": "ev_node_ev_doc_ad357e19_18",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_18_occurs_at_time_time_node_1145_AM_102",
+        "source": "ev_node_ev_doc_ad357e19_18",
+        "target": "time_node_1145_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[11:45 AM] LIAM: Standard protocol requires two-engineer authorization before flashing firmware."
+      },
+      {
+        "id": "edge_doc_node_doc_ad357e19_provides_evidence_ev_node_ev_doc_ad357e19_19_103",
+        "source": "doc_node_doc_ad357e19",
+        "target": "ev_node_ev_doc_ad357e19_19",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_19_occurs_at_time_time_node_1146_AM_104",
+        "source": "ev_node_ev_doc_ad357e19_19",
+        "target": "time_node_1146_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[11:46 AM] VANCE: Did the automated build pipeline trigger an alert?"
+      },
+      {
+        "id": "edge_doc_node_doc_ad357e19_provides_evidence_ev_node_ev_doc_ad357e19_20_105",
+        "source": "doc_node_doc_ad357e19",
+        "target": "ev_node_ev_doc_ad357e19_20",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_20_occurs_at_time_time_node_1146_AM_106",
+        "source": "ev_node_ev_doc_ad357e19_20",
+        "target": "time_node_1146_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[11:46 AM] LIAM: Yes. At 20:18 UTC, our QA dashboard flashed a red banner: 'MANUAL FLASH OVERRIDE DETECTED ON AIRFRAME #09'. It bypassed the standard cryptographic verification."
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_21_107",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_21",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_21_occurs_at_time_time_node_1030_AM_108",
+        "source": "ev_node_ev_doc_246b2801_21",
+        "target": "time_node_1030_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?"
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_22_109",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_22",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine."
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_involved_in_ev_node_ev_doc_246b2801_22_110",
+        "source": "ent_node_ent_ba273d",
+        "target": "ev_node_ev_doc_246b2801_22",
+        "relation": "involved_in",
+        "evidence_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_22_occurs_at_time_time_node_1030_AM_111",
+        "source": "ev_node_ev_doc_246b2801_22",
+        "target": "time_node_1030_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine."
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_23_112",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_23",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_23_occurs_at_time_time_node_1031_AM_113",
+        "source": "ev_node_ev_doc_246b2801_23",
+        "target": "time_node_1031_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?"
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_24_114",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_24",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ent_node_ent_5df662_involved_in_ev_node_ev_doc_246b2801_24_115",
+        "source": "ent_node_ent_5df662",
+        "target": "ev_node_ev_doc_246b2801_24",
+        "relation": "involved_in",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_246b2801_24_116",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_246b2801_24",
+        "relation": "involved_in",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_uses_ent_node_ent_3e0565_117",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "ent_node_ent_3e0565",
+        "relation": "uses",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_uses_ent_node_ent_3e0565_118",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "ent_node_ent_3e0565",
+        "relation": "uses",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_uses_ent_node_ent_3e0565_119",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "ent_node_ent_3e0565",
+        "relation": "uses",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_uses_ent_node_ent_3e0565_120",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "ent_node_ent_3e0565",
+        "relation": "uses",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_occurs_at_time_time_node_1031_AM_121",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "time_node_1031_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle."
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_25_122",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_25",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_25_occurs_at_time_time_node_1032_AM_123",
+        "source": "ev_node_ev_doc_246b2801_25",
+        "target": "time_node_1032_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?"
+      },
+      {
+        "id": "edge_doc_node_doc_246b2801_provides_evidence_ev_node_ev_doc_246b2801_26_124",
+        "source": "doc_node_doc_246b2801",
+        "target": "ev_node_ev_doc_246b2801_26",
+        "relation": "provides_evidence",
+        "evidence_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_26_occurs_at_time_time_node_1032_AM_125",
+        "source": "ev_node_ev_doc_246b2801_26",
+        "target": "time_node_1032_AM",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff."
+      },
+      {
+        "id": "edge_doc_node_doc_9b93e8ff_provides_evidence_ev_node_ev_doc_9b93e8ff_27_126",
+        "source": "doc_node_doc_9b93e8ff",
+        "target": "ev_node_ev_doc_9b93e8ff_27",
+        "relation": "provides_evidence",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ent_node_ent_73d94e_involved_in_ev_node_ev_doc_9b93e8ff_27_127",
+        "source": "ent_node_ent_73d94e",
+        "target": "ev_node_ev_doc_9b93e8ff_27",
+        "relation": "involved_in",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_27_occurs_at_time_time_node_2005_128",
+        "source": "ev_node_ev_doc_9b93e8ff_27",
+        "target": "time_node_2005",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight."
+      },
+      {
+        "id": "edge_doc_node_doc_9b93e8ff_provides_evidence_ev_node_ev_doc_9b93e8ff_28_129",
+        "source": "doc_node_doc_9b93e8ff",
+        "target": "ev_node_ev_doc_9b93e8ff_28",
+        "relation": "provides_evidence",
+        "evidence_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      },
+      {
+        "id": "edge_ent_node_ent_b8574e_involved_in_ev_node_ev_doc_9b93e8ff_28_130",
+        "source": "ent_node_ent_b8574e",
+        "target": "ev_node_ev_doc_9b93e8ff_28",
+        "relation": "involved_in",
+        "evidence_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      },
+      {
+        "id": "edge_ent_node_ent_3e2eff_involved_in_ev_node_ev_doc_9b93e8ff_28_131",
+        "source": "ent_node_ent_3e2eff",
+        "target": "ev_node_ev_doc_9b93e8ff_28",
+        "relation": "involved_in",
+        "evidence_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_28_occurs_at_time_time_node_2007_132",
+        "source": "ev_node_ev_doc_9b93e8ff_28",
+        "target": "time_node_2007",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "20:07 Liam Vance: Thanks Derek, enjoy dinner."
+      },
+      {
+        "id": "edge_doc_node_doc_9b93e8ff_provides_evidence_ev_node_ev_doc_9b93e8ff_29_133",
+        "source": "doc_node_doc_9b93e8ff",
+        "target": "ev_node_ev_doc_9b93e8ff_29",
+        "relation": "provides_evidence",
+        "evidence_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      },
+      {
+        "id": "edge_ent_node_ent_9a39f2_involved_in_ev_node_ev_doc_9b93e8ff_29_134",
+        "source": "ent_node_ent_9a39f2",
+        "target": "ev_node_ev_doc_9b93e8ff_29",
+        "relation": "involved_in",
+        "evidence_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_29_occurs_at_time_time_node_2019_135",
+        "source": "ev_node_ev_doc_9b93e8ff_29",
+        "target": "time_node_2019",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9."
+      },
+      {
+        "id": "edge_doc_node_doc_9b93e8ff_provides_evidence_ev_node_ev_doc_9b93e8ff_30_136",
+        "source": "doc_node_doc_9b93e8ff",
+        "target": "ev_node_ev_doc_9b93e8ff_30",
+        "relation": "provides_evidence",
+        "evidence_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?"
+      },
+      {
+        "id": "edge_ent_node_ent_b8574e_involved_in_ev_node_ev_doc_9b93e8ff_30_137",
+        "source": "ent_node_ent_b8574e",
+        "target": "ev_node_ev_doc_9b93e8ff_30",
+        "relation": "involved_in",
+        "evidence_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_30_occurs_at_time_time_node_2020_138",
+        "source": "ev_node_ev_doc_9b93e8ff_30",
+        "target": "time_node_2020",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "20:20 Liam Vance: Did someone leave the debug cable plugged in?"
+      },
+      {
+        "id": "edge_doc_node_doc_9b93e8ff_provides_evidence_ev_node_ev_doc_9b93e8ff_31_139",
+        "source": "doc_node_doc_9b93e8ff",
+        "target": "ev_node_ev_doc_9b93e8ff_31",
+        "relation": "provides_evidence",
+        "evidence_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+      },
+      {
+        "id": "edge_ent_node_ent_ba273d_involved_in_ev_node_ev_doc_9b93e8ff_31_140",
+        "source": "ent_node_ent_ba273d",
+        "target": "ev_node_ev_doc_9b93e8ff_31",
+        "relation": "involved_in",
+        "evidence_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_31_occurs_at_time_time_node_2021_141",
+        "source": "ev_node_ev_doc_9b93e8ff_31",
+        "target": "time_node_2021",
+        "relation": "occurs_at_time",
+        "evidence_sentence": "20:21 Elena Rostova: Derek was just in the bay a minute ago."
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_9_same_time_ev_node_ev_doc_cadcdad8_10_142",
+        "source": "ev_node_ev_doc_cadcdad8_9",
+        "target": "ev_node_ev_doc_cadcdad8_10",
+        "relation": "same_time",
+        "evidence_sentence": "09:00 AM -> 09:00 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_10_before_ev_node_ev_doc_cadcdad8_11_143",
+        "source": "ev_node_ev_doc_cadcdad8_10",
+        "target": "ev_node_ev_doc_cadcdad8_11",
+        "relation": "before",
+        "evidence_sentence": "09:00 AM -> 09:01 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_11_same_time_ev_node_ev_doc_cadcdad8_12_144",
+        "source": "ev_node_ev_doc_cadcdad8_11",
+        "target": "ev_node_ev_doc_cadcdad8_12",
+        "relation": "same_time",
+        "evidence_sentence": "09:01 AM -> 09:01 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_12_before_ev_node_ev_doc_cadcdad8_13_145",
+        "source": "ev_node_ev_doc_cadcdad8_12",
+        "target": "ev_node_ev_doc_cadcdad8_13",
+        "relation": "before",
+        "evidence_sentence": "09:01 AM -> 09:02 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_13_same_time_ev_node_ev_doc_cadcdad8_14_146",
+        "source": "ev_node_ev_doc_cadcdad8_13",
+        "target": "ev_node_ev_doc_cadcdad8_14",
+        "relation": "same_time",
+        "evidence_sentence": "09:02 AM -> 09:02 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_14_before_ev_node_ev_doc_cadcdad8_15_147",
+        "source": "ev_node_ev_doc_cadcdad8_14",
+        "target": "ev_node_ev_doc_cadcdad8_15",
+        "relation": "before",
+        "evidence_sentence": "09:02 AM -> 09:03 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_15_same_time_ev_node_ev_doc_cadcdad8_16_148",
+        "source": "ev_node_ev_doc_cadcdad8_15",
+        "target": "ev_node_ev_doc_cadcdad8_16",
+        "relation": "same_time",
+        "evidence_sentence": "09:03 AM -> 09:03 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_cadcdad8_16_before_ev_node_ev_doc_246b2801_21_149",
+        "source": "ev_node_ev_doc_cadcdad8_16",
+        "target": "ev_node_ev_doc_246b2801_21",
+        "relation": "before",
+        "evidence_sentence": "09:03 AM -> 10:30 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_21_same_time_ev_node_ev_doc_246b2801_22_150",
+        "source": "ev_node_ev_doc_246b2801_21",
+        "target": "ev_node_ev_doc_246b2801_22",
+        "relation": "same_time",
+        "evidence_sentence": "10:30 AM -> 10:30 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_22_before_ev_node_ev_doc_246b2801_23_151",
+        "source": "ev_node_ev_doc_246b2801_22",
+        "target": "ev_node_ev_doc_246b2801_23",
+        "relation": "before",
+        "evidence_sentence": "10:30 AM -> 10:31 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_23_same_time_ev_node_ev_doc_246b2801_24_152",
+        "source": "ev_node_ev_doc_246b2801_23",
+        "target": "ev_node_ev_doc_246b2801_24",
+        "relation": "same_time",
+        "evidence_sentence": "10:31 AM -> 10:31 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_24_before_ev_node_ev_doc_246b2801_25_153",
+        "source": "ev_node_ev_doc_246b2801_24",
+        "target": "ev_node_ev_doc_246b2801_25",
+        "relation": "before",
+        "evidence_sentence": "10:31 AM -> 10:32 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_25_same_time_ev_node_ev_doc_246b2801_26_154",
+        "source": "ev_node_ev_doc_246b2801_25",
+        "target": "ev_node_ev_doc_246b2801_26",
+        "relation": "same_time",
+        "evidence_sentence": "10:32 AM -> 10:32 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_246b2801_26_before_ev_node_ev_doc_ad357e19_17_155",
+        "source": "ev_node_ev_doc_246b2801_26",
+        "target": "ev_node_ev_doc_ad357e19_17",
+        "relation": "before",
+        "evidence_sentence": "10:32 AM -> 11:45 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_17_same_time_ev_node_ev_doc_ad357e19_18_156",
+        "source": "ev_node_ev_doc_ad357e19_17",
+        "target": "ev_node_ev_doc_ad357e19_18",
+        "relation": "same_time",
+        "evidence_sentence": "11:45 AM -> 11:45 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_18_before_ev_node_ev_doc_ad357e19_19_157",
+        "source": "ev_node_ev_doc_ad357e19_18",
+        "target": "ev_node_ev_doc_ad357e19_19",
+        "relation": "before",
+        "evidence_sentence": "11:45 AM -> 11:46 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_19_same_time_ev_node_ev_doc_ad357e19_20_158",
+        "source": "ev_node_ev_doc_ad357e19_19",
+        "target": "ev_node_ev_doc_ad357e19_20",
+        "relation": "same_time",
+        "evidence_sentence": "11:46 AM -> 11:46 AM"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_ad357e19_20_before_ev_node_ev_doc_f548e0ce_1_159",
+        "source": "ev_node_ev_doc_ad357e19_20",
+        "target": "ev_node_ev_doc_f548e0ce_1",
+        "relation": "before",
+        "evidence_sentence": "11:46 AM -> 18:30"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_f548e0ce_1_before_ev_node_ev_doc_9b93e8ff_27_160",
+        "source": "ev_node_ev_doc_f548e0ce_1",
+        "target": "ev_node_ev_doc_9b93e8ff_27",
+        "relation": "before",
+        "evidence_sentence": "18:30 -> 20:05"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_27_before_ev_node_ev_doc_9b93e8ff_28_161",
+        "source": "ev_node_ev_doc_9b93e8ff_27",
+        "target": "ev_node_ev_doc_9b93e8ff_28",
+        "relation": "before",
+        "evidence_sentence": "20:05 -> 20:07"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_28_before_ev_node_ev_doc_a98fd3c1_8_162",
+        "source": "ev_node_ev_doc_9b93e8ff_28",
+        "target": "ev_node_ev_doc_a98fd3c1_8",
+        "relation": "before",
+        "evidence_sentence": "20:07 -> 20:12"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_8_before_ev_node_ev_doc_9b93e8ff_29_163",
+        "source": "ev_node_ev_doc_a98fd3c1_8",
+        "target": "ev_node_ev_doc_9b93e8ff_29",
+        "relation": "before",
+        "evidence_sentence": "20:12 -> 20:19"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_29_before_ev_node_ev_doc_9b93e8ff_30_164",
+        "source": "ev_node_ev_doc_9b93e8ff_29",
+        "target": "ev_node_ev_doc_9b93e8ff_30",
+        "relation": "before",
+        "evidence_sentence": "20:19 -> 20:20"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_30_before_ev_node_ev_doc_9b93e8ff_31_165",
+        "source": "ev_node_ev_doc_9b93e8ff_30",
+        "target": "ev_node_ev_doc_9b93e8ff_31",
+        "relation": "before",
+        "evidence_sentence": "20:20 -> 20:21"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_9b93e8ff_31_before_ev_node_ev_doc_a98fd3c1_7_166",
+        "source": "ev_node_ev_doc_9b93e8ff_31",
+        "target": "ev_node_ev_doc_a98fd3c1_7",
+        "relation": "before",
+        "evidence_sentence": "20:21 -> 21:05"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_a98fd3c1_7_before_ev_node_ev_doc_df2b34c8_2_167",
+        "source": "ev_node_ev_doc_a98fd3c1_7",
+        "target": "ev_node_ev_doc_df2b34c8_2",
+        "relation": "before",
+        "evidence_sentence": "21:05 -> 2024-10-25 18:02:11"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_2_before_ev_node_ev_doc_df2b34c8_3_168",
+        "source": "ev_node_ev_doc_df2b34c8_2",
+        "target": "ev_node_ev_doc_df2b34c8_3",
+        "relation": "before",
+        "evidence_sentence": "2024-10-25 18:02:11 -> 2024-10-25 19:42:00"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_3_before_ev_node_ev_doc_df2b34c8_4_169",
+        "source": "ev_node_ev_doc_df2b34c8_3",
+        "target": "ev_node_ev_doc_df2b34c8_4",
+        "relation": "before",
+        "evidence_sentence": "2024-10-25 19:42:00 -> 2024-10-25 20:12:44"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_4_before_ev_node_ev_doc_df2b34c8_5_170",
+        "source": "ev_node_ev_doc_df2b34c8_4",
+        "target": "ev_node_ev_doc_df2b34c8_5",
+        "relation": "before",
+        "evidence_sentence": "2024-10-25 20:12:44 -> 2024-10-25 20:25:19"
+      },
+      {
+        "id": "edge_ev_node_ev_doc_df2b34c8_5_before_ev_node_ev_doc_df2b34c8_6_171",
+        "source": "ev_node_ev_doc_df2b34c8_5",
+        "target": "ev_node_ev_doc_df2b34c8_6",
+        "relation": "before",
+        "evidence_sentence": "2024-10-25 20:25:19 -> 2024-10-25 20:55:00"
+      }
+    ]
+  }
+}

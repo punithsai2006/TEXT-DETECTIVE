@@ -12,6 +12,7 @@ from app.models.schemas import (
     Event,
     NLILabel,
 )
+from app.services.ingestion.preprocessor import split_into_sentences
 from app.services.llm_provider import get_llm_provider
 
 logger = logging.getLogger(__name__)
@@ -21,8 +22,8 @@ CONFLICT_PAIRS = [
     (r"\b(unlocked|open|left open)\b", r"\b(locked|secured|shut)\b"),
     (r"\b(authorized|permitted|allowed)\b", r"\b(unauthorized|forbidden|prohibited|not allowed)\b"),
     (r"\b(alone|by myself|solo)\b", r"\b(accompanied|with|together with)\b"),
-    (r"\b(inside|entered|accessed)\b", r"\b(outside|never entered|did not enter|away)\b"),
-    (r"\b(present|there|at the site)\b", r"\b(absent|at home|offsite|elsewhere)\b"),
+    (r"\b(inside|entered|accessed|swiped|authenticated|logged in)\b", r"\b(outside|never entered|did not enter|never inside|not inside|away|offsite)\b"),
+    (r"\b(present|there|at the site)\b", r"\b(absent|at home|offsite|elsewhere|never there)\b"),
     (r"\b(downloaded|copied|extracted)\b", r"\b(did not download|never copied|no transfer)\b"),
     (r"\b(working|active|online)\b", r"\b(broken|disabled|offline|malfunctioning)\b"),
 ]
@@ -167,8 +168,14 @@ class ContradictionDetector:
         entity_mentions: Dict[str, List[Tuple[DocumentMetadata, str, Optional[str], Optional[str]]]] = {}
 
         for doc in documents:
-            sentences = [s.strip() for s in doc.cleaned_text.split("\n") if s.strip()]
+            text_val = doc.cleaned_text or doc.raw_text or ""
+            sentences = split_into_sentences(text_val)
+            if not sentences and text_val.strip():
+                sentences = [text_val.strip()]
             for sent in sentences:
+                sent = sent.strip()
+                if not sent:
+                    continue
                 # Find which entities are touched
                 for ent in entities:
                     if re.search(rf"\b{re.escape(ent.name)}\b", sent, re.IGNORECASE):

@@ -1,0 +1,186 @@
+[
+  {
+    "hypothesis_id": "hyp_user_5e9989",
+    "case_id": "case_04_apex_robotics",
+    "title": "Insider Firmware Sabotage by Derek Cole for Competitor Payoff",
+    "description": "Derek Cole returned to Hangar 3 at 20:12 UTC, physically connected a USB dongle to SkyHarrier-9, and flashed a malicious altitude-triggered motor kill routine to ensure the trial failed in exchange for a 75,000 USD retainer from Vanguard Aero.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_03120b54",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_4",
+          "evid_chk_doc_a98fd3c1_1",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_f548e0ce_1"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "incident_investigation_report.txt",
+          "competitor_consulting_email.txt",
+          "competitor_consulting_email.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "hiring"
+        ],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_68fb5498",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_1",
+          "evid_chk_doc_df2b34c8_1",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_cadcdad8_4"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "hangar_rfid_access_log.txt",
+          "competitor_consulting_email.txt",
+          "interview_lead_eng_derek.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "Derek Cole"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_464aeb5d",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_a98fd3c1_3",
+          "evid_chk_doc_f548e0ce_3",
+          "evid_chk_doc_f548e0ce_2",
+          "evid_chk_doc_cadcdad8_3"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "incident_investigation_report.txt",
+          "competitor_consulting_email.txt",
+          "competitor_consulting_email.txt",
+          "interview_lead_eng_derek.txt"
+        ],
+        "contributing_speakers": [
+          "hiring",
+          "hiring",
+          "Derek Cole"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 9,
+    "conflict_score": 0,
+    "corroboration_score": 2,
+    "conflict_penalty": 0,
+    "total_score": 11,
+    "rank": 1,
+    "is_proposed_explanation": true,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Firmware Sabotage by Derek Cole for Competitor Payoff' and 'External RF Jamming and Anti-Drone Countermeasure Interference') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  {
+    "hypothesis_id": "hyp_user_4fba4b",
+    "case_id": "case_04_apex_robotics",
+    "title": "External RF Jamming and Anti-Drone Countermeasure Interference",
+    "description": "An adversary operating high-powered RF jamming equipment from outside the facility flooded the 2.4 GHz control frequency, forcing motor shutdown.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_9051f85e",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_cbcb5723",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_fe0193b1",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 0,
+    "conflict_score": 0,
+    "corroboration_score": 0,
+    "conflict_penalty": 0,
+    "total_score": 0,
+    "rank": 2,
+    "is_proposed_explanation": false,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Firmware Sabotage by Derek Cole for Competitor Payoff' and 'External RF Jamming and Anti-Drone Countermeasure Interference') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  {
+    "hypothesis_id": "hyp_user_20ba86",
+    "case_id": "case_04_apex_robotics",
+    "title": "Lithium Polymer Battery Thermal Runaway and Low Voltage Cutoff",
+    "description": "Defective battery cells in the power distribution board overheated upon reaching 400m altitude, triggering standard BMS safety shutdown.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_4aac8904",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_f70f2d89",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_03414393",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 0,
+    "conflict_score": 0,
+    "corroboration_score": 0,
+    "conflict_penalty": 0,
+    "total_score": 0,
+    "rank": 3,
+    "is_proposed_explanation": false,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": null
+  }
+]

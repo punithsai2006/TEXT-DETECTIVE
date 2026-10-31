@@ -1,0 +1,13 @@
+INTERVIEW TRANSCRIPT: DEREK COLE
+Case: Apex Robotics Tactical Drone Crash
+Interviewer: Agent Vance
+Interviewee: Derek Cole, Lead Firmware Engineer
+
+[09:00 AM] VANCE: State your name and role at Apex Robotics.
+[09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for SkyHarrier-9.
+[09:01 AM] VANCE: Did you modify the flight controller firmware before yesterday's live demonstration?
+[09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at 18:00 UTC and signed off the checksum.
+[09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?
+[09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro Laurent in town until 21:30 UTC.
+[09:03 AM] VANCE: Did you have any communication with Vanguard Aero or outside aerospace recruiters?
+[09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex Robotics.

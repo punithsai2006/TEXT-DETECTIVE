@@ -1,0 +1,11 @@
+INTERVIEW TRANSCRIPT: ELENA ROSTOVA
+Case: Apex Robotics Tactical Drone Crash
+Interviewer: Agent Vance
+Interviewee: Elena Rostova, Chief Flight Test Pilot
+
+[10:30 AM] VANCE: Elena, what did you observe prior to the 21:00 UTC test flight?
+[10:30 AM] ROSTOVA: I conducted the visual pre-flight inspection of SkyHarrier-9 at 20:00 UTC. The airframe was pristine.
+[10:31 AM] VANCE: Did you see anyone approach the drone in Hangar 3?
+[10:31 AM] ROSTOVA: Yes. Around 20:15 UTC, I walked back toward Assembly Bay to grab my checklist. I saw Derek Cole standing by the drone's avionics bay with a laptop and a flashing blue USB dongle.
+[10:32 AM] VANCE: What happened during the test flight at 21:05 UTC?
+[10:32 AM] ROSTOVA: At altitude 400 meters, all four brushless motors cut out simultaneously. It wasn't stall or battery drain; it was an abrupt software cutoff.

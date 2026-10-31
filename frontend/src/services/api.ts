@@ -1,4 +1,5 @@
 import {
+  AnalysisRunRecord,
   AnalysisStatus,
   AskQuestionResponse,
   Case,
@@ -10,6 +11,8 @@ import {
   EvidenceItem,
   Hypothesis,
   InvestigationReport,
+  ProvenanceValidationReport,
+  ReviewStatus,
   TimelineEntry,
 } from '../types';
 
@@ -215,5 +218,41 @@ export const api = {
 
   getReportDownloadUrl(caseId: string, format: 'markdown' | 'json' | 'html'): string {
     return `${API_BASE}/cases/${caseId}/report/download?format=${format}`;
+  },
+
+  // Contradiction Review (Task 5)
+  async reviewContradiction(
+    caseId: string,
+    contradictionId: string,
+    reviewStatus: ReviewStatus,
+    reviewerId: string = 'analyst_1',
+    reviewNotes?: string
+  ): Promise<ContradictionItem> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/contradictions/${contradictionId}/review`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ review_status: reviewStatus, reviewer_id: reviewerId, review_notes: reviewNotes }),
+    });
+    if (!res.ok) throw new Error('Failed to update contradiction review');
+    return res.json();
+  },
+
+  // Provenance Validation (Task 2)
+  async getProvenanceReport(caseId: string): Promise<ProvenanceValidationReport> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/provenance`);
+    if (!res.ok) throw new Error('Failed to fetch provenance report');
+    return res.json();
+  },
+
+  // Reproducible Analysis Runs (Task 6)
+  async listAnalysisRuns(caseId: string): Promise<AnalysisRunRecord[]> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/runs`);
+    if (!res.ok) throw new Error('Failed to list analysis runs');
+    return res.json();
+  },
+
+  async deleteCaseDocument(caseId: string, documentId: string): Promise<void> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/documents/${documentId}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error(`Failed to delete document ${documentId}`);
   },
 };

@@ -1,19 +1,19 @@
 [
   {
-    "hypothesis_id": "hyp_user_b3d75c",
+    "hypothesis_id": "hyp_user_26a25b",
     "case_id": "case_02_blackwood",
     "title": "Insider Theft by Security Guard Julian Vance",
     "description": "Julian Vance retrieved the spare vault key from the unlocked desk drawer, unplugged camera 5, entered the basement vault at 10:15 PM, silenced the alarm, cut the Vermeer painting from its frame, and attempted to stash it in a duffel bag.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_0a0425ec",
+        "claim_id": "clm_bf78c74a",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_92f00364_1",
-          "evid_chk_doc_92f00364_2",
-          "evid_chk_doc_035c74a0_2",
-          "evid_chk_doc_78005f2d_3"
+          "evid_chk_doc_0c0ba6cc_1",
+          "evid_chk_doc_0c0ba6cc_2",
+          "evid_chk_doc_2c42b2fd_2",
+          "evid_chk_doc_49e789cc_3"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -30,19 +30,19 @@
         "unresolved_conflicts_count": 0
       },
       {
-        "claim_id": "clm_44163a58",
+        "claim_id": "clm_110236cc",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_78005f2d_3",
-          "evid_chk_doc_63ae1e5c_3",
-          "evid_chk_doc_c7bc7977_1",
-          "evid_chk_doc_5dcfc507_4"
+          "evid_chk_doc_49e789cc_3",
+          "evid_chk_doc_5fd8f1d3_3",
+          "evid_chk_doc_2e320a31_1",
+          "evid_chk_doc_3b5c07b4_4"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
-          "interview_cleaner_marta.txt",
-          "curator_appraisal_email.txt",
           "estate_cctv_audit_report.txt",
+          "curator_appraisal_email.txt",
+          "interview_cleaner_marta.txt",
           "interview_curator_clara.txt"
         ],
         "contributing_speakers": [
@@ -51,16 +51,16 @@
           "Clara Sterling"
         ],
         "is_corroborated": true,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_8b8984d4",
+        "claim_id": "clm_5424ff8d",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_92f00364_4",
-          "evid_chk_doc_78005f2d_3",
-          "evid_chk_doc_035c74a0_2",
-          "evid_chk_doc_c7bc7977_1"
+          "evid_chk_doc_0c0ba6cc_4",
+          "evid_chk_doc_49e789cc_3",
+          "evid_chk_doc_2c42b2fd_2",
+          "evid_chk_doc_2e320a31_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -81,25 +81,25 @@
     "support_score": 8,
     "conflict_score": 0,
     "corroboration_score": 3,
-    "conflict_penalty": 0,
-    "total_score": 11,
+    "conflict_penalty": 1,
+    "total_score": 10,
     "rank": 1,
     "is_proposed_explanation": true,
-    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
-    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 5. Evidence is currently insufficient to establish a single proposed explanation."
+    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (1) = 4. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 4. Evidence is currently insufficient to establish a single proposed explanation."
   },
   {
-    "hypothesis_id": "hyp_user_6c3d43",
+    "hypothesis_id": "hyp_user_71bcf2",
     "case_id": "case_02_blackwood",
     "title": "External Delivery Driver Intrusion by Apex Courier",
     "description": "Courier Marcus Finch breached the greenhouse and entered the basement vault without guard knowledge.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_234de960",
+        "claim_id": "clm_85bdffb1",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_92f00364_1"
+          "evid_chk_doc_0c0ba6cc_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -110,28 +110,28 @@
         "unresolved_conflicts_count": 0
       },
       {
-        "claim_id": "clm_961b1112",
+        "claim_id": "clm_56c883cf",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_78005f2d_3",
-          "evid_chk_doc_63ae1e5c_3",
-          "evid_chk_doc_c7bc7977_1"
+          "evid_chk_doc_49e789cc_3",
+          "evid_chk_doc_5fd8f1d3_3",
+          "evid_chk_doc_2e320a31_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
-          "interview_cleaner_marta.txt",
+          "estate_cctv_audit_report.txt",
           "curator_appraisal_email.txt",
-          "estate_cctv_audit_report.txt"
+          "interview_cleaner_marta.txt"
         ],
         "contributing_speakers": [
           "Clara Sterling",
           "Marta Gomez"
         ],
         "is_corroborated": true,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_d8ccc429",
+        "claim_id": "clm_c74ec94a",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [],
         "conflicting_evidence_ids": [],
@@ -144,25 +144,25 @@
     "support_score": 4,
     "conflict_score": 0,
     "corroboration_score": 1,
-    "conflict_penalty": 0,
-    "total_score": 5,
+    "conflict_penalty": 1,
+    "total_score": 4,
     "rank": 2,
     "is_proposed_explanation": false,
-    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
-    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 5. Evidence is currently insufficient to establish a single proposed explanation."
+    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (1) = 4. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 4. Evidence is currently insufficient to establish a single proposed explanation."
   },
   {
-    "hypothesis_id": "hyp_user_c72386",
+    "hypothesis_id": "hyp_user_02f1e9",
     "case_id": "case_02_blackwood",
     "title": "Insurance Fraud Orchestrated by Curator Clara Sterling",
     "description": "Clara Sterling returned after midnight and removed the painting to claim the 14.5 million GBP policy.",
     "origin": "user",
     "claims": [
       {
-        "claim_id": "clm_3a021bce",
+        "claim_id": "clm_5765e754",
         "text": "The suspected actor accessed the location during the incident timeframe.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_92f00364_1"
+          "evid_chk_doc_0c0ba6cc_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
@@ -173,28 +173,28 @@
         "unresolved_conflicts_count": 0
       },
       {
-        "claim_id": "clm_3e214c9a",
+        "claim_id": "clm_7e86ede2",
         "text": "The unauthorized action was made possible by compromised security controls.",
         "supporting_evidence_ids": [
-          "evid_chk_doc_78005f2d_3",
-          "evid_chk_doc_63ae1e5c_3",
-          "evid_chk_doc_c7bc7977_1"
+          "evid_chk_doc_49e789cc_3",
+          "evid_chk_doc_5fd8f1d3_3",
+          "evid_chk_doc_2e320a31_1"
         ],
         "conflicting_evidence_ids": [],
         "contributing_documents": [
-          "interview_cleaner_marta.txt",
+          "estate_cctv_audit_report.txt",
           "curator_appraisal_email.txt",
-          "estate_cctv_audit_report.txt"
+          "interview_cleaner_marta.txt"
         ],
         "contributing_speakers": [
           "Clara Sterling",
           "Marta Gomez"
         ],
         "is_corroborated": true,
-        "unresolved_conflicts_count": 0
+        "unresolved_conflicts_count": 1
       },
       {
-        "claim_id": "clm_e8b6c6e5",
+        "claim_id": "clm_428e688e",
         "text": "Digital records and physical logs establish the sequence of actions.",
         "supporting_evidence_ids": [],
         "conflicting_evidence_ids": [],
@@ -207,11 +207,11 @@
     "support_score": 4,
     "conflict_score": 0,
     "corroboration_score": 1,
-    "conflict_penalty": 0,
-    "total_score": 5,
+    "conflict_penalty": 1,
+    "total_score": 4,
     "rank": 3,
     "is_proposed_explanation": false,
-    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
+    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (1) = 4. Evaluated against 3 verifiable claims.",
     "uncertainty_warning": null
   }
 ]

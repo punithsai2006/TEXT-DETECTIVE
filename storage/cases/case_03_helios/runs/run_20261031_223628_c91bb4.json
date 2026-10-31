@@ -1,0 +1,43 @@
+{
+  "run_id": "run_20261031_223628_c91bb4",
+  "case_id": "case_03_helios",
+  "timestamp": "2026-10-31T22:36:28.070854+00:00",
+  "parser_version": "1.1.0",
+  "model_provider": "mock",
+  "model_name": "mock-investigator-v1",
+  "prompt_version": "v1.0",
+  "retrieval_settings": {
+    "method": "hybrid_semantic_bm25",
+    "rrf_k": 60,
+    "top_k": 15
+  },
+  "nli_model": "cross-encoder-nli-heuristics",
+  "scoring_config": {
+    "formula": "Support - Conflict + Corroboration - ConflictPenalty",
+    "slide": 18
+  },
+  "controller_loop_counts": {
+    "loop_1_iterations": 0,
+    "loop_2_iterations": 1,
+    "loop_3_iterations": 1
+  },
+  "document_hashes": {
+    "courier_shipping_manifest.txt": "ef3afbe58626b8952bd393e6a2b63d84c665bf9ace63a2bfa11710a7899dda16",
+    "freezer_iot_telemetry_log.txt": "1da49af2c532a13d7ff95add9bead5836cb499921ddd525a2af2f4a071080c93",
+    "internal_memo_coverup.txt": "c26b81c9e3b19252f9f4ff0c58bab9d6c91a44cd190318f7ef3efee1f3a5c05e",
+    "interview_dr_kaufman.txt": "8279d2c1aedf38794bd2a318bdf81a917aa09ff801a9925b9427b72d14cfdd95",
+    "interview_lab_tech_priya.txt": "db893fa5a4f748740c080ea94779b8f40fc1d492df6e9e33e6eb5ba9f306bb90",
+    "patient_safety_adverse_event_report.txt": "bd2c48f424cd90883b413d0c10e53f8fbaef4b47599ee573c4ed8b7d64c2f1be",
+    "sponsor_audit_findings.txt": "39aa055e0ec552dd9070f8daca7068e68d1b7154a355740f3d6a591ce1866480",
+    "urgent_tech_email.txt": "e7abff1e8ab52e479ad9e356f8fa926c6c41c24f221a8c08236ab78eac47af3a"
+  },
+  "is_outdated": false,
+  "metrics_summary": {
+    "entities_count": 16,
+    "events_count": 21,
+    "contradictions_count": 7,
+    "hypotheses_count": 3,
+    "top_hypothesis": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+    "top_score": 9
+  }
+}

@@ -1,6 +1,6 @@
 [
   {
-    "document_id": "doc_667a878f",
+    "document_id": "doc_c50a1ba3",
     "case_id": "case_02_blackwood",
     "filename": "alarm_system_telemetry.txt",
     "document_type": "other",
@@ -9,13 +9,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 557,
+    "sha256_hash": "",
     "raw_text": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]\n[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer\n[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)\n[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console\n[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED\n[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed\n",
     "cleaned_text": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]\n[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer\n[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)\n[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console\n[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED\n[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
     "chunks": [
       {
-        "chunk_id": "chk_doc_667a878f_1",
+        "chunk_id": "chk_doc_c50a1ba3_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_667a878f",
+        "document_id": "doc_c50a1ba3",
         "filename": "alarm_system_telemetry.txt",
         "document_type": "other",
         "speaker": null,
@@ -31,9 +32,9 @@
         "char_end": 445
       },
       {
-        "chunk_id": "chk_doc_667a878f_2",
+        "chunk_id": "chk_doc_c50a1ba3_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_667a878f",
+        "document_id": "doc_c50a1ba3",
         "filename": "alarm_system_telemetry.txt",
         "document_type": "other",
         "speaker": null,
@@ -49,12 +50,12 @@
         "char_end": 746
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.310900",
+    "uploaded_at": "2026-10-31T22:36:24.587961+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_035c74a0",
+    "document_id": "doc_2c42b2fd",
     "case_id": "case_02_blackwood",
     "filename": "courier_delivery_log.txt",
     "document_type": "log",
@@ -63,13 +64,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 477,
+    "sha256_hash": "",
     "raw_text": "APEX DELIVERIES - DAILY VEHICLE TELEMETRY & RUN SHEET\nDriver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)\n2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate\n2024-10-18 22:05:00 - Consignment offloaded at Greenhouse\n2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway\nDriver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'\n",
     "cleaned_text": "APEX DELIVERIES - DAILY VEHICLE TELEMETRY & RUN SHEET\nDriver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)\n2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate\n2024-10-18 22:05:00 - Consignment offloaded at Greenhouse\n2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway\nDriver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
     "chunks": [
       {
-        "chunk_id": "chk_doc_035c74a0_1",
+        "chunk_id": "chk_doc_2c42b2fd_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_035c74a0",
+        "document_id": "doc_2c42b2fd",
         "filename": "courier_delivery_log.txt",
         "document_type": "log",
         "speaker": null,
@@ -85,9 +87,9 @@
         "char_end": 294
       },
       {
-        "chunk_id": "chk_doc_035c74a0_2",
+        "chunk_id": "chk_doc_2c42b2fd_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_035c74a0",
+        "document_id": "doc_2c42b2fd",
         "filename": "courier_delivery_log.txt",
         "document_type": "log",
         "speaker": "2024-10-18 22",
@@ -103,12 +105,12 @@
         "char_end": 604
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.352007",
+    "uploaded_at": "2026-10-31T22:36:24.644291+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_78005f2d",
+    "document_id": "doc_49e789cc",
     "case_id": "case_02_blackwood",
     "filename": "curator_appraisal_email.txt",
     "document_type": "email",
@@ -117,13 +119,14 @@
     "timestamp": "October 17, 2024 04:15 PM",
     "description": null,
     "file_size_bytes": 502,
+    "sha256_hash": "",
     "raw_text": "From: Clara Sterling <c.sterling@blackwoodestate.co.uk>\nTo: Arthur Blackwood <arthur@blackwoodholdings.com>\nDate: October 17, 2024 04:15 PM\nSubject: Insurance revaluation and vault arrangement\n\nLord Blackwood,\n\nFollowing yesterday's appraisal, 'The Silent Witness' has been valued at 14.5 million GBP. As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station.\nPlease ensure Julian is reminded not to touch the key.\n\nClara Sterling\n",
     "cleaned_text": "From: Clara Sterling <c.sterling@blackwoodestate.co.uk>\nTo: Arthur Blackwood <arthur@blackwoodholdings.com>\nDate: October 17, 2024 04:15 PM\nSubject: Insurance revaluation and vault arrangement\n\nLord Blackwood,\n\nFollowing yesterday's appraisal, 'The Silent Witness' has been valued at 14.5 million GBP. As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station.\nPlease ensure Julian is reminded not to touch the key.\n\nClara Sterling",
     "chunks": [
       {
-        "chunk_id": "chk_doc_78005f2d_1",
+        "chunk_id": "chk_doc_49e789cc_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_78005f2d",
+        "document_id": "doc_49e789cc",
         "filename": "curator_appraisal_email.txt",
         "document_type": "email",
         "speaker": "Clara Sterling",
@@ -139,9 +142,9 @@
         "char_end": 247
       },
       {
-        "chunk_id": "chk_doc_78005f2d_2",
+        "chunk_id": "chk_doc_49e789cc_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_78005f2d",
+        "document_id": "doc_49e789cc",
         "filename": "curator_appraisal_email.txt",
         "document_type": "email",
         "speaker": "Clara Sterling",
@@ -157,9 +160,9 @@
         "char_end": 370
       },
       {
-        "chunk_id": "chk_doc_78005f2d_3",
+        "chunk_id": "chk_doc_49e789cc_3",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_78005f2d",
+        "document_id": "doc_49e789cc",
         "filename": "curator_appraisal_email.txt",
         "document_type": "email",
         "speaker": "Clara Sterling",
@@ -175,12 +178,12 @@
         "char_end": 663
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.409993",
+    "uploaded_at": "2026-10-31T22:36:24.711657+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_c7bc7977",
+    "document_id": "doc_2e320a31",
     "case_id": "case_02_blackwood",
     "filename": "estate_cctv_audit_report.txt",
     "document_type": "log",
@@ -189,13 +192,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 354,
+    "sha256_hash": "",
     "raw_text": "BLACKWOOD MANOR SECURITY AUDIT\nForensic review of CCTV Hard Drive Unit #1:\n- Cameras 1 through 3 (Front Driveway) functioned continuously.\n- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.\n- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.\n",
     "cleaned_text": "BLACKWOOD MANOR SECURITY AUDIT\nForensic review of CCTV Hard Drive Unit #1:\n- Cameras 1 through 3 (Front Driveway) functioned continuously.\n- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.\n- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
     "chunks": [
       {
-        "chunk_id": "chk_doc_c7bc7977_1",
+        "chunk_id": "chk_doc_2e320a31_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_c7bc7977",
+        "document_id": "doc_2e320a31",
         "filename": "estate_cctv_audit_report.txt",
         "document_type": "log",
         "speaker": null,
@@ -210,12 +214,12 @@
         "char_end": 379
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.482233",
+    "uploaded_at": "2026-10-31T22:36:24.805028+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_63ae1e5c",
+    "document_id": "doc_5fd8f1d3",
     "case_id": "case_02_blackwood",
     "filename": "interview_cleaner_marta.txt",
     "document_type": "interview",
@@ -224,13 +228,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 723,
+    "sha256_hash": "",
     "raw_text": "INTERVIEW TRANSCRIPT: MARTA GOMEZ\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Marta Gomez, Evening Housekeeper\n\n[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?\n[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.\n[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?\n[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.\n[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?\n[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.\n",
     "cleaned_text": "INTERVIEW TRANSCRIPT: MARTA GOMEZ\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Marta Gomez, Evening Housekeeper\n\n[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?\n[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.\n[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?\n[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.\n[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?\n[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
     "chunks": [
       {
-        "chunk_id": "chk_doc_63ae1e5c_1",
+        "chunk_id": "chk_doc_5fd8f1d3_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_63ae1e5c",
+        "document_id": "doc_5fd8f1d3",
         "filename": "interview_cleaner_marta.txt",
         "document_type": "interview",
         "speaker": "INTERVIEW TRANSCRIPT",
@@ -246,9 +251,9 @@
         "char_end": 163
       },
       {
-        "chunk_id": "chk_doc_63ae1e5c_2",
+        "chunk_id": "chk_doc_5fd8f1d3_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_63ae1e5c",
+        "document_id": "doc_5fd8f1d3",
         "filename": "interview_cleaner_marta.txt",
         "document_type": "interview",
         "speaker": "Marta Gomez",
@@ -264,9 +269,9 @@
         "char_end": 427
       },
       {
-        "chunk_id": "chk_doc_63ae1e5c_3",
+        "chunk_id": "chk_doc_5fd8f1d3_3",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_63ae1e5c",
+        "document_id": "doc_5fd8f1d3",
         "filename": "interview_cleaner_marta.txt",
         "document_type": "interview",
         "speaker": "Marta Gomez",
@@ -282,9 +287,9 @@
         "char_end": 822
       },
       {
-        "chunk_id": "chk_doc_63ae1e5c_4",
+        "chunk_id": "chk_doc_5fd8f1d3_4",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_63ae1e5c",
+        "document_id": "doc_5fd8f1d3",
         "filename": "interview_cleaner_marta.txt",
         "document_type": "interview",
         "speaker": "Marta Gomez",
@@ -298,12 +303,12 @@
         "char_end": 941
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.552178",
+    "uploaded_at": "2026-10-31T22:36:24.876598+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_5dcfc507",
+    "document_id": "doc_3b5c07b4",
     "case_id": "case_02_blackwood",
     "filename": "interview_curator_clara.txt",
     "document_type": "interview",
@@ -312,13 +317,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 861,
+    "sha256_hash": "",
     "raw_text": "INTERVIEW TRANSCRIPT: CLARA STERLING\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Clara Sterling, Gallery Curator\n\n[09:00 AM] REYNOLDS: State your name and position.\n[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.\n[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?\n[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.\n[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?\n[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.\n[09:03 AM] REYNOLDS: What time did you leave the estate?\n[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.\n",
     "cleaned_text": "INTERVIEW TRANSCRIPT: CLARA STERLING\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Clara Sterling, Gallery Curator\n\n[09:00 AM] REYNOLDS: State your name and position.\n[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.\n[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?\n[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.\n[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?\n[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.\n[09:03 AM] REYNOLDS: What time did you leave the estate?\n[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
     "chunks": [
       {
-        "chunk_id": "chk_doc_5dcfc507_1",
+        "chunk_id": "chk_doc_3b5c07b4_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_5dcfc507",
+        "document_id": "doc_3b5c07b4",
         "filename": "interview_curator_clara.txt",
         "document_type": "interview",
         "speaker": "INTERVIEW TRANSCRIPT",
@@ -334,9 +340,9 @@
         "char_end": 169
       },
       {
-        "chunk_id": "chk_doc_5dcfc507_2",
+        "chunk_id": "chk_doc_3b5c07b4_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_5dcfc507",
+        "document_id": "doc_3b5c07b4",
         "filename": "interview_curator_clara.txt",
         "document_type": "interview",
         "speaker": "Clara Sterling",
@@ -352,9 +358,9 @@
         "char_end": 372
       },
       {
-        "chunk_id": "chk_doc_5dcfc507_3",
+        "chunk_id": "chk_doc_3b5c07b4_3",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_5dcfc507",
+        "document_id": "doc_3b5c07b4",
         "filename": "interview_curator_clara.txt",
         "document_type": "interview",
         "speaker": "Clara Sterling",
@@ -370,9 +376,9 @@
         "char_end": 739
       },
       {
-        "chunk_id": "chk_doc_5dcfc507_4",
+        "chunk_id": "chk_doc_3b5c07b4_4",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_5dcfc507",
+        "document_id": "doc_3b5c07b4",
         "filename": "interview_curator_clara.txt",
         "document_type": "interview",
         "speaker": "Clara Sterling",
@@ -388,12 +394,12 @@
         "char_end": 1033
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.628778",
+    "uploaded_at": "2026-10-31T22:36:24.959215+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_830ae5b3",
+    "document_id": "doc_370a137b",
     "case_id": "case_02_blackwood",
     "filename": "interview_guard_julian.txt",
     "document_type": "interview",
@@ -402,13 +408,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 861,
+    "sha256_hash": "",
     "raw_text": "INTERVIEW TRANSCRIPT: JULIAN VANCE\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Julian Vance, Night Guard\n\n[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.\n[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.\n[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?\n[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.\n[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?\n[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.\n[10:33 AM] REYNOLDS: Did you leave your desk at all?\n[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.\n",
     "cleaned_text": "INTERVIEW TRANSCRIPT: JULIAN VANCE\nCase: Blackwood Manor Art Heist\nInterviewer: Detective Reynolds\nInterviewee: Julian Vance, Night Guard\n\n[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.\n[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.\n[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?\n[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.\n[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?\n[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.\n[10:33 AM] REYNOLDS: Did you leave your desk at all?\n[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
     "chunks": [
       {
-        "chunk_id": "chk_doc_830ae5b3_1",
+        "chunk_id": "chk_doc_370a137b_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_830ae5b3",
+        "document_id": "doc_370a137b",
         "filename": "interview_guard_julian.txt",
         "document_type": "interview",
         "speaker": "INTERVIEW TRANSCRIPT",
@@ -424,9 +431,9 @@
         "char_end": 165
       },
       {
-        "chunk_id": "chk_doc_830ae5b3_2",
+        "chunk_id": "chk_doc_370a137b_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_830ae5b3",
+        "document_id": "doc_370a137b",
         "filename": "interview_guard_julian.txt",
         "document_type": "interview",
         "speaker": "Julian Vance",
@@ -442,9 +449,9 @@
         "char_end": 425
       },
       {
-        "chunk_id": "chk_doc_830ae5b3_3",
+        "chunk_id": "chk_doc_370a137b_3",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_830ae5b3",
+        "document_id": "doc_370a137b",
         "filename": "interview_guard_julian.txt",
         "document_type": "interview",
         "speaker": "Julian Vance",
@@ -460,9 +467,9 @@
         "char_end": 737
       },
       {
-        "chunk_id": "chk_doc_830ae5b3_4",
+        "chunk_id": "chk_doc_370a137b_4",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_830ae5b3",
+        "document_id": "doc_370a137b",
         "filename": "interview_guard_julian.txt",
         "document_type": "interview",
         "speaker": "Julian Vance",
@@ -478,12 +485,12 @@
         "char_end": 1027
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.708288",
+    "uploaded_at": "2026-10-31T22:36:25.035331+00:00",
     "status": "processed",
     "warning": null
   },
   {
-    "document_id": "doc_92f00364",
+    "document_id": "doc_0c0ba6cc",
     "case_id": "case_02_blackwood",
     "filename": "police_initial_report.txt",
     "document_type": "report",
@@ -492,13 +499,14 @@
     "timestamp": null,
     "description": null,
     "file_size_bytes": 643,
+    "sha256_hash": "",
     "raw_text": "METROPOLITAN POLICE - INCIDENT REPORT\nIncident: Burglary / Theft of High-Value Cultural Property\nLocation: Blackwood Manor, Surrey\nOfficer: DI Thomas Reynolds, Badge #8841\nDate of Incident: October 18, 2024\n\n1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.\n2. FORCED ENTRY: No external doors, windows, or gates showed forced entry. Entry was executed via the rear delivery gate and physical vault key.\n3. FORENSICS: Tire tracks in the gravel courtyard match standard commercial light transport vehicles.\n",
     "cleaned_text": "METROPOLITAN POLICE - INCIDENT REPORT\nIncident: Burglary / Theft of High-Value Cultural Property\nLocation: Blackwood Manor, Surrey\nOfficer: DI Thomas Reynolds, Badge #8841\nDate of Incident: October 18, 2024\n\n1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.\n2. FORCED ENTRY: No external doors, windows, or gates showed forced entry. Entry was executed via the rear delivery gate and physical vault key.\n3. FORENSICS: Tire tracks in the gravel courtyard match standard commercial light transport vehicles.",
     "chunks": [
       {
-        "chunk_id": "chk_doc_92f00364_1",
+        "chunk_id": "chk_doc_0c0ba6cc_1",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_92f00364",
+        "document_id": "doc_0c0ba6cc",
         "filename": "police_initial_report.txt",
         "document_type": "report",
         "speaker": null,
@@ -514,9 +522,9 @@
         "char_end": 227
       },
       {
-        "chunk_id": "chk_doc_92f00364_2",
+        "chunk_id": "chk_doc_0c0ba6cc_2",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_92f00364",
+        "document_id": "doc_0c0ba6cc",
         "filename": "police_initial_report.txt",
         "document_type": "report",
         "speaker": null,
@@ -532,9 +540,9 @@
         "char_end": 286
       },
       {
-        "chunk_id": "chk_doc_92f00364_3",
+        "chunk_id": "chk_doc_0c0ba6cc_3",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_92f00364",
+        "document_id": "doc_0c0ba6cc",
         "filename": "police_initial_report.txt",
         "document_type": "report",
         "speaker": "SYNOPSIS",
@@ -550,9 +558,9 @@
         "char_end": 565
       },
       {
-        "chunk_id": "chk_doc_92f00364_4",
+        "chunk_id": "chk_doc_0c0ba6cc_4",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_92f00364",
+        "document_id": "doc_0c0ba6cc",
         "filename": "police_initial_report.txt",
         "document_type": "report",
         "speaker": "FORCED ENTRY",
@@ -568,9 +576,9 @@
         "char_end": 676
       },
       {
-        "chunk_id": "chk_doc_92f00364_5",
+        "chunk_id": "chk_doc_0c0ba6cc_5",
         "case_id": "case_02_blackwood",
-        "document_id": "doc_92f00364",
+        "document_id": "doc_0c0ba6cc",
         "filename": "police_initial_report.txt",
         "document_type": "report",
         "speaker": "FORENSICS",
@@ -584,7 +592,7 @@
         "char_end": 774
       }
     ],
-    "uploaded_at": "2026-10-31T21:34:53.765512",
+    "uploaded_at": "2026-10-31T22:36:25.119420+00:00",
     "status": "processed",
     "warning": null
   }

@@ -1,0 +1,8 @@
+SLACK CHANNEL: #firmware-core (Internal Apex Workspace)
+Date: October 25, 2024
+
+20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good luck on the 21:00 flight.
+20:07 Liam Vance: Thanks Derek, enjoy dinner.
+20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.
+20:20 Liam Vance: Did someone leave the debug cable plugged in?
+20:21 Elena Rostova: Derek was just in the bay a minute ago.
