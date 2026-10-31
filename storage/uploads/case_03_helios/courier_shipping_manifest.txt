@@ -1,0 +1,5 @@
+CRYOEXPRESS COURIER SERVICES - WAYBILL #CX-889012
+Sender: Helios Pharma Clinical Research Site 03
+Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)
+Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard)
+Driver: Raymond Vance | Signee: Dr. Arlo Kaufman

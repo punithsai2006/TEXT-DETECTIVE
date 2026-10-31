@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #131A2E;
+  --color-gold: #C9962F;
+  --color-cream: #F4F0E6;
+  --color-paper: #FAF7EF;
+}
+
+body {
+  margin: 0;
+  background-color: #FAF7EF;
+  color: #131A2E;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Subtle investigation parchment border */
+.case-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2DDD0;
+  box-shadow: 0 1px 3px rgba(19, 26, 46, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.case-card:hover {
+  box-shadow: 0 4px 12px rgba(19, 26, 46, 0.08);
+  border-color: #C9962F;
+}
+
+/* Red stamp label */
+.stamp-label {
+  display: inline-block;
+  font-family: 'Cinzel', 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.stamp-danger {
+  color: #B93838;
+  border: 1px solid #B93838;
+  background: rgba(185, 56, 56, 0.06);
+}
+
+.stamp-gold {
+  color: #A87A1E;
+  border: 1px solid #C9962F;
+  background: rgba(201, 150, 47, 0.08);
+}
+
+.stamp-success {
+  color: #2E7D4F;
+  border: 1px solid #2E7D4F;
+  background: rgba(46, 125, 79, 0.06);
+}
+
+.stamp-navy {
+  color: #131A2E;
+  border: 1px solid #131A2E;
+  background: rgba(19, 26, 46, 0.06);
+}

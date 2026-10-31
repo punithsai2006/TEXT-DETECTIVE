@@ -1,0 +1,11 @@
+INTERVIEW TRANSCRIPT: DR. ARLO KAUFMAN
+Case: Helios Pharma Trial HL-902
+Interviewer: Regulatory Auditor Sarah Jenkins
+Interviewee: Dr. Arlo Kaufman, Principal Investigator
+
+[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?
+[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.
+[09:01 AM] JENKINS: Did any power outage affect the cold storage?
+[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.
+[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?
+[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.

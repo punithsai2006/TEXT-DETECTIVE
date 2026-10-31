@@ -1,0 +1,14 @@
+From: Elena Rostova <elena.rostova@meridiantech.internal>
+To: Incident Response Team <ir-team@meridiantech.internal>
+Date: October 13, 2024 04:30 AM
+Subject: URGENT: Potential External Exfiltration Incident
+
+Team,
+
+Early alerts from our SIEM platform flagged an unauthorized export of customer files overnight. Initial network monitoring suggested an external IP in Eastern Europe exfiltrated the customer records over SFTP. However, firewall connection logs for that timeframe remain ambiguous. 
+
+Please preserve all logs from Building 4 immediately. All system administrators must revoke active tokens. Do not discuss this event with any external media or third-party contractors until the internal review is finalized.
+
+Elena Rostova
+Chief Information Security Officer
+Meridian Tech

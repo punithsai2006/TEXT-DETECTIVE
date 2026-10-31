@@ -1,0 +1,2880 @@
+{
+  "report_id": "rep_case_02_blackwood_7c5be8",
+  "case_id": "case_02_blackwood",
+  "case_name": "The Blackwood Manor Art Heist",
+  "generated_at": "2026-10-31T21:34:56.045251",
+  "case_overview": "Theft of the 14.5 million GBP Vermeer canvas 'The Silent Witness' from the basement vault of Blackwood Manor.",
+  "documents_analyzed": [
+    {
+      "document_id": "doc_667a878f",
+      "filename": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 2,
+      "file_size_bytes": 557
+    },
+    {
+      "document_id": "doc_035c74a0",
+      "filename": "courier_delivery_log.txt",
+      "document_type": "log",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 2,
+      "file_size_bytes": 477
+    },
+    {
+      "document_id": "doc_78005f2d",
+      "filename": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "chunk_count": 3,
+      "file_size_bytes": 502
+    },
+    {
+      "document_id": "doc_c7bc7977",
+      "filename": "estate_cctv_audit_report.txt",
+      "document_type": "log",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 1,
+      "file_size_bytes": 354
+    },
+    {
+      "document_id": "doc_63ae1e5c",
+      "filename": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "speaker": "Marta Gomez",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 723
+    },
+    {
+      "document_id": "doc_5dcfc507",
+      "filename": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "speaker": "Clara Sterling",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 861
+    },
+    {
+      "document_id": "doc_830ae5b3",
+      "filename": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "speaker": "Julian Vance",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 861
+    },
+    {
+      "document_id": "doc_92f00364",
+      "filename": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 5,
+      "file_size_bytes": 643
+    }
+  ],
+  "investigation_summary": "Investigation analysis completed for Case 'The Blackwood Manor Art Heist'. A total of 8 documents were processed, revealing 34 unique named entities and 35 ordered timeline events. Cross-document comparison established 10 conflicts and 1 corroborated agreements. The system's proposed explanation is 'Insider Theft by Security Guard Julian Vance' with an evidence score of 11.",
+  "extracted_entities": [
+    {
+      "entity_id": "ent_9b18ba",
+      "name": "Clara Sterling",
+      "entity_type": "person",
+      "mentions_count": 7,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_78005f2d",
+        "doc_92f00364"
+      ],
+      "source_sentences": [
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+        "From: Clara Sterling <c.sterling@blackwoodestate.co.uk>",
+        "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+        "Clara Sterling",
+        "Speaker/Author of document: Clara Sterling",
+        "Interviewee: Clara Sterling, Gallery Curator"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5950d3",
+      "name": "Thomas Reynolds",
+      "entity_type": "person",
+      "mentions_count": 7,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_92f00364",
+        "doc_830ae5b3",
+        "doc_63ae1e5c"
+      ],
+      "source_sentences": [
+        "Officer: DI Thomas Reynolds, Badge #8841",
+        "Interviewer: Detective Reynolds"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_1fc035",
+      "name": "Julian Vance",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_63ae1e5c",
+        "doc_830ae5b3",
+        "doc_667a878f",
+        "doc_5dcfc507"
+      ],
+      "source_sentences": [
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+        "Speaker/Author of document: Julian Vance",
+        "Interviewee: Julian Vance, Night Guard",
+        "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+        "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c7f850",
+      "name": "Blackwood Manor",
+      "entity_type": "person",
+      "mentions_count": 5,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_92f00364",
+        "doc_830ae5b3",
+        "doc_63ae1e5c"
+      ],
+      "source_sentences": [
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+        "Location: Blackwood Manor, Surrey",
+        "Case: Blackwood Manor Art Heist"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_f8bba7",
+      "name": "Console",
+      "entity_type": "object",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_830ae5b3",
+        "doc_667a878f"
+      ],
+      "source_sentences": [
+        "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+        "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_37b790",
+      "name": "Safe",
+      "entity_type": "object",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_667a878f"
+      ],
+      "source_sentences": [
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+        "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+        "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_64669d",
+      "name": "Lord Blackwood",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_78005f2d",
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "Lord Blackwood,",
+        "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_77a4fa",
+      "name": "Art Heist",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_5dcfc507",
+        "doc_830ae5b3",
+        "doc_63ae1e5c"
+      ],
+      "source_sentences": [
+        "Case: Blackwood Manor Art Heist"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d053e2",
+      "name": "Forensic Review Of Cctv Hard Drive",
+      "entity_type": "object",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "Forensic review of CCTV Hard Drive Unit #1:"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b832df",
+      "name": "Camera",
+      "entity_type": "object",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
+        "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_cf288a",
+      "name": "Marta Gomez",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_63ae1e5c"
+      ],
+      "source_sentences": [
+        "Speaker/Author of document: Marta Gomez",
+        "Interviewee: Marta Gomez, Evening Housekeeper"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_e1015b",
+      "name": "Basement Vault",
+      "entity_type": "location",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_667a878f"
+      ],
+      "source_sentences": [
+        "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_65a4c0",
+      "name": "Alarm In Zone 4 Manually Silenced And Acknowledged By Local Console",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_667a878f"
+      ],
+      "source_sentences": [
+        "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_467039",
+      "name": "Marcus Finch",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5b10b7",
+      "name": "Ford Transit",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_1a6a02",
+      "name": "Arrived Blackwood",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_bd1323",
+      "name": "Manor Rear",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d40d23",
+      "name": "Delivery Gate",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_5f92f2",
+      "name": "Driver Statement",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_035c74a0"
+      ],
+      "source_sentences": [
+        "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c75ba2",
+      "name": "Arthur Blackwood",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_78005f2d"
+      ],
+      "source_sentences": [
+        "To: Arthur Blackwood <arthur@blackwoodholdings.com>"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_ae653f",
+      "name": "Drive",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "Forensic review of CCTV Hard Drive Unit #1:"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_7a052f",
+      "name": "Hard Drive",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "Forensic review of CCTV Hard Drive Unit #1:"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_bbabf8",
+      "name": "Front Driveway",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "- Cameras 1 through 3 (Front Driveway) functioned continuously."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_974e7b",
+      "name": "Basement Corridor",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_04b4fc",
+      "name": "Gate Camera",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_c7bc7977"
+      ],
+      "source_sentences": [
+        "- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_44c2c2",
+      "name": "Evening Housekeeper",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_63ae1e5c"
+      ],
+      "source_sentences": [
+        "Interviewee: Marta Gomez, Evening Housekeeper"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d58894",
+      "name": "Gallery Curator",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_5dcfc507"
+      ],
+      "source_sentences": [
+        "Interviewee: Clara Sterling, Gallery Curator"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_60e484",
+      "name": "00 Pm On Friday And Locked The Biometric Vault Safe",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_5dcfc507"
+      ],
+      "source_sentences": [
+        "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_95265c",
+      "name": "Has No Safe",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_5dcfc507"
+      ],
+      "source_sentences": [
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2a1272",
+      "name": "Night Guard",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_830ae5b3"
+      ],
+      "source_sentences": [
+        "Interviewee: Julian Vance, Night Guard"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_a18b6b",
+      "name": "Apex Deliveries",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_830ae5b3"
+      ],
+      "source_sentences": [
+        "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_237725",
+      "name": "I Remained At The Security Console",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_830ae5b3"
+      ],
+      "source_sentences": [
+        "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_6f8ba6",
+      "name": "Value Cultural",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_92f00364"
+      ],
+      "source_sentences": [
+        "Incident: Burglary / Theft of High-Value Cultural Property"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_41b8e0",
+      "name": "Badge #8841",
+      "entity_type": "object",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_92f00364"
+      ],
+      "source_sentences": [
+        "Officer: DI Thomas Reynolds, Badge #8841"
+      ],
+      "metadata": {}
+    }
+  ],
+  "important_events": [
+    {
+      "event_id": "ev_doc_667a878f_1",
+      "description": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "time_str": "2024-10-18 19:00:00",
+      "parsed_timestamp": "2024-10-18T19:00:00",
+      "uses_objects": [],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_667a878f_2",
+      "description": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
+      "participants": [
+        "Delivery Gate"
+      ],
+      "location": null,
+      "time_str": "2024-10-18 21:50:12",
+      "parsed_timestamp": "2024-10-18T21:50:12",
+      "uses_objects": [],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_667a878f_3",
+      "description": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "participants": [],
+      "location": "Basement Vault",
+      "time_str": "2024-10-18 22:15:02",
+      "parsed_timestamp": "2024-10-18T22:15:02",
+      "uses_objects": [],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_667a878f_4",
+      "description": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-10-18 22:15:36",
+      "parsed_timestamp": "2024-10-18T22:15:36",
+      "uses_objects": [
+        "Alarm In Zone 4 Manually Silenced And Acknowledged By Local Console",
+        "Console"
+      ],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_667a878f_5",
+      "description": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-10-18 22:28:19",
+      "parsed_timestamp": "2024-10-18T22:28:19",
+      "uses_objects": [
+        "Safe"
+      ],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_667a878f_6",
+      "description": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+      "participants": [
+        "Delivery Gate"
+      ],
+      "location": null,
+      "time_str": "2024-10-18 22:31:00",
+      "parsed_timestamp": "2024-10-18T22:31:00",
+      "uses_objects": [],
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "source_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_035c74a0_7",
+      "description": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "participants": [
+        "Delivery Gate",
+        "Blackwood Manor",
+        "Arrived Blackwood",
+        "Manor Rear"
+      ],
+      "location": null,
+      "time_str": "2024-10-18 21:50:00",
+      "parsed_timestamp": "2024-10-18T21:50:00",
+      "uses_objects": [],
+      "document_id": "doc_035c74a0",
+      "document_name": "courier_delivery_log.txt",
+      "source_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_035c74a0_8",
+      "description": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-10-18 22:05:00",
+      "parsed_timestamp": "2024-10-18T22:05:00",
+      "uses_objects": [],
+      "document_id": "doc_035c74a0",
+      "document_name": "courier_delivery_log.txt",
+      "source_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_035c74a0_9",
+      "description": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-10-18 22:30:45",
+      "parsed_timestamp": "2024-10-18T22:30:45",
+      "uses_objects": [],
+      "document_id": "doc_035c74a0",
+      "document_name": "courier_delivery_log.txt",
+      "source_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_035c74a0_10",
+      "description": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
+      "participants": [
+        "Driver Statement"
+      ],
+      "location": null,
+      "time_str": "10:20 PM",
+      "parsed_timestamp": "2024-01-01T22:20:00",
+      "uses_objects": [],
+      "document_id": "doc_035c74a0",
+      "document_name": "courier_delivery_log.txt",
+      "source_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_78005f2d_11",
+      "description": "Date: October 17, 2024 04:15 PM",
+      "participants": [],
+      "location": null,
+      "time_str": "04:15 PM",
+      "parsed_timestamp": "2024-01-01T16:15:00",
+      "uses_objects": [],
+      "document_id": "doc_78005f2d",
+      "document_name": "curator_appraisal_email.txt",
+      "source_sentence": "Date: October 17, 2024 04:15 PM",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c7bc7977_12",
+      "description": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
+      "participants": [
+        "Basement Corridor"
+      ],
+      "location": null,
+      "time_str": "22:10",
+      "parsed_timestamp": "2024-01-01T22:10:00",
+      "uses_objects": [
+        "Camera"
+      ],
+      "document_id": "doc_c7bc7977",
+      "document_name": "estate_cctv_audit_report.txt",
+      "source_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_13",
+      "description": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
+      "participants": [],
+      "location": null,
+      "time_str": "11:15 AM",
+      "parsed_timestamp": "2024-01-01T11:15:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_14",
+      "description": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
+      "participants": [
+        "Marta Gomez"
+      ],
+      "location": null,
+      "time_str": "11:15 AM",
+      "parsed_timestamp": "2024-01-01T11:15:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_15",
+      "description": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "time_str": "11:16 AM",
+      "parsed_timestamp": "2024-01-01T11:16:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_16",
+      "description": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
+      "participants": [
+        "Marta Gomez"
+      ],
+      "location": null,
+      "time_str": "11:16 AM",
+      "parsed_timestamp": "2024-01-01T11:16:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_17",
+      "description": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
+      "participants": [],
+      "location": null,
+      "time_str": "11:17 AM",
+      "parsed_timestamp": "2024-01-01T11:17:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_63ae1e5c_18",
+      "description": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
+      "participants": [],
+      "location": null,
+      "time_str": "11:17 AM",
+      "parsed_timestamp": "2024-01-01T11:17:00",
+      "uses_objects": [],
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "source_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_19",
+      "description": "[09:00 AM] REYNOLDS: State your name and position.",
+      "participants": [],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:00 AM] REYNOLDS: State your name and position.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_20",
+      "description": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "participants": [
+        "Blackwood Manor",
+        "Clara Sterling"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_21",
+      "description": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_22",
+      "description": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [
+        "Safe",
+        "00 Pm On Friday And Locked The Biometric Vault Safe"
+      ],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_23",
+      "description": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_24",
+      "description": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "participants": [
+        "Lord Blackwood",
+        "Julian Vance"
+      ],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [
+        "Safe",
+        "Has No Safe"
+      ],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_25",
+      "description": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_5dcfc507_26",
+      "description": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": null,
+      "time_str": "09:03 AM",
+      "parsed_timestamp": "2024-01-01T09:03:00",
+      "uses_objects": [],
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "source_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_27",
+      "description": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
+      "participants": [],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_28",
+      "description": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_29",
+      "description": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_30",
+      "description": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
+      "participants": [],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_31",
+      "description": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_32",
+      "description": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
+      "participants": [
+        "Apex Deliveries"
+      ],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_33",
+      "description": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:33 AM",
+      "parsed_timestamp": "2024-01-01T10:33:00",
+      "uses_objects": [],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_830ae5b3_34",
+      "description": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "time_str": "10:33 AM",
+      "parsed_timestamp": "2024-01-01T10:33:00",
+      "uses_objects": [
+        "I Remained At The Security Console",
+        "Console"
+      ],
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "source_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_92f00364_35",
+      "description": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": "Basement Vault",
+      "time_str": "06:15 AM",
+      "parsed_timestamp": "2024-01-01T06:15:00",
+      "uses_objects": [],
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "source_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "uncertainty": false
+    }
+  ],
+  "chronological_timeline": [
+    {
+      "entry_id": "tl_ev_doc_92f00364_35",
+      "event_id": "ev_doc_92f00364_35",
+      "timestamp_display": "06:15 AM",
+      "event_description": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": "Basement Vault",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "source_sentence": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "is_uncertain": false,
+      "sort_key": "20240101061500"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_19",
+      "event_id": "ev_doc_5dcfc507_19",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] REYNOLDS: State your name and position.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:00 AM] REYNOLDS: State your name and position.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_20",
+      "event_id": "ev_doc_5dcfc507_20",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "participants": [
+        "Blackwood Manor",
+        "Clara Sterling"
+      ],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_21",
+      "event_id": "ev_doc_5dcfc507_21",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'?",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_22",
+      "event_id": "ev_doc_5dcfc507_22",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_23",
+      "event_id": "ev_doc_5dcfc507_23",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_24",
+      "event_id": "ev_doc_5dcfc507_24",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "participants": [
+        "Lord Blackwood",
+        "Julian Vance"
+      ],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_25",
+      "event_id": "ev_doc_5dcfc507_25",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:03 AM] REYNOLDS: What time did you leave the estate?",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_5dcfc507_26",
+      "event_id": "ev_doc_5dcfc507_26",
+      "timestamp_display": "09:03 AM",
+      "event_description": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "participants": [
+        "Clara Sterling"
+      ],
+      "location": null,
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "is_uncertain": false,
+      "sort_key": "20240101090300"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_27",
+      "event_id": "ev_doc_830ae5b3_27",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_28",
+      "event_id": "ev_doc_830ae5b3_28",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:30 AM] VANCE: I began my shift at 7:00 PM. I stayed in the security control booth until 11:00 PM.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_29",
+      "event_id": "ev_doc_830ae5b3_29",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM?",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_30",
+      "event_id": "ev_doc_830ae5b3_30",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:31 AM] VANCE: The motion alarm never sounded in the booth. The control panel showed green all night.",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_31",
+      "event_id": "ev_doc_830ae5b3_31",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:32 AM] REYNOLDS: Did anyone visit the estate during your watch?",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_32",
+      "event_id": "ev_doc_830ae5b3_32",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
+      "participants": [
+        "Apex Deliveries"
+      ],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:30 PM.",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_33",
+      "event_id": "ev_doc_830ae5b3_33",
+      "timestamp_display": "10:33 AM",
+      "event_description": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:33 AM] REYNOLDS: Did you leave your desk at all?",
+      "is_uncertain": false,
+      "sort_key": "20240101103300"
+    },
+    {
+      "entry_id": "tl_ev_doc_830ae5b3_34",
+      "event_id": "ev_doc_830ae5b3_34",
+      "timestamp_display": "10:33 AM",
+      "event_description": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "is_uncertain": false,
+      "sort_key": "20240101103300"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_13",
+      "event_id": "ev_doc_63ae1e5c_13",
+      "timestamp_display": "11:15 AM",
+      "event_description": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:00 PM?",
+      "is_uncertain": false,
+      "sort_key": "20240101111500"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_14",
+      "event_id": "ev_doc_63ae1e5c_14",
+      "timestamp_display": "11:15 AM",
+      "event_description": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
+      "participants": [
+        "Marta Gomez"
+      ],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:15 AM] GOMEZ: I was cleaning the second-floor gallery and dining room.",
+      "is_uncertain": false,
+      "sort_key": "20240101111500"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_15",
+      "event_id": "ev_doc_63ae1e5c_15",
+      "timestamp_display": "11:16 AM",
+      "event_description": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "is_uncertain": false,
+      "sort_key": "20240101111600"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_16",
+      "event_id": "ev_doc_63ae1e5c_16",
+      "timestamp_display": "11:16 AM",
+      "event_description": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
+      "participants": [
+        "Marta Gomez"
+      ],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:16 AM] GOMEZ: Yes. Julian was not at the security desk. I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
+      "is_uncertain": false,
+      "sort_key": "20240101111600"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_17",
+      "event_id": "ev_doc_63ae1e5c_17",
+      "timestamp_display": "11:17 AM",
+      "event_description": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:17 AM] REYNOLDS: Did the gallery motion sensors go off?",
+      "is_uncertain": false,
+      "sort_key": "20240101111700"
+    },
+    {
+      "entry_id": "tl_ev_doc_63ae1e5c_18",
+      "event_id": "ev_doc_63ae1e5c_18",
+      "timestamp_display": "11:17 AM",
+      "event_description": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "source_sentence": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds.",
+      "is_uncertain": false,
+      "sort_key": "20240101111700"
+    },
+    {
+      "entry_id": "tl_ev_doc_78005f2d_11",
+      "event_id": "ev_doc_78005f2d_11",
+      "timestamp_display": "04:15 PM",
+      "event_description": "Date: October 17, 2024 04:15 PM",
+      "participants": [],
+      "location": null,
+      "document_name": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "source_sentence": "Date: October 17, 2024 04:15 PM",
+      "is_uncertain": false,
+      "sort_key": "20240101161500"
+    },
+    {
+      "entry_id": "tl_ev_doc_c7bc7977_12",
+      "event_id": "ev_doc_c7bc7977_12",
+      "timestamp_display": "22:10",
+      "event_description": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
+      "participants": [
+        "Basement Corridor"
+      ],
+      "location": null,
+      "document_name": "estate_cctv_audit_report.txt",
+      "document_type": "log",
+      "source_sentence": "- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.",
+      "is_uncertain": false,
+      "sort_key": "20240101221000"
+    },
+    {
+      "entry_id": "tl_ev_doc_035c74a0_10",
+      "event_id": "ev_doc_035c74a0_10",
+      "timestamp_display": "10:20 PM",
+      "event_description": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
+      "participants": [
+        "Driver Statement"
+      ],
+      "location": null,
+      "document_name": "courier_delivery_log.txt",
+      "document_type": "log",
+      "source_sentence": "Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'",
+      "is_uncertain": false,
+      "sort_key": "20240101222000"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_1",
+      "event_id": "ev_doc_667a878f_1",
+      "timestamp_display": "2024-10-18 19:00:00",
+      "event_description": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "participants": [
+        "Julian Vance"
+      ],
+      "location": null,
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "is_uncertain": false,
+      "sort_key": "20241018190000"
+    },
+    {
+      "entry_id": "tl_ev_doc_035c74a0_7",
+      "event_id": "ev_doc_035c74a0_7",
+      "timestamp_display": "2024-10-18 21:50:00",
+      "event_description": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "participants": [
+        "Delivery Gate",
+        "Blackwood Manor",
+        "Arrived Blackwood",
+        "Manor Rear"
+      ],
+      "location": null,
+      "document_name": "courier_delivery_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "is_uncertain": false,
+      "sort_key": "20241018215000"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_2",
+      "event_id": "ev_doc_667a878f_2",
+      "timestamp_display": "2024-10-18 21:50:12",
+      "event_description": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
+      "participants": [
+        "Delivery Gate"
+      ],
+      "location": null,
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer",
+      "is_uncertain": false,
+      "sort_key": "20241018215012"
+    },
+    {
+      "entry_id": "tl_ev_doc_035c74a0_8",
+      "event_id": "ev_doc_035c74a0_8",
+      "timestamp_display": "2024-10-18 22:05:00",
+      "event_description": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
+      "participants": [],
+      "location": null,
+      "document_name": "courier_delivery_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse",
+      "is_uncertain": false,
+      "sort_key": "20241018220500"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_3",
+      "event_id": "ev_doc_667a878f_3",
+      "timestamp_display": "2024-10-18 22:15:02",
+      "event_description": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "participants": [],
+      "location": "Basement Vault",
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "is_uncertain": false,
+      "sort_key": "20241018221502"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_4",
+      "event_id": "ev_doc_667a878f_4",
+      "timestamp_display": "2024-10-18 22:15:36",
+      "event_description": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+      "participants": [],
+      "location": null,
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+      "is_uncertain": false,
+      "sort_key": "20241018221536"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_5",
+      "event_id": "ev_doc_667a878f_5",
+      "timestamp_display": "2024-10-18 22:28:19",
+      "event_description": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "participants": [],
+      "location": null,
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "is_uncertain": false,
+      "sort_key": "20241018222819"
+    },
+    {
+      "entry_id": "tl_ev_doc_035c74a0_9",
+      "event_id": "ev_doc_035c74a0_9",
+      "timestamp_display": "2024-10-18 22:30:45",
+      "event_description": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
+      "participants": [],
+      "location": null,
+      "document_name": "courier_delivery_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway",
+      "is_uncertain": false,
+      "sort_key": "20241018223045"
+    },
+    {
+      "entry_id": "tl_ev_doc_667a878f_6",
+      "event_id": "ev_doc_667a878f_6",
+      "timestamp_display": "2024-10-18 22:31:00",
+      "event_description": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+      "participants": [
+        "Delivery Gate"
+      ],
+      "location": null,
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "source_sentence": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+      "is_uncertain": false,
+      "sort_key": "20241018223100"
+    }
+  ],
+  "key_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_78005f2d_2",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_78005f2d",
+      "document_name": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_78005f2d_2",
+      "text": "Subject: Insurance revaluation and vault arrangement Lord Blackwood, Following yesterday's appraisal, 'The Silent Witness' has been valued at 14.5 million GBP.",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "score": 0.505,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_830ae5b3_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_830ae5b3",
+      "document_name": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_830ae5b3_1",
+      "text": "INTERVIEW TRANSCRIPT: JULIAN VANCE Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.4385,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_5dcfc507_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_5dcfc507_1",
+      "text": "INTERVIEW TRANSCRIPT: CLARA STERLING Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.4374,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_63ae1e5c_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_63ae1e5c",
+      "document_name": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_63ae1e5c_1",
+      "text": "INTERVIEW TRANSCRIPT: MARTA GOMEZ Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.4322,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_5dcfc507_3",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_5dcfc507_3",
+      "text": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'? [09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe. [09:02 AM] REYNOLDS: Did anyone else have the emergency override code?",
+      "speaker": "Clara Sterling",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.4056,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_92f00364_3",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_92f00364_3",
+      "text": "SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing. 2.",
+      "speaker": "SYNOPSIS",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.3806,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_92f00364_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_92f00364_1",
+      "text": "METROPOLITAN POLICE - INCIDENT REPORT Incident: Burglary / Theft of High-Value Cultural Property Location: Blackwood Manor, Surrey",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3783,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_c7bc7977_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_c7bc7977",
+      "document_name": "estate_cctv_audit_report.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_c7bc7977_1",
+      "text": "BLACKWOOD MANOR SECURITY AUDIT Forensic review of CCTV Hard Drive Unit #1:\n- Cameras 1 through 3 (Front Driveway) functioned continuously.\n- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.\n- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1
+      ],
+      "score": 0.3555,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_78005f2d_3",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_78005f2d",
+      "document_name": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_78005f2d_3",
+      "text": "As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station. Please ensure Julian is reminded not to touch the key. Clara Sterling",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.339,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_5dcfc507_4",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_5dcfc507_4",
+      "text": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access. [09:03 AM] REYNOLDS: What time did you leave the estate? [09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "speaker": "Clara Sterling",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "score": 0.3108,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_5dcfc507_2",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_5dcfc507_2",
+      "text": "Interviewee: Clara Sterling, Gallery Curator [09:00 AM] REYNOLDS: State your name and position. [09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "speaker": "Clara Sterling",
+      "timestamp": null,
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "score": 0.3058,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_035c74a0_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_035c74a0",
+      "document_name": "courier_delivery_log.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_035c74a0_1",
+      "text": "APEX DELIVERIES - DAILY VEHICLE TELEMETRY & RUN SHEET Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR) 2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3035,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_92f00364_4",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_92f00364_4",
+      "text": "FORCED ENTRY: No external doors, windows, or gates showed forced entry. Entry was executed via the rear delivery gate and physical vault key. 3.",
+      "speaker": "FORCED ENTRY",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "score": 0.303,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_78005f2d_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_78005f2d",
+      "document_name": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_78005f2d_1",
+      "text": "From: Clara Sterling <c.sterling@blackwoodestate.co.uk> To: Arthur Blackwood <arthur@blackwoodholdings.com> Date: October 17, 2024 04:15 PM",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.2874,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_667a878f_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_667a878f",
+      "document_name": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_667a878f_1",
+      "text": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance] [2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote buzzer [2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.2797,
+      "retrieval_method": "hybrid"
+    }
+  ],
+  "agreements": [
+    {
+      "id": "contra_911753e9",
+      "case_id": "case_02_blackwood",
+      "statement_a": "Case: Blackwood Manor Art Heist",
+      "statement_b": "Case: Blackwood Manor Art Heist",
+      "doc_a_id": "doc_63ae1e5c",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "interview_cleaner_marta.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": "Marta Gomez",
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Blackwood Manor",
+      "contradiction_type": "agreement",
+      "nli_label": "entailment",
+      "confidence": 0.95,
+      "explanation": "Both statements assert the identical factual detail across sources.",
+      "resolution_status": "resolved",
+      "source_sentences": [
+        "Case: Blackwood Manor Art Heist",
+        "Case: Blackwood Manor Art Heist"
+      ]
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "contra_1ca69228",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "statement_b": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_63ae1e5c",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "interview_cleaner_marta.txt",
+      "speaker_a": null,
+      "speaker_b": "Marta Gomez",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Julian Vance",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 19:00 while Statement B references 11:16 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+        "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?"
+      ]
+    },
+    {
+      "id": "contra_7dd74b96",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+      "statement_b": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": null,
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Julian Vance",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 19:00 while Statement B references 09:02 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]",
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
+      ]
+    },
+    {
+      "id": "contra_3f71bb6a",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+      "statement_b": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "doc_a_id": "doc_63ae1e5c",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "interview_cleaner_marta.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": "Marta Gomez",
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Julian Vance",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 11:16 AM while Statement B references 09:02 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?",
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
+      ]
+    },
+    {
+      "id": "contra_d6126aae",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+      "statement_b": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_035c74a0",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "courier_delivery_log.txt",
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Delivery Gate",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 22:31 while Statement B references 21:50. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed",
+        "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate"
+      ]
+    },
+    {
+      "id": "contra_14b53b90",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "statement_b": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_92f00364",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "police_initial_report.txt",
+      "speaker_a": null,
+      "speaker_b": null,
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Basement Vault",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 22:15 while Statement B references 06:15 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+        "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
+      ]
+    },
+    {
+      "id": "contra_41c3f9b2",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+      "statement_b": "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_830ae5b3",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "interview_guard_julian.txt",
+      "speaker_a": null,
+      "speaker_b": "Julian Vance",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Console",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 22:15 while Statement B references 10:33 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console",
+        "[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving."
+      ]
+    },
+    {
+      "id": "contra_82feaa3e",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "statement_b": "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": null,
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Safe",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 22:28 while Statement B references 09:01 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+        "[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe."
+      ]
+    },
+    {
+      "id": "contra_9aa219e0",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+      "statement_b": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "doc_a_id": "doc_667a878f",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "alarm_system_telemetry.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": null,
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Safe",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 22:28 while Statement B references 09:02 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED",
+        "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access."
+      ]
+    },
+    {
+      "id": "contra_3acf4792",
+      "case_id": "case_02_blackwood",
+      "statement_a": "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+      "statement_b": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "doc_a_id": "doc_035c74a0",
+      "doc_b_id": "doc_5dcfc507",
+      "doc_a_name": "courier_delivery_log.txt",
+      "doc_b_name": "interview_curator_clara.txt",
+      "speaker_a": null,
+      "speaker_b": "Clara Sterling",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Blackwood Manor",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 21:50 while Statement B references 09:00 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate",
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery."
+      ]
+    },
+    {
+      "id": "contra_8504fe2a",
+      "case_id": "case_02_blackwood",
+      "statement_a": "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+      "statement_b": "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.",
+      "doc_a_id": "doc_5dcfc507",
+      "doc_b_id": "doc_92f00364",
+      "doc_a_name": "interview_curator_clara.txt",
+      "doc_b_name": "police_initial_report.txt",
+      "speaker_a": "Clara Sterling",
+      "speaker_b": null,
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Clara Sterling",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 06:15 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.",
+        "1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing."
+      ]
+    }
+  ],
+  "candidate_hypotheses": [
+    {
+      "hypothesis_id": "hyp_user_b3d75c",
+      "case_id": "case_02_blackwood",
+      "title": "Insider Theft by Security Guard Julian Vance",
+      "description": "Julian Vance retrieved the spare vault key from the unlocked desk drawer, unplugged camera 5, entered the basement vault at 10:15 PM, silenced the alarm, cut the Vermeer painting from its frame, and attempted to stash it in a duffel bag.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_0a0425ec",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_92f00364_1",
+            "evid_chk_doc_92f00364_2",
+            "evid_chk_doc_035c74a0_2",
+            "evid_chk_doc_78005f2d_3"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "police_initial_report.txt",
+            "police_initial_report.txt",
+            "courier_delivery_log.txt",
+            "curator_appraisal_email.txt"
+          ],
+          "contributing_speakers": [
+            "2024-10-18 22",
+            "Clara Sterling"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_44163a58",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_78005f2d_3",
+            "evid_chk_doc_63ae1e5c_3",
+            "evid_chk_doc_c7bc7977_1",
+            "evid_chk_doc_5dcfc507_4"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "interview_cleaner_marta.txt",
+            "curator_appraisal_email.txt",
+            "estate_cctv_audit_report.txt",
+            "interview_curator_clara.txt"
+          ],
+          "contributing_speakers": [
+            "Clara Sterling",
+            "Marta Gomez",
+            "Clara Sterling"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_8b8984d4",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_92f00364_4",
+            "evid_chk_doc_78005f2d_3",
+            "evid_chk_doc_035c74a0_2",
+            "evid_chk_doc_c7bc7977_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "police_initial_report.txt",
+            "curator_appraisal_email.txt",
+            "courier_delivery_log.txt",
+            "estate_cctv_audit_report.txt"
+          ],
+          "contributing_speakers": [
+            "FORCED ENTRY",
+            "Clara Sterling",
+            "2024-10-18 22"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 8,
+      "conflict_score": 0,
+      "corroboration_score": 3,
+      "conflict_penalty": 0,
+      "total_score": 11,
+      "rank": 1,
+      "is_proposed_explanation": true,
+      "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 5. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_6c3d43",
+      "case_id": "case_02_blackwood",
+      "title": "External Delivery Driver Intrusion by Apex Courier",
+      "description": "Courier Marcus Finch breached the greenhouse and entered the basement vault without guard knowledge.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_234de960",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_92f00364_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "police_initial_report.txt"
+          ],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_961b1112",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_78005f2d_3",
+            "evid_chk_doc_63ae1e5c_3",
+            "evid_chk_doc_c7bc7977_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "interview_cleaner_marta.txt",
+            "curator_appraisal_email.txt",
+            "estate_cctv_audit_report.txt"
+          ],
+          "contributing_speakers": [
+            "Clara Sterling",
+            "Marta Gomez"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_d8ccc429",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 4,
+      "conflict_score": 0,
+      "corroboration_score": 1,
+      "conflict_penalty": 0,
+      "total_score": 5,
+      "rank": 2,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 5. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_c72386",
+      "case_id": "case_02_blackwood",
+      "title": "Insurance Fraud Orchestrated by Curator Clara Sterling",
+      "description": "Clara Sterling returned after midnight and removed the painting to claim the 14.5 million GBP policy.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_3a021bce",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_92f00364_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "police_initial_report.txt"
+          ],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_3e214c9a",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_78005f2d_3",
+            "evid_chk_doc_63ae1e5c_3",
+            "evid_chk_doc_c7bc7977_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "interview_cleaner_marta.txt",
+            "curator_appraisal_email.txt",
+            "estate_cctv_audit_report.txt"
+          ],
+          "contributing_speakers": [
+            "Clara Sterling",
+            "Marta Gomez"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_e8b6c6e5",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 4,
+      "conflict_score": 0,
+      "corroboration_score": 1,
+      "conflict_penalty": 0,
+      "total_score": 5,
+      "rank": 3,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": null
+    }
+  ],
+  "score_breakdown": [
+    {
+      "rank": 1,
+      "hypothesis_id": "hyp_user_b3d75c",
+      "title": "Insider Theft by Security Guard Julian Vance",
+      "origin": "user",
+      "support": 8,
+      "conflict": 0,
+      "corroboration": 3,
+      "conflict_penalty": 0,
+      "total_score": 11,
+      "is_proposed_explanation": true
+    },
+    {
+      "rank": 2,
+      "hypothesis_id": "hyp_user_6c3d43",
+      "title": "External Delivery Driver Intrusion by Apex Courier",
+      "origin": "user",
+      "support": 4,
+      "conflict": 0,
+      "corroboration": 1,
+      "conflict_penalty": 0,
+      "total_score": 5,
+      "is_proposed_explanation": false
+    },
+    {
+      "rank": 3,
+      "hypothesis_id": "hyp_user_c72386",
+      "title": "Insurance Fraud Orchestrated by Curator Clara Sterling",
+      "origin": "user",
+      "support": 4,
+      "conflict": 0,
+      "corroboration": 1,
+      "conflict_penalty": 0,
+      "total_score": 5,
+      "is_proposed_explanation": false
+    }
+  ],
+  "proposed_explanation": {
+    "hypothesis_id": "hyp_user_b3d75c",
+    "case_id": "case_02_blackwood",
+    "title": "Insider Theft by Security Guard Julian Vance",
+    "description": "Julian Vance retrieved the spare vault key from the unlocked desk drawer, unplugged camera 5, entered the basement vault at 10:15 PM, silenced the alarm, cut the Vermeer painting from its frame, and attempted to stash it in a duffel bag.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_0a0425ec",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_92f00364_1",
+          "evid_chk_doc_92f00364_2",
+          "evid_chk_doc_035c74a0_2",
+          "evid_chk_doc_78005f2d_3"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "police_initial_report.txt",
+          "police_initial_report.txt",
+          "courier_delivery_log.txt",
+          "curator_appraisal_email.txt"
+        ],
+        "contributing_speakers": [
+          "2024-10-18 22",
+          "Clara Sterling"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_44163a58",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_78005f2d_3",
+          "evid_chk_doc_63ae1e5c_3",
+          "evid_chk_doc_c7bc7977_1",
+          "evid_chk_doc_5dcfc507_4"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "interview_cleaner_marta.txt",
+          "curator_appraisal_email.txt",
+          "estate_cctv_audit_report.txt",
+          "interview_curator_clara.txt"
+        ],
+        "contributing_speakers": [
+          "Clara Sterling",
+          "Marta Gomez",
+          "Clara Sterling"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_8b8984d4",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_92f00364_4",
+          "evid_chk_doc_78005f2d_3",
+          "evid_chk_doc_035c74a0_2",
+          "evid_chk_doc_c7bc7977_1"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "police_initial_report.txt",
+          "curator_appraisal_email.txt",
+          "courier_delivery_log.txt",
+          "estate_cctv_audit_report.txt"
+        ],
+        "contributing_speakers": [
+          "FORCED ENTRY",
+          "Clara Sterling",
+          "2024-10-18 22"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 8,
+    "conflict_score": 0,
+    "corroboration_score": 3,
+    "conflict_penalty": 0,
+    "total_score": 11,
+    "rank": 1,
+    "is_proposed_explanation": true,
+    "explanation": "Score calculation: Support (4) - Conflict (0) + Corroboration (1) - Conflict Penalty (0) = 5. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Insider Theft by Security Guard Julian Vance' and 'External Delivery Driver Intrusion by Apex Courier') share an identical score of 5. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  "supporting_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_92f00364_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_92f00364_1",
+      "text": "METROPOLITAN POLICE - INCIDENT REPORT Incident: Burglary / Theft of High-Value Cultural Property Location: Blackwood Manor, Surrey",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3783,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_c7bc7977_1",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_c7bc7977",
+      "document_name": "estate_cctv_audit_report.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_c7bc7977_1",
+      "text": "BLACKWOOD MANOR SECURITY AUDIT Forensic review of CCTV Hard Drive Unit #1:\n- Cameras 1 through 3 (Front Driveway) functioned continuously.\n- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.\n- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1
+      ],
+      "score": 0.3555,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_78005f2d_3",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_78005f2d",
+      "document_name": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_78005f2d_3",
+      "text": "As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station. Please ensure Julian is reminded not to touch the key. Clara Sterling",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.339,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_5dcfc507_4",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_5dcfc507",
+      "document_name": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_5dcfc507_4",
+      "text": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access. [09:03 AM] REYNOLDS: What time did you leave the estate? [09:03 AM] STERLING: I drove through the front gates at 6:30 PM and attended a charity dinner in town until midnight.",
+      "speaker": "Clara Sterling",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "score": 0.3108,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_92f00364_4",
+      "case_id": "case_02_blackwood",
+      "document_id": "doc_92f00364",
+      "document_name": "police_initial_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_92f00364_4",
+      "text": "FORCED ENTRY: No external doors, windows, or gates showed forced entry. Entry was executed via the rear delivery gate and physical vault key. 3.",
+      "speaker": "FORCED ENTRY",
+      "timestamp": null,
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "score": 0.303,
+      "retrieval_method": "hybrid"
+    }
+  ],
+  "conflicting_evidence": [],
+  "unresolved_questions": [
+    "Discrepancy concerning Julian Vance: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]', which conflicts with 'interview_cleaner_marta.txt' (Marta Gomez) claiming '[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?'.",
+    "Discrepancy concerning Julian Vance: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance]', which conflicts with 'interview_curator_clara.txt' (Clara Sterling) claiming '[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.'.",
+    "Discrepancy concerning Julian Vance: 'interview_cleaner_marta.txt' (Marta Gomez) states '[11:16 AM] REYNOLDS: Did you see Julian Vance during that time?', which conflicts with 'interview_curator_clara.txt' (Clara Sterling) claiming '[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.'.",
+    "Discrepancy concerning Delivery Gate: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle departed', which conflicts with 'courier_delivery_log.txt' (Unknown) claiming '2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate'.",
+    "Discrepancy concerning Basement Vault: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)', which conflicts with 'police_initial_report.txt' (Unknown) claiming '1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.'.",
+    "Discrepancy concerning Console: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console', which conflicts with 'interview_guard_julian.txt' (Julian Vance) claiming '[10:33 AM] VANCE: I remained at the security console continuously from 7:00 PM to midnight without leaving.'.",
+    "Discrepancy concerning Safe: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED', which conflicts with 'interview_curator_clara.txt' (Clara Sterling) claiming '[09:01 AM] STERLING: I personally inspected the vault at 6:00 PM on Friday and locked the biometric vault safe.'.",
+    "Discrepancy concerning Safe: 'alarm_system_telemetry.txt' (Unknown) states '[2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken - MANUAL KEY OVERRIDE USED', which conflicts with 'interview_curator_clara.txt' (Clara Sterling) claiming '[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.'.",
+    "Discrepancy concerning Blackwood Manor: 'courier_delivery_log.txt' (Unknown) states '2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate', which conflicts with 'interview_curator_clara.txt' (Clara Sterling) claiming '[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.'.",
+    "Discrepancy concerning Clara Sterling: 'interview_curator_clara.txt' (Clara Sterling) states '[09:00 AM] STERLING: Clara Sterling, chief curator at Blackwood Manor Gallery.', which conflicts with 'police_initial_report.txt' (Unknown) claiming '1. SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Vermeer canvas was cut from its gilded frame and missing.'."
+  ],
+  "limitations_and_uncertainty": "LIMITATIONS & UNCERTAINTY STATEMENT:\n1. This analysis was generated by the Text Detective agentic framework based strictly on user-supplied documents.\n2. System conclusions reflect mathematical evidence scoring (Support - Conflict + Corroboration - ConflictPenalty) and do not constitute legal proof or a substitute for professional forensic determinations.\n3. Unknown timestamps and ambiguous coreferences have been preserved rather than assumed.",
+  "source_references": [
+    {
+      "ref_id": "chk_doc_667a878f_1",
+      "document": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "[2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04 [Julian Vance] [2024-10-18 21:50:12] GATE_SENSOR:..."
+    },
+    {
+      "ref_id": "chk_doc_667a878f_2",
+      "document": "alarm_system_telemetry.txt",
+      "document_type": "other",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "[2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and acknowledged by local console [2024-10-18 22:28:19]..."
+    },
+    {
+      "ref_id": "chk_doc_035c74a0_1",
+      "document": "courier_delivery_log.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "APEX DELIVERIES - DAILY VEHICLE TELEMETRY & RUN SHEET Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR) 2024-..."
+    },
+    {
+      "ref_id": "chk_doc_035c74a0_2",
+      "document": "courier_delivery_log.txt",
+      "document_type": "log",
+      "speaker": "2024-10-18 22",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "2024-10-18 22:05:00 - Consignment offloaded at Greenhouse 2024-10-18 22:30:45 - Vehicle cleared gate and departed toward..."
+    },
+    {
+      "ref_id": "chk_doc_78005f2d_1",
+      "document": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "From: Clara Sterling <c.sterling@blackwoodestate.co.uk> To: Arthur Blackwood <arthur@blackwoodholdings.com> Date: Octobe..."
+    },
+    {
+      "ref_id": "chk_doc_78005f2d_2",
+      "document": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Subject: Insurance revaluation and vault arrangement Lord Blackwood, Following yesterday's appraisal, 'The Silent Witnes..."
+    },
+    {
+      "ref_id": "chk_doc_78005f2d_3",
+      "document": "curator_appraisal_email.txt",
+      "document_type": "email",
+      "speaker": "Clara Sterling",
+      "timestamp": "October 17, 2024 04:15 PM",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station. Pl..."
+    },
+    {
+      "ref_id": "chk_doc_c7bc7977_1",
+      "document": "estate_cctv_audit_report.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1
+      ],
+      "excerpt": "BLACKWOOD MANOR SECURITY AUDIT Forensic review of CCTV Hard Drive Unit #1:\n- Cameras 1 through 3 (Front Driveway) functi..."
+    },
+    {
+      "ref_id": "chk_doc_63ae1e5c_1",
+      "document": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: MARTA GOMEZ Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds"
+    },
+    {
+      "ref_id": "chk_doc_63ae1e5c_2",
+      "document": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "speaker": "Marta Gomez",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Marta Gomez, Evening Housekeeper [11:15 AM] REYNOLDS: Marta, where were you working between 9:00 PM and 11:..."
+    },
+    {
+      "ref_id": "chk_doc_63ae1e5c_3",
+      "document": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "speaker": "Marta Gomez",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[11:16 AM] REYNOLDS: Did you see Julian Vance during that time? [11:16 AM] GOMEZ: Yes. Julian was not at the security de..."
+    },
+    {
+      "ref_id": "chk_doc_63ae1e5c_4",
+      "document": "interview_cleaner_marta.txt",
+      "document_type": "interview",
+      "speaker": "Marta Gomez",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "[11:17 AM] GOMEZ: Yes, the loud acoustic chime in the hallway buzzed at 10:15 PM, but it shut off after thirty seconds."
+    },
+    {
+      "ref_id": "chk_doc_5dcfc507_1",
+      "document": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: CLARA STERLING Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds"
+    },
+    {
+      "ref_id": "chk_doc_5dcfc507_2",
+      "document": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "speaker": "Clara Sterling",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Clara Sterling, Gallery Curator [09:00 AM] REYNOLDS: State your name and position. [09:00 AM] STERLING: Cla..."
+    },
+    {
+      "ref_id": "chk_doc_5dcfc507_3",
+      "document": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "speaker": "Clara Sterling",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[09:01 AM] REYNOLDS: When did you last see the Vermeer canvas 'The Silent Witness'? [09:01 AM] STERLING: I personally in..."
+    },
+    {
+      "ref_id": "chk_doc_5dcfc507_4",
+      "document": "interview_curator_clara.txt",
+      "document_type": "interview",
+      "speaker": "Clara Sterling",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "excerpt": "[09:02 AM] STERLING: No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe..."
+    },
+    {
+      "ref_id": "chk_doc_830ae5b3_1",
+      "document": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: JULIAN VANCE Case: Blackwood Manor Art Heist Interviewer: Detective Reynolds"
+    },
+    {
+      "ref_id": "chk_doc_830ae5b3_2",
+      "document": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "speaker": "Julian Vance",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Julian Vance, Night Guard [10:30 AM] REYNOLDS: Julian, describe your patrol route on Friday night. [10:30 A..."
+    },
+    {
+      "ref_id": "chk_doc_830ae5b3_3",
+      "document": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "speaker": "Julian Vance",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[10:31 AM] REYNOLDS: Did you hear the basement motion alarm at 10:15 PM? [10:31 AM] VANCE: The motion alarm never sounde..."
+    },
+    {
+      "ref_id": "chk_doc_830ae5b3_4",
+      "document": "interview_guard_julian.txt",
+      "document_type": "interview",
+      "speaker": "Julian Vance",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "excerpt": "[10:32 AM] VANCE: The courier van from Apex Deliveries arrived at 9:50 PM with conservatory plants, and drove off at 10:..."
+    },
+    {
+      "ref_id": "chk_doc_92f00364_1",
+      "document": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "METROPOLITAN POLICE - INCIDENT REPORT Incident: Burglary / Theft of High-Value Cultural Property Location: Blackwood Man..."
+    },
+    {
+      "ref_id": "chk_doc_92f00364_2",
+      "document": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Officer: DI Thomas Reynolds, Badge #8841 Date of Incident: October 18, 2024 1."
+    },
+    {
+      "ref_id": "chk_doc_92f00364_3",
+      "document": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": "SYNOPSIS",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "SYNOPSIS: At 06:15 AM on October 19, curator Clara Sterling discovered the basement vault door open. The 17th-century Ve..."
+    },
+    {
+      "ref_id": "chk_doc_92f00364_4",
+      "document": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": "FORCED ENTRY",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9,
+        10,
+        11
+      ],
+      "excerpt": "FORCED ENTRY: No external doors, windows, or gates showed forced entry. Entry was executed via the rear delivery gate an..."
+    },
+    {
+      "ref_id": "chk_doc_92f00364_5",
+      "document": "police_initial_report.txt",
+      "document_type": "report",
+      "speaker": "FORENSICS",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        12
+      ],
+      "excerpt": "FORENSICS: Tire tracks in the gravel courtyard match standard commercial light transport vehicles."
+    }
+  ]
+}

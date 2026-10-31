@@ -1,0 +1,981 @@
+[
+  {
+    "document_id": "doc_abfcf17a",
+    "case_id": "case_01_meridian",
+    "filename": "badge_swipe_logs.txt",
+    "document_type": "log",
+    "speaker": null,
+    "author": null,
+    "timestamp": null,
+    "description": null,
+    "file_size_bytes": 795,
+    "raw_text": "[2024-10-12 20:02:11] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED\n[2024-10-12 20:28:45] Reader: Building 4 Main Entrance - Badge #7810 [David Wright] - ENTRY RECORDED\n[2024-10-12 21:22:04] Reader: Building 4 Main Entrance - Badge #4092 [Alice Vance] - ENTRY RECORDED\n[2024-10-12 21:32:10] Reader: Building 4 Turnstile Exit - Badge #3301 [Bob Chen] - EXIT RECORDED\n[2024-10-12 22:14:30] Reader: Server Room B Door - Badge #4092 [Alice Vance] - ACCESS GRANTED\n[2024-10-12 22:21:40] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED\n[2024-10-12 22:42:15] Reader: Building 4 Turnstile Exit - Badge #7810 [David Wright] - EXIT RECORDED\n[2024-10-12 23:58:30] Reader: Building 4 Turnstile Exit - Badge #4092 [Alice Vance] - EXIT RECORDED\n",
+    "cleaned_text": "[2024-10-12 20:02:11] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED\n[2024-10-12 20:28:45] Reader: Building 4 Main Entrance - Badge #7810 [David Wright] - ENTRY RECORDED\n[2024-10-12 21:22:04] Reader: Building 4 Main Entrance - Badge #4092 [Alice Vance] - ENTRY RECORDED\n[2024-10-12 21:32:10] Reader: Building 4 Turnstile Exit - Badge #3301 [Bob Chen] - EXIT RECORDED\n[2024-10-12 22:14:30] Reader: Server Room B Door - Badge #4092 [Alice Vance] - ACCESS GRANTED\n[2024-10-12 22:21:40] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED\n[2024-10-12 22:42:15] Reader: Building 4 Turnstile Exit - Badge #7810 [David Wright] - EXIT RECORDED\n[2024-10-12 23:58:30] Reader: Building 4 Turnstile Exit - Badge #4092 [Alice Vance] - EXIT RECORDED",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_abfcf17a_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_abfcf17a",
+        "filename": "badge_swipe_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 20:02:11] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED [2024-10-12 20:28:45] Reader: Building 4 Main Entrance - Badge #7810 [David Wright] - ENTRY RECORDED [2024-10-12 21:22:04] Reader: Building 4 Main Entrance - Badge #4092 [Alice Vance] - ENTRY RECORDED",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 198,
+        "char_end": 495
+      },
+      {
+        "chunk_id": "chk_doc_abfcf17a_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_abfcf17a",
+        "filename": "badge_swipe_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 21:32:10] Reader: Building 4 Turnstile Exit - Badge #3301 [Bob Chen] - EXIT RECORDED [2024-10-12 22:14:30] Reader: Server Room B Door - Badge #4092 [Alice Vance] - ACCESS GRANTED [2024-10-12 22:21:40] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 489,
+        "char_end": 776
+      },
+      {
+        "chunk_id": "chk_doc_abfcf17a_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_abfcf17a",
+        "filename": "badge_swipe_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 22:42:15] Reader: Building 4 Turnstile Exit - Badge #7810 [David Wright] - EXIT RECORDED [2024-10-12 23:58:30] Reader: Building 4 Turnstile Exit - Badge #4092 [Alice Vance] - EXIT RECORDED",
+        "sentence_indices": [
+          6,
+          7
+        ],
+        "char_start": 687,
+        "char_end": 887
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.634952",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_150c9d94",
+    "case_id": "case_01_meridian",
+    "filename": "forensic_workstation_analysis.txt",
+    "document_type": "report",
+    "speaker": null,
+    "author": null,
+    "timestamp": null,
+    "description": null,
+    "file_size_bytes": 1304,
+    "raw_text": "DIGITAL FORENSICS EXAMINATION REPORT\nExaminer: Dr. Nathan Cross, Lead Digital Forensics Specialist\nCase: Meridian Tech Server Room B Breach\nDate of Analysis: October 13, 2024\n\n1. PHYSICAL SECURITY FINDINGS\nPhysical inspection revealed the door latch pin was taped down with electrical tape, leaving the room open and accessible without authorization. The magnetic lock failed to engage because of the black vinyl electrical tape covering the sensor contact.\n\n2. HARDWARE & CONSOLE INSPECTION\nConsole 2 in Server Room B was examined for digital traces:\n- At 22:18:12, an active administrative session under username 'avance_admin' was used to query the customer database.\n- At 22:20:45, a mass storage USB device was physically inserted into front USB port 1. Device identity: Kingston DataTraveler 3.0 (Serial: KTX-9941-B).\n- At 22:31:18, an unencrypted archive 'customer_vault_export.tar.gz' (4.2 GB) was written directly to the USB drive.\n- No outbound external network connection was established; the data was copied locally to a high-speed Kingston USB 3.0 flash drive directly mounted at Console 2.\n- The USB drive was unmounted cleanly at 22:37:55.\n\n3. LATENT EVIDENCE\nLatent fingerprints lifted from Console 2 keyboard and the electrical tape roll match contractor David Wright.\n",
+    "cleaned_text": "DIGITAL FORENSICS EXAMINATION REPORT\nExaminer: Dr. Nathan Cross, Lead Digital Forensics Specialist\nCase: Meridian Tech Server Room B Breach\nDate of Analysis: October 13, 2024\n\n1. PHYSICAL SECURITY FINDINGS\nPhysical inspection revealed the door latch pin was taped down with electrical tape, leaving the room open and accessible without authorization. The magnetic lock failed to engage because of the black vinyl electrical tape covering the sensor contact.\n\n2. HARDWARE & CONSOLE INSPECTION\nConsole 2 in Server Room B was examined for digital traces:\n- At 22:18:12, an active administrative session under username 'avance_admin' was used to query the customer database.\n- At 22:20:45, a mass storage USB device was physically inserted into front USB port 1. Device identity: Kingston DataTraveler 3.0 (Serial: KTX-9941-B).\n- At 22:31:18, an unencrypted archive 'customer_vault_export.tar.gz' (4.2 GB) was written directly to the USB drive.\n- No outbound external network connection was established; the data was copied locally to a high-speed Kingston USB 3.0 flash drive directly mounted at Console 2.\n- The USB drive was unmounted cleanly at 22:37:55.\n\n3. LATENT EVIDENCE\nLatent fingerprints lifted from Console 2 keyboard and the electrical tape roll match contractor David Wright.",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_150c9d94_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_150c9d94",
+        "filename": "forensic_workstation_analysis.txt",
+        "document_type": "report",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "DIGITAL FORENSICS EXAMINATION REPORT Examiner: Dr. Nathan Cross, Lead Digital Forensics Specialist Case: Meridian Tech Server Room B Breach",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 99,
+        "char_end": 238
+      },
+      {
+        "chunk_id": "chk_doc_150c9d94_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_150c9d94",
+        "filename": "forensic_workstation_analysis.txt",
+        "document_type": "report",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "Date of Analysis: October 13, 2024 1. PHYSICAL SECURITY FINDINGS",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 179,
+        "char_end": 243
+      },
+      {
+        "chunk_id": "chk_doc_150c9d94_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_150c9d94",
+        "filename": "forensic_workstation_analysis.txt",
+        "document_type": "report",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "Physical inspection revealed the door latch pin was taped down with electrical tape, leaving the room open and accessible without authorization. The magnetic lock failed to engage because of the black vinyl electrical tape covering the sensor contact. 2.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 459,
+        "char_end": 713
+      },
+      {
+        "chunk_id": "chk_doc_150c9d94_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_150c9d94",
+        "filename": "forensic_workstation_analysis.txt",
+        "document_type": "report",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "HARDWARE & CONSOLE INSPECTION Console 2 in Server Room B was examined for digital traces:\n- At 22:18:12, an active administrative session under username 'avance_admin' was used to query the customer database.\n- At 22:20:45, a mass storage USB device was physically inserted into front USB port 1. Device identity: Kingston DataTraveler 3.0 (Serial: KTX-9941-B).\n- At 22:31:18, an unencrypted archive 'customer_vault_export.tar.gz' (4.2 GB) was written directly to the USB drive.\n- No outbound external network connection was established; the data was copied locally to a high-speed Kingston USB 3.0 flash drive directly mounted at Console 2.\n- The USB drive was unmounted cleanly at 22:37:55.",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 759,
+        "char_end": 1451
+      },
+      {
+        "chunk_id": "chk_doc_150c9d94_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_150c9d94",
+        "filename": "forensic_workstation_analysis.txt",
+        "document_type": "report",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "3. LATENT EVIDENCE Latent fingerprints lifted from Console 2 keyboard and the electrical tape roll match contractor David Wright.",
+        "sentence_indices": [
+          12,
+          13,
+          14
+        ],
+        "char_start": 1451,
+        "char_end": 1580
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.672178",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_fd025e80",
+    "case_id": "case_01_meridian",
+    "filename": "interview_alice_vance.txt",
+    "document_type": "interview",
+    "speaker": "Alice Vance",
+    "author": null,
+    "timestamp": "October 13, 2024",
+    "description": null,
+    "file_size_bytes": 1445,
+    "raw_text": "INTERVIEW TRANSCRIPT: ALICE VANCE\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: Alice Vance, Lead Software Engineer\n\n[09:30 AM] REED: State your name and position for the record.\n[09:30 AM] VANCE: Alice Vance, Lead Software Engineer at Meridian Tech. I've been with the company for four years.\n[09:31 AM] REED: Alice, where were you on the night of October 12, 2024, between 9:00 PM and midnight?\n[09:31 AM] VANCE: I was at my desk on Floor 3 the entire night from 9:30 PM until midnight, working on the quarterly release notes. I did not leave Floor 3 once during that window.\n[09:32 AM] REED: Did you enter Server Room B at any point yesterday evening?\n[09:32 AM] VANCE: Absolutely not. I did not enter Server Room B yesterday. I haven't been in the basement server vault for at least two weeks. My badge shouldn't even show any activity down there.\n[09:33 AM] REED: Did you notice anyone unusual on Floor 3?\n[09:33 AM] VANCE: I saw Bob Chen around 9:15 PM in the hallway, and David Wright, the electrical maintenance contractor, was working on the conduit near the breakroom around 9:40 PM.\n[09:34 AM] REED: Did you download or transfer any files from the customer database?\n[09:34 AM] VANCE: No. All database exports require two-factor authentication, and I never initiated any data transfer.\n[09:35 AM] REED: Thank you, Alice. That is all for now.\n",
+    "cleaned_text": "INTERVIEW TRANSCRIPT: ALICE VANCE\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: Alice Vance, Lead Software Engineer\n\n[09:30 AM] REED: State your name and position for the record.\n[09:30 AM] VANCE: Alice Vance, Lead Software Engineer at Meridian Tech. I've been with the company for four years.\n[09:31 AM] REED: Alice, where were you on the night of October 12, 2024, between 9:00 PM and midnight?\n[09:31 AM] VANCE: I was at my desk on Floor 3 the entire night from 9:30 PM until midnight, working on the quarterly release notes. I did not leave Floor 3 once during that window.\n[09:32 AM] REED: Did you enter Server Room B at any point yesterday evening?\n[09:32 AM] VANCE: Absolutely not. I did not enter Server Room B yesterday. I haven't been in the basement server vault for at least two weeks. My badge shouldn't even show any activity down there.\n[09:33 AM] REED: Did you notice anyone unusual on Floor 3?\n[09:33 AM] VANCE: I saw Bob Chen around 9:15 PM in the hallway, and David Wright, the electrical maintenance contractor, was working on the conduit near the breakroom around 9:40 PM.\n[09:34 AM] REED: Did you download or transfer any files from the customer database?\n[09:34 AM] VANCE: No. All database exports require two-factor authentication, and I never initiated any data transfer.\n[09:35 AM] REED: Thank you, Alice. That is all for now.",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_fd025e80_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "INTERVIEW TRANSCRIPT",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "INTERVIEW TRANSCRIPT: ALICE VANCE Case: Meridian Tech Data Leak Date: October 13, 2024",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 64,
+        "char_end": 150
+      },
+      {
+        "chunk_id": "chk_doc_fd025e80_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "Alice Vance",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "Interviewer: Detective Marcus Reed, Corporate Security Interviewee: Alice Vance, Lead Software Engineer [09:30 AM] REED: State your name and position for the record.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 192,
+        "char_end": 357
+      },
+      {
+        "chunk_id": "chk_doc_fd025e80_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "Alice Vance",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[09:30 AM] VANCE: Alice Vance, Lead Software Engineer at Meridian Tech. I've been with the company for four years. [09:31 AM] REED: Alice, where were you on the night of October 12, 2024, between 9:00 PM and midnight? [09:31 AM] VANCE: I was at my desk on Floor 3 the entire night from 9:30 PM until midnight, working on the quarterly release notes. I did not leave Floor 3 once during that window.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 472,
+        "char_end": 870
+      },
+      {
+        "chunk_id": "chk_doc_fd025e80_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "Alice Vance",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[09:32 AM] REED: Did you enter Server Room B at any point yesterday evening? [09:32 AM] VANCE: Absolutely not. I did not enter Server Room B yesterday. I haven't been in the basement server vault for at least two weeks. My badge shouldn't even show any activity down there. [09:33 AM] REED: Did you notice anyone unusual on Floor 3?",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 927,
+        "char_end": 1259
+      },
+      {
+        "chunk_id": "chk_doc_fd025e80_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "Alice Vance",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[09:33 AM] VANCE: I saw Bob Chen around 9:15 PM in the hallway, and David Wright, the electrical maintenance contractor, was working on the conduit near the breakroom around 9:40 PM. [09:34 AM] REED: Did you download or transfer any files from the customer database? [09:34 AM] VANCE: No. All database exports require two-factor authentication, and I never initiated any data transfer.",
+        "sentence_indices": [
+          12,
+          13,
+          14
+        ],
+        "char_start": 1253,
+        "char_end": 1638
+      },
+      {
+        "chunk_id": "chk_doc_fd025e80_6",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_fd025e80",
+        "filename": "interview_alice_vance.txt",
+        "document_type": "interview",
+        "speaker": "Alice Vance",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[09:35 AM] REED: Thank you, Alice. That is all for now.",
+        "sentence_indices": [
+          15
+        ],
+        "char_start": 1638,
+        "char_end": 1693
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.737696",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_bf749c6f",
+    "case_id": "case_01_meridian",
+    "filename": "interview_bob_chen.txt",
+    "document_type": "interview",
+    "speaker": "Bob Chen",
+    "author": null,
+    "timestamp": "October 13, 2024",
+    "description": null,
+    "file_size_bytes": 1348,
+    "raw_text": "INTERVIEW TRANSCRIPT: BOB CHEN\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: Bob Chen, IT Systems Administrator\n\n[10:15 AM] REED: Please state your name and role.\n[10:15 AM] CHEN: Bob Chen, IT Systems Administrator for Meridian Tech.\n[10:16 AM] REED: Can you walk us through your whereabouts on the evening of October 12?\n[10:16 AM] CHEN: I arrived at Building 4 at 8:00 PM for scheduled server maintenance. Around 9:30 PM, I stepped out to pick up takeout from the deli down the street. I came back around 10:20 PM and worked at my terminal until 1:00 AM.\n[10:17 AM] REED: Where was your master keycard during that time?\n[10:17 AM] CHEN: I had my physical master keycard in my wallet all evening and never lent it to anyone. I keep it chained to my belt loop at all times.\n[10:18 AM] REED: Did you enter Server Room B during the night?\n[10:18 AM] CHEN: No, I worked strictly from my office on Floor 2. I had no reason to visit Server Room B because my remote SSH console was functioning properly.\n[10:19 AM] REED: Did you authorize any subcontractor or outside technician to access the server vault?\n[10:19 AM] CHEN: No, absolutely not. Subcontractors are strictly prohibited from entering secure zones without an escort.\n[10:20 AM] REED: Thank you, Bob.\n",
+    "cleaned_text": "INTERVIEW TRANSCRIPT: BOB CHEN\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: Bob Chen, IT Systems Administrator\n\n[10:15 AM] REED: Please state your name and role.\n[10:15 AM] CHEN: Bob Chen, IT Systems Administrator for Meridian Tech.\n[10:16 AM] REED: Can you walk us through your whereabouts on the evening of October 12?\n[10:16 AM] CHEN: I arrived at Building 4 at 8:00 PM for scheduled server maintenance. Around 9:30 PM, I stepped out to pick up takeout from the deli down the street. I came back around 10:20 PM and worked at my terminal until 1:00 AM.\n[10:17 AM] REED: Where was your master keycard during that time?\n[10:17 AM] CHEN: I had my physical master keycard in my wallet all evening and never lent it to anyone. I keep it chained to my belt loop at all times.\n[10:18 AM] REED: Did you enter Server Room B during the night?\n[10:18 AM] CHEN: No, I worked strictly from my office on Floor 2. I had no reason to visit Server Room B because my remote SSH console was functioning properly.\n[10:19 AM] REED: Did you authorize any subcontractor or outside technician to access the server vault?\n[10:19 AM] CHEN: No, absolutely not. Subcontractors are strictly prohibited from entering secure zones without an escort.\n[10:20 AM] REED: Thank you, Bob.",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_bf749c6f_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "INTERVIEW TRANSCRIPT",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "INTERVIEW TRANSCRIPT: BOB CHEN Case: Meridian Tech Data Leak Date: October 13, 2024",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 61,
+        "char_end": 144
+      },
+      {
+        "chunk_id": "chk_doc_bf749c6f_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "Bob Chen",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "Interviewer: Detective Marcus Reed, Corporate Security Interviewee: Bob Chen, IT Systems Administrator [10:15 AM] REED: Please state your name and role.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 188,
+        "char_end": 340
+      },
+      {
+        "chunk_id": "chk_doc_bf749c6f_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "Bob Chen",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[10:15 AM] CHEN: Bob Chen, IT Systems Administrator for Meridian Tech. [10:16 AM] REED: Can you walk us through your whereabouts on the evening of October 12? [10:16 AM] CHEN: I arrived at Building 4 at 8:00 PM for scheduled server maintenance. Around 9:30 PM, I stepped out to pick up takeout from the deli down the street. I came back around 10:20 PM and worked at my terminal until 1:00 AM.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 397,
+        "char_end": 790
+      },
+      {
+        "chunk_id": "chk_doc_bf749c6f_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "Bob Chen",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[10:17 AM] REED: Where was your master keycard during that time? [10:17 AM] CHEN: I had my physical master keycard in my wallet all evening and never lent it to anyone. I keep it chained to my belt loop at all times. [10:18 AM] REED: Did you enter Server Room B during the night?",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 849,
+        "char_end": 1128
+      },
+      {
+        "chunk_id": "chk_doc_bf749c6f_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "Bob Chen",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[10:18 AM] CHEN: No, I worked strictly from my office on Floor 2. I had no reason to visit Server Room B because my remote SSH console was functioning properly. [10:19 AM] REED: Did you authorize any subcontractor or outside technician to access the server vault? [10:19 AM] CHEN: No, absolutely not. Subcontractors are strictly prohibited from entering secure zones without an escort.",
+        "sentence_indices": [
+          12,
+          13,
+          14
+        ],
+        "char_start": 1176,
+        "char_end": 1561
+      },
+      {
+        "chunk_id": "chk_doc_bf749c6f_6",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_bf749c6f",
+        "filename": "interview_bob_chen.txt",
+        "document_type": "interview",
+        "speaker": "Bob Chen",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[10:20 AM] REED: Thank you, Bob.",
+        "sentence_indices": [
+          15
+        ],
+        "char_start": 1561,
+        "char_end": 1593
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.797336",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_a436ec12",
+    "case_id": "case_01_meridian",
+    "filename": "interview_david_wright.txt",
+    "document_type": "interview",
+    "speaker": "David Wright",
+    "author": null,
+    "timestamp": "October 13, 2024",
+    "description": null,
+    "file_size_bytes": 1512,
+    "raw_text": "INTERVIEW TRANSCRIPT: DAVID WRIGHT\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: David Wright, Subcontractor / Maintenance Technician\n\n[11:00 AM] REED: State your name and affiliation.\n[11:00 AM] WRIGHT: David Wright. I am an independent electrical contractor working on assignment for Apex Solutions at Meridian Tech.\n[11:01 AM] REED: What was your assignment on the night of October 12?\n[11:01 AM] WRIGHT: I was contracted to test circuit breakers and emergency lighting on Floor 3 and in the basement utility hallway.\n[11:02 AM] REED: What time did you arrive and leave Building 4?\n[11:02 AM] WRIGHT: I got there around 8:30 PM. I finished my electrical maintenance and left Building 4 at 10:00 PM sharp. I drove straight home.\n[11:03 AM] REED: Did you enter Server Room B?\n[11:03 AM] WRIGHT: No way. The door to Server Room B was locked and marked restricted. I didn't have the badge access for it anyway.\n[11:04 AM] REED: Did you see Bob Chen or Alice Vance during your shift?\n[11:04 AM] WRIGHT: I saw Alice at her computer on Floor 3 around 9:40 PM. And I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM when he went down to get takeout. It was sitting right there next to the coffee machine.\n[11:05 AM] REED: Did you touch Bob's lanyard or keycard?\n[11:05 AM] WRIGHT: No, I didn't touch it. I just noticed it sitting on the table.\n[11:06 AM] REED: Understood. Thank you, Mr. Wright.\n",
+    "cleaned_text": "INTERVIEW TRANSCRIPT: DAVID WRIGHT\nCase: Meridian Tech Data Leak\nDate: October 13, 2024\nInterviewer: Detective Marcus Reed, Corporate Security\nInterviewee: David Wright, Subcontractor / Maintenance Technician\n\n[11:00 AM] REED: State your name and affiliation.\n[11:00 AM] WRIGHT: David Wright. I am an independent electrical contractor working on assignment for Apex Solutions at Meridian Tech.\n[11:01 AM] REED: What was your assignment on the night of October 12?\n[11:01 AM] WRIGHT: I was contracted to test circuit breakers and emergency lighting on Floor 3 and in the basement utility hallway.\n[11:02 AM] REED: What time did you arrive and leave Building 4?\n[11:02 AM] WRIGHT: I got there around 8:30 PM. I finished my electrical maintenance and left Building 4 at 10:00 PM sharp. I drove straight home.\n[11:03 AM] REED: Did you enter Server Room B?\n[11:03 AM] WRIGHT: No way. The door to Server Room B was locked and marked restricted. I didn't have the badge access for it anyway.\n[11:04 AM] REED: Did you see Bob Chen or Alice Vance during your shift?\n[11:04 AM] WRIGHT: I saw Alice at her computer on Floor 3 around 9:40 PM. And I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM when he went down to get takeout. It was sitting right there next to the coffee machine.\n[11:05 AM] REED: Did you touch Bob's lanyard or keycard?\n[11:05 AM] WRIGHT: No, I didn't touch it. I just noticed it sitting on the table.\n[11:06 AM] REED: Understood. Thank you, Mr. Wright.",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_a436ec12_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "INTERVIEW TRANSCRIPT",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "INTERVIEW TRANSCRIPT: DAVID WRIGHT Case: Meridian Tech Data Leak Date: October 13, 2024",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 65,
+        "char_end": 152
+      },
+      {
+        "chunk_id": "chk_doc_a436ec12_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "David Wright",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "Interviewer: Detective Marcus Reed, Corporate Security Interviewee: David Wright, Subcontractor / Maintenance Technician [11:00 AM] REED: State your name and affiliation.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 210,
+        "char_end": 380
+      },
+      {
+        "chunk_id": "chk_doc_a436ec12_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "David Wright",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[11:00 AM] WRIGHT: David Wright. I am an independent electrical contractor working on assignment for Apex Solutions at Meridian Tech. [11:01 AM] REED: What was your assignment on the night of October 12? [11:01 AM] WRIGHT: I was contracted to test circuit breakers and emergency lighting on Floor 3 and in the basement utility hallway.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 464,
+        "char_end": 799
+      },
+      {
+        "chunk_id": "chk_doc_a436ec12_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "David Wright",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[11:02 AM] REED: What time did you arrive and leave Building 4? [11:02 AM] WRIGHT: I got there around 8:30 PM. I finished my electrical maintenance and left Building 4 at 10:00 PM sharp. I drove straight home. [11:03 AM] REED: Did you enter Server Room B?",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 806,
+        "char_end": 1061
+      },
+      {
+        "chunk_id": "chk_doc_a436ec12_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "David Wright",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[11:03 AM] WRIGHT: No way. The door to Server Room B was locked and marked restricted. I didn't have the badge access for it anyway. [11:04 AM] REED: Did you see Bob Chen or Alice Vance during your shift? [11:04 AM] WRIGHT: I saw Alice at her computer on Floor 3 around 9:40 PM. And I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM when he went down to get takeout. It was sitting right there next to the coffee machine.",
+        "sentence_indices": [
+          12,
+          13,
+          14
+        ],
+        "char_start": 1057,
+        "char_end": 1506
+      },
+      {
+        "chunk_id": "chk_doc_a436ec12_6",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_a436ec12",
+        "filename": "interview_david_wright.txt",
+        "document_type": "interview",
+        "speaker": "David Wright",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "[11:05 AM] REED: Did you touch Bob's lanyard or keycard? [11:05 AM] WRIGHT: No, I didn't touch it. I just noticed it sitting on the table. [11:06 AM] REED: Understood. Thank you, Mr. Wright.",
+        "sentence_indices": [
+          15,
+          16,
+          17
+        ],
+        "char_start": 1441,
+        "char_end": 1631
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.864153",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_dbf79ee0",
+    "case_id": "case_01_meridian",
+    "filename": "security_incident_report.txt",
+    "document_type": "report",
+    "speaker": "Elena Rostova",
+    "author": "Elena Rostova",
+    "timestamp": "October 13, 2024",
+    "description": null,
+    "file_size_bytes": 1411,
+    "raw_text": "INCIDENT REPORT: CRITICAL DATA BREACH\nCase ID: MER-2024-881\nDate: October 13, 2024\nAuthor: Elena Rostova, Chief Information Security Officer (CISO)\nClassification: CONFIDENTIAL // INTERNAL INVESTIGATION\n\n1. EXECUTIVE SUMMARY\nAt approximately 03:15 AM on October 13, 2024, Meridian Tech automated intrusion alarms alerted security operations to an unauthorized bulk database export from the core customer relational database in Server Room B. Approximately 450,000 sensitive customer identity and billing records were extracted.\n\n2. TIMELINE OF INCIDENT\n- 2024-10-12 21:00:00 - Routine shift handover in Building 4.\n- 2024-10-12 22:14:30 - Physical entry recorded at Server Room B.\n- 2024-10-12 22:18:00 - Database administrative session initiated on Console 2.\n- 2024-10-12 22:31:00 - Data extraction command executed.\n- 2024-10-12 22:38:00 - Session terminated; console logged off.\n\n3. PHYSICAL ACCESS OBSERVATIONS\nFacilities Maintenance initial report stated the magnetic door lock on Server Room B was fully engaged and secured during the 10:00 PM security patrol. However, physical evidence recovered on October 13 indicates security mechanisms were tampered with prior to the intrusion.\n\n4. PRELIMINARY IMPACT\nCustomer privacy records compromise poses extreme legal and reputational liability. Immediate isolation of Building 4 server infrastructure was ordered by CISO Elena Rostova.\n",
+    "cleaned_text": "INCIDENT REPORT: CRITICAL DATA BREACH\nCase ID: MER-2024-881\nDate: October 13, 2024\nAuthor: Elena Rostova, Chief Information Security Officer (CISO)\nClassification: CONFIDENTIAL // INTERNAL INVESTIGATION\n\n1. EXECUTIVE SUMMARY\nAt approximately 03:15 AM on October 13, 2024, Meridian Tech automated intrusion alarms alerted security operations to an unauthorized bulk database export from the core customer relational database in Server Room B. Approximately 450,000 sensitive customer identity and billing records were extracted.\n\n2. TIMELINE OF INCIDENT\n- 2024-10-12 21:00:00 - Routine shift handover in Building 4.\n- 2024-10-12 22:14:30 - Physical entry recorded at Server Room B.\n- 2024-10-12 22:18:00 - Database administrative session initiated on Console 2.\n- 2024-10-12 22:31:00 - Data extraction command executed.\n- 2024-10-12 22:38:00 - Session terminated; console logged off.\n\n3. PHYSICAL ACCESS OBSERVATIONS\nFacilities Maintenance initial report stated the magnetic door lock on Server Room B was fully engaged and secured during the 10:00 PM security patrol. However, physical evidence recovered on October 13 indicates security mechanisms were tampered with prior to the intrusion.\n\n4. PRELIMINARY IMPACT\nCustomer privacy records compromise poses extreme legal and reputational liability. Immediate isolation of Building 4 server infrastructure was ordered by CISO Elena Rostova.",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_dbf79ee0_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "INCIDENT REPORT",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "INCIDENT REPORT: CRITICAL DATA BREACH Case ID: MER-2024-881 Date: October 13, 2024",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 60,
+        "char_end": 142
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "Author: Elena Rostova, Chief Information Security Officer (CISO) Classification: CONFIDENTIAL // INTERNAL INVESTIGATION 1.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 204,
+        "char_end": 326
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "EXECUTIVE SUMMARY At approximately 03:15 AM on October 13, 2024, Meridian Tech automated intrusion alarms alerted security operations to an unauthorized bulk database export from the core customer relational database in Server Room B. Approximately 450,000 sensitive customer identity and billing records were extracted.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 442,
+        "char_end": 762
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "2. TIMELINE OF INCIDENT\n- 2024-10-12 21:00:00 - Routine shift handover in Building 4.\n- 2024-10-12 22:14:30 - Physical entry recorded at Server Room B.\n- 2024-10-12 22:18:00 - Database administrative session initiated on Console 2.\n- 2024-10-12 22:31:00 - Data extraction command executed.\n- 2024-10-12 22:38:00 - Session terminated; console logged off. 3.",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 884,
+        "char_end": 1240
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "PHYSICAL ACCESS OBSERVATIONS Facilities Maintenance initial report stated the magnetic door lock on Server Room B was fully engaged and secured during the 10:00 PM security patrol. However, physical evidence recovered on October 13 indicates security mechanisms were tampered with prior to the intrusion.",
+        "sentence_indices": [
+          12,
+          13,
+          14
+        ],
+        "char_start": 1240,
+        "char_end": 1544
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_6",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "4. PRELIMINARY IMPACT Customer privacy records compromise poses extreme legal and reputational liability.",
+        "sentence_indices": [
+          15,
+          16,
+          17
+        ],
+        "char_start": 1544,
+        "char_end": 1649
+      },
+      {
+        "chunk_id": "chk_doc_dbf79ee0_7",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_dbf79ee0",
+        "filename": "security_incident_report.txt",
+        "document_type": "report",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024",
+        "page_number": null,
+        "text": "Immediate isolation of Building 4 server infrastructure was ordered by CISO Elena Rostova.",
+        "sentence_indices": [
+          18
+        ],
+        "char_start": 1649,
+        "char_end": 1739
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.932787",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_3f4557b0",
+    "case_id": "case_01_meridian",
+    "filename": "server_access_logs.txt",
+    "document_type": "log",
+    "speaker": null,
+    "author": null,
+    "timestamp": null,
+    "description": null,
+    "file_size_bytes": 974,
+    "raw_text": "[2024-10-12 21:45:10] AUTH_SVC: User 'bchen' logged in from 192.168.2.14 [Floor 2 Terminal] - SUCCESS\n[2024-10-12 22:05:00] CRON_SVC: Daily backup scheduler started - STATUS OK\n[2024-10-12 22:14:30] SEC_SVC: Door access event logged: Terminal Server Room B - ACCESS GRANTED\n[2024-10-12 22:18:12] AUTH_SVC: Console 2 interactive login - User: 'avance_admin' - Local terminal - SUCCESS\n[2024-10-12 22:20:45] KERNEL: USB mass storage device connected: Vendor=Kingston Product=DataTraveler 3.0 Device=/dev/sdb1\n[2024-10-12 22:25:00] DB_AUDIT: Query executed: SELECT COUNT(*) FROM customer_records;\n[2024-10-12 22:31:18] DB_AUDIT: Dump executed: pg_dump customer_records > /mnt/usb/customer_vault_export.tar.gz\n[2024-10-12 22:37:55] KERNEL: USB mass storage device disconnected: /dev/sdb1 unmounted\n[2024-10-12 22:38:05] AUTH_SVC: Console 2 interactive session closed - Logout recorded\n[2024-10-12 22:45:00] NET_MON: Outbound bandwidth check: 0 MB transferred over WAN\n",
+    "cleaned_text": "[2024-10-12 21:45:10] AUTH_SVC: User 'bchen' logged in from 192.168.2.14 [Floor 2 Terminal] - SUCCESS\n[2024-10-12 22:05:00] CRON_SVC: Daily backup scheduler started - STATUS OK\n[2024-10-12 22:14:30] SEC_SVC: Door access event logged: Terminal Server Room B - ACCESS GRANTED\n[2024-10-12 22:18:12] AUTH_SVC: Console 2 interactive login - User: 'avance_admin' - Local terminal - SUCCESS\n[2024-10-12 22:20:45] KERNEL: USB mass storage device connected: Vendor=Kingston Product=DataTraveler 3.0 Device=/dev/sdb1\n[2024-10-12 22:25:00] DB_AUDIT: Query executed: SELECT COUNT(*) FROM customer_records;\n[2024-10-12 22:31:18] DB_AUDIT: Dump executed: pg_dump customer_records > /mnt/usb/customer_vault_export.tar.gz\n[2024-10-12 22:37:55] KERNEL: USB mass storage device disconnected: /dev/sdb1 unmounted\n[2024-10-12 22:38:05] AUTH_SVC: Console 2 interactive session closed - Logout recorded\n[2024-10-12 22:45:00] NET_MON: Outbound bandwidth check: 0 MB transferred over WAN",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_3f4557b0_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_3f4557b0",
+        "filename": "server_access_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 21:45:10] AUTH_SVC: User 'bchen' logged in from 192.168.2.14 [Floor 2 Terminal] - SUCCESS [2024-10-12 22:05:00] CRON_SVC: Daily backup scheduler started - STATUS OK [2024-10-12 22:14:30] SEC_SVC: Door access event logged: Terminal Server Room B - ACCESS GRANTED",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 177,
+        "char_end": 450
+      },
+      {
+        "chunk_id": "chk_doc_3f4557b0_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_3f4557b0",
+        "filename": "server_access_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 22:18:12] AUTH_SVC: Console 2 interactive login - User: 'avance_admin' - Local terminal - SUCCESS [2024-10-12 22:20:45] KERNEL: USB mass storage device connected: Vendor=Kingston Product=DataTraveler 3.0 Device=/dev/sdb1 [2024-10-12 22:25:00] DB_AUDIT: Query executed: SELECT COUNT(*) FROM customer_records;",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 507,
+        "char_end": 826
+      },
+      {
+        "chunk_id": "chk_doc_3f4557b0_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_3f4557b0",
+        "filename": "server_access_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 22:31:18] DB_AUDIT: Dump executed: pg_dump customer_records > /mnt/usb/customer_vault_export.tar.gz [2024-10-12 22:37:55] KERNEL: USB mass storage device disconnected: /dev/sdb1 unmounted [2024-10-12 22:38:05] AUTH_SVC: Console 2 interactive session closed - Logout recorded",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 794,
+        "char_end": 1080
+      },
+      {
+        "chunk_id": "chk_doc_3f4557b0_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_3f4557b0",
+        "filename": "server_access_logs.txt",
+        "document_type": "log",
+        "speaker": null,
+        "timestamp": null,
+        "page_number": null,
+        "text": "[2024-10-12 22:45:00] NET_MON: Outbound bandwidth check: 0 MB transferred over WAN",
+        "sentence_indices": [
+          9
+        ],
+        "char_start": 1080,
+        "char_end": 1162
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:37.994303",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_513e39a3",
+    "case_id": "case_01_meridian",
+    "filename": "subcontractor_memo_email.txt",
+    "document_type": "email",
+    "speaker": "Apex Solutions Management",
+    "author": "Apex Solutions Management",
+    "timestamp": "October 11, 2024 02:00 PM",
+    "description": null,
+    "file_size_bytes": 685,
+    "raw_text": "From: Apex Solutions Management <dispatch@apexsolutions.com>\nTo: Meridian Tech Facilities <facilities@meridiantech.internal>\nDate: October 11, 2024 02:00 PM\nSubject: Work Order #APX-4421 - Electrical Conduit Maintenance - Building 4\n\nFacilities Team,\n\nPlease be advised that technician David Wright will be on-site at Meridian Tech Building 4 on Saturday, October 12, starting at 8:30 PM to complete breaker testing. \n\nMr. Wright is issued temporary Badge #7810. He is authorized strictly for public utility areas, Floor 3 lighting panels, and basement conduit raceways. He is not authorized for secure server rooms or data centers.\n\nBest regards,\nApex Solutions Dispatch\n",
+    "cleaned_text": "From: Apex Solutions Management <dispatch@apexsolutions.com>\nTo: Meridian Tech Facilities <facilities@meridiantech.internal>\nDate: October 11, 2024 02:00 PM\nSubject: Work Order #APX-4421 - Electrical Conduit Maintenance - Building 4\n\nFacilities Team,\n\nPlease be advised that technician David Wright will be on-site at Meridian Tech Building 4 on Saturday, October 12, starting at 8:30 PM to complete breaker testing. \n\nMr. Wright is issued temporary Badge #7810. He is authorized strictly for public utility areas, Floor 3 lighting panels, and basement conduit raceways. He is not authorized for secure server rooms or data centers.\n\nBest regards,\nApex Solutions Dispatch",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_513e39a3_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_513e39a3",
+        "filename": "subcontractor_memo_email.txt",
+        "document_type": "email",
+        "speaker": "Apex Solutions Management",
+        "timestamp": "October 11, 2024 02:00 PM",
+        "page_number": null,
+        "text": "From: Apex Solutions Management <dispatch@apexsolutions.com> To: Meridian Tech Facilities <facilities@meridiantech.internal> Date: October 11, 2024 02:00 PM",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 125,
+        "char_end": 281
+      },
+      {
+        "chunk_id": "chk_doc_513e39a3_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_513e39a3",
+        "filename": "subcontractor_memo_email.txt",
+        "document_type": "email",
+        "speaker": "Apex Solutions Management",
+        "timestamp": "October 11, 2024 02:00 PM",
+        "page_number": null,
+        "text": "Subject: Work Order #APX-4421 - Electrical Conduit Maintenance - Building 4 Facilities Team, Please be advised that technician David Wright will be on-site at Meridian Tech Building 4 on Saturday, October 12, starting at 8:30 PM to complete breaker testing.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 252,
+        "char_end": 509
+      },
+      {
+        "chunk_id": "chk_doc_513e39a3_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_513e39a3",
+        "filename": "subcontractor_memo_email.txt",
+        "document_type": "email",
+        "speaker": "Apex Solutions Management",
+        "timestamp": "October 11, 2024 02:00 PM",
+        "page_number": null,
+        "text": "Mr. Wright is issued temporary Badge #7810. He is authorized strictly for public utility areas, Floor 3 lighting panels, and basement conduit raceways. He is not authorized for secure server rooms or data centers.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 571,
+        "char_end": 784
+      },
+      {
+        "chunk_id": "chk_doc_513e39a3_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_513e39a3",
+        "filename": "subcontractor_memo_email.txt",
+        "document_type": "email",
+        "speaker": "Apex Solutions Management",
+        "timestamp": "October 11, 2024 02:00 PM",
+        "page_number": null,
+        "text": "Best regards, Apex Solutions Dispatch",
+        "sentence_indices": [
+          9,
+          10
+        ],
+        "char_start": 784,
+        "char_end": 821
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:38.061711",
+    "status": "processed",
+    "warning": null
+  },
+  {
+    "document_id": "doc_35dbf54c",
+    "case_id": "case_01_meridian",
+    "filename": "urgent_security_alert_email.txt",
+    "document_type": "email",
+    "speaker": "Elena Rostova",
+    "author": "Elena Rostova",
+    "timestamp": "October 13, 2024 04:30 AM",
+    "description": null,
+    "file_size_bytes": 800,
+    "raw_text": "From: Elena Rostova <elena.rostova@meridiantech.internal>\nTo: Incident Response Team <ir-team@meridiantech.internal>\nDate: October 13, 2024 04:30 AM\nSubject: URGENT: Potential External Exfiltration Incident\n\nTeam,\n\nEarly alerts from our SIEM platform flagged an unauthorized export of customer files overnight. Initial network monitoring suggested an external IP in Eastern Europe exfiltrated the customer records over SFTP. However, firewall connection logs for that timeframe remain ambiguous. \n\nPlease preserve all logs from Building 4 immediately. All system administrators must revoke active tokens. Do not discuss this event with any external media or third-party contractors until the internal review is finalized.\n\nElena Rostova\nChief Information Security Officer\nMeridian Tech\n",
+    "cleaned_text": "From: Elena Rostova <elena.rostova@meridiantech.internal>\nTo: Incident Response Team <ir-team@meridiantech.internal>\nDate: October 13, 2024 04:30 AM\nSubject: URGENT: Potential External Exfiltration Incident\n\nTeam,\n\nEarly alerts from our SIEM platform flagged an unauthorized export of customer files overnight. Initial network monitoring suggested an external IP in Eastern Europe exfiltrated the customer records over SFTP. However, firewall connection logs for that timeframe remain ambiguous. \n\nPlease preserve all logs from Building 4 immediately. All system administrators must revoke active tokens. Do not discuss this event with any external media or third-party contractors until the internal review is finalized.\n\nElena Rostova\nChief Information Security Officer\nMeridian Tech",
+    "chunks": [
+      {
+        "chunk_id": "chk_doc_35dbf54c_1",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_35dbf54c",
+        "filename": "urgent_security_alert_email.txt",
+        "document_type": "email",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024 04:30 AM",
+        "page_number": null,
+        "text": "From: Elena Rostova <elena.rostova@meridiantech.internal> To: Incident Response Team <ir-team@meridiantech.internal> Date: October 13, 2024 04:30 AM",
+        "sentence_indices": [
+          0,
+          1,
+          2
+        ],
+        "char_start": 117,
+        "char_end": 265
+      },
+      {
+        "chunk_id": "chk_doc_35dbf54c_2",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_35dbf54c",
+        "filename": "urgent_security_alert_email.txt",
+        "document_type": "email",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024 04:30 AM",
+        "page_number": null,
+        "text": "Subject: URGENT: Potential External Exfiltration Incident Team, Early alerts from our SIEM platform flagged an unauthorized export of customer files overnight.",
+        "sentence_indices": [
+          3,
+          4,
+          5
+        ],
+        "char_start": 215,
+        "char_end": 374
+      },
+      {
+        "chunk_id": "chk_doc_35dbf54c_3",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_35dbf54c",
+        "filename": "urgent_security_alert_email.txt",
+        "document_type": "email",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024 04:30 AM",
+        "page_number": null,
+        "text": "Initial network monitoring suggested an external IP in Eastern Europe exfiltrated the customer records over SFTP. However, firewall connection logs for that timeframe remain ambiguous. Please preserve all logs from Building 4 immediately.",
+        "sentence_indices": [
+          6,
+          7,
+          8
+        ],
+        "char_start": 498,
+        "char_end": 736
+      },
+      {
+        "chunk_id": "chk_doc_35dbf54c_4",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_35dbf54c",
+        "filename": "urgent_security_alert_email.txt",
+        "document_type": "email",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024 04:30 AM",
+        "page_number": null,
+        "text": "All system administrators must revoke active tokens. Do not discuss this event with any external media or third-party contractors until the internal review is finalized. Elena Rostova",
+        "sentence_indices": [
+          9,
+          10,
+          11
+        ],
+        "char_start": 723,
+        "char_end": 906
+      },
+      {
+        "chunk_id": "chk_doc_35dbf54c_5",
+        "case_id": "case_01_meridian",
+        "document_id": "doc_35dbf54c",
+        "filename": "urgent_security_alert_email.txt",
+        "document_type": "email",
+        "speaker": "Elena Rostova",
+        "timestamp": "October 13, 2024 04:30 AM",
+        "page_number": null,
+        "text": "Chief Information Security Officer Meridian Tech",
+        "sentence_indices": [
+          12,
+          13
+        ],
+        "char_start": 906,
+        "char_end": 954
+      }
+    ],
+    "uploaded_at": "2026-10-31T21:34:38.125450",
+    "status": "processed",
+    "warning": null
+  }
+]

@@ -1,0 +1,6 @@
+APEX DELIVERIES - DAILY VEHICLE TELEMETRY & RUN SHEET
+Driver: Marcus Finch | Vehicle: Ford Transit (Reg: LK68 YTR)
+2024-10-18 21:50:00 - Arrived Blackwood Manor Rear Delivery Gate
+2024-10-18 22:05:00 - Consignment offloaded at Greenhouse
+2024-10-18 22:30:45 - Vehicle cleared gate and departed towards A3 motorway
+Driver Statement: 'The security guard walked down to the van around 10:20 PM and asked if we could transport a boxed package to London. I refused and left.'

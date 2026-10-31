@@ -1,0 +1,104 @@
+{
+  "case_id": "case_01_meridian",
+  "case_name": "The Meridian Tech Data Leak",
+  "document_count": 9,
+  "true_entities": {
+    "persons": ["Alice Vance", "Bob Chen", "David Wright", "Elena Rostova", "Marcus Reed", "Nathan Cross"],
+    "organizations": ["Meridian Tech", "Apex Solutions"],
+    "locations": ["Building 4", "Server Room B", "Floor 3", "Floor 2", "Console 2"],
+    "objects": ["Kingston DataTraveler 3.0", "Badge #4092", "Badge #3301", "Badge #7810", "Electrical Tape"]
+  },
+  "true_timeline": [
+    {"time": "2024-10-12 20:02:11", "event": "Bob Chen enters Building 4 via Main Entrance"},
+    {"time": "2024-10-12 20:28:45", "event": "David Wright enters Building 4 via Main Entrance"},
+    {"time": "2024-10-12 21:22:04", "event": "Alice Vance enters Building 4 via Main Entrance"},
+    {"time": "2024-10-12 21:32:10", "event": "Bob Chen exits Building 4 to pick up takeout"},
+    {"time": "2024-10-12 22:14:30", "event": "Access granted at Server Room B Door using Badge #4092 (Alice Vance)"},
+    {"time": "2024-10-12 22:18:12", "event": "Console 2 logged in under username 'avance_admin' in Server Room B"},
+    {"time": "2024-10-12 22:20:45", "event": "Kingston USB flash drive plugged into Console 2"},
+    {"time": "2024-10-12 22:21:40", "event": "Bob Chen returns and enters Building 4"},
+    {"time": "2024-10-12 22:31:18", "event": "Database dump copied directly to USB drive on Console 2"},
+    {"time": "2024-10-12 22:37:55", "event": "USB flash drive unmounted from Console 2"},
+    {"time": "2024-10-12 22:42:15", "event": "David Wright exits Building 4 via Turnstile"},
+    {"time": "2024-10-12 23:58:30", "event": "Alice Vance exits Building 4 via Turnstile"}
+  ],
+  "planted_contradictions": [
+    {
+      "id": "contra_01",
+      "entity": "Alice Vance",
+      "topic": "Location and entry into Server Room B at 10:14 PM",
+      "doc_a": "interview_alice_vance.txt",
+      "speaker_a": "Alice Vance",
+      "statement_a": "I was at my desk on Floor 3 the entire night from 9:30 PM until midnight, working on the quarterly release notes.",
+      "doc_b": "badge_swipe_logs.txt",
+      "speaker_b": "System Reader",
+      "statement_b": "[2024-10-12 22:14:30] Reader: Server Room B Door - Badge #4092 [Alice Vance] - ACCESS GRANTED",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "contra_02",
+      "entity": "Bob Chen",
+      "topic": "Master keycard possession and location in breakroom",
+      "doc_a": "interview_bob_chen.txt",
+      "speaker_a": "Bob Chen",
+      "statement_a": "I had my physical master keycard in my wallet all evening and never lent it to anyone.",
+      "doc_b": "interview_david_wright.txt",
+      "speaker_b": "David Wright",
+      "statement_b": "And I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM when he went down to get takeout.",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "contra_03",
+      "entity": "Server Room B Door",
+      "topic": "Magnetic lock state (locked vs taped unlocked)",
+      "doc_a": "security_incident_report.txt",
+      "speaker_a": "Elena Rostova",
+      "statement_a": "Facilities Maintenance initial report stated the magnetic door lock on Server Room B was fully engaged and secured during the 10:00 PM security patrol.",
+      "doc_b": "forensic_workstation_analysis.txt",
+      "speaker_b": "Dr. Nathan Cross",
+      "statement_b": "Physical inspection revealed the door latch pin was taped down with electrical tape, leaving the room open and accessible without authorization.",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "contra_04",
+      "entity": "Exfiltration Channel",
+      "topic": "SFTP remote exfiltration vs local USB mass storage transfer",
+      "doc_a": "urgent_security_alert_email.txt",
+      "speaker_a": "Elena Rostova",
+      "statement_a": "Initial network monitoring suggested an external IP in Eastern Europe exfiltrated the customer records over SFTP.",
+      "doc_b": "forensic_workstation_analysis.txt",
+      "speaker_b": "Dr. Nathan Cross",
+      "statement_b": "No outbound external network connection was established; the data was copied locally to a high-speed Kingston USB 3.0 flash drive directly mounted at Console 2.",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "contra_05",
+      "entity": "David Wright",
+      "topic": "Departure time from Building 4 (10:00 PM vs 10:42 PM)",
+      "doc_a": "interview_david_wright.txt",
+      "speaker_a": "David Wright",
+      "statement_a": "I finished my electrical maintenance and left Building 4 at 10:00 PM sharp.",
+      "doc_b": "badge_swipe_logs.txt",
+      "speaker_b": "System Reader",
+      "statement_b": "[2024-10-12 22:42:15] Reader: Building 4 Turnstile Exit - Badge #7810 [David Wright] - EXIT RECORDED",
+      "type": "confirmed_contradiction"
+    }
+  ],
+  "correct_hypothesis": {
+    "title": "Subcontractor Physical USB Exfiltration via Compromised Credentials",
+    "description": "Contractor David Wright bypassed the taped lock on Server Room B, accessed Console 2 using Alice Vance's credentials, and downloaded customer data onto a Kingston USB drive before exiting at 10:42 PM.",
+    "is_correct": true
+  },
+  "decoy_hypotheses": [
+    {
+      "title": "External APT Group Network SFTP Exfiltration",
+      "description": "An external hacking syndicate compromised the external firewall and exfiltrated databases remotely over encrypted SFTP tunnels.",
+      "is_correct": false
+    },
+    {
+      "title": "Rogue DBA Insider Sabotage by Alice Vance",
+      "description": "Lead Engineer Alice Vance intentionally copied the databases herself at her desk on Floor 3 to sell to competitors.",
+      "is_correct": false
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+CLINICAL SAFETY BOARD - EXPEDITED AE SUMMARY
+Trial: HL-902-ONC | Drug: Velocept-4
+Date: August 22, 2024
+Findings: Five patients enrolled in Cohort 3 developed severe injection-site necrosis and acute fever within 12 hours of receiving doses from Batch HL-902B.
+Analysis: Chemical degradation of hydrolyzed adjuvant occurred due to thermal excursion.

@@ -1,0 +1,79 @@
+{
+  "case_id": "case_03_helios",
+  "case_name": "The Helios Pharma Clinical Trial Discrepancy",
+  "document_count": 8,
+  "is_held_out": true,
+  "true_entities": {
+    "persons": [
+      "Arlo Kaufman",
+      "Priya Sharma",
+      "Sarah Jenkins",
+      "Raymond Vance"
+    ],
+    "organizations": [
+      "Helios Pharma",
+      "CryoExpress",
+      "Clinical Safety Board"
+    ],
+    "locations": [
+      "Site 03",
+      "Freezer Unit 4",
+      "Cold Storage Vault"
+    ],
+    "objects": [
+      "Batch HL-902B",
+      "Freezer Unit 4",
+      "Dry Ice",
+      "Waybill CX-889012"
+    ]
+  },
+  "planted_contradictions": [
+    {
+      "id": "c3_01",
+      "entity": "Freezer Unit 4 Temperature",
+      "topic": "Continuous minus 80 C vs warming to plus 4 C",
+      "doc_a": "interview_dr_kaufman.txt",
+      "statement_a": "Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "doc_b": "freezer_iot_telemetry_log.txt",
+      "statement_b": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c3_02",
+      "entity": "Power and Backup Generator",
+      "topic": "Generator kicked in seamlessly vs generator failed for nearly six hours",
+      "doc_a": "interview_dr_kaufman.txt",
+      "statement_a": "The backup diesel generator kicked in seamlessly during the August 14 storm.",
+      "doc_b": "interview_lab_tech_priya.txt",
+      "statement_b": "The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c3_03",
+      "entity": "Courier Dispatch Time",
+      "topic": "Dispatched at 08:00 AM vs delayed pickup at 14:30 PM",
+      "doc_a": "interview_dr_kaufman.txt",
+      "statement_a": "They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
+      "doc_b": "courier_shipping_manifest.txt",
+      "statement_b": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "type": "confirmed_contradiction"
+    }
+  ],
+  "correct_hypothesis": {
+    "title": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+    "description": "Dr. Arlo Kaufman knowingly concealed the 5.5-hour cryogenic failure of Freezer Unit 4, ordered the paper logs suppressed, and administered degraded Batch HL-902B to patients to avoid milestone delays.",
+    "is_correct": true
+  },
+  "decoy_hypotheses": [
+    {
+      "title": "Courier Handling Failure During CryoExpress Transit",
+      "description": "The drug degraded exclusively during shipping because driver Raymond Vance failed to replenish dry ice.",
+      "is_correct": false
+    },
+    {
+      "title": "Unforeseeable Biological Idiosyncrasy in Cohort 3 Patients",
+      "description": "Patient adverse reactions were caused by unexpected genetic hypersensitivity rather than drug degradation.",
+      "is_correct": false
+    }
+  ]
+}

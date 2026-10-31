@@ -1,0 +1,5 @@
+BLACKWOOD MANOR SECURITY AUDIT
+Forensic review of CCTV Hard Drive Unit #1:
+- Cameras 1 through 3 (Front Driveway) functioned continuously.
+- Camera 5 (Basement Corridor) was disabled between 22:10 and 22:35 PM due to an unplugged video feed cable.
+- Gate Camera showed Lord Blackwood's vehicle did not return to the estate until Saturday afternoon.

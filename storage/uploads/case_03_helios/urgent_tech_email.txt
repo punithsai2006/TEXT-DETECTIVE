@@ -1,0 +1,10 @@
+From: Priya Sharma <p.sharma@heliospharma.org>
+To: Arlo Kaufman <a.kaufman@heliospharma.org>
+Date: August 14, 2024 08:15 AM
+Subject: CRITICAL: Unit 4 Thawing overnight - Batch HL-902B
+
+Dr. Kaufman,
+
+Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.
+
+Priya

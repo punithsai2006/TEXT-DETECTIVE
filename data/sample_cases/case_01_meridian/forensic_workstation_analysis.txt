@@ -1,0 +1,18 @@
+DIGITAL FORENSICS EXAMINATION REPORT
+Examiner: Dr. Nathan Cross, Lead Digital Forensics Specialist
+Case: Meridian Tech Server Room B Breach
+Date of Analysis: October 13, 2024
+
+1. PHYSICAL SECURITY FINDINGS
+Physical inspection revealed the door latch pin was taped down with electrical tape, leaving the room open and accessible without authorization. The magnetic lock failed to engage because of the black vinyl electrical tape covering the sensor contact.
+
+2. HARDWARE & CONSOLE INSPECTION
+Console 2 in Server Room B was examined for digital traces:
+- At 22:18:12, an active administrative session under username 'avance_admin' was used to query the customer database.
+- At 22:20:45, a mass storage USB device was physically inserted into front USB port 1. Device identity: Kingston DataTraveler 3.0 (Serial: KTX-9941-B).
+- At 22:31:18, an unencrypted archive 'customer_vault_export.tar.gz' (4.2 GB) was written directly to the USB drive.
+- No outbound external network connection was established; the data was copied locally to a high-speed Kingston USB 3.0 flash drive directly mounted at Console 2.
+- The USB drive was unmounted cleanly at 22:37:55.
+
+3. LATENT EVIDENCE
+Latent fingerprints lifted from Console 2 keyboard and the electrical tape roll match contractor David Wright.

@@ -1,0 +1,4 @@
+case_id,evaluator_name,clarity_score_1_to_5,traceability_score_1_to_5,contradiction_completeness_1_to_5,logical_coherence_1_to_5,notes
+case_01_meridian,,,,,,
+case_02_blackwood,,,,,,
+case_03_helios,,,,,,

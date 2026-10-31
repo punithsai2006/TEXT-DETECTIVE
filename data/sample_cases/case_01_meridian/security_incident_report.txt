@@ -1,0 +1,21 @@
+INCIDENT REPORT: CRITICAL DATA BREACH
+Case ID: MER-2024-881
+Date: October 13, 2024
+Author: Elena Rostova, Chief Information Security Officer (CISO)
+Classification: CONFIDENTIAL // INTERNAL INVESTIGATION
+
+1. EXECUTIVE SUMMARY
+At approximately 03:15 AM on October 13, 2024, Meridian Tech automated intrusion alarms alerted security operations to an unauthorized bulk database export from the core customer relational database in Server Room B. Approximately 450,000 sensitive customer identity and billing records were extracted.
+
+2. TIMELINE OF INCIDENT
+- 2024-10-12 21:00:00 - Routine shift handover in Building 4.
+- 2024-10-12 22:14:30 - Physical entry recorded at Server Room B.
+- 2024-10-12 22:18:00 - Database administrative session initiated on Console 2.
+- 2024-10-12 22:31:00 - Data extraction command executed.
+- 2024-10-12 22:38:00 - Session terminated; console logged off.
+
+3. PHYSICAL ACCESS OBSERVATIONS
+Facilities Maintenance initial report stated the magnetic door lock on Server Room B was fully engaged and secured during the 10:00 PM security patrol. However, physical evidence recovered on October 13 indicates security mechanisms were tampered with prior to the intrusion.
+
+4. PRELIMINARY IMPACT
+Customer privacy records compromise poses extreme legal and reputational liability. Immediate isolation of Building 4 server infrastructure was ordered by CISO Elena Rostova.

@@ -1,0 +1,186 @@
+[
+  {
+    "hypothesis_id": "hyp_user_d24800",
+    "case_id": "case_03_helios",
+    "title": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+    "description": "Dr. Arlo Kaufman knowingly concealed the 5.5-hour cryogenic failure of Freezer Unit 4, ordered the paper logs suppressed, and administered degraded Batch HL-902B to patients to avoid milestone delays.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_56a66351",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_739dc466_1",
+          "evid_chk_doc_031c918c_3",
+          "evid_chk_doc_739dc466_2"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "internal_memo_coverup.txt",
+          "courier_shipping_manifest.txt",
+          "interview_dr_kaufman.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "Dr. Arlo Kaufman",
+          "Dr. Arlo Kaufman"
+        ],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_839e4e00",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_c1c0293a_2",
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_031c918c_3",
+          "evid_chk_doc_739dc466_1"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "freezer_iot_telemetry_log.txt",
+          "internal_memo_coverup.txt",
+          "interview_dr_kaufman.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "2024-08-14 04",
+          "Dr. Arlo Kaufman",
+          "Dr. Arlo Kaufman"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_98a1c381",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_62efc5bd_3",
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_6803f900_2",
+          "evid_chk_doc_739dc466_2"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "sponsor_audit_findings.txt",
+          "internal_memo_coverup.txt",
+          "interview_lab_tech_priya.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "Dr. Arlo Kaufman",
+          "Priya Sharma"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 7,
+    "conflict_score": 0,
+    "corroboration_score": 2,
+    "conflict_penalty": 0,
+    "total_score": 9,
+    "rank": 1,
+    "is_proposed_explanation": true,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Deliberate Concealment of Temperature Excursion by Principal Investigator' and 'Courier Handling Failure During CryoExpress Transit') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  {
+    "hypothesis_id": "hyp_user_f62d0a",
+    "case_id": "case_03_helios",
+    "title": "Courier Handling Failure During CryoExpress Transit",
+    "description": "The drug degraded exclusively during shipping because driver Raymond Vance failed to replenish dry ice.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_7f13d7e5",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_12c6a66f",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_1b95d0b5",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 0,
+    "conflict_score": 0,
+    "corroboration_score": 0,
+    "conflict_penalty": 0,
+    "total_score": 0,
+    "rank": 2,
+    "is_proposed_explanation": false,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Deliberate Concealment of Temperature Excursion by Principal Investigator' and 'Courier Handling Failure During CryoExpress Transit') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  {
+    "hypothesis_id": "hyp_user_15531b",
+    "case_id": "case_03_helios",
+    "title": "Unforeseeable Biological Idiosyncrasy in Cohort 3 Patients",
+    "description": "Patient adverse reactions were caused by unexpected genetic hypersensitivity rather than drug degradation.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_40452cba",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_d22a6beb",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_938a4805",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [],
+        "contributing_speakers": [],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 0,
+    "conflict_score": 0,
+    "corroboration_score": 0,
+    "conflict_penalty": 0,
+    "total_score": 0,
+    "rank": 3,
+    "is_proposed_explanation": false,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": null
+  }
+]

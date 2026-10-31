@@ -1,0 +1,2062 @@
+{
+  "report_id": "rep_case_03_helios_9f40b4",
+  "case_id": "case_03_helios",
+  "case_name": "The Helios Pharma Clinical Trial Discrepancy",
+  "generated_at": "2026-10-31T21:34:58.911750",
+  "case_overview": "Audit of cryogenic cold chain excursion in Trial HL-902 and adverse event reporting discrepancies.",
+  "documents_analyzed": [
+    {
+      "document_id": "doc_739dc466",
+      "filename": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "speaker": null,
+      "timestamp": "2024-08-16 14:30:00",
+      "chunk_count": 2,
+      "file_size_bytes": 331
+    },
+    {
+      "document_id": "doc_c1c0293a",
+      "filename": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 3,
+      "file_size_bytes": 439
+    },
+    {
+      "document_id": "doc_b11e006a",
+      "filename": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "chunk_count": 3,
+      "file_size_bytes": 324
+    },
+    {
+      "document_id": "doc_031c918c",
+      "filename": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 807
+    },
+    {
+      "document_id": "doc_6803f900",
+      "filename": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "speaker": "Priya Sharma",
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 791
+    },
+    {
+      "document_id": "doc_e3279b56",
+      "filename": "patient_safety_adverse_event_report.txt",
+      "document_type": "report",
+      "speaker": null,
+      "timestamp": "August 22, 2024",
+      "chunk_count": 2,
+      "file_size_bytes": 355
+    },
+    {
+      "document_id": "doc_62efc5bd",
+      "filename": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "speaker": null,
+      "timestamp": null,
+      "chunk_count": 4,
+      "file_size_bytes": 389
+    },
+    {
+      "document_id": "doc_7b9e3504",
+      "filename": "urgent_tech_email.txt",
+      "document_type": "email",
+      "speaker": "Priya Sharma",
+      "timestamp": "August 14, 2024 08:15 AM",
+      "chunk_count": 3,
+      "file_size_bytes": 417
+    }
+  ],
+  "investigation_summary": "Investigation analysis completed for Case 'The Helios Pharma Clinical Trial Discrepancy'. A total of 8 documents were processed, revealing 16 unique named entities and 21 ordered timeline events. Cross-document comparison established 5 conflicts and 2 corroborated agreements. The system's proposed explanation is 'Deliberate Concealment of Temperature Excursion by Principal Investigator' with an evidence score of 9.",
+  "extracted_entities": [
+    {
+      "entity_id": "ent_77b4bd",
+      "name": "Arlo Kaufman",
+      "entity_type": "person",
+      "mentions_count": 11,
+      "document_ids": [
+        "doc_62efc5bd",
+        "doc_7b9e3504",
+        "doc_739dc466",
+        "doc_031c918c",
+        "doc_b11e006a"
+      ],
+      "source_sentences": [
+        "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman",
+        "Interviewee: Dr. Arlo Kaufman, Principal Investigator",
+        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman.",
+        "Speaker/Author of document: Dr. Arlo Kaufman",
+        "To: Arlo Kaufman <a.kaufman@heliospharma.org>",
+        "From: Dr. Arlo Kaufman"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_86738a",
+      "name": "Helios Pharma",
+      "entity_type": "organization",
+      "mentions_count": 4,
+      "document_ids": [
+        "doc_62efc5bd",
+        "doc_739dc466",
+        "doc_031c918c",
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "Case: Helios Pharma Trial HL-902",
+        "Sender: Helios Pharma Clinical Research Site 03",
+        "Helios Pharma Site 03 Inspection Report"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_512a59",
+      "name": "Freezer Unit",
+      "entity_type": "person",
+      "mentions_count": 4,
+      "document_ids": [
+        "doc_7b9e3504",
+        "doc_031c918c",
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+        "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+        "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_25135c",
+      "name": "Priya Sharma",
+      "entity_type": "person",
+      "mentions_count": 4,
+      "document_ids": [
+        "doc_7b9e3504",
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "From: Priya Sharma <p.sharma@heliospharma.org>",
+        "Interviewee: Priya Sharma, Senior Laboratory Technician",
+        "Speaker/Author of document: Priya Sharma"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_b7ef5e",
+      "name": "Sarah Jenkins",
+      "entity_type": "person",
+      "mentions_count": 3,
+      "document_ids": [
+        "doc_62efc5bd",
+        "doc_031c918c",
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "Interviewer: Regulatory Auditor Sarah Jenkins",
+        "Lead Inspector: Sarah Jenkins"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_f0d6e3",
+      "name": "Regulatory Auditor",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_031c918c",
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "Interviewer: Regulatory Auditor Sarah Jenkins"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_bf0082",
+      "name": "Principal Investigator",
+      "entity_type": "person",
+      "mentions_count": 2,
+      "document_ids": [
+        "doc_62efc5bd",
+        "doc_031c918c"
+      ],
+      "source_sentences": [
+        "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman.",
+        "Interviewee: Dr. Arlo Kaufman, Principal Investigator"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d1a05f",
+      "name": "Clinical Research",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_739dc466"
+      ],
+      "source_sentences": [
+        "Sender: Helios Pharma Clinical Research Site 03"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_e32f1e",
+      "name": "Pickup Timestamp",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_739dc466"
+      ],
+      "source_sentences": [
+        "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_bc9cd0",
+      "name": "Package Temperature",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_739dc466"
+      ],
+      "source_sentences": [
+        "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard)"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_2ee0e4",
+      "name": "Raymond Vance",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_739dc466"
+      ],
+      "source_sentences": [
+        "Driver: Raymond Vance | Signee: Dr. Arlo Kaufman"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_e49f4d",
+      "name": "Clinical Supply",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_b11e006a"
+      ],
+      "source_sentences": [
+        "To: Clinical Supply Operations"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_c3f064",
+      "name": "Senior Laboratory",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_6803f900"
+      ],
+      "source_sentences": [
+        "Interviewee: Priya Sharma, Senior Laboratory Technician"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_d93fd7",
+      "name": "Inspection Report",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_62efc5bd"
+      ],
+      "source_sentences": [
+        "Helios Pharma Site 03 Inspection Report"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_52cfb2",
+      "name": "Lead Inspector",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_62efc5bd"
+      ],
+      "source_sentences": [
+        "Lead Inspector: Sarah Jenkins"
+      ],
+      "metadata": {}
+    },
+    {
+      "entity_id": "ent_8549e1",
+      "name": "Violations Noted",
+      "entity_type": "person",
+      "mentions_count": 1,
+      "document_ids": [
+        "doc_62efc5bd"
+      ],
+      "source_sentences": [
+        "Violations Noted:"
+      ],
+      "metadata": {}
+    }
+  ],
+  "important_events": [
+    {
+      "event_id": "ev_doc_739dc466_1",
+      "description": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "participants": [
+        "Pickup Timestamp"
+      ],
+      "location": null,
+      "time_str": "2024-08-16 14:30:00",
+      "parsed_timestamp": "2024-08-16T14:30:00",
+      "uses_objects": [],
+      "document_id": "doc_739dc466",
+      "document_name": "courier_shipping_manifest.txt",
+      "source_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_2",
+      "description": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 01:45:00",
+      "parsed_timestamp": "2024-08-14T01:45:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_3",
+      "description": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 02:10:00",
+      "parsed_timestamp": "2024-08-14T02:10:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_4",
+      "description": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 04:30:00",
+      "parsed_timestamp": "2024-08-14T04:30:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_5",
+      "description": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 06:15:00",
+      "parsed_timestamp": "2024-08-14T06:15:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_6",
+      "description": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 07:45:00",
+      "parsed_timestamp": "2024-08-14T07:45:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_c1c0293a_7",
+      "description": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
+      "participants": [],
+      "location": null,
+      "time_str": "2024-08-14 11:00:00",
+      "parsed_timestamp": "2024-08-14T11:00:00",
+      "uses_objects": [],
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "source_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_8",
+      "description": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_9",
+      "description": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "time_str": "09:00 AM",
+      "parsed_timestamp": "2024-01-01T09:00:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_10",
+      "description": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_11",
+      "description": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
+      "participants": [],
+      "location": null,
+      "time_str": "09:01 AM",
+      "parsed_timestamp": "2024-01-01T09:01:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_12",
+      "description": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "participants": [],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_031c918c_13",
+      "description": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
+      "participants": [],
+      "location": null,
+      "time_str": "09:02 AM",
+      "parsed_timestamp": "2024-01-01T09:02:00",
+      "uses_objects": [],
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "source_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_14",
+      "description": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_15",
+      "description": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "time_str": "10:30 AM",
+      "parsed_timestamp": "2024-01-01T10:30:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_16",
+      "description": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_17",
+      "description": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
+      "participants": [
+        "Priya Sharma"
+      ],
+      "location": null,
+      "time_str": "10:31 AM",
+      "parsed_timestamp": "2024-01-01T10:31:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_18",
+      "description": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_6803f900_19",
+      "description": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
+      "participants": [],
+      "location": null,
+      "time_str": "10:32 AM",
+      "parsed_timestamp": "2024-01-01T10:32:00",
+      "uses_objects": [],
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "source_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_7b9e3504_20",
+      "description": "Date: August 14, 2024 08:15 AM",
+      "participants": [],
+      "location": null,
+      "time_str": "08:15 AM",
+      "parsed_timestamp": "2024-01-01T08:15:00",
+      "uses_objects": [],
+      "document_id": "doc_7b9e3504",
+      "document_name": "urgent_tech_email.txt",
+      "source_sentence": "Date: August 14, 2024 08:15 AM",
+      "uncertainty": false
+    },
+    {
+      "event_id": "ev_doc_7b9e3504_21",
+      "description": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "time_str": "2:10 AM",
+      "parsed_timestamp": "2024-01-01T02:10:00",
+      "uses_objects": [],
+      "document_id": "doc_7b9e3504",
+      "document_name": "urgent_tech_email.txt",
+      "source_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "uncertainty": false
+    }
+  ],
+  "chronological_timeline": [
+    {
+      "entry_id": "tl_ev_doc_7b9e3504_21",
+      "event_id": "ev_doc_7b9e3504_21",
+      "timestamp_display": "2:10 AM",
+      "event_description": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "document_name": "urgent_tech_email.txt",
+      "document_type": "email",
+      "source_sentence": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "is_uncertain": false,
+      "sort_key": "20240101021000"
+    },
+    {
+      "entry_id": "tl_ev_doc_7b9e3504_20",
+      "event_id": "ev_doc_7b9e3504_20",
+      "timestamp_display": "08:15 AM",
+      "event_description": "Date: August 14, 2024 08:15 AM",
+      "participants": [],
+      "location": null,
+      "document_name": "urgent_tech_email.txt",
+      "document_type": "email",
+      "source_sentence": "Date: August 14, 2024 08:15 AM",
+      "is_uncertain": false,
+      "sort_key": "20240101081500"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_8",
+      "event_id": "ev_doc_031c918c_8",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kept at minus 80 Celsius continuously?",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_9",
+      "event_id": "ev_doc_031c918c_9",
+      "timestamp_display": "09:00 AM",
+      "event_description": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "is_uncertain": false,
+      "sort_key": "20240101090000"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_10",
+      "event_id": "ev_doc_031c918c_10",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:01 AM] JENKINS: Did any power outage affect the cold storage?",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_11",
+      "event_id": "ev_doc_031c918c_11",
+      "timestamp_display": "09:01 AM",
+      "event_description": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm.",
+      "is_uncertain": false,
+      "sort_key": "20240101090100"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_12",
+      "event_id": "ev_doc_031c918c_12",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_031c918c_13",
+      "event_id": "ev_doc_031c918c_13",
+      "timestamp_display": "09:02 AM",
+      "event_description": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "source_sentence": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice.",
+      "is_uncertain": false,
+      "sort_key": "20240101090200"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_14",
+      "event_id": "ev_doc_6803f900_14",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_15",
+      "event_id": "ev_doc_6803f900_15",
+      "timestamp_display": "10:30 AM",
+      "event_description": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "participants": [
+        "Freezer Unit"
+      ],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "is_uncertain": false,
+      "sort_key": "20240101103000"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_16",
+      "event_id": "ev_doc_6803f900_16",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_17",
+      "event_id": "ev_doc_6803f900_17",
+      "timestamp_display": "10:31 AM",
+      "event_description": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
+      "participants": [
+        "Priya Sharma"
+      ],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.",
+      "is_uncertain": false,
+      "sort_key": "20240101103100"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_18",
+      "event_id": "ev_doc_6803f900_18",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_6803f900_19",
+      "event_id": "ev_doc_6803f900_19",
+      "timestamp_display": "10:32 AM",
+      "event_description": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
+      "participants": [],
+      "location": null,
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "source_sentence": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.",
+      "is_uncertain": false,
+      "sort_key": "20240101103200"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_2",
+      "event_id": "ev_doc_c1c0293a_2",
+      "timestamp_display": "2024-08-14 01:45:00",
+      "event_description": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL",
+      "is_uncertain": false,
+      "sort_key": "20240814014500"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_3",
+      "event_id": "ev_doc_c1c0293a_3",
+      "timestamp_display": "2024-08-14 02:10:00",
+      "event_description": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
+      "is_uncertain": false,
+      "sort_key": "20240814021000"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_4",
+      "event_id": "ev_doc_c1c0293a_4",
+      "timestamp_display": "2024-08-14 04:30:00",
+      "event_description": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM",
+      "is_uncertain": false,
+      "sort_key": "20240814043000"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_5",
+      "event_id": "ev_doc_c1c0293a_5",
+      "timestamp_display": "2024-08-14 06:15:00",
+      "event_description": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMPROMISED",
+      "is_uncertain": false,
+      "sort_key": "20240814061500"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_6",
+      "event_id": "ev_doc_c1c0293a_6",
+      "timestamp_display": "2024-08-14 07:45:00",
+      "event_description": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 07:45:00 - Mains power restored - Compressor active",
+      "is_uncertain": false,
+      "sort_key": "20240814074500"
+    },
+    {
+      "entry_id": "tl_ev_doc_c1c0293a_7",
+      "event_id": "ev_doc_c1c0293a_7",
+      "timestamp_display": "2024-08-14 11:00:00",
+      "event_description": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
+      "participants": [],
+      "location": null,
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "source_sentence": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED",
+      "is_uncertain": false,
+      "sort_key": "20240814110000"
+    },
+    {
+      "entry_id": "tl_ev_doc_739dc466_1",
+      "event_id": "ev_doc_739dc466_1",
+      "timestamp_display": "2024-08-16 14:30:00",
+      "event_description": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "participants": [
+        "Pickup Timestamp"
+      ],
+      "location": null,
+      "document_name": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "source_sentence": "Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "is_uncertain": false,
+      "sort_key": "20240816143000"
+    }
+  ],
+  "key_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_6803f900_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_6803f900_1",
+      "text": "INTERVIEW TRANSCRIPT: PRIYA SHARMA Case: Helios Pharma Trial HL-902 Interviewer: Regulatory Auditor Sarah Jenkins",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.4339,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_031c918c_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_031c918c_1",
+      "text": "INTERVIEW TRANSCRIPT: DR. ARLO KAUFMAN Case: Helios Pharma Trial HL-902 Interviewer: Regulatory Auditor Sarah Jenkins",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.4335,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_b11e006a_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_b11e006a",
+      "document_name": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_b11e006a_2",
+      "text": "To: Clinical Supply Operations Subject: Batch HL-902B clearance I have personally re-verified the cold chain records.",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "score": 0.4081,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_e3279b56_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_e3279b56",
+      "document_name": "patient_safety_adverse_event_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_e3279b56_1",
+      "text": "CLINICAL SAFETY BOARD - EXPEDITED AE SUMMARY Trial: HL-902-ONC | Drug: Velocept-4 Date: August 22, 2024",
+      "speaker": null,
+      "timestamp": "August 22, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3902,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_62efc5bd_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_62efc5bd",
+      "document_name": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_62efc5bd_1",
+      "text": "GLOBAL HEALTH REGULATORY AUDIT Helios Pharma Site 03 Inspection Report Lead Inspector: Sarah Jenkins",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3636,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_62efc5bd_4",
+      "case_id": "case_03_helios",
+      "document_id": "doc_62efc5bd",
+      "document_name": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_62efc5bd_4",
+      "text": "Administering degraded clinical trial material to human research subjects.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        9
+      ],
+      "score": 0.3489,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_739dc466_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_739dc466",
+      "document_name": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_739dc466_1",
+      "text": "CRYOEXPRESS COURIER SERVICES - WAYBILL #CX-889012 Sender: Helios Pharma Clinical Research Site 03 Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "speaker": null,
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3313,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_e3279b56_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_e3279b56",
+      "document_name": "patient_safety_adverse_event_report.txt",
+      "document_type": "report",
+      "chunk_id": "chk_doc_e3279b56_2",
+      "text": "Findings: Five patients enrolled in Cohort 3 developed severe injection-site necrosis and acute fever within 12 hours of receiving doses from Batch HL-902B. Analysis: Chemical degradation of hydrolyzed adjuvant occurred due to thermal excursion.",
+      "speaker": null,
+      "timestamp": "August 22, 2024",
+      "sentence_indices": [
+        3,
+        4
+      ],
+      "score": 0.3286,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_62efc5bd_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_62efc5bd",
+      "document_name": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_62efc5bd_3",
+      "text": "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman. 3.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.3274,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_031c918c_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_031c918c_3",
+      "text": "[09:01 AM] JENKINS: Did any power outage affect the cold storage? [09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm. [09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.322,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_c1c0293a_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_c1c0293a",
+      "document_name": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_c1c0293a_1",
+      "text": "HELIOS BIOMEDICAL - CRYOGENIC FREEZER TELEMETRY (UNIT 4) 2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL 2024-08-14 02:10:00 - POWER FAULT: Mains disconnected - Generator: OFFLINE",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3141,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_6803f900_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_6803f900",
+      "document_name": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_6803f900_3",
+      "text": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman? [10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder. [10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?",
+      "speaker": "Priya Sharma",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.2957,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_739dc466_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_739dc466",
+      "document_name": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_739dc466_2",
+      "text": "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard) Driver: Raymond Vance | Signee: Dr. Arlo Kaufman",
+      "speaker": null,
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        3,
+        4
+      ],
+      "score": 0.2866,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_62efc5bd_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_62efc5bd",
+      "document_name": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_62efc5bd_2",
+      "text": "Violations Noted: 1. Major protocol non-compliance: Failure to report 5.5-hour cryogenic failure on August 14.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "score": 0.2857,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_7b9e3504_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_7b9e3504",
+      "document_name": "urgent_tech_email.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_7b9e3504_3",
+      "text": "The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols. Priya",
+      "speaker": "Priya Sharma",
+      "timestamp": "August 14, 2024 08:15 AM",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.2847,
+      "retrieval_method": "hybrid"
+    }
+  ],
+  "agreements": [
+    {
+      "id": "contra_db5e7319",
+      "case_id": "case_03_helios",
+      "statement_a": "Case: Helios Pharma Trial HL-902",
+      "statement_b": "Case: Helios Pharma Trial HL-902",
+      "doc_a_id": "doc_031c918c",
+      "doc_b_id": "doc_6803f900",
+      "doc_a_name": "interview_dr_kaufman.txt",
+      "doc_b_name": "interview_lab_tech_priya.txt",
+      "speaker_a": "Dr. Arlo Kaufman",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Helios Pharma",
+      "contradiction_type": "agreement",
+      "nli_label": "entailment",
+      "confidence": 0.95,
+      "explanation": "Both statements assert the identical factual detail across sources.",
+      "resolution_status": "resolved",
+      "source_sentences": [
+        "Case: Helios Pharma Trial HL-902",
+        "Case: Helios Pharma Trial HL-902"
+      ]
+    },
+    {
+      "id": "contra_f18b79a8",
+      "case_id": "case_03_helios",
+      "statement_a": "Interviewer: Regulatory Auditor Sarah Jenkins",
+      "statement_b": "Interviewer: Regulatory Auditor Sarah Jenkins",
+      "doc_a_id": "doc_031c918c",
+      "doc_b_id": "doc_6803f900",
+      "doc_a_name": "interview_dr_kaufman.txt",
+      "doc_b_name": "interview_lab_tech_priya.txt",
+      "speaker_a": "Dr. Arlo Kaufman",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Sarah Jenkins",
+      "contradiction_type": "agreement",
+      "nli_label": "entailment",
+      "confidence": 0.95,
+      "explanation": "Both statements assert the identical factual detail across sources.",
+      "resolution_status": "resolved",
+      "source_sentences": [
+        "Interviewer: Regulatory Auditor Sarah Jenkins",
+        "Interviewer: Regulatory Auditor Sarah Jenkins"
+      ]
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "contra_70f22159",
+      "case_id": "case_03_helios",
+      "statement_a": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "statement_b": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "doc_a_id": "doc_031c918c",
+      "doc_b_id": "doc_6803f900",
+      "doc_a_name": "interview_dr_kaufman.txt",
+      "doc_b_name": "interview_lab_tech_priya.txt",
+      "speaker_a": "Dr. Arlo Kaufman",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Freezer Unit",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 10:30 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+        "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
+      ]
+    },
+    {
+      "id": "contra_29f6bcd6",
+      "case_id": "case_03_helios",
+      "statement_a": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "statement_b": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "doc_a_id": "doc_031c918c",
+      "doc_b_id": "doc_6803f900",
+      "doc_a_name": "interview_dr_kaufman.txt",
+      "doc_b_name": "interview_lab_tech_priya.txt",
+      "speaker_a": "Dr. Arlo Kaufman",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": null,
+      "entity_event_link": "Freezer Unit",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 10:30 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+        "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
+      ]
+    },
+    {
+      "id": "contra_97eff1b3",
+      "case_id": "case_03_helios",
+      "statement_a": "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+      "statement_b": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "doc_a_id": "doc_031c918c",
+      "doc_b_id": "doc_7b9e3504",
+      "doc_a_name": "interview_dr_kaufman.txt",
+      "doc_b_name": "urgent_tech_email.txt",
+      "speaker_a": "Dr. Arlo Kaufman",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": "August 14, 2024 08:15 AM",
+      "entity_event_link": "Freezer Unit",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 09:00 AM while Statement B references 2:10 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.",
+        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
+      ]
+    },
+    {
+      "id": "contra_96ea2c5c",
+      "case_id": "case_03_helios",
+      "statement_a": "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+      "statement_b": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "doc_a_id": "doc_6803f900",
+      "doc_b_id": "doc_7b9e3504",
+      "doc_a_name": "interview_lab_tech_priya.txt",
+      "doc_b_name": "urgent_tech_email.txt",
+      "speaker_a": "Priya Sharma",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": "August 14, 2024 08:15 AM",
+      "entity_event_link": "Freezer Unit",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 10:30 AM while Statement B references 2:10 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.",
+        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
+      ]
+    },
+    {
+      "id": "contra_be27d282",
+      "case_id": "case_03_helios",
+      "statement_a": "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+      "statement_b": "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.",
+      "doc_a_id": "doc_6803f900",
+      "doc_b_id": "doc_7b9e3504",
+      "doc_a_name": "interview_lab_tech_priya.txt",
+      "doc_b_name": "urgent_tech_email.txt",
+      "speaker_a": "Priya Sharma",
+      "speaker_b": "Priya Sharma",
+      "timestamp_a": null,
+      "timestamp_b": "August 14, 2024 08:15 AM",
+      "entity_event_link": "Freezer Unit",
+      "contradiction_type": "possible_contradiction",
+      "nli_label": "contradiction",
+      "confidence": 0.9,
+      "explanation": "Temporal discrepancy: Statement A references 10:30 AM while Statement B references 2:10 AM. (Verified with surrounding paragraph context).",
+      "resolution_status": "unresolved",
+      "source_sentences": [
+        "[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.",
+        "Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols."
+      ]
+    }
+  ],
+  "candidate_hypotheses": [
+    {
+      "hypothesis_id": "hyp_user_d24800",
+      "case_id": "case_03_helios",
+      "title": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+      "description": "Dr. Arlo Kaufman knowingly concealed the 5.5-hour cryogenic failure of Freezer Unit 4, ordered the paper logs suppressed, and administered degraded Batch HL-902B to patients to avoid milestone delays.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_56a66351",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_b11e006a_2",
+            "evid_chk_doc_739dc466_1",
+            "evid_chk_doc_031c918c_3",
+            "evid_chk_doc_739dc466_2"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "internal_memo_coverup.txt",
+            "courier_shipping_manifest.txt",
+            "interview_dr_kaufman.txt",
+            "courier_shipping_manifest.txt"
+          ],
+          "contributing_speakers": [
+            "Dr. Arlo Kaufman",
+            "Dr. Arlo Kaufman"
+          ],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_839e4e00",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_c1c0293a_2",
+            "evid_chk_doc_b11e006a_2",
+            "evid_chk_doc_031c918c_3",
+            "evid_chk_doc_739dc466_1"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "freezer_iot_telemetry_log.txt",
+            "internal_memo_coverup.txt",
+            "interview_dr_kaufman.txt",
+            "courier_shipping_manifest.txt"
+          ],
+          "contributing_speakers": [
+            "2024-08-14 04",
+            "Dr. Arlo Kaufman",
+            "Dr. Arlo Kaufman"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_98a1c381",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [
+            "evid_chk_doc_62efc5bd_3",
+            "evid_chk_doc_b11e006a_2",
+            "evid_chk_doc_6803f900_2",
+            "evid_chk_doc_739dc466_2"
+          ],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [
+            "sponsor_audit_findings.txt",
+            "internal_memo_coverup.txt",
+            "interview_lab_tech_priya.txt",
+            "courier_shipping_manifest.txt"
+          ],
+          "contributing_speakers": [
+            "Dr. Arlo Kaufman",
+            "Priya Sharma"
+          ],
+          "is_corroborated": true,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 7,
+      "conflict_score": 0,
+      "corroboration_score": 2,
+      "conflict_penalty": 0,
+      "total_score": 9,
+      "rank": 1,
+      "is_proposed_explanation": true,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Deliberate Concealment of Temperature Excursion by Principal Investigator' and 'Courier Handling Failure During CryoExpress Transit') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_f62d0a",
+      "case_id": "case_03_helios",
+      "title": "Courier Handling Failure During CryoExpress Transit",
+      "description": "The drug degraded exclusively during shipping because driver Raymond Vance failed to replenish dry ice.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_7f13d7e5",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_12c6a66f",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_1b95d0b5",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 0,
+      "conflict_score": 0,
+      "corroboration_score": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "rank": 2,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": "Notice: Top two hypotheses ('Deliberate Concealment of Temperature Excursion by Principal Investigator' and 'Courier Handling Failure During CryoExpress Transit') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+    },
+    {
+      "hypothesis_id": "hyp_user_15531b",
+      "case_id": "case_03_helios",
+      "title": "Unforeseeable Biological Idiosyncrasy in Cohort 3 Patients",
+      "description": "Patient adverse reactions were caused by unexpected genetic hypersensitivity rather than drug degradation.",
+      "origin": "user",
+      "claims": [
+        {
+          "claim_id": "clm_40452cba",
+          "text": "The suspected actor accessed the location during the incident timeframe.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_d22a6beb",
+          "text": "The unauthorized action was made possible by compromised security controls.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        },
+        {
+          "claim_id": "clm_938a4805",
+          "text": "Digital records and physical logs establish the sequence of actions.",
+          "supporting_evidence_ids": [],
+          "conflicting_evidence_ids": [],
+          "contributing_documents": [],
+          "contributing_speakers": [],
+          "is_corroborated": false,
+          "unresolved_conflicts_count": 0
+        }
+      ],
+      "support_score": 0,
+      "conflict_score": 0,
+      "corroboration_score": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "rank": 3,
+      "is_proposed_explanation": false,
+      "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+      "uncertainty_warning": null
+    }
+  ],
+  "score_breakdown": [
+    {
+      "rank": 1,
+      "hypothesis_id": "hyp_user_d24800",
+      "title": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+      "origin": "user",
+      "support": 7,
+      "conflict": 0,
+      "corroboration": 2,
+      "conflict_penalty": 0,
+      "total_score": 9,
+      "is_proposed_explanation": true
+    },
+    {
+      "rank": 2,
+      "hypothesis_id": "hyp_user_f62d0a",
+      "title": "Courier Handling Failure During CryoExpress Transit",
+      "origin": "user",
+      "support": 0,
+      "conflict": 0,
+      "corroboration": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "is_proposed_explanation": false
+    },
+    {
+      "rank": 3,
+      "hypothesis_id": "hyp_user_15531b",
+      "title": "Unforeseeable Biological Idiosyncrasy in Cohort 3 Patients",
+      "origin": "user",
+      "support": 0,
+      "conflict": 0,
+      "corroboration": 0,
+      "conflict_penalty": 0,
+      "total_score": 0,
+      "is_proposed_explanation": false
+    }
+  ],
+  "proposed_explanation": {
+    "hypothesis_id": "hyp_user_d24800",
+    "case_id": "case_03_helios",
+    "title": "Deliberate Concealment of Temperature Excursion by Principal Investigator",
+    "description": "Dr. Arlo Kaufman knowingly concealed the 5.5-hour cryogenic failure of Freezer Unit 4, ordered the paper logs suppressed, and administered degraded Batch HL-902B to patients to avoid milestone delays.",
+    "origin": "user",
+    "claims": [
+      {
+        "claim_id": "clm_56a66351",
+        "text": "The suspected actor accessed the location during the incident timeframe.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_739dc466_1",
+          "evid_chk_doc_031c918c_3",
+          "evid_chk_doc_739dc466_2"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "internal_memo_coverup.txt",
+          "courier_shipping_manifest.txt",
+          "interview_dr_kaufman.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "Dr. Arlo Kaufman",
+          "Dr. Arlo Kaufman"
+        ],
+        "is_corroborated": false,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_839e4e00",
+        "text": "The unauthorized action was made possible by compromised security controls.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_c1c0293a_2",
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_031c918c_3",
+          "evid_chk_doc_739dc466_1"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "freezer_iot_telemetry_log.txt",
+          "internal_memo_coverup.txt",
+          "interview_dr_kaufman.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "2024-08-14 04",
+          "Dr. Arlo Kaufman",
+          "Dr. Arlo Kaufman"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      },
+      {
+        "claim_id": "clm_98a1c381",
+        "text": "Digital records and physical logs establish the sequence of actions.",
+        "supporting_evidence_ids": [
+          "evid_chk_doc_62efc5bd_3",
+          "evid_chk_doc_b11e006a_2",
+          "evid_chk_doc_6803f900_2",
+          "evid_chk_doc_739dc466_2"
+        ],
+        "conflicting_evidence_ids": [],
+        "contributing_documents": [
+          "sponsor_audit_findings.txt",
+          "internal_memo_coverup.txt",
+          "interview_lab_tech_priya.txt",
+          "courier_shipping_manifest.txt"
+        ],
+        "contributing_speakers": [
+          "Dr. Arlo Kaufman",
+          "Priya Sharma"
+        ],
+        "is_corroborated": true,
+        "unresolved_conflicts_count": 0
+      }
+    ],
+    "support_score": 7,
+    "conflict_score": 0,
+    "corroboration_score": 2,
+    "conflict_penalty": 0,
+    "total_score": 9,
+    "rank": 1,
+    "is_proposed_explanation": true,
+    "explanation": "Score calculation: Support (0) - Conflict (0) + Corroboration (0) - Conflict Penalty (0) = 0. Evaluated against 3 verifiable claims.",
+    "uncertainty_warning": "Notice: Top two hypotheses ('Deliberate Concealment of Temperature Excursion by Principal Investigator' and 'Courier Handling Failure During CryoExpress Transit') share an identical score of 0. Evidence is currently insufficient to establish a single proposed explanation."
+  },
+  "supporting_evidence": [
+    {
+      "evidence_id": "evid_chk_doc_b11e006a_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_b11e006a",
+      "document_name": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "chunk_id": "chk_doc_b11e006a_2",
+      "text": "To: Clinical Supply Operations Subject: Batch HL-902B clearance I have personally re-verified the cold chain records.",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "score": 0.4081,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_739dc466_1",
+      "case_id": "case_03_helios",
+      "document_id": "doc_739dc466",
+      "document_name": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_739dc466_1",
+      "text": "CRYOEXPRESS COURIER SERVICES - WAYBILL #CX-889012 Sender: Helios Pharma Clinical Research Site 03 Pickup Timestamp: 2024-08-16 14:30:00 (Delayed from morning due to missing dry ice replenishment)",
+      "speaker": null,
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "score": 0.3313,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_62efc5bd_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_62efc5bd",
+      "document_name": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "chunk_id": "chk_doc_62efc5bd_3",
+      "text": "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman. 3.",
+      "speaker": null,
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.3274,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_031c918c_3",
+      "case_id": "case_03_helios",
+      "document_id": "doc_031c918c",
+      "document_name": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "chunk_id": "chk_doc_031c918c_3",
+      "text": "[09:01 AM] JENKINS: Did any power outage affect the cold storage? [09:01 AM] KAUFMAN: There was zero temperature excursion. The backup diesel generator kicked in seamlessly during the August 14 storm. [09:02 AM] JENKINS: When were the efficacy blood draws sent to the central reference lab?",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": null,
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "score": 0.322,
+      "retrieval_method": "hybrid"
+    },
+    {
+      "evidence_id": "evid_chk_doc_739dc466_2",
+      "case_id": "case_03_helios",
+      "document_id": "doc_739dc466",
+      "document_name": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "chunk_id": "chk_doc_739dc466_2",
+      "text": "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard) Driver: Raymond Vance | Signee: Dr. Arlo Kaufman",
+      "speaker": null,
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        3,
+        4
+      ],
+      "score": 0.2866,
+      "retrieval_method": "hybrid"
+    }
+  ],
+  "conflicting_evidence": [],
+  "unresolved_questions": [
+    "Discrepancy concerning Freezer Unit: 'interview_dr_kaufman.txt' (Dr. Arlo Kaufman) states '[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.', which conflicts with 'interview_lab_tech_priya.txt' (Priya Sharma) claiming '[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.'.",
+    "Discrepancy concerning Freezer Unit: 'interview_dr_kaufman.txt' (Dr. Arlo Kaufman) states '[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.', which conflicts with 'interview_lab_tech_priya.txt' (Priya Sharma) claiming '[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.'.",
+    "Discrepancy concerning Freezer Unit: 'interview_dr_kaufman.txt' (Dr. Arlo Kaufman) states '[09:00 AM] KAUFMAN: Yes, absolutely. Freezer Unit 4 maintained strict minus 80 Celsius throughout the August testing window.', which conflicts with 'urgent_tech_email.txt' (Priya Sharma) claiming 'Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.'.",
+    "Discrepancy concerning Freezer Unit: 'interview_lab_tech_priya.txt' (Priya Sharma) states '[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.', which conflicts with 'urgent_tech_email.txt' (Priya Sharma) claiming 'Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.'.",
+    "Discrepancy concerning Freezer Unit: 'interview_lab_tech_priya.txt' (Priya Sharma) states '[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.', which conflicts with 'urgent_tech_email.txt' (Priya Sharma) claiming 'Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately per GCP protocols.'."
+  ],
+  "limitations_and_uncertainty": "LIMITATIONS & UNCERTAINTY STATEMENT:\n1. This analysis was generated by the Text Detective agentic framework based strictly on user-supplied documents.\n2. System conclusions reflect mathematical evidence scoring (Support - Conflict + Corroboration - ConflictPenalty) and do not constitute legal proof or a substitute for professional forensic determinations.\n3. Unknown timestamps and ambiguous coreferences have been preserved rather than assumed.",
+  "source_references": [
+    {
+      "ref_id": "chk_doc_739dc466_1",
+      "document": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "speaker": "N/A",
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "CRYOEXPRESS COURIER SERVICES - WAYBILL #CX-889012 Sender: Helios Pharma Clinical Research Site 03 Pickup Timestamp: 2024..."
+    },
+    {
+      "ref_id": "chk_doc_739dc466_2",
+      "document": "courier_shipping_manifest.txt",
+      "document_type": "other",
+      "speaker": "N/A",
+      "timestamp": "2024-08-16 14:30:00",
+      "sentence_indices": [
+        3,
+        4
+      ],
+      "excerpt": "Package Temperature on Receipt: -12.0 C (Non-compliant with ultra-cold standard) Driver: Raymond Vance | Signee: Dr. Arl..."
+    },
+    {
+      "ref_id": "chk_doc_c1c0293a_1",
+      "document": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "HELIOS BIOMEDICAL - CRYOGENIC FREEZER TELEMETRY (UNIT 4) 2024-08-14 01:45:00 - Temp: -80.2 C - Status: NORMAL 2024-08-14..."
+    },
+    {
+      "ref_id": "chk_doc_c1c0293a_2",
+      "document": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "speaker": "2024-08-14 04",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "2024-08-14 04:30:00 - Temp: -22.5 C - CRITICAL WARMING ALARM 2024-08-14 06:15:00 - Temp: +4.1 C - PRODUCT VIABILITY COMP..."
+    },
+    {
+      "ref_id": "chk_doc_c1c0293a_3",
+      "document": "freezer_iot_telemetry_log.txt",
+      "document_type": "log",
+      "speaker": "2024-08-14 11",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6
+      ],
+      "excerpt": "2024-08-14 11:00:00 - Temp: -78.9 C - Status: RECOVERED"
+    },
+    {
+      "ref_id": "chk_doc_b11e006a_1",
+      "document": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "CONFIDENTIAL MEMORANDUM Date: August 15, 2024 From: Dr. Arlo Kaufman"
+    },
+    {
+      "ref_id": "chk_doc_b11e006a_2",
+      "document": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "To: Clinical Supply Operations Subject: Batch HL-902B clearance I have personally re-verified the cold chain records."
+    },
+    {
+      "ref_id": "chk_doc_b11e006a_3",
+      "document": "internal_memo_coverup.txt",
+      "document_type": "email",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "August 15, 2024",
+      "sentence_indices": [
+        6,
+        7
+      ],
+      "excerpt": "All vials in Freezer 4 remained within acceptable specifications. Proceed with patient administration for Friday morning..."
+    },
+    {
+      "ref_id": "chk_doc_031c918c_1",
+      "document": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: DR. ARLO KAUFMAN Case: Helios Pharma Trial HL-902 Interviewer: Regulatory Auditor Sarah Jenkins"
+    },
+    {
+      "ref_id": "chk_doc_031c918c_2",
+      "document": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Dr. Arlo Kaufman, Principal Investigator [09:00 AM] JENKINS: Dr. Kaufman, were all Phase 2 sample vials kep..."
+    },
+    {
+      "ref_id": "chk_doc_031c918c_3",
+      "document": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[09:01 AM] JENKINS: Did any power outage affect the cold storage? [09:01 AM] KAUFMAN: There was zero temperature excursi..."
+    },
+    {
+      "ref_id": "chk_doc_031c918c_4",
+      "document": "interview_dr_kaufman.txt",
+      "document_type": "interview",
+      "speaker": "Dr. Arlo Kaufman",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "[09:02 AM] KAUFMAN: They were dispatched via CryoExpress courier on August 16 at 08:00 AM under dry ice."
+    },
+    {
+      "ref_id": "chk_doc_6803f900_1",
+      "document": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "speaker": "INTERVIEW TRANSCRIPT",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "INTERVIEW TRANSCRIPT: PRIYA SHARMA Case: Helios Pharma Trial HL-902 Interviewer: Regulatory Auditor Sarah Jenkins"
+    },
+    {
+      "ref_id": "chk_doc_6803f900_2",
+      "document": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "speaker": "Priya Sharma",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Interviewee: Priya Sharma, Senior Laboratory Technician [10:30 AM] JENKINS: Priya, tell us about the condition of Freeze..."
+    },
+    {
+      "ref_id": "chk_doc_6803f900_3",
+      "document": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "speaker": "Priya Sharma",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman? [10:31 AM] SHARMA: Yes, I sent an urgent email at 08:1..."
+    },
+    {
+      "ref_id": "chk_doc_6803f900_4",
+      "document": "interview_lab_tech_priya.txt",
+      "document_type": "interview",
+      "speaker": "Priya Sharma",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled."
+    },
+    {
+      "ref_id": "chk_doc_e3279b56_1",
+      "document": "patient_safety_adverse_event_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "August 22, 2024",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "CLINICAL SAFETY BOARD - EXPEDITED AE SUMMARY Trial: HL-902-ONC | Drug: Velocept-4 Date: August 22, 2024"
+    },
+    {
+      "ref_id": "chk_doc_e3279b56_2",
+      "document": "patient_safety_adverse_event_report.txt",
+      "document_type": "report",
+      "speaker": "N/A",
+      "timestamp": "August 22, 2024",
+      "sentence_indices": [
+        3,
+        4
+      ],
+      "excerpt": "Findings: Five patients enrolled in Cohort 3 developed severe injection-site necrosis and acute fever within 12 hours of..."
+    },
+    {
+      "ref_id": "chk_doc_62efc5bd_1",
+      "document": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "GLOBAL HEALTH REGULATORY AUDIT Helios Pharma Site 03 Inspection Report Lead Inspector: Sarah Jenkins"
+    },
+    {
+      "ref_id": "chk_doc_62efc5bd_2",
+      "document": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Violations Noted: 1. Major protocol non-compliance: Failure to report 5.5-hour cryogenic failure on August 14."
+    },
+    {
+      "ref_id": "chk_doc_62efc5bd_3",
+      "document": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "2. Intentional falsification of trial records by Principal Investigator Dr. Arlo Kaufman. 3."
+    },
+    {
+      "ref_id": "chk_doc_62efc5bd_4",
+      "document": "sponsor_audit_findings.txt",
+      "document_type": "log",
+      "speaker": "N/A",
+      "timestamp": "N/A",
+      "sentence_indices": [
+        9
+      ],
+      "excerpt": "Administering degraded clinical trial material to human research subjects."
+    },
+    {
+      "ref_id": "chk_doc_7b9e3504_1",
+      "document": "urgent_tech_email.txt",
+      "document_type": "email",
+      "speaker": "Priya Sharma",
+      "timestamp": "August 14, 2024 08:15 AM",
+      "sentence_indices": [
+        0,
+        1,
+        2
+      ],
+      "excerpt": "From: Priya Sharma <p.sharma@heliospharma.org> To: Arlo Kaufman <a.kaufman@heliospharma.org> Date: August 14, 2024 08:15..."
+    },
+    {
+      "ref_id": "chk_doc_7b9e3504_2",
+      "document": "urgent_tech_email.txt",
+      "document_type": "email",
+      "speaker": "Priya Sharma",
+      "timestamp": "August 14, 2024 08:15 AM",
+      "sentence_indices": [
+        3,
+        4,
+        5
+      ],
+      "excerpt": "Subject: CRITICAL: Unit 4 Thawing overnight - Batch HL-902B Dr. Kaufman, Freezer Unit 4 lost power at 2:10 AM and warmed..."
+    },
+    {
+      "ref_id": "chk_doc_7b9e3504_3",
+      "document": "urgent_tech_email.txt",
+      "document_type": "email",
+      "speaker": "Priya Sharma",
+      "timestamp": "August 14, 2024 08:15 AM",
+      "sentence_indices": [
+        6,
+        7,
+        8
+      ],
+      "excerpt": "The active peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials must be quarantined immediately ..."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[2024-10-12 21:45:10] AUTH_SVC: User 'bchen' logged in from 192.168.2.14 [Floor 2 Terminal] - SUCCESS
+[2024-10-12 22:05:00] CRON_SVC: Daily backup scheduler started - STATUS OK
+[2024-10-12 22:14:30] SEC_SVC: Door access event logged: Terminal Server Room B - ACCESS GRANTED
+[2024-10-12 22:18:12] AUTH_SVC: Console 2 interactive login - User: 'avance_admin' - Local terminal - SUCCESS
+[2024-10-12 22:20:45] KERNEL: USB mass storage device connected: Vendor=Kingston Product=DataTraveler 3.0 Device=/dev/sdb1
+[2024-10-12 22:25:00] DB_AUDIT: Query executed: SELECT COUNT(*) FROM customer_records;
+[2024-10-12 22:31:18] DB_AUDIT: Dump executed: pg_dump customer_records > /mnt/usb/customer_vault_export.tar.gz
+[2024-10-12 22:37:55] KERNEL: USB mass storage device disconnected: /dev/sdb1 unmounted
+[2024-10-12 22:38:05] AUTH_SVC: Console 2 interactive session closed - Logout recorded
+[2024-10-12 22:45:00] NET_MON: Outbound bandwidth check: 0 MB transferred over WAN

@@ -1,0 +1,15 @@
+{
+  "case_id": "case_02_blackwood",
+  "name": "The Blackwood Manor Art Heist",
+  "description": "Theft of the 14.5 million GBP Vermeer canvas 'The Silent Witness' from the basement vault of Blackwood Manor.",
+  "is_demo": true,
+  "created_at": "2026-10-31T21:34:53.265571",
+  "updated_at": "2026-10-31T21:34:56.113463",
+  "status": "completed",
+  "document_count": 8,
+  "entity_count": 34,
+  "event_count": 35,
+  "contradiction_count": 10,
+  "hypothesis_count": 3,
+  "single_document_warning": false
+}

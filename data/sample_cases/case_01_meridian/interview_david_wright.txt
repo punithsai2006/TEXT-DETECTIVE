@@ -1,0 +1,19 @@
+INTERVIEW TRANSCRIPT: DAVID WRIGHT
+Case: Meridian Tech Data Leak
+Date: October 13, 2024
+Interviewer: Detective Marcus Reed, Corporate Security
+Interviewee: David Wright, Subcontractor / Maintenance Technician
+
+[11:00 AM] REED: State your name and affiliation.
+[11:00 AM] WRIGHT: David Wright. I am an independent electrical contractor working on assignment for Apex Solutions at Meridian Tech.
+[11:01 AM] REED: What was your assignment on the night of October 12?
+[11:01 AM] WRIGHT: I was contracted to test circuit breakers and emergency lighting on Floor 3 and in the basement utility hallway.
+[11:02 AM] REED: What time did you arrive and leave Building 4?
+[11:02 AM] WRIGHT: I got there around 8:30 PM. I finished my electrical maintenance and left Building 4 at 10:00 PM sharp. I drove straight home.
+[11:03 AM] REED: Did you enter Server Room B?
+[11:03 AM] WRIGHT: No way. The door to Server Room B was locked and marked restricted. I didn't have the badge access for it anyway.
+[11:04 AM] REED: Did you see Bob Chen or Alice Vance during your shift?
+[11:04 AM] WRIGHT: I saw Alice at her computer on Floor 3 around 9:40 PM. And I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM when he went down to get takeout. It was sitting right there next to the coffee machine.
+[11:05 AM] REED: Did you touch Bob's lanyard or keycard?
+[11:05 AM] WRIGHT: No, I didn't touch it. I just noticed it sitting on the table.
+[11:06 AM] REED: Understood. Thank you, Mr. Wright.

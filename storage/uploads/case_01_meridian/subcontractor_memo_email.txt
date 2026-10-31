@@ -1,0 +1,13 @@
+From: Apex Solutions Management <dispatch@apexsolutions.com>
+To: Meridian Tech Facilities <facilities@meridiantech.internal>
+Date: October 11, 2024 02:00 PM
+Subject: Work Order #APX-4421 - Electrical Conduit Maintenance - Building 4
+
+Facilities Team,
+
+Please be advised that technician David Wright will be on-site at Meridian Tech Building 4 on Saturday, October 12, starting at 8:30 PM to complete breaker testing. 
+
+Mr. Wright is issued temporary Badge #7810. He is authorized strictly for public utility areas, Floor 3 lighting panels, and basement conduit raceways. He is not authorized for secure server rooms or data centers.
+
+Best regards,
+Apex Solutions Dispatch

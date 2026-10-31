@@ -1,0 +1,8 @@
+[2024-10-12 20:02:11] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED
+[2024-10-12 20:28:45] Reader: Building 4 Main Entrance - Badge #7810 [David Wright] - ENTRY RECORDED
+[2024-10-12 21:22:04] Reader: Building 4 Main Entrance - Badge #4092 [Alice Vance] - ENTRY RECORDED
+[2024-10-12 21:32:10] Reader: Building 4 Turnstile Exit - Badge #3301 [Bob Chen] - EXIT RECORDED
+[2024-10-12 22:14:30] Reader: Server Room B Door - Badge #4092 [Alice Vance] - ACCESS GRANTED
+[2024-10-12 22:21:40] Reader: Building 4 Main Entrance - Badge #3301 [Bob Chen] - ENTRY RECORDED
+[2024-10-12 22:42:15] Reader: Building 4 Turnstile Exit - Badge #7810 [David Wright] - EXIT RECORDED
+[2024-10-12 23:58:30] Reader: Building 4 Turnstile Exit - Badge #4092 [Alice Vance] - EXIT RECORDED

@@ -1,0 +1,11 @@
+INTERVIEW TRANSCRIPT: PRIYA SHARMA
+Case: Helios Pharma Trial HL-902
+Interviewer: Regulatory Auditor Sarah Jenkins
+Interviewee: Priya Sharma, Senior Laboratory Technician
+
+[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14.
+[10:30 AM] SHARMA: The backup generator failed to engage for nearly six hours. The digital display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM.
+[10:31 AM] JENKINS: Did you report this excursion to Dr. Kaufman?
+[10:31 AM] SHARMA: Yes, I sent an urgent email at 08:15 AM on August 14 and logged it in the paper deviation binder.
+[10:32 AM] JENKINS: What did Dr. Kaufman instruct you to do?
+[10:32 AM] SHARMA: He told me to discard the paper binder page and proceed with patient dosing as scheduled.

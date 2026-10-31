@@ -1,0 +1,82 @@
+{
+  "case_id": "case_02_blackwood",
+  "case_name": "The Blackwood Manor Art Heist",
+  "document_count": 8,
+  "true_entities": {
+    "persons": [
+      "Clara Sterling",
+      "Julian Vance",
+      "Marta Gomez",
+      "Thomas Reynolds",
+      "Marcus Finch",
+      "Arthur Blackwood"
+    ],
+    "organizations": [
+      "Blackwood Manor Gallery",
+      "Metropolitan Police",
+      "Apex Deliveries"
+    ],
+    "locations": [
+      "Basement Vault",
+      "Zone 4",
+      "Greenhouse",
+      "Surrey",
+      "Second-Floor Gallery"
+    ],
+    "objects": [
+      "The Silent Witness",
+      "Vault Safe Key",
+      "Black Duffel Bag",
+      "Ford Transit LK68 YTR"
+    ]
+  },
+  "planted_contradictions": [
+    {
+      "id": "c2_01",
+      "entity": "Julian Vance",
+      "topic": "Presence at desk vs basement elevator with duffel bag",
+      "doc_a": "interview_guard_julian.txt",
+      "statement_a": "I remained at the security console continuously from 7:00 PM to midnight without leaving.",
+      "doc_b": "interview_cleaner_marta.txt",
+      "statement_b": "I saw Julian walking near the basement service elevator carrying a heavy black duffel bag around 10:15 PM.",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c2_02",
+      "entity": "Motion Alarm",
+      "topic": "Alarm sounding vs never sounding",
+      "doc_a": "interview_guard_julian.txt",
+      "statement_a": "The motion alarm never sounded in the booth. The control panel showed green all night.",
+      "doc_b": "alarm_system_telemetry.txt",
+      "statement_b": "[2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 (Basement Vault Corridor) - ALARM TRIGGERED (Duration: 34s)",
+      "type": "confirmed_contradiction"
+    },
+    {
+      "id": "c2_03",
+      "entity": "Vault Key Security",
+      "topic": "Only Lord Blackwood and Clara have keys vs spare in unlocked desk drawer",
+      "doc_a": "interview_curator_clara.txt",
+      "statement_a": "No, only Lord Blackwood and I possess the vault keys. The security guard, Julian Vance, has no safe access.",
+      "doc_b": "curator_appraisal_email.txt",
+      "statement_b": "As requested, the second physical vault key was placed in the unlocked desk drawer inside the security guard station.",
+      "type": "confirmed_contradiction"
+    }
+  ],
+  "correct_hypothesis": {
+    "title": "Insider Theft by Security Guard Julian Vance",
+    "description": "Julian Vance retrieved the spare vault key from the unlocked desk drawer, unplugged camera 5, entered the basement vault at 10:15 PM, silenced the alarm, cut the Vermeer painting from its frame, and attempted to stash it in a duffel bag.",
+    "is_correct": true
+  },
+  "decoy_hypotheses": [
+    {
+      "title": "External Delivery Driver Intrusion by Apex Courier",
+      "description": "Courier Marcus Finch breached the greenhouse and entered the basement vault without guard knowledge.",
+      "is_correct": false
+    },
+    {
+      "title": "Insurance Fraud Orchestrated by Curator Clara Sterling",
+      "description": "Clara Sterling returned after midnight and removed the painting to claim the 14.5 million GBP policy.",
+      "is_correct": false
+    }
+  ]
+}
