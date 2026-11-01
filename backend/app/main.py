@@ -1,7 +1,15 @@
 import logging
+import sys
 import time
 from collections import defaultdict
 from contextlib import asynccontextmanager
+from pathlib import Path
+
+# Ensure backend directory is in sys.path so 'app' can be imported from root directory
+_backend_dir = str(Path(__file__).resolve().parent.parent)
+if _backend_dir not in sys.path:
+    sys.path.insert(0, _backend_dir)
+
 from fastapi import FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
