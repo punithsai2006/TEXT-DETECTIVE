@@ -21,25 +21,27 @@ export const App: React.FC = () => {
   return (
     <CaseProvider>
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col bg-[#FAF7EF]">
+        <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased">
           <Navbar />
-          <div className="flex-1 flex">
+          <div className="flex-1 flex overflow-hidden">
             <Sidebar />
-            <main className="flex-1 p-6 md:p-8 overflow-y-auto">
-              <Routes>
-                <Route path="/" element={<DashboardPage />} />
-                <Route path="/cases" element={<CasesPage />} />
-                <Route path="/new" element={<NewInvestigationPage />} />
-                <Route path="/documents" element={<DocumentsPage />} />
-                <Route path="/timeline" element={<TimelinePage />} />
-                <Route path="/evidence" element={<EvidencePage />} />
-                <Route path="/contradictions" element={<ContradictionsPage />} />
-                <Route path="/hypotheses" element={<HypothesesPage />} />
-                <Route path="/graph" element={<CaseGraphPage />} />
-                <Route path="/report" element={<ReportPage />} />
-                <Route path="/ask" element={<AskQuestionPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
-              </Routes>
+            <main className="flex-1 p-6 lg:p-8 overflow-y-auto bg-slate-50">
+              <div className="max-w-7xl mx-auto">
+                <Routes>
+                  <Route path="/" element={<DashboardPage />} />
+                  <Route path="/cases" element={<CasesPage />} />
+                  <Route path="/new" element={<NewInvestigationPage />} />
+                  <Route path="/documents" element={<DocumentsPage />} />
+                  <Route path="/timeline" element={<TimelinePage />} />
+                  <Route path="/evidence" element={<EvidencePage />} />
+                  <Route path="/contradictions" element={<ContradictionsPage />} />
+                  <Route path="/hypotheses" element={<HypothesesPage />} />
+                  <Route path="/graph" element={<CaseGraphPage />} />
+                  <Route path="/report" element={<ReportPage />} />
+                  <Route path="/ask" element={<AskQuestionPage />} />
+                  <Route path="/settings" element={<SettingsPage />} />
+                </Routes>
+              </div>
             </main>
           </div>
         </div>

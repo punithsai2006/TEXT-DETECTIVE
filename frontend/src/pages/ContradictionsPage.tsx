@@ -3,7 +3,7 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { ContradictionItem, ReviewStatus } from '../types';
 import { ContradictionCard } from '../components/ContradictionCard';
-import { Scale, AlertTriangle, CheckCircle, ShieldAlert, Filter } from 'lucide-react';
+import { Scale, AlertTriangle, CheckCircle, ShieldAlert, Filter, AlertOctagon } from 'lucide-react';
 
 export const ContradictionsPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
@@ -52,92 +52,98 @@ export const ContradictionsPage: React.FC = () => {
   });
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="border-b border-gray-200 pb-4">
-        <div className="text-xs uppercase font-bold tracking-widest text-[#C9962F] font-serif">
-          Cross-Document Linking Agent (Module 4)
+      <div className="border-b border-slate-200 pb-4">
+        <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
+          Module 4 • Cross-Document Linking & NLI Engine
         </div>
-        <h1 className="text-xl font-bold font-serif text-[#131A2E] mt-0.5">
+        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Contradictions & Factual Conflicts
         </h1>
-        <p className="text-xs text-gray-500 mt-0.5">
-          RoBERTa-MNLI and rule engine comparing claims across files in <strong>{activeCase?.name}</strong>.
-          Confidence values represent heuristic discrepancy severity, not probability.
+        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+          RoBERTa-MNLI and rule engine evaluating pairwise claims across files in <strong>{activeCase?.name}</strong>.
+          Confidence scores indicate heuristic discrepancy severity.
         </p>
       </div>
 
       {/* Summary KPI Badges */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="case-card p-3 rounded-lg border-l-4 border-l-red-600 flex items-center justify-between">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <div className="case-card p-4 rounded-xl border-l-4 border-l-rose-600 flex items-center justify-between shadow-sm">
           <div>
-            <div className="text-[10px] uppercase font-bold text-red-800">Confirmed Conflicts</div>
-            <div className="text-xl font-bold font-mono text-red-600 mt-0.5">{confirmedCount}</div>
+            <div className="text-[10px] uppercase font-bold text-rose-700 tracking-wider">Confirmed Conflicts</div>
+            <div className="text-2xl font-bold font-mono text-rose-600 mt-0.5">{confirmedCount}</div>
           </div>
-          <AlertTriangle className="w-6 h-6 text-red-400" aria-hidden="true" />
+          <div className="p-2 rounded-lg bg-rose-50 text-rose-600">
+            <AlertOctagon className="w-6 h-6" aria-hidden="true" />
+          </div>
         </div>
 
-        <div className="case-card p-3 rounded-lg border-l-4 border-l-amber-500 flex items-center justify-between">
+        <div className="case-card p-4 rounded-xl border-l-4 border-l-amber-500 flex items-center justify-between shadow-sm">
           <div>
-            <div className="text-[10px] uppercase font-bold text-amber-800">Possible Conflicts</div>
-            <div className="text-xl font-bold font-mono text-amber-600 mt-0.5">{possibleCount}</div>
+            <div className="text-[10px] uppercase font-bold text-amber-700 tracking-wider">Possible Conflicts</div>
+            <div className="text-2xl font-bold font-mono text-amber-600 mt-0.5">{possibleCount}</div>
           </div>
-          <Scale className="w-6 h-6 text-amber-400" aria-hidden="true" />
+          <div className="p-2 rounded-lg bg-amber-50 text-amber-600">
+            <Scale className="w-6 h-6" aria-hidden="true" />
+          </div>
         </div>
 
-        <div className="case-card p-3 rounded-lg border-l-4 border-l-emerald-600 flex items-center justify-between">
+        <div className="case-card p-4 rounded-xl border-l-4 border-l-emerald-600 flex items-center justify-between shadow-sm">
           <div>
-            <div className="text-[10px] uppercase font-bold text-emerald-800">Corroborated Agreements</div>
-            <div className="text-xl font-bold font-mono text-emerald-600 mt-0.5">{agreementCount}</div>
+            <div className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">Corroborated Agreements</div>
+            <div className="text-2xl font-bold font-mono text-emerald-600 mt-0.5">{agreementCount}</div>
           </div>
-          <CheckCircle className="w-6 h-6 text-emerald-400" aria-hidden="true" />
+          <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600">
+            <CheckCircle className="w-6 h-6" aria-hidden="true" />
+          </div>
         </div>
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-white p-3 rounded-lg border border-gray-200 space-y-2">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div className="case-card p-3.5 rounded-xl border border-slate-200/80 shadow-sm space-y-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
           {/* Conflict Type Tabs */}
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="font-semibold text-gray-600 text-[11px] mr-1 flex items-center">
-              <Filter className="w-3 h-3 mr-1 text-[#C9962F]" /> Discrepancy Type:
+            <span className="font-semibold text-slate-500 text-[11px] mr-1 flex items-center">
+              <Filter className="w-3.5 h-3.5 mr-1 text-blue-600" /> Discrepancy Type:
             </span>
             <button
               onClick={() => setFilter('all')}
-              className={`px-2.5 py-1 rounded text-xs transition ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
                 filter === 'all'
-                  ? 'bg-[#131A2E] text-white font-bold'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               All ({contradictions.length})
             </button>
             <button
               onClick={() => setFilter('confirmed')}
-              className={`px-2.5 py-1 rounded text-xs transition ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
                 filter === 'confirmed'
-                  ? 'bg-red-700 text-white font-bold'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Confirmed ({confirmedCount})
             </button>
             <button
               onClick={() => setFilter('possible')}
-              className={`px-2.5 py-1 rounded text-xs transition ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
                 filter === 'possible'
-                  ? 'bg-amber-600 text-white font-bold'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-amber-600 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Possible ({possibleCount})
             </button>
             <button
               onClick={() => setFilter('agreement')}
-              className={`px-2.5 py-1 rounded text-xs transition ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
                 filter === 'agreement'
-                  ? 'bg-emerald-700 text-white font-bold'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Agreements ({agreementCount})
@@ -145,18 +151,18 @@ export const ContradictionsPage: React.FC = () => {
           </div>
 
           {/* Review Status Filter */}
-          <div className="flex items-center gap-1.5 text-[11px]">
-            <span className="text-gray-500 font-medium">Review Status:</span>
+          <div className="flex items-center gap-2 text-[11px]">
+            <span className="text-slate-500 font-medium">Review Status:</span>
             <select
               value={reviewFilter}
               onChange={(e) => setReviewFilter(e.target.value as any)}
-              className="px-2 py-1 bg-gray-50 border border-gray-300 rounded text-xs font-mono text-[#131A2E]"
+              className="px-2.5 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm cursor-pointer"
               aria-label="Filter contradictions by human review status"
             >
-              <option value="all">All Statuses</option>
+              <option value="all">All Review Statuses</option>
               <option value="pending_review">Pending Review</option>
-              <option value="confirmed">Confirmed</option>
-              <option value="rejected">Rejected</option>
+              <option value="confirmed">Confirmed Valid</option>
+              <option value="rejected">Rejected / Dismissed</option>
               <option value="needs_further_investigation">Needs Investigation</option>
             </select>
           </div>
@@ -165,14 +171,14 @@ export const ContradictionsPage: React.FC = () => {
 
       {/* Contradictions List */}
       {loading ? (
-        <div className="case-card p-8 text-center text-xs text-gray-500 font-mono">
+        <div className="case-card p-12 text-center text-xs text-slate-500 font-mono rounded-xl">
           Evaluating cross-document statement pairs...
         </div>
       ) : filtered.length === 0 ? (
-        <div className="case-card p-8 text-center rounded-lg">
-          <ShieldAlert className="w-8 h-8 text-gray-300 mx-auto mb-2" />
-          <div className="font-bold text-sm text-[#131A2E]">No matching items</div>
-          <p className="text-xs text-gray-500 mt-1">
+        <div className="case-card p-12 text-center rounded-2xl">
+          <ShieldAlert className="w-10 h-10 text-slate-300 mx-auto mb-2" />
+          <div className="font-bold text-sm text-slate-800">No matching items</div>
+          <p className="text-xs text-slate-500 mt-1">
             No contradictions match the selected filter criteria.
           </p>
         </div>

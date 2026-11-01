@@ -11,6 +11,8 @@ import {
   FileSpreadsheet,
   RefreshCw,
   Award,
+  ShieldCheck,
+  Download,
 } from 'lucide-react';
 
 export const SettingsPage: React.FC = () => {
@@ -53,68 +55,68 @@ export const SettingsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="border-b border-gray-200 pb-4">
-        <div className="text-xs uppercase font-bold tracking-widest text-[#C9962F] font-serif">
-          Configuration & Research Benchmarks
+      <div className="border-b border-slate-200 pb-4">
+        <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
+          Configuration & Research Benchmarks (Slide 11)
         </div>
-        <h1 className="text-xl font-bold font-serif text-[#131A2E] mt-0.5">
+        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Settings & Evaluation Framework
         </h1>
-        <p className="text-xs text-gray-500 mt-0.5">
+        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
           LLM provider runtime status, model parameters, and reproducible accuracy evaluation.
         </p>
       </div>
 
       {/* Provider Status Card */}
-      <div className="case-card p-5 rounded-lg space-y-4">
-        <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
-          <Cpu className="w-4 h-4 text-[#C9962F]" />
-          <h3 className="font-serif font-bold text-sm text-[#131A2E]">
+      <div className="case-card p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-slate-200/80">
+        <div className="flex items-center space-x-2 pb-2.5 border-b border-slate-100">
+          <Cpu className="w-4 h-4 text-blue-600" />
+          <h3 className="font-bold text-sm text-slate-900">
             Active LLM Runtime Provider
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-          <div className="bg-[#FAF8F3] p-3 rounded">
-            <span className="text-gray-500 text-[11px]">Provider</span>
-            <div className="text-sm font-bold text-[#131A2E] font-mono mt-0.5 uppercase">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+            <span className="text-slate-500 text-[11px] font-medium">Provider</span>
+            <div className="text-sm font-bold text-slate-900 font-mono mt-1 uppercase">
               {health?.llm_provider || 'MOCK'}
             </div>
-            <div className="text-[10px] text-gray-400 mt-1">Configured in backend .env</div>
+            <div className="text-[10px] text-slate-400 mt-1">Configured in backend .env</div>
           </div>
 
-          <div className="bg-[#FAF8F3] p-3 rounded">
-            <span className="text-gray-500 text-[11px]">Model Architecture</span>
-            <div className="text-sm font-bold text-[#131A2E] font-mono mt-0.5">
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+            <span className="text-slate-500 text-[11px] font-medium">Model Architecture</span>
+            <div className="text-sm font-bold text-slate-900 font-mono mt-1">
               {health?.llm_model || 'mock-investigator-v1'}
             </div>
-            <div className="text-[10px] text-gray-400 mt-1">
+            <div className="text-[10px] text-slate-400 mt-1">
               {health?.is_mock ? 'Offline Deterministic Engine' : 'Live Cloud API'}
             </div>
           </div>
 
-          <div className="bg-[#FAF8F3] p-3 rounded">
-            <span className="text-gray-500 text-[11px]">Demo Mode</span>
-            <div className="text-sm font-bold text-emerald-700 font-mono mt-0.5">
-              {health?.demo_mode ? 'ENABLED (Self-Contained)' : 'PRODUCTION'}
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60">
+            <span className="text-slate-500 text-[11px] font-medium">Environment Mode</span>
+            <div className="text-sm font-bold text-emerald-700 font-mono mt-1">
+              {health?.demo_mode ? 'BENCHMARK (Self-Contained)' : 'PRODUCTION'}
             </div>
-            <div className="text-[10px] text-gray-400 mt-1">Synthetic benchmarks isolated</div>
+            <div className="text-[10px] text-slate-400 mt-1">Synthetic benchmarks isolated</div>
           </div>
         </div>
 
-        <div className="text-[11px] text-gray-500 bg-gray-50 p-2.5 rounded border border-gray-200">
-          To switch providers, update <code>backend/.env</code> with <code>LLM_PROVIDER=anthropic</code> or <code>LLM_PROVIDER=openai</code> along with your API key. Offline testing requires zero API credentials.
+        <div className="text-[11px] text-slate-600 bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+          To switch providers, update <code>backend/.env</code> with <code>LLM_PROVIDER=groq</code> or <code>LLM_PROVIDER=openai</code> along with your API key. Offline testing requires zero API credentials.
         </div>
       </div>
 
       {/* Automated Benchmark Runner */}
-      <div className="case-card p-5 rounded-lg space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-gray-100">
+      <div className="case-card p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-slate-200/80">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 flex-wrap gap-2">
           <div className="flex items-center space-x-2">
-            <BarChart3 className="w-4 h-4 text-[#C9962F]" />
-            <h3 className="font-serif font-bold text-sm text-[#131A2E]">
+            <BarChart3 className="w-4 h-4 text-blue-600" />
+            <h3 className="font-bold text-sm text-slate-900">
               Reproducible Evaluation Harness (Slide 11)
             </h3>
           </div>
@@ -122,7 +124,7 @@ export const SettingsPage: React.FC = () => {
           <button
             onClick={runEvaluation}
             disabled={evaluating}
-            className="flex items-center space-x-1.5 px-3.5 py-1.5 bg-[#131A2E] text-white text-xs font-bold rounded hover:bg-[#1D2744] transition disabled:opacity-50"
+            className="flex items-center space-x-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl transition disabled:opacity-50 shadow-sm"
           >
             {evaluating ? (
               <>
@@ -142,59 +144,59 @@ export const SettingsPage: React.FC = () => {
         {benchmarkData ? (
           <div className="space-y-4 text-xs">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="bg-[#FAF8F3] p-2.5 rounded border border-gray-200">
-                <span className="text-[10px] text-gray-500 uppercase font-bold">Evaluated Cases</span>
-                <div className="text-xl font-bold font-mono text-[#131A2E] mt-0.5">
+              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                <span className="text-[10px] text-slate-500 uppercase font-bold">Evaluated Cases</span>
+                <div className="text-xl font-bold font-mono text-slate-900 mt-0.5">
                   {benchmarkData.total_cases_evaluated}
                 </div>
               </div>
 
-              <div className="bg-[#FAF8F3] p-2.5 rounded border border-gray-200">
-                <span className="text-[10px] text-gray-500 uppercase font-bold">Total Documents</span>
-                <div className="text-xl font-bold font-mono text-[#131A2E] mt-0.5">
+              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                <span className="text-[10px] text-slate-500 uppercase font-bold">Total Documents</span>
+                <div className="text-xl font-bold font-mono text-slate-900 mt-0.5">
                   {benchmarkData.total_documents}
                 </div>
               </div>
 
-              <div className="bg-[#FAF8F3] p-2.5 rounded border border-emerald-300 bg-emerald-50/50">
-                <span className="text-[10px] text-emerald-800 uppercase font-bold">Hypothesis Accuracy</span>
-                <div className="text-xl font-bold font-mono text-emerald-700 mt-0.5">
+              <div className="bg-emerald-50/70 p-3 rounded-xl border border-emerald-200/80">
+                <span className="text-[10px] text-emerald-800 uppercase font-bold">Hypothesis Top-1 Accuracy</span>
+                <div className="text-xl font-bold font-mono text-emerald-600 mt-0.5">
                   {benchmarkData.hypothesis_accuracy_top1_percent}%
                 </div>
               </div>
 
-              <div className="bg-[#FAF8F3] p-2.5 rounded border border-gray-200">
-                <span className="text-[10px] text-gray-500 uppercase font-bold">Held-Out Test Case</span>
-                <div className="text-xl font-bold font-mono text-purple-700 mt-0.5">
+              <div className="bg-purple-50/70 p-3 rounded-xl border border-purple-200/80">
+                <span className="text-[10px] text-purple-800 uppercase font-bold">Held-Out Test Case</span>
+                <div className="text-base font-bold font-mono text-purple-700 mt-1">
                   Case 03 (Helios)
                 </div>
               </div>
             </div>
 
             {/* Breakdown table */}
-            <div className="overflow-x-auto border border-gray-200 rounded">
-              <table className="w-full text-left font-serif">
-                <thead className="bg-[#FAF8F3] text-[10px] font-mono uppercase text-gray-600 border-b">
+            <div className="overflow-x-auto border border-slate-200 rounded-xl">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 text-[10px] font-mono uppercase text-slate-600 border-b border-slate-200">
                   <tr>
-                    <th className="p-2">Case ID</th>
-                    <th className="p-2">Case Name</th>
-                    <th className="p-2">Held-Out?</th>
-                    <th className="p-2 text-right">Entity F1</th>
-                    <th className="p-2 text-right">Timeline Acc</th>
-                    <th className="p-2 text-right">Retrieval MRR</th>
-                    <th className="p-2 text-right">Top Hyp Rank</th>
+                    <th className="p-2.5">Case ID</th>
+                    <th className="p-2.5">Case Name</th>
+                    <th className="p-2.5">Held-Out?</th>
+                    <th className="p-2.5 text-right">Entity F1</th>
+                    <th className="p-2.5 text-right">Timeline Acc</th>
+                    <th className="p-2.5 text-right">Retrieval MRR</th>
+                    <th className="p-2.5 text-right">Top Hyp Rank</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 text-xs">
+                <tbody className="divide-y divide-slate-100">
                   {benchmarkData.case_results?.map((r: any, idx: number) => (
-                    <tr key={idx} className="hover:bg-gray-50">
-                      <td className="p-2 font-mono text-[11px] text-gray-500">{r.case_id}</td>
-                      <td className="p-2 font-medium text-[#131A2E]">{r.case_name}</td>
-                      <td className="p-2 text-gray-600">{r.is_held_out ? 'Yes (Held-Out)' : 'No'}</td>
-                      <td className="p-2 text-right font-mono">{r.entity_metrics?.f1?.toFixed(2)}</td>
-                      <td className="p-2 text-right font-mono">{(r.timeline_order_accuracy * 100).toFixed(1)}%</td>
-                      <td className="p-2 text-right font-mono">{r.retrieval_metrics?.mrr?.toFixed(2)}</td>
-                      <td className="p-2 text-right font-bold text-emerald-700">
+                    <tr key={idx} className="hover:bg-slate-50">
+                      <td className="p-2.5 font-mono text-[11px] text-slate-500">{r.case_id}</td>
+                      <td className="p-2.5 font-medium text-slate-900">{r.case_name}</td>
+                      <td className="p-2.5 text-slate-600">{r.is_held_out ? 'Yes (Held-Out)' : 'No'}</td>
+                      <td className="p-2.5 text-right font-mono text-slate-700">{r.entity_metrics?.f1?.toFixed(2)}</td>
+                      <td className="p-2.5 text-right font-mono text-slate-700">{(r.timeline_order_accuracy * 100).toFixed(1)}%</td>
+                      <td className="p-2.5 text-right font-mono text-slate-700">{r.retrieval_metrics?.mrr?.toFixed(2)}</td>
+                      <td className="p-2.5 text-right font-bold text-emerald-600">
                         {r.hypothesis_top1_correct ? 'Rank #1 (PASSED)' : 'FAILED'}
                       </td>
                     </tr>
@@ -204,44 +206,47 @@ export const SettingsPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="p-6 text-center text-gray-400 text-xs">
+          <div className="p-8 text-center text-slate-400 text-xs">
             No benchmark report currently loaded. Click "Execute Benchmark Script" to run evaluation.
           </div>
         )}
       </div>
 
       {/* Human Evaluation Template Card */}
-      <div className="case-card p-5 rounded-lg flex items-center justify-between">
+      <div className="case-card p-5 rounded-2xl flex items-center justify-between shadow-sm border border-slate-200/80 flex-wrap gap-3">
         <div>
-          <div className="flex items-center space-x-2 text-xs font-bold text-gray-800 font-serif">
-            <FileSpreadsheet className="w-4 h-4 text-[#C9962F]" />
+          <div className="flex items-center space-x-2 text-xs font-bold text-slate-900">
+            <FileSpreadsheet className="w-4 h-4 text-blue-600" />
             <span>Human Evaluation Protocol (1–5 Clarity & Traceability)</span>
           </div>
-          <p className="text-xs text-gray-500 mt-1 max-w-md">
-            Evaluation form template for human analysts to rate report readability and citation validity.
+          <p className="text-xs text-slate-500 mt-1 max-w-md">
+            Standardized evaluation form for human investigators to rate report readability and citation validity.
           </p>
         </div>
 
         <a
           href="/docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv"
           download
-          className="px-3 py-1.5 border border-gray-300 rounded text-xs font-medium text-gray-700 hover:bg-gray-50 transition"
+          className="flex items-center space-x-1.5 px-3.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm"
         >
-          Download CSV Form
+          <Download className="w-3.5 h-3.5" />
+          <span>Download CSV Form</span>
         </a>
       </div>
 
       {/* Authorship & Academic Identity */}
-      <div className="case-card p-5 rounded-lg border-t-4 border-t-[#C9962F] text-xs space-y-2">
-        <h4 className="font-serif font-bold text-[#131A2E] uppercase tracking-wide">
+      <div className="case-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-blue-600 text-xs space-y-2 shadow-sm border-slate-200/80">
+        <h4 className="font-bold text-slate-900 uppercase tracking-wide">
           Text Detective Project Attribution
         </h4>
-        <p className="text-gray-600 leading-relaxed font-serif">
+        <p className="text-slate-600 leading-relaxed">
           Presented at CSE Research Showcase: <em>Text Detective: An Agentic Text Analytics Framework for Evidence-Based Investigation</em>.
         </p>
-        <div className="pt-2 border-t border-gray-100 flex items-center space-x-6 text-[11px] text-gray-500 font-mono">
+        <div className="pt-2.5 border-t border-slate-100 flex items-center flex-wrap gap-4 text-[11px] text-slate-500 font-mono">
           <span>Makka Lokesh (AM.SC.U4CSE24233)</span>
+          <span>•</span>
           <span>Punith Sai Nallapaneni (AM.SC.U4CSE24337)</span>
+          <span>•</span>
           <span>Vamsika Kilari (AM.SC.U4CSE24227)</span>
         </div>
       </div>

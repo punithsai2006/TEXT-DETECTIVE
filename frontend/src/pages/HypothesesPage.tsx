@@ -3,7 +3,7 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { Hypothesis } from '../types';
 import { HypothesisCard } from '../components/HypothesisCard';
-import { BrainCircuit, PlusCircle, RefreshCw, AlertCircle, Award } from 'lucide-react';
+import { BrainCircuit, PlusCircle, RefreshCw, AlertCircle, Award, Calculator, Info } from 'lucide-react';
 
 export const HypothesesPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
@@ -52,69 +52,89 @@ export const HypothesesPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="flex items-center justify-between flex-wrap gap-4 border-b border-gray-200 pb-4">
+      <div className="flex items-center justify-between flex-wrap gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div className="text-xs uppercase font-bold tracking-widest text-[#C9962F] font-serif">
-            Evidence-Based Hypothesis Ranking (Slide 18)
+          <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
+            Module 5 • Hypothesis Scoring & Ranking (Slide 18)
           </div>
-          <h1 className="text-xl font-bold font-serif text-[#131A2E] mt-0.5">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
             Candidate Hypotheses & Explanations
           </h1>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
             Comparing competing explanations against retrieved evidence for <strong>{activeCase?.name}</strong>.
           </p>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2.5">
           <button
             onClick={handleRescore}
             disabled={rescoring}
-            className="flex items-center space-x-1.5 px-3 py-1.5 border border-gray-300 rounded text-xs font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+            className="flex items-center space-x-1.5 px-3.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm disabled:opacity-50"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${rescoring ? 'animate-spin' : ''}`} />
-            <span>Rescore Hypotheses</span>
+            <span>Rescore All</span>
           </button>
 
           <button
             onClick={() => setShowAddModal(true)}
-            className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded bg-[#C9962F] text-[#131A2E] text-xs font-bold hover:bg-[#E0B354] transition shadow"
+            className="flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-xs font-semibold transition shadow-sm"
           >
-            <PlusCircle className="w-4 h-4" />
-            <span>Add Candidate Hypothesis</span>
+            <PlusCircle className="w-3.5 h-3.5" />
+            <span>Add Candidate</span>
           </button>
         </div>
       </div>
 
-      {/* Slide 18 Scoring Formula Banner */}
-      <div className="case-card p-4 rounded-lg bg-[#FAF8F3] border border-[#C9962F]/40 text-xs">
-        <div className="flex items-center justify-between pb-1.5 border-b border-gray-200 mb-2">
-          <span className="font-serif font-bold text-[#131A2E] uppercase tracking-wide">
-            Exact Scoring Algorithm (Slide 18):
-          </span>
-          <span className="font-mono text-[#C9962F] font-bold">
+      {/* Slide 18 Scoring Formula Card */}
+      <div className="case-card p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm text-xs space-y-3">
+        <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 flex-wrap gap-2">
+          <div className="flex items-center space-x-2">
+            <div className="p-1.5 rounded-md bg-blue-50 text-blue-600">
+              <Calculator className="w-4 h-4" />
+            </div>
+            <span className="font-bold text-slate-900 uppercase tracking-wide text-xs">
+              Hypothesis Scoring Formula (Slide 18)
+            </span>
+          </div>
+          <span className="font-mono text-blue-700 font-bold bg-blue-50 px-3 py-1 rounded-full border border-blue-200 text-xs">
             Score(H) = Support - Conflict + Corroboration - ConflictPenalty
           </span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[11px] text-gray-600">
-          <div><strong>Support:</strong> Count of evidence chunks agreeing with hypothesis claims.</div>
-          <div><strong>Conflict:</strong> Count of evidence chunks disagreeing with claims.</div>
-          <div><strong>Corroboration:</strong> +1 bonus per claim supported by 2+ documents & 2+ authors.</div>
-          <div><strong>Penalty:</strong> -1 subtracted for each unresolved contradiction.</div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 text-[11px]">
+          <div className="bg-emerald-50/70 p-2.5 rounded-xl border border-emerald-200/60">
+            <strong className="text-emerald-800 block mb-0.5">Support (+)</strong>
+            <span className="text-slate-600">Number of evidence chunks explicitly agreeing with hypothesis claims.</span>
+          </div>
+          <div className="bg-rose-50/70 p-2.5 rounded-xl border border-rose-200/60">
+            <strong className="text-rose-800 block mb-0.5">Conflict (-)</strong>
+            <span className="text-slate-600">Number of evidence chunks directly contradicting hypothesis claims.</span>
+          </div>
+          <div className="bg-amber-50/70 p-2.5 rounded-xl border border-amber-200/60">
+            <strong className="text-amber-800 block mb-0.5">Corroboration (+)</strong>
+            <span className="text-slate-600">+1 multi-source bonus per claim supported by 2+ distinct files and authors.</span>
+          </div>
+          <div className="bg-purple-50/70 p-2.5 rounded-xl border border-purple-200/60">
+            <strong className="text-purple-800 block mb-0.5">Conflict Penalty (-)</strong>
+            <span className="text-slate-600">-1 subtracted for each unresolved cross-document contradiction.</span>
+          </div>
         </div>
-        <div className="mt-2 text-[10px] text-gray-500 italic border-t border-gray-200/60 pt-1.5">
-          Forensic Guidance: The hypothesis score is an auditable mathematical ranking heuristic. It is not a probability of truth or legal finding.
+
+        <div className="text-[10px] text-slate-400 italic pt-2 border-t border-slate-100 flex items-center gap-1.5">
+          <Info className="w-3 h-3 text-slate-400 shrink-0" />
+          <span>Forensic Ranking Heuristic: Score(H) is an auditable comparative metric for ranking candidate explanations. It does not represent absolute probability or formal legal culpability.</span>
         </div>
       </div>
 
       {/* Hypotheses List */}
       {hypotheses.length === 0 ? (
-        <div className="case-card p-12 text-center rounded-lg text-gray-500 text-xs">
-          <BrainCircuit className="w-12 h-12 text-gray-300 mx-auto mb-2" />
-          <h3 className="text-sm font-bold text-gray-700">No Hypotheses Evaluated Yet</h3>
-          <p className="text-xs text-gray-500 mt-1">
-            Run the pipeline or click "Add Candidate Hypothesis" to evaluate competing theories.
+        <div className="case-card p-12 text-center rounded-2xl text-slate-500 text-xs">
+          <BrainCircuit className="w-12 h-12 text-slate-300 mx-auto mb-2" />
+          <h3 className="text-base font-bold text-slate-800">No Hypotheses Evaluated Yet</h3>
+          <p className="text-xs text-slate-500 mt-1">
+            Run the pipeline or click "Add Candidate" to evaluate competing theories against evidence.
           </p>
         </div>
       ) : (
@@ -127,23 +147,23 @@ export const HypothesesPage: React.FC = () => {
 
       {/* Add Custom Hypothesis Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-2xl border border-[#C9962F]">
-            <div className="flex items-center justify-between pb-3 border-b border-gray-200">
-              <h3 className="font-serif font-bold text-base text-[#131A2E]">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h3 className="font-bold text-base text-slate-900">
                 Add Candidate Hypothesis
               </h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-lg font-bold"
+                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition"
               >
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleAddHypothesis} className="mt-4 space-y-3.5 text-xs">
+            <form onSubmit={handleAddHypothesis} className="mt-4 space-y-4 text-xs">
               <div>
-                <label className="block font-semibold text-gray-700 mb-1">
+                <label className="block font-semibold text-slate-700 mb-1.5">
                   Hypothesis Title *
                 </label>
                 <input
@@ -152,36 +172,36 @@ export const HypothesesPage: React.FC = () => {
                   placeholder="e.g. Subcontractor USB Exfiltration"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded focus:border-[#C9962F] focus:outline-none"
+                  className="w-full p-2.5 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-semibold text-gray-700 mb-1">
+                <label className="block font-semibold text-slate-700 mb-1.5">
                   Detailed Explanation / Mechanism *
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Describe how the event happened, who was involved, and what actions were taken..."
+                  placeholder="Describe how the incident transpired, who was involved, and what evidence supports or challenges this..."
                   value={desc}
                   onChange={(e) => setDesc(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded focus:border-[#C9962F] focus:outline-none"
+                  className="w-full p-2.5 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none leading-relaxed"
                 />
               </div>
 
-              <div className="pt-3 border-t border-gray-100 flex items-center justify-end space-x-2">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded"
+                  className="px-3.5 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={!title.trim() || !desc.trim()}
-                  className="px-4 py-1.5 bg-[#C9962F] text-[#131A2E] font-bold rounded hover:bg-[#E0B354] transition disabled:opacity-50"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition disabled:opacity-50 shadow-sm"
                 >
                   Score Against Evidence
                 </button>

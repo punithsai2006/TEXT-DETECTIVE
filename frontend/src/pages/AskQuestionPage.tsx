@@ -3,7 +3,7 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { AskQuestionResponse } from '../types';
 import { EvidenceCard } from '../components/EvidenceCard';
-import { HelpCircle, Send, Sparkles, AlertCircle, ShieldCheck, FileText } from 'lucide-react';
+import { HelpCircle, Send, Sparkles, AlertCircle, ShieldCheck, FileText, Cpu } from 'lucide-react';
 
 export const AskQuestionPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
@@ -35,42 +35,42 @@ export const AskQuestionPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
-      <div className="border-b border-gray-200 pb-4">
-        <div className="text-xs uppercase font-bold tracking-widest text-[#C9962F] font-serif">
-          Evidence-Grounded Inquiry
+      <div className="border-b border-slate-200 pb-4">
+        <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
+          Evidence-Grounded AI Assistant
         </div>
-        <h1 className="text-xl font-bold font-serif text-[#131A2E] mt-0.5">
+        <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Ask an Investigative Question
         </h1>
-        <p className="text-xs text-gray-500 mt-0.5">
-          Queries verified evidence in case <strong>{activeCase?.name}</strong>. Never hallucinates citations or unverified facts.
+        <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+          Queries verified evidence in case <strong>{activeCase?.name}</strong>. Strictly grounded in retrieved case chunks.
         </p>
       </div>
 
       {error && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded text-xs flex items-center">
+        <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs flex items-center shadow-sm">
           <AlertCircle className="w-4 h-4 mr-2 shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {/* Question Form */}
-      <div className="case-card p-5 rounded-lg space-y-3">
-        <form onSubmit={handleAsk} className="flex gap-2">
+      <div className="case-card p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-slate-200/80">
+        <form onSubmit={handleAsk} className="flex flex-col sm:flex-row gap-2.5">
           <input
             type="text"
             required
-            placeholder="Type your investigative question..."
+            placeholder="Type your investigative question (e.g. keycard movements, timeline alibis, timestamps)..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            className="flex-1 p-2.5 text-xs border border-gray-300 rounded-lg focus:border-[#C9962F] focus:outline-none"
+            className="flex-1 p-3 text-xs sm:text-sm border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none shadow-sm"
           />
           <button
             type="submit"
             disabled={loading || !question.trim()}
-            className="px-5 py-2.5 bg-[#C9962F] text-[#131A2E] text-xs font-bold rounded-lg hover:bg-[#E0B354] transition shadow flex items-center space-x-1.5 disabled:opacity-50"
+            className="px-5 py-3 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-xs font-semibold rounded-xl transition shadow-sm flex items-center justify-center space-x-1.5 disabled:opacity-50 shrink-0"
           >
             <Send className="w-3.5 h-3.5" />
             <span>{loading ? 'Consulting Dossier...' : 'Ask Question'}</span>
@@ -78,16 +78,16 @@ export const AskQuestionPage: React.FC = () => {
         </form>
 
         {/* Quick Question Chips */}
-        <div className="flex items-center space-x-1.5 flex-wrap gap-1 text-[11px] text-gray-500">
-          <span className="font-semibold text-gray-700 flex items-center">
-            <Sparkles className="w-3 h-3 text-[#C9962F] mr-1" /> Suggestions:
+        <div className="flex items-center space-x-1.5 flex-wrap gap-1.5 text-[11px] text-slate-500 pt-1">
+          <span className="font-semibold text-slate-700 flex items-center mr-1">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600 mr-1" /> Suggestions:
           </span>
           {sampleQuestions.map((q, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setQuestion(q)}
-              className="px-2 py-0.5 rounded bg-gray-100 hover:bg-[#F4F0E6] text-gray-700 transition"
+              className="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 transition border border-slate-200/60"
             >
               {q}
             </button>
@@ -99,24 +99,25 @@ export const AskQuestionPage: React.FC = () => {
       {response && (
         <div className="space-y-4">
           {/* Answer Card */}
-          <div className="case-card p-5 rounded-lg border-l-4 border-l-[#C9962F] space-y-2">
-            <div className="flex items-center justify-between pb-2 border-b border-gray-100">
-              <div className="flex items-center space-x-2 text-xs font-bold font-serif uppercase tracking-wider text-[#131A2E]">
-                <ShieldCheck className="w-4 h-4 text-[#C9962F]" />
+          <div className="case-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-blue-600 space-y-3 shadow-sm">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 flex-wrap gap-2">
+              <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-900">
+                <ShieldCheck className="w-4 h-4 text-blue-600" />
                 <span>Verified Evidence Synthesis</span>
               </div>
-              <span className="text-[10px] text-gray-400 font-mono">
-                Model: {response.model_used} {response.is_mock ? '(Mock Provider)' : ''}
+              <span className="text-[10px] text-slate-500 font-mono bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                Model: {response.model_used} {response.is_mock ? '(Mock Offline)' : ''}
               </span>
             </div>
 
-            <p className="text-xs text-gray-800 leading-relaxed font-serif pt-1">
+            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed pt-1">
               {response.answer}
             </p>
 
             {response.uncertainty_note && (
-              <div className="text-[11px] text-gray-500 italic pt-2 border-t border-gray-100">
-                Notice: {response.uncertainty_note}
+              <div className="text-[11px] text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200/60 flex items-center gap-1.5 mt-2">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                <span>Notice: {response.uncertainty_note}</span>
               </div>
             )}
           </div>
@@ -124,7 +125,7 @@ export const AskQuestionPage: React.FC = () => {
           {/* Supporting Evidence Chunks */}
           {response.evidence.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-700 font-mono">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 px-1">
                 Direct Source Evidence ({response.evidence.length} passages retrieved)
               </h3>
               <div className="space-y-3">
