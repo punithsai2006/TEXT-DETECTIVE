@@ -69,7 +69,7 @@ export const ReportPage: React.FC = () => {
       <div className="flex items-center justify-between flex-wrap gap-4 border-b border-slate-200 pb-4">
         <div>
           <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
-            Module 6 • Traceable Forensic Investigation Dossier
+            Traceable Forensic Dossier
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
             Executive Investigation Report

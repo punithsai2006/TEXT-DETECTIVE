@@ -56,7 +56,7 @@ export const ContradictionsPage: React.FC = () => {
       {/* Header */}
       <div className="border-b border-slate-200 pb-4">
         <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
-          Module 4 • Cross-Document Linking & NLI Engine
+          Cross-Document Discrepancy Engine
         </div>
         <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Contradictions & Factual Conflicts

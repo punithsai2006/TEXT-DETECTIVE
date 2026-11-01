@@ -49,7 +49,7 @@ export const EvidencePage: React.FC = () => {
       {/* Header */}
       <div className="border-b border-slate-200 pb-4">
         <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
-          Module 3 • Hybrid Evidence Indexing & Vector Search
+          Hybrid Vector & Keyword Search
         </div>
         <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Semantic Evidence Search

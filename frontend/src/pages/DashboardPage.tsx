@@ -59,12 +59,12 @@ export const DashboardPage: React.FC = () => {
   };
 
   const modules = [
-    { num: 'M1', title: 'Ingestion & Parsing', desc: `${activeCase?.document_count || 0} Docs Loaded`, link: '/documents', icon: FileText, done: (activeCase?.document_count || 0) > 0 },
-    { num: 'M2', title: 'Timeline Sequence', desc: `${activeCase?.event_count || 0} Events Ordered`, link: '/timeline', icon: Clock, done: (activeCase?.event_count || 0) > 0 },
-    { num: 'M3', title: 'Hybrid RAG Index', desc: 'Dense + BM25 Vector', link: '/evidence', icon: Search, done: (activeCase?.document_count || 0) > 0 },
-    { num: 'M4', title: 'Cross-Doc NLI Engine', desc: `${activeCase?.contradiction_count || 0} Conflicts Found`, link: '/contradictions', icon: Scale, done: (activeCase?.contradiction_count || 0) > 0 },
-    { num: 'M5', title: 'Hypothesis Scorer', desc: `${activeCase?.hypothesis_count || 0} Explanations Ranked`, link: '/hypotheses', icon: BrainCircuit, done: (activeCase?.hypothesis_count || 0) > 0 },
-    { num: 'M6', title: 'Investigation Dossier', desc: 'Traceable Audit Report', link: '/report', icon: FileCheck2, done: activeCase?.status === 'completed' },
+    { num: '01', title: 'Document Ingestion', desc: `${activeCase?.document_count || 0} Docs Loaded`, link: '/documents', icon: FileText, done: (activeCase?.document_count || 0) > 0 },
+    { num: '02', title: 'Timeline Sequence', desc: `${activeCase?.event_count || 0} Events Ordered`, link: '/timeline', icon: Clock, done: (activeCase?.event_count || 0) > 0 },
+    { num: '03', title: 'Hybrid RAG Index', desc: 'Dense + BM25 Vector', link: '/evidence', icon: Search, done: (activeCase?.document_count || 0) > 0 },
+    { num: '04', title: 'Contradiction Engine', desc: `${activeCase?.contradiction_count || 0} Conflicts Found`, link: '/contradictions', icon: Scale, done: (activeCase?.contradiction_count || 0) > 0 },
+    { num: '05', title: 'Hypothesis Scorer', desc: `${activeCase?.hypothesis_count || 0} Theories Ranked`, link: '/hypotheses', icon: BrainCircuit, done: (activeCase?.hypothesis_count || 0) > 0 },
+    { num: '06', title: 'Investigation Dossier', desc: 'Traceable Audit Report', link: '/report', icon: FileCheck2, done: activeCase?.status === 'completed' },
   ];
 
   return (
@@ -83,7 +83,7 @@ export const DashboardPage: React.FC = () => {
           <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
             Multi-document reasoning architecture designed for complex incident investigations.
             Extracts facts, reconstructs chronological timelines, flags cross-document discrepancies,
-            ranks candidate explanations via Slide 18 mathematical formula, and produces fully traceable dossiers.
+            ranks candidate explanations via evidence-based scoring, and produces fully traceable dossiers.
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -120,7 +120,7 @@ export const DashboardPage: React.FC = () => {
         <div className="flex items-center justify-between px-1">
           <div className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-blue-600" />
-            <span>Investigation Architecture & Workflow (Slides 12–15)</span>
+            <span>Investigation Pipeline & Analytics Modules</span>
           </div>
           <span className="text-xs text-slate-400">Click any module to inspect</span>
         </div>

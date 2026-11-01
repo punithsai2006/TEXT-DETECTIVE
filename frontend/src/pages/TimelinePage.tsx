@@ -55,7 +55,7 @@ export const TimelinePage: React.FC = () => {
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
           <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
-            Module 2 • Chronological Event Reconstruction
+            Event Sequence Analysis
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
             Incident Event Timeline

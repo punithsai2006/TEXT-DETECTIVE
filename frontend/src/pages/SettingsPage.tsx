@@ -59,7 +59,7 @@ export const SettingsPage: React.FC = () => {
       {/* Header */}
       <div className="border-b border-slate-200 pb-4">
         <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
-          Configuration & Research Benchmarks (Slide 11)
+          System Settings & Accuracy Benchmarks
         </div>
         <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
           Settings & Evaluation Framework
@@ -117,7 +117,7 @@ export const SettingsPage: React.FC = () => {
           <div className="flex items-center space-x-2">
             <BarChart3 className="w-4 h-4 text-blue-600" />
             <h3 className="font-bold text-sm text-slate-900">
-              Reproducible Evaluation Harness (Slide 11)
+              Reproducible Evaluation Harness
             </h3>
           </div>
 
@@ -234,20 +234,20 @@ export const SettingsPage: React.FC = () => {
         </a>
       </div>
 
-      {/* Authorship & Academic Identity */}
+      {/* Platform Architecture & Specifications */}
       <div className="case-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-blue-600 text-xs space-y-2 shadow-sm border-slate-200/80">
         <h4 className="font-bold text-slate-900 uppercase tracking-wide">
-          Text Detective Project Attribution
+          Platform Architecture & Specifications
         </h4>
         <p className="text-slate-600 leading-relaxed">
-          Presented at CSE Research Showcase: <em>Text Detective: An Agentic Text Analytics Framework for Evidence-Based Investigation</em>.
+          Text Detective Enterprise Investigation Framework • Multi-Document Grounded RAG with Cross-Document Contradiction Analysis and Evidence-Based Hypothesis Scoring.
         </p>
         <div className="pt-2.5 border-t border-slate-100 flex items-center flex-wrap gap-4 text-[11px] text-slate-500 font-mono">
-          <span>Makka Lokesh (AM.SC.U4CSE24233)</span>
+          <span>Engine: Python 3.12 / FastAPI</span>
           <span>•</span>
-          <span>Punith Sai Nallapaneni (AM.SC.U4CSE24337)</span>
+          <span>Vector Store: ChromaDB / Dense+BM25</span>
           <span>•</span>
-          <span>Vamsika Kilari (AM.SC.U4CSE24227)</span>
+          <span>Provenance: 100% Strict Sentence Traceability</span>
         </div>
       </div>
     </div>
