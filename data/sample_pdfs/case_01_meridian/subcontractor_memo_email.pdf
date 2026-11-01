@@ -1,0 +1,58 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 972 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(SUBCONTRACTOR MEMO EMAIL) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(From: Apex Solutions Management <dispatch@apexsolutions.com>) Tj T*
+(To: Meridian Tech Facilities <facilities@meridiantech.internal>) Tj T*
+(Date: October 11, 2024 02:00 PM) Tj T*
+(Subject: Work Order #APX-4421 - Electrical Conduit Maintenance - Building 4) Tj T*
+() Tj T*
+(Facilities Team,) Tj T*
+() Tj T*
+(Please be advised that technician David Wright will be on-site at Meridian) Tj T*
+(Tech Building 4 on Saturday, October 12, starting at 8:30 PM to complete) Tj T*
+(breaker testing. ) Tj T*
+() Tj T*
+(Mr. Wright is issued temporary Badge #7810. He is authorized strictly for) Tj T*
+(public utility areas, Floor 3 lighting panels, and basement conduit raceways.) Tj T*
+(He is not authorized for secure server rooms or data centers.) Tj T*
+() Tj T*
+(Best regards,) Tj T*
+(Apex Solutions Dispatch) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1334
+%%EOF

@@ -1,0 +1,67 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1674 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(SECURITY INCIDENT REPORT - CASE 2024-082) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(INCIDENT OVERVIEW:) Tj T*
+(On October 12, 2024, at approximately 21:15 UTC, the Security Operations) Tj T*
+(Center \(SOC\) detected an anomalous outbound SFTP transmission originating from) Tj T*
+(database server DB-PROD-02 located inside Server Room B.) Tj T*
+(Total exfiltrated volume: 14.8 Gigabytes containing 420,000 customer profile) Tj T*
+(records, encrypted salted credential hashes, and internal billing routing) Tj T*
+(numbers.) Tj T*
+(The automated network threshold alert fired at 21:18 UTC when outbound) Tj T*
+(throughput exceeded 120 Mbps to an external unlisted IP address) Tj T*
+(\(198.51.100.42\).) Tj T*
+() Tj T*
+(PRELIMINARY SUSPECTS & PERSONS OF INTEREST:) Tj T*
+(- Frank Miller: Senior Database Administrator. Possesses unrestricted sudo) Tj T*
+(privileges on DB-PROD-02. Scheduled on-call shift.) Tj T*
+(- Alice Vance: Lead Infrastructure Engineer. Holds root infrastructure SSH) Tj T*
+(keys and physical server room access badge.) Tj T*
+(- Bob Chen: Network Operations Specialist. Responsible for firewall) Tj T*
+(configuration rules and port 22 SFTP routing.) Tj T*
+() Tj T*
+(INVESTIGATION MANDATE:) Tj T*
+(1. Reconstruct exact chronological sequence of physical access,) Tj T*
+(authentication sessions, and file staging.) Tj T*
+(2. Cross-reference witness interview alibis against physical telemetry and) Tj T*
+(digital system event logs.) Tj T*
+(3. Evaluate competing hypotheses regarding insider exfiltration versus) Tj T*
+(compromised external credentials.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2037
+%%EOF

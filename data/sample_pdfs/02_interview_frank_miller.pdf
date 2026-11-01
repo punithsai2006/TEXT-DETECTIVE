@@ -1,0 +1,66 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1539 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(INTERVIEW TRANSCRIPT - FRANK MILLER) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(WITNESS / SUSPECT INTERVIEW TRANSCRIPT:) Tj T*
+(Date: October 13, 2024 | Time: 09:30 UTC) Tj T*
+(Interviewer: Detective Sarah Jenkins \(Corporate Forensic Investigations\)) Tj T*
+(Interviewee: Frank Miller \(Senior DBA, Employee ID: EMP-4091\)) Tj T*
+() Tj T*
+(EXCERPT OF RELEVANT TESTIMONY:) Tj T*
+(Jenkins: Can you state your whereabouts on the evening of October 12, 2024,) Tj T*
+(between 19:00 and 23:00?) Tj T*
+(Frank Miller: Yes, absolutely. I wrapped up my routine database indexing) Tj T*
+(tasks around 19:45.) Tj T*
+(Frank Miller: I had an early dinner planned with my brother. I packed my) Tj T*
+(laptop and left the office premises precisely at 20:00.) Tj T*
+(Jenkins: Did you return to the building or access the company network) Tj T*
+(remotely later that night?) Tj T*
+(Frank Miller: No, definitely not. I was at dinner at Osteria Morini until) Tj T*
+(22:30. My phone battery died around 20:30, so I had no network connectivity) Tj T*
+(until I returned home after 23:00.) Tj T*
+(Jenkins: Did you share your administrative credentials or MFA hardware token) Tj T*
+(with anyone on your team?) Tj T*
+(Frank Miller: Never. My YubiKey hardware token remained attached to my) Tj T*
+(keychain at all times.) Tj T*
+() Tj T*
+(INVESTIGATOR NOTE:) Tj T*
+(Subject displayed elevated anxiety when questioned regarding remote SFTP) Tj T*
+(staging scripts.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1902
+%%EOF

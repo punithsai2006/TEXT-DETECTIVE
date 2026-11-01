@@ -1,0 +1,67 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1697 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(INTERVIEW BOB CHEN) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(INTERVIEW TRANSCRIPT: BOB CHEN) Tj T*
+(Case: Meridian Tech Data Leak) Tj T*
+(Date: October 13, 2024) Tj T*
+(Interviewer: Detective Marcus Reed, Corporate Security) Tj T*
+(Interviewee: Bob Chen, IT Systems Administrator) Tj T*
+() Tj T*
+([10:15 AM] REED: Please state your name and role.) Tj T*
+([10:15 AM] CHEN: Bob Chen, IT Systems Administrator for Meridian Tech.) Tj T*
+([10:16 AM] REED: Can you walk us through your whereabouts on the evening of) Tj T*
+(October 12?) Tj T*
+([10:16 AM] CHEN: I arrived at Building 4 at 8:00 PM for scheduled server) Tj T*
+(maintenance. Around 9:30 PM, I stepped out to pick up takeout from the deli) Tj T*
+(down the street. I came back around 10:20 PM and worked at my terminal until) Tj T*
+(1:00 AM.) Tj T*
+([10:17 AM] REED: Where was your master keycard during that time?) Tj T*
+([10:17 AM] CHEN: I had my physical master keycard in my wallet all evening) Tj T*
+(and never lent it to anyone. I keep it chained to my belt loop at all times.) Tj T*
+([10:18 AM] REED: Did you enter Server Room B during the night?) Tj T*
+([10:18 AM] CHEN: No, I worked strictly from my office on Floor 2. I had no) Tj T*
+(reason to visit Server Room B because my remote SSH console was functioning) Tj T*
+(properly.) Tj T*
+([10:19 AM] REED: Did you authorize any subcontractor or outside technician to) Tj T*
+(access the server vault?) Tj T*
+([10:19 AM] CHEN: No, absolutely not. Subcontractors are strictly prohibited) Tj T*
+(from entering secure zones without an escort.) Tj T*
+([10:20 AM] REED: Thank you, Bob.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2060
+%%EOF

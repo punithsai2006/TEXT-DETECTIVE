@@ -1,0 +1,60 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1276 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(SERVER ACCESS LOGS) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+([2024-10-12 21:45:10] AUTH_SVC: User 'bchen' logged in from 192.168.2.14) Tj T*
+([Floor 2 Terminal] - SUCCESS) Tj T*
+([2024-10-12 22:05:00] CRON_SVC: Daily backup scheduler started - STATUS OK) Tj T*
+([2024-10-12 22:14:30] SEC_SVC: Door access event logged: Terminal Server Room) Tj T*
+(B - ACCESS GRANTED) Tj T*
+([2024-10-12 22:18:12] AUTH_SVC: Console 2 interactive login - User:) Tj T*
+('avance_admin' - Local terminal - SUCCESS) Tj T*
+([2024-10-12 22:20:45] KERNEL: USB mass storage device connected:) Tj T*
+(Vendor=Kingston Product=DataTraveler 3.0 Device=/dev/sdb1) Tj T*
+([2024-10-12 22:25:00] DB_AUDIT: Query executed: SELECT COUNT\(*\) FROM) Tj T*
+(customer_records;) Tj T*
+([2024-10-12 22:31:18] DB_AUDIT: Dump executed: pg_dump customer_records >) Tj T*
+(/mnt/usb/customer_vault_export.tar.gz) Tj T*
+([2024-10-12 22:37:55] KERNEL: USB mass storage device disconnected: /dev/sdb1) Tj T*
+(unmounted) Tj T*
+([2024-10-12 22:38:05] AUTH_SVC: Console 2 interactive session closed - Logout) Tj T*
+(recorded) Tj T*
+([2024-10-12 22:45:00] NET_MON: Outbound bandwidth check: 0 MB transferred) Tj T*
+(over WAN) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1639
+%%EOF

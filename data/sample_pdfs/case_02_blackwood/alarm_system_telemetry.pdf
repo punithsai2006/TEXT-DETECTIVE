@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 813 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(ALARM SYSTEM TELEMETRY) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+([2024-10-18 19:00:00] SYSTEM: Main security grid armed by Operator #04) Tj T*
+([Julian Vance]) Tj T*
+([2024-10-18 21:50:12] GATE_SENSOR: Rear estate delivery gate opened by remote) Tj T*
+(buzzer) Tj T*
+([2024-10-18 22:15:02] MOTION_SENSOR: Zone 4 \(Basement Vault Corridor\) - ALARM) Tj T*
+(TRIGGERED \(Duration: 34s\)) Tj T*
+([2024-10-18 22:15:36] CONSOLE: Alarm in Zone 4 manually silenced and) Tj T*
+(acknowledged by local console) Tj T*
+([2024-10-18 22:28:19] VAULT_SENSOR: Safe door magnetic contact broken -) Tj T*
+(MANUAL KEY OVERRIDE USED) Tj T*
+([2024-10-18 22:31:00] GATE_SENSOR: Rear delivery gate closed - Vehicle) Tj T*
+(departed) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1175
+%%EOF

@@ -1,0 +1,50 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 668 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(SLACK EXPORT ENGINEERING) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(SLACK CHANNEL: #firmware-core \(Internal Apex Workspace\)) Tj T*
+(Date: October 25, 2024) Tj T*
+() Tj T*
+(20:05 Derek Cole: Hey team, grabbing dinner. Won't be back until late. Good) Tj T*
+(luck on the 21:00 flight.) Tj T*
+(20:07 Liam Vance: Thanks Derek, enjoy dinner.) Tj T*
+(20:19 BOT-ALARM: Warning - Hardware Debug Port JTAG connected on Airframe 9.) Tj T*
+(20:20 Liam Vance: Did someone leave the debug cable plugged in?) Tj T*
+(20:21 Elena Rostova: Derek was just in the bay a minute ago.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1030
+%%EOF

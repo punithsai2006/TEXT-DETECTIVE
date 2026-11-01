@@ -1,0 +1,60 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1099 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(FINANCIAL INTELLIGENCE AUDIT MEMO) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(FINANCIAL INTELLIGENCE MEMORANDUM:) Tj T*
+(To: Forensic Audit Division) Tj T*
+(From: Anti-Money Laundering & Compliance Unit) Tj T*
+(Date: October 14, 2024) Tj T*
+(Subject: Suspicious Wire Activity - Account Linked to Meridian Personnel) Tj T*
+() Tj T*
+(TRANSACTION DETAILS:) Tj T*
+(- Beneficiary Entity: NexaFlow Consulting Ltd. \(Registered: Seychelles\)) Tj T*
+(- Beneficial Owner: Frank Miller \(100% shareholding via trust deed\)) Tj T*
+(- Amount: $85,000.00 USD) Tj T*
+(- Originating Bank: CypherSec Holdings \(Zurich, CH\)) Tj T*
+(- Date / Time: 2024-10-12 22:15:00 UTC) Tj T*
+(- Memo Reference: 'Contract milestone delivery - Phase 3 Data Asset') Tj T*
+() Tj T*
+(ANALYSIS:) Tj T*
+(The wire transfer was initiated exactly 30 minutes after the SFTP) Tj T*
+(exfiltration of the customer database completed.) Tj T*
+(Corroborates intentional financial incentive and deliberate data exfiltration) Tj T*
+(hypothesis.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1462
+%%EOF

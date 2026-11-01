@@ -1,0 +1,60 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1282 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(BUILDING ACCESS TELEMETRY - RFID LOGS) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(PHYSICAL SECURITY TELEMETRY - ACCESS CONTROL SYSTEM:) Tj T*
+(Facility: Meridian Technology Center - Building 4) Tj T*
+(Controller: HID Aero Network Access Controller V1000) Tj T*
+(Report Generated: 2024-10-13 08:00:00 UTC) Tj T*
+() Tj T*
+(BADGE EVENT RECORDS \(CARD #88219 - ASSIGNED TO: FRANK MILLER\):) Tj T*
+(1. 2024-10-12 08:45:22 - Turnstile Main Lobby [ENTRY] - VALID ACCESS GRANTED) Tj T*
+(2. 2024-10-12 12:15:04 - Turnstile Main Lobby [EXIT] - VALID ACCESS GRANTED) Tj T*
+(3. 2024-10-12 13:02:18 - Turnstile Main Lobby [ENTRY] - VALID ACCESS GRANTED) Tj T*
+(4. 2024-10-12 20:10:45 - Server Room B Secure Airlock [ENTRY] - VALID ACCESS) Tj T*
+(GRANTED) Tj T*
+(5. 2024-10-12 21:40:12 - Server Room B Secure Airlock [EXIT] - VALID ACCESS) Tj T*
+(GRANTED) Tj T*
+(6. 2024-10-12 21:45:08 - Turnstile Main Lobby [EXIT] - VALID ACCESS GRANTED) Tj T*
+() Tj T*
+(PHYSICAL CONTRADICTION FINDING:) Tj T*
+(Frank Miller testified he exited the facility at 20:00:00 UTC.) Tj T*
+(Badge scan confirms Frank Miller entered Server Room B at 20:10:45 UTC and) Tj T*
+(exited the main turnstile at 21:45:08 UTC.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1645
+%%EOF

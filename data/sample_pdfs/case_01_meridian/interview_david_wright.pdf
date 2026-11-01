@@ -1,0 +1,68 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1871 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(INTERVIEW DAVID WRIGHT) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(INTERVIEW TRANSCRIPT: DAVID WRIGHT) Tj T*
+(Case: Meridian Tech Data Leak) Tj T*
+(Date: October 13, 2024) Tj T*
+(Interviewer: Detective Marcus Reed, Corporate Security) Tj T*
+(Interviewee: David Wright, Subcontractor / Maintenance Technician) Tj T*
+() Tj T*
+([11:00 AM] REED: State your name and affiliation.) Tj T*
+([11:00 AM] WRIGHT: David Wright. I am an independent electrical contractor) Tj T*
+(working on assignment for Apex Solutions at Meridian Tech.) Tj T*
+([11:01 AM] REED: What was your assignment on the night of October 12?) Tj T*
+([11:01 AM] WRIGHT: I was contracted to test circuit breakers and emergency) Tj T*
+(lighting on Floor 3 and in the basement utility hallway.) Tj T*
+([11:02 AM] REED: What time did you arrive and leave Building 4?) Tj T*
+([11:02 AM] WRIGHT: I got there around 8:30 PM. I finished my electrical) Tj T*
+(maintenance and left Building 4 at 10:00 PM sharp. I drove straight home.) Tj T*
+([11:03 AM] REED: Did you enter Server Room B?) Tj T*
+([11:03 AM] WRIGHT: No way. The door to Server Room B was locked and marked) Tj T*
+(restricted. I didn't have the badge access for it anyway.) Tj T*
+([11:04 AM] REED: Did you see Bob Chen or Alice Vance during your shift?) Tj T*
+([11:04 AM] WRIGHT: I saw Alice at her computer on Floor 3 around 9:40 PM. And) Tj T*
+(I saw Bob leave his lanyard and keycard on the breakroom table around 9:45 PM) Tj T*
+(when he went down to get takeout. It was sitting right there next to the) Tj T*
+(coffee machine.) Tj T*
+([11:05 AM] REED: Did you touch Bob's lanyard or keycard?) Tj T*
+([11:05 AM] WRIGHT: No, I didn't touch it. I just noticed it sitting on the) Tj T*
+(table.) Tj T*
+([11:06 AM] REED: Understood. Thank you, Mr. Wright.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2234
+%%EOF

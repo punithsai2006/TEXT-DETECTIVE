@@ -1,0 +1,68 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1805 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(INTERVIEW ALICE VANCE) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(INTERVIEW TRANSCRIPT: ALICE VANCE) Tj T*
+(Case: Meridian Tech Data Leak) Tj T*
+(Date: October 13, 2024) Tj T*
+(Interviewer: Detective Marcus Reed, Corporate Security) Tj T*
+(Interviewee: Alice Vance, Lead Software Engineer) Tj T*
+() Tj T*
+([09:30 AM] REED: State your name and position for the record.) Tj T*
+([09:30 AM] VANCE: Alice Vance, Lead Software Engineer at Meridian Tech. I've) Tj T*
+(been with the company for four years.) Tj T*
+([09:31 AM] REED: Alice, where were you on the night of October 12, 2024,) Tj T*
+(between 9:00 PM and midnight?) Tj T*
+([09:31 AM] VANCE: I was at my desk on Floor 3 the entire night from 9:30 PM) Tj T*
+(until midnight, working on the quarterly release notes. I did not leave Floor) Tj T*
+(3 once during that window.) Tj T*
+([09:32 AM] REED: Did you enter Server Room B at any point yesterday evening?) Tj T*
+([09:32 AM] VANCE: Absolutely not. I did not enter Server Room B yesterday. I) Tj T*
+(haven't been in the basement server vault for at least two weeks. My badge) Tj T*
+(shouldn't even show any activity down there.) Tj T*
+([09:33 AM] REED: Did you notice anyone unusual on Floor 3?) Tj T*
+([09:33 AM] VANCE: I saw Bob Chen around 9:15 PM in the hallway, and David) Tj T*
+(Wright, the electrical maintenance contractor, was working on the conduit near) Tj T*
+(the breakroom around 9:40 PM.) Tj T*
+([09:34 AM] REED: Did you download or transfer any files from the customer) Tj T*
+(database?) Tj T*
+([09:34 AM] VANCE: No. All database exports require two-factor authentication,) Tj T*
+(and I never initiated any data transfer.) Tj T*
+([09:35 AM] REED: Thank you, Alice. That is all for now.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2168
+%%EOF

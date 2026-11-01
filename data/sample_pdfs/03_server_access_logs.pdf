@@ -1,0 +1,65 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1439 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(SYSTEM AUDIT LOGS - DB-PROD-02) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(SYSTEM ACCESS AUDIT LOG DUMP:) Tj T*
+(System: DB-PROD-02.internal.meridian.net) Tj T*
+(Log Source: /var/log/secure and /var/log/audit/audit.log) Tj T*
+(Time Range: 2024-10-12 20:00:00 UTC to 2024-10-12 22:00:00 UTC) Tj T*
+() Tj T*
+(EVENT ENTRIES:) Tj T*
+([2024-10-12 20:14:12] sshd[14820]: Accepted publickey for fmiller from) Tj T*
+(10.0.4.150 port 54102 ssh2: RSA SHA256:d8a9e) Tj T*
+([2024-10-12 20:15:01] sudo[14892]: fmiller : TTY=pts/2 ; PWD=/home/fmiller ;) Tj T*
+(USER=root ; COMMAND=/bin/bash) Tj T*
+([2024-10-12 20:42:30] postgres[15011]: [3-1] user=postgres,db=customer_master) Tj T*
+(LOG: statement: COPY customers TO '/tmp/cust_export_20241012.tar.gz' WITH) Tj T*
+(BINARY) Tj T*
+([2024-10-12 20:45:18] sftp-server[15120]: session opened for local user) Tj T*
+(fmiller from 10.0.4.150) Tj T*
+([2024-10-12 20:45:55] sftp-server[15120]: sent) Tj T*
+(/tmp/cust_export_20241012.tar.gz \(14,812,410 bytes\) to remote destination) Tj T*
+(198.51.100.42) Tj T*
+([2024-10-12 21:05:40] sshd[14820]: session closed for user fmiller) Tj T*
+() Tj T*
+(FORENSIC SUMMARY:) Tj T*
+(Session authenticated using Frank Miller's hardware MFA key and private SSH) Tj T*
+(certificate at 20:45 UTC, directly while subject claimed to be offsite without) Tj T*
+(connectivity.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1802
+%%EOF

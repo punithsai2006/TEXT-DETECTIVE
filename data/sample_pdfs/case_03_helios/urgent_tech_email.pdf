@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 660 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(URGENT TECH EMAIL) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(From: Priya Sharma <p.sharma@heliospharma.org>) Tj T*
+(To: Arlo Kaufman <a.kaufman@heliospharma.org>) Tj T*
+(Date: August 14, 2024 08:15 AM) Tj T*
+(Subject: CRITICAL: Unit 4 Thawing overnight - Batch HL-902B) Tj T*
+() Tj T*
+(Dr. Kaufman,) Tj T*
+() Tj T*
+(Freezer Unit 4 lost power at 2:10 AM and warmed up to +4.1 C. The active) Tj T*
+(peptide conjugate in Batch HL-902B degrades rapidly above -20 C. These vials) Tj T*
+(must be quarantined immediately per GCP protocols.) Tj T*
+() Tj T*
+(Priya) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1022
+%%EOF

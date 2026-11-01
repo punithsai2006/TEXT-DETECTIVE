@@ -1,0 +1,55 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 834 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(HANGAR RFID ACCESS LOG) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(APEX ROBOTICS - HANGAR 3 SECURITY ACCESS LOG) Tj T*
+(Facility: Test Range Alpha | Assembly Hangar 3) Tj T*
+(Date: 2024-10-25) Tj T*
+() Tj T*
+([2024-10-25 18:02:11] CARD #1088 [Elena Rostova] - AUTH_GRANTED \(Main Bay) Tj T*
+(Entry\)) Tj T*
+([2024-10-25 19:42:00] CARD #4412 [Derek Cole] - AUTH_GRANTED \(Exit Front) Tj T*
+(Turnstile\)) Tj T*
+([2024-10-25 20:12:44] CARD #4412 [Derek Cole] - AUTH_GRANTED \(Rear Hangar 3) Tj T*
+(Service Door Entry\)) Tj T*
+([2024-10-25 20:25:19] CARD #4412 [Derek Cole] - AUTH_GRANTED \(Rear Hangar 3) Tj T*
+(Service Door Exit\)) Tj T*
+([2024-10-25 20:55:00] CARD #1088 [Elena Rostova] - AUTH_GRANTED \(Flight Deck) Tj T*
+(Entry\)) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1196
+%%EOF

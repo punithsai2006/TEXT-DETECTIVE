@@ -1,0 +1,60 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1188 >>
+stream
+BT
+/F1 10 Tf
+50 730 Td
+14 TL
+(INTERVIEW LEAD ENG DEREK) Tj T*
+(CONFIDENTIAL // FORENSIC INVESTIGATION RECORD) Tj T*
+() Tj T*
+(INTERVIEW TRANSCRIPT: DEREK COLE) Tj T*
+(Case: Apex Robotics Tactical Drone Crash) Tj T*
+(Interviewer: Agent Vance) Tj T*
+(Interviewee: Derek Cole, Lead Firmware Engineer) Tj T*
+() Tj T*
+([09:00 AM] VANCE: State your name and role at Apex Robotics.) Tj T*
+([09:00 AM] COLE: Derek Cole, lead embedded firmware engineer for) Tj T*
+(SkyHarrier-9.) Tj T*
+([09:01 AM] VANCE: Did you modify the flight controller firmware before) Tj T*
+(yesterday's live demonstration?) Tj T*
+([09:01 AM] COLE: Absolutely not. I approved the final stable build v2.4 at) Tj T*
+(18:00 UTC and signed off the checksum.) Tj T*
+([09:02 AM] VANCE: Where were you between 20:00 and 21:30 UTC last night?) Tj T*
+([09:02 AM] COLE: I left the facility at 19:45 UTC. I was at dinner at Bistro) Tj T*
+(Laurent in town until 21:30 UTC.) Tj T*
+([09:03 AM] VANCE: Did you have any communication with Vanguard Aero or) Tj T*
+(outside aerospace recruiters?) Tj T*
+([09:03 AM] COLE: No, none whatsoever. My exclusive contract is with Apex) Tj T*
+(Robotics.) Tj T*
+() Tj T*
+(--- Page 1 of 1 ---) Tj T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1551
+%%EOF
