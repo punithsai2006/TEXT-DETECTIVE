@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -55,29 +56,78 @@ def calculate_precision_recall_f1(pred_set: set, true_set: set) -> Dict[str, Any
 def evaluate_event_extraction(extracted_events: List[Dict[str, Any]], gt_events: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
     """
     Computes precision, recall, and F1 for extracted events.
-    When ground truth events are provided, checks participant/action alignment.
-    Otherwise checks grounding and timestamp validity.
+    When ground truth events are provided from true_timeline, computes genuine recall and precision
+    based on participant, location, and action alignment.
     """
     if not extracted_events:
-        return {"precision": 0.0, "recall": 0.0, "f1": 0.0, "total_extracted": 0}
+        return {"precision": 0.0, "recall": 0.0, "f1": 0.0, "total_extracted": 0, "tp": 0, "fp": 0, "fn": len(gt_events or [])}
 
-    # Verify event grounding in source sentence and presence of participant/location
-    grounded_count = 0
-    for ev in extracted_events:
-        has_actor = bool(ev.get("participants") or ev.get("location"))
-        has_text = bool(ev.get("source_sentence"))
-        if has_actor and has_text:
-            grounded_count += 1
+    if not gt_events:
+        grounded_count = sum(
+            1 for ev in extracted_events
+            if (ev.get("participants") or ev.get("location")) and ev.get("source_sentence")
+        )
+        precision = round(grounded_count / max(len(extracted_events), 1), 4)
+        return {
+            "total_extracted": len(extracted_events),
+            "grounded_events": grounded_count,
+            "precision": precision,
+            "recall": 1.0,
+            "f1": precision,
+            "tp": grounded_count,
+            "fp": len(extracted_events) - grounded_count,
+            "fn": 0,
+        }
 
-    precision = round(grounded_count / max(len(extracted_events), 1), 4)
-    recall = 1.0  # Normalized over candidate extracted events
+    # Evaluate against ground truth events
+    matched_gt = 0
+    matched_examples = []
+    unmatched_gt = []
+
+    for gt in gt_events:
+        gt_text = (gt.get("event", "") + " " + gt.get("time", "")).lower()
+        gt_words = set(re.findall(r"\b[A-Za-z0-9]{3,}\b", gt_text)) - {"the", "and", "via", "with", "from"}
+
+        matched = False
+        for ev in extracted_events:
+            ev_desc = (ev.get("description", "") + " " + ev.get("source_sentence", "")).lower()
+            ev_parts = [p.lower() for p in ev.get("participants", [])]
+
+            overlap = len([w for w in gt_words if w in ev_desc or any(w in p for p in ev_parts)])
+            if overlap >= 2:
+                matched = True
+                break
+
+        if matched:
+            matched_gt += 1
+            matched_examples.append(gt.get("event", "")[:40])
+        else:
+            unmatched_gt.append(gt.get("event", "")[:40])
+
+    tp = matched_gt
+    fn = len(gt_events) - matched_gt
+    grounded_extracted = sum(
+        1 for ev in extracted_events
+        if (ev.get("participants") or ev.get("location")) and ev.get("source_sentence")
+    )
+    fp = max(0, len(extracted_events) - tp)
+
+    recall = round(tp / max(len(gt_events), 1), 4)
+    precision = round(tp / max(tp + fp, 1), 4)
     f1 = round((2 * precision * recall) / (precision + recall), 4) if (precision + recall) > 0 else 0.0
+
     return {
         "total_extracted": len(extracted_events),
-        "grounded_events": grounded_count,
+        "grounded_events": grounded_extracted,
+        "true_events_count": len(gt_events),
+        "tp": tp,
+        "fp": fp,
+        "fn": fn,
         "precision": precision,
         "recall": recall,
-        "f1": f1
+        "f1": f1,
+        "matched_examples": matched_examples[:3],
+        "unmatched_examples": unmatched_gt[:3],
     }
 
 
@@ -223,8 +273,8 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         true_entities = {name.lower() for sublist in gt.get("true_entities", {}).values() for name in sublist}
         ent_metrics = calculate_precision_recall_f1(pred_entities, true_entities)
 
-        # 2. Event Extraction P/R/F1
-        event_metrics = evaluate_event_extraction(extraction.get("events", []))
+        # 2. Event Extraction P/R/F1 (Evaluated against Ground Truth Timeline)
+        event_metrics = evaluate_event_extraction(extraction.get("events", []), gt.get("true_timeline", []))
 
         # 3. Timeline accuracy
         timeline_acc = evaluate_timeline_ordering(extraction.get("timeline", []), gt.get("true_timeline", []))

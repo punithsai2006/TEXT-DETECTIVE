@@ -6,3 +6,7 @@ frontend/dist/
 __pycache__/
 *.pyc
 storage/chroma/chroma_db/
+*.sqlite3
+.env
+*.env
+!.env.example

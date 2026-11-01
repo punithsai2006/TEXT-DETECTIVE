@@ -251,3 +251,73 @@ def test_reproducible_analysis_run_records(test_case_store):
     test_case_store.mark_runs_outdated(case_id)
     runs_after = test_case_store.list_run_records(case_id)
     assert runs_after[0].is_outdated is True
+
+
+def test_contradiction_detection_engine_tracking():
+    """Verify that contradiction detection records the specific detection engine (rules/nli/llm_verified)."""
+    from app.services.contradiction.detector import contradiction_detector
+
+    stmt_a = "Alice was inside Server Room B at 10:14 PM according to the badge logs."
+    stmt_b = "Alice was never inside Server Room B and was absent offsite."
+
+    label, c_type, conf, expl, engine = contradiction_detector.evaluate_pair_full(stmt_a, stmt_b)
+    assert label == NLILabel.CONTRADICTION
+    assert c_type == ContradictionType.CONFIRMED_CONTRADICTION
+    assert engine in ["rules", "nli", "llm_verified"]
+    assert conf >= 0.85
+
+    item = ContradictionItem(
+        id="contra_test_1",
+        case_id="case_eng_1",
+        statement_a=stmt_a,
+        statement_b=stmt_b,
+        doc_a_id="doc_1",
+        doc_b_id="doc_2",
+        doc_a_name="badge_logs.txt",
+        doc_b_name="interview_alice.txt",
+        entity_event_link="Alice",
+        contradiction_type=c_type,
+        nli_label=label,
+        confidence=conf,
+        detection_engine=engine,
+        explanation=expl,
+    )
+    assert item.detection_engine == engine
+
+
+def test_atomic_batch_upload_rollback(tmp_path):
+    """Verify that batch upload rollback cleanly removes partially written files without leaving orphans."""
+    from app.api.routes import _rollback_batch_uploads
+
+    case_dir = tmp_path / "uploads" / "case_test_atomic"
+    case_dir.mkdir(parents=True, exist_ok=True)
+    f1 = case_dir / "file1.txt"
+    f2 = case_dir / "file2.txt"
+    f1.write_text("file 1 content")
+    f2.write_text("file 2 content")
+
+    assert f1.exists()
+    assert f2.exists()
+
+    _rollback_batch_uploads(written_paths=[f1, f2], uploaded_docs=[], case_id="case_test_atomic")
+
+    assert not f1.exists()
+    assert not f2.exists()
+
+
+def test_atomic_write_json_integrity(test_case_store):
+    """Verify that atomic JSON writing writes valid data and cleans up temporary files."""
+    test_file = test_case_store.base_storage / "atomic_test.json"
+    data = {"system": "Text Detective", "status": "active", "code": 42}
+
+    test_case_store._atomic_write_json(test_file, data)
+
+    assert test_file.exists()
+    import json
+    with open(test_file, "r", encoding="utf-8") as f:
+        loaded = json.load(f)
+    assert loaded["code"] == 42
+
+    # Verify no .tmp files left in the directory
+    tmp_files = list(test_case_store.base_storage.glob("*.tmp_*"))
+    assert len(tmp_files) == 0

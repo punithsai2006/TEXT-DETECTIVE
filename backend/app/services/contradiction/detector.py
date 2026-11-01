@@ -57,8 +57,21 @@ class ContradictionDetector:
         entity_context: str = ""
     ) -> Tuple[NLILabel, ContradictionType, float, str]:
         """
+        Backwards-compatible wrapper returning (nli_label, contradiction_type, confidence, explanation).
+        """
+        label, c_type, conf, expl, _ = self.evaluate_pair_full(stmt_a, stmt_b, entity_context)
+        return label, c_type, conf, expl
+
+    def evaluate_pair_full(
+        self,
+        stmt_a: str,
+        stmt_b: str,
+        entity_context: str = ""
+    ) -> Tuple[NLILabel, ContradictionType, float, str, str]:
+        """
         Evaluates premise-hypothesis statement pair.
-        Returns (nli_label, contradiction_type, confidence, explanation).
+        Returns (nli_label, contradiction_type, confidence, explanation, detection_engine)
+        where detection_engine is one of: 'nli', 'rules', 'llm_verified'.
         """
         a_clean = stmt_a.strip().lower()
         b_clean = stmt_b.strip().lower()
@@ -69,10 +82,40 @@ class ContradictionDetector:
                 NLILabel.ENTAILMENT,
                 ContradictionType.AGREEMENT,
                 0.95,
-                "Both statements assert the identical factual detail across sources."
+                "Both statements assert the identical factual detail across sources.",
+                "rules",
             )
 
-        # 1. Check semantic conflict word pairs
+        # 1. Attempt NLI Classifier if model pipeline is available
+        pipe = self._get_nli_pipeline()
+        if pipe is not None:
+            try:
+                nli_input = f"Premise: {stmt_a} Hypothesis: {stmt_b}"
+                res = pipe(nli_input)
+                if isinstance(res, list) and len(res) > 0:
+                    top_pred = res[0]
+                    label_str = top_pred.get("label", "").upper()
+                    score = float(top_pred.get("score", 0.0))
+                    if "CONTRADICTION" in label_str and score >= 0.70:
+                        return (
+                            NLILabel.CONTRADICTION,
+                            ContradictionType.CONFIRMED_CONTRADICTION,
+                            round(score, 2),
+                            f"NLI model (RoBERTa-MNLI) identified cross-document contradiction ({round(score * 100, 1)}% confidence).",
+                            "nli",
+                        )
+                    elif "ENTAILMENT" in label_str and score >= 0.75:
+                        return (
+                            NLILabel.ENTAILMENT,
+                            ContradictionType.AGREEMENT,
+                            round(score, 2),
+                            f"NLI model (RoBERTa-MNLI) identified cross-document agreement ({round(score * 100, 1)}% confidence).",
+                            "nli",
+                        )
+            except Exception as e:
+                logger.debug(f"NLI pipeline exception, falling back to rule engine: {e}")
+
+        # 2. Check semantic conflict word pairs (Rule engine)
         for pattern_pos, pattern_neg in CONFLICT_PAIRS:
             match_a_pos = re.search(pattern_pos, a_clean)
             match_b_neg = re.search(pattern_neg, b_clean)
@@ -86,10 +129,11 @@ class ContradictionDetector:
                     NLILabel.CONTRADICTION,
                     ContradictionType.CONFIRMED_CONTRADICTION,
                     0.92,
-                    f"Direct contradiction detected: Statement A states '{word1}' while Statement B asserts '{word2}'."
+                    f"Direct contradiction detected: Statement A states '{word1}' while Statement B asserts '{word2}'.",
+                    "rules",
                 )
 
-        # 2. Check negation disparity on key verbs
+        # 3. Check negation disparity on key verbs (Rule engine)
         verbs = ["entered", "saw", "accessed", "authorized", "present", "left", "downloaded", "swiped", "met", "spoke"]
         for v in verbs:
             in_a = v in a_clean
@@ -102,22 +146,23 @@ class ContradictionDetector:
                         NLILabel.CONTRADICTION,
                         ContradictionType.CONFIRMED_CONTRADICTION,
                         0.90,
-                        f"Opposing assertions regarding action '{v}': one statement affirms it while the other explicitly negates it."
+                        f"Opposing assertions regarding action '{v}': one statement affirms it while the other explicitly negates it.",
+                        "rules",
                     )
 
-        # 3. Check conflicting clock times for the same entity
+        # 4. Check conflicting clock times for the same entity
         time_match_a = re.findall(r"\b(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)\b", stmt_a)
         time_match_b = re.findall(r"\b(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)\b", stmt_b)
         if time_match_a and time_match_b and time_match_a[0].lower() != time_match_b[0].lower():
-            # If both mention the same person or key action
             return (
                 NLILabel.CONTRADICTION,
                 ContradictionType.POSSIBLE_CONTRADICTION,
                 0.84,
-                f"Temporal discrepancy: Statement A references {time_match_a[0]} while Statement B references {time_match_b[0]}."
+                f"Temporal discrepancy: Statement A references {time_match_a[0]} while Statement B references {time_match_b[0]}.",
+                "rules",
             )
 
-        # 4. Check conflicting locations for the same entity at similar time
+        # 5. Check conflicting locations for the same entity at similar time
         loc_indicators = ["server room", "floor 3", "floor 2", "floor 1", "lobby", "outside", "cafeteria", "office", "vault", "home"]
         locs_in_a = [loc for loc in loc_indicators if loc in a_clean]
         locs_in_b = [loc for loc in loc_indicators if loc in b_clean]
@@ -126,10 +171,11 @@ class ContradictionDetector:
                 NLILabel.CONTRADICTION,
                 ContradictionType.CONFIRMED_CONTRADICTION,
                 0.88,
-                f"Conflicting locations for the same timeframe: Statement A places activity in '{locs_in_a[0]}' while Statement B claims '{locs_in_b[0]}'."
+                f"Conflicting locations for the same timeframe: Statement A places activity in '{locs_in_a[0]}' while Statement B claims '{locs_in_b[0]}'.",
+                "rules",
             )
 
-        # 5. Overlapping affirmation
+        # 6. Overlapping affirmation
         words_a = set(re.findall(r"\b[A-Za-z0-9]{3,}\b", a_clean)) - {"the", "and", "that", "this", "with", "from"}
         words_b = set(re.findall(r"\b[A-Za-z0-9]{3,}\b", b_clean)) - {"the", "and", "that", "this", "with", "from"}
         overlap_ratio = len(words_a & words_b) / max(len(words_a | words_b), 1)
@@ -139,14 +185,48 @@ class ContradictionDetector:
                 NLILabel.ENTAILMENT,
                 ContradictionType.AGREEMENT,
                 0.85,
-                "Substantial factual and lexical overlap confirming the same sequence of events."
+                "Substantial factual and lexical overlap confirming the same sequence of events.",
+                "rules",
             )
+
+        # 7. Optional LLM Judge for uncertain/borderline cases with moderate lexical overlap
+        if overlap_ratio > 0.35:
+            provider = get_llm_provider()
+            if provider and not getattr(provider, "is_mock", True):
+                try:
+                    judge_prompt = (
+                        f"Statement A: \"{stmt_a}\"\n"
+                        f"Statement B: \"{stmt_b}\"\n"
+                        "Determine whether these two statements contradict each other, agree, or are neutral. "
+                        "Respond ONLY with valid JSON: {\"is_contradiction\": bool, \"is_agreement\": bool, \"confidence\": float, \"explanation\": str}"
+                    )
+                    resp = provider.generate(judge_prompt, system_prompt="You are a strict forensic contradiction judge. Output JSON only.")
+                    data = json.loads(resp.content)
+                    if data.get("is_contradiction"):
+                        return (
+                            NLILabel.CONTRADICTION,
+                            ContradictionType.CONFIRMED_CONTRADICTION,
+                            float(data.get("confidence", 0.85)),
+                            data.get("explanation", "Verified cross-document contradiction via LLM judge."),
+                            "llm_verified",
+                        )
+                    elif data.get("is_agreement"):
+                        return (
+                            NLILabel.ENTAILMENT,
+                            ContradictionType.AGREEMENT,
+                            float(data.get("confidence", 0.85)),
+                            data.get("explanation", "Verified factual agreement via LLM judge."),
+                            "llm_verified",
+                        )
+                except Exception:
+                    pass
 
         return (
             NLILabel.NEUTRAL,
             ContradictionType.NEUTRAL,
             0.50,
-            "Statements discuss distinct aspects or lack conflicting factual assertions."
+            "Statements discuss distinct aspects or lack conflicting factual assertions.",
+            "rules",
         )
 
     def find_cross_document_contradictions(
@@ -204,7 +284,7 @@ class ContradictionDetector:
                         continue
                     compared_pairs.add(pair_key)
 
-                    nli_label, c_type, conf, explanation = self.evaluate_pair(
+                    nli_label, c_type, conf, explanation, engine = self.evaluate_pair_full(
                         sent_a, sent_b, entity_context=ent_name
                     )
 
@@ -233,6 +313,7 @@ class ContradictionDetector:
                                 contradiction_type=c_type,
                                 nli_label=nli_label,
                                 confidence=conf,
+                                detection_engine=engine,
                                 explanation=explanation,
                                 resolution_status="unresolved" if "contradiction" in c_type.value else "resolved",
                                 source_sentences=[sent_a, sent_b],

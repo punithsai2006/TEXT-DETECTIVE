@@ -71,10 +71,13 @@ class CaseStore:
         d = self._case_dir(case_id) / "runs"
         d.mkdir(parents=True, exist_ok=True)
         return d
-        return self._case_dir(case_id) / "audit_log.json"
 
-    def _status_file(self, case_id: str) -> Path:
-        return self._case_dir(case_id) / "status.json"
+    def _atomic_write_json(self, path: Path, data: Any) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = path.with_suffix(f".tmp_{uuid.uuid4().hex[:6]}")
+        with open(tmp_path, "w", encoding="utf-8") as fp:
+            json.dump(data, fp, indent=2, ensure_ascii=False)
+        tmp_path.replace(path)
 
     # ==========================================
     # CASES CRUD
@@ -111,8 +114,7 @@ class CaseStore:
     def save_case(self, case: Case) -> None:
         case.updated_at = get_utc_now_iso()
         f = self._case_file(case.case_id)
-        with open(f, "w", encoding="utf-8") as fp:
-            json.dump(case.model_dump(), fp, indent=2)
+        self._atomic_write_json(f, case.model_dump())
 
     def get_case(self, case_id: str) -> Optional[Case]:
         f = self._case_file(case_id)
@@ -160,8 +162,7 @@ class CaseStore:
 
     def save_documents(self, case_id: str, documents: List[DocumentMetadata]) -> None:
         f = self._docs_file(case_id)
-        with open(f, "w", encoding="utf-8") as fp:
-            json.dump([doc.model_dump() for doc in documents], fp, indent=2)
+        self._atomic_write_json(f, [doc.model_dump() for doc in documents])
 
         # Update case doc count
         case = self.get_case(case_id)
@@ -239,8 +240,7 @@ class CaseStore:
             "timeline": [t.model_dump() for t in timeline],
             "case_graph": case_graph.model_dump(),
         }
-        with open(self._extraction_file(case_id), "w", encoding="utf-8") as fp:
-            json.dump(data, fp, indent=2)
+        self._atomic_write_json(self._extraction_file(case_id), data)
 
         case = self.get_case(case_id)
         if case:
@@ -266,8 +266,7 @@ class CaseStore:
 
     def save_contradictions(self, case_id: str, contradictions: List[ContradictionItem]) -> None:
         data = [c.model_dump() for c in contradictions]
-        with open(self._contradictions_file(case_id), "w", encoding="utf-8") as fp:
-            json.dump(data, fp, indent=2)
+        self._atomic_write_json(self._contradictions_file(case_id), data)
 
         case = self.get_case(case_id)
         if case:
@@ -317,8 +316,7 @@ class CaseStore:
 
     def save_hypotheses(self, case_id: str, hypotheses: List[Hypothesis]) -> None:
         data = [h.model_dump() for h in hypotheses]
-        with open(self._hypotheses_file(case_id), "w", encoding="utf-8") as fp:
-            json.dump(data, fp, indent=2)
+        self._atomic_write_json(self._hypotheses_file(case_id), data)
 
         case = self.get_case(case_id)
         if case:
@@ -338,8 +336,7 @@ class CaseStore:
     # ==========================================
 
     def save_report(self, case_id: str, report: InvestigationReport) -> None:
-        with open(self._report_file(case_id), "w", encoding="utf-8") as fp:
-            json.dump(report.model_dump(), fp, indent=2)
+        self._atomic_write_json(self._report_file(case_id), report.model_dump())
 
     def get_report(self, case_id: str) -> Optional[InvestigationReport]:
         f = self._report_file(case_id)
@@ -357,8 +354,7 @@ class CaseStore:
         """Persists an immutable analysis run record."""
         runs_dir = self._runs_dir(case_id)
         record_file = runs_dir / f"{record.run_id}.json"
-        with open(record_file, "w", encoding="utf-8") as fp:
-            json.dump(record.model_dump(), fp, indent=2)
+        self._atomic_write_json(record_file, record.model_dump())
 
     def list_run_records(self, case_id: str) -> List[AnalysisRunRecord]:
         """Lists all historical analysis runs for a case."""
@@ -387,8 +383,7 @@ class CaseStore:
                 with open(f, "r", encoding="utf-8") as fp:
                     data = json.load(fp)
                 data["is_outdated"] = True
-                with open(f, "w", encoding="utf-8") as fp:
-                    json.dump(data, fp, indent=2)
+                self._atomic_write_json(f, data)
             except Exception:
                 continue
 
@@ -415,8 +410,7 @@ class CaseStore:
         )
         logs = self.get_audit_log(case_id)
         logs.append(event)
-        with open(self._audit_file(case_id), "w", encoding="utf-8") as fp:
-            json.dump([l.model_dump() for l in logs], fp, indent=2)
+        self._atomic_write_json(self._audit_file(case_id), [l.model_dump() for l in logs])
 
         # Update status feedback loops as well
         status = self.get_analysis_status(case_id)
@@ -462,8 +456,7 @@ class CaseStore:
 
     def _save_status(self, status: AnalysisStatus) -> None:
         f = self._status_file(status.case_id)
-        with open(f, "w", encoding="utf-8") as fp:
-            json.dump(status.model_dump(), fp, indent=2)
+        self._atomic_write_json(f, status.model_dump())
 
     def get_analysis_status(self, case_id: str) -> AnalysisStatus:
         f = self._status_file(case_id)

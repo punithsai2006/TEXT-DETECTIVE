@@ -21,13 +21,22 @@ export const ReportPage: React.FC = () => {
   const [report, setReport] = useState<InvestigationReport | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'preview' | 'markdown' | 'json'>('preview');
+  const [markdownText, setMarkdownText] = useState<string>('');
+  const [selectedCitation, setSelectedCitation] = useState<any | null>(null);
 
   useEffect(() => {
     if (!activeCaseId) return;
     setLoading(true);
     api
       .getReport(activeCaseId)
-      .then((rep) => setReport(rep))
+      .then((rep) => {
+        setReport(rep);
+        // Fetch raw markdown for direct inspection
+        fetch(api.getReportDownloadUrl(activeCaseId, 'markdown'))
+          .then((r) => r.text())
+          .then((text) => setMarkdownText(text))
+          .catch(() => {});
+      })
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, [activeCaseId]);
@@ -258,16 +267,26 @@ export const ReportPage: React.FC = () => {
 
           {/* Section 8: Source References Citations */}
           <section className="space-y-3">
-            <h3 className="font-serif font-bold text-sm text-[#131A2E] uppercase tracking-wider border-b pb-1">
-              6. Traceable Source References ({report.source_references.length})
+            <h3 className="font-serif font-bold text-sm text-[#131A2E] uppercase tracking-wider border-b pb-1 flex items-center justify-between">
+              <span>6. Traceable Source References ({report.source_references.length})</span>
+              <span className="text-[10px] text-gray-500 font-mono">Click any excerpt to inspect source details</span>
             </h3>
-            <div className="max-h-60 overflow-y-auto space-y-1.5 pr-2 font-mono text-[10px]">
+            <div className="max-h-64 overflow-y-auto space-y-1.5 pr-2 font-mono text-[10px]">
               {report.source_references.map((ref, i) => (
-                <div key={i} className="p-2 bg-gray-50 rounded border border-gray-200 flex items-start justify-between">
+                <div
+                  key={i}
+                  onClick={() => setSelectedCitation(ref)}
+                  className="p-2.5 bg-gray-50 hover:bg-amber-50 cursor-pointer rounded border border-gray-200 hover:border-amber-400 transition flex items-start justify-between"
+                  title="Click to inspect verified source passage"
+                  role="button"
+                  tabIndex={0}
+                >
                   <div className="truncate max-w-lg">
-                    <strong className="text-gray-800">[{ref.document}]</strong> {ref.excerpt}
+                    <strong className="text-gray-900">[{ref.document}]</strong> {ref.excerpt}
                   </div>
-                  <span className="text-gray-400 shrink-0 ml-2">Sentences: {ref.sentence_indices.join(',')}</span>
+                  <span className="text-gray-500 shrink-0 ml-2 font-mono">
+                    Sentences: {ref.sentence_indices.join(', ')}
+                  </span>
                 </div>
               ))}
             </div>
@@ -284,11 +303,20 @@ export const ReportPage: React.FC = () => {
 
       {/* Tab: Raw Markdown View */}
       {activeTab === 'markdown' && (
-        <div className="case-card p-4 rounded-lg bg-white">
+        <div className="case-card p-4 rounded-lg bg-white space-y-2">
+          <div className="flex items-center justify-between text-xs text-gray-500 pb-2 border-b">
+            <span>Direct Markdown representation of the 18-section investigation report:</span>
+            <button
+              onClick={() => navigator.clipboard.writeText(markdownText)}
+              className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-xs font-mono font-semibold"
+            >
+              Copy to Clipboard
+            </button>
+          </div>
           <textarea
             readOnly
-            value={api.getReportDownloadUrl(report.case_id, 'markdown')}
-            className="w-full h-96 p-3 font-mono text-xs bg-gray-50 border rounded text-gray-800"
+            value={markdownText || 'Loading markdown representation...'}
+            className="w-full h-96 p-3 font-mono text-xs bg-gray-50 border rounded text-gray-800 leading-relaxed"
           />
         </div>
       )}
@@ -299,6 +327,56 @@ export const ReportPage: React.FC = () => {
           <pre className="w-full h-96 p-3 font-mono text-xs bg-gray-50 border rounded text-gray-800 overflow-auto">
             {JSON.stringify(report, null, 2)}
           </pre>
+        </div>
+      )}
+
+      {/* Citation Inspector Modal */}
+      {selectedCitation && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-lg w-full p-6 shadow-xl space-y-4 border border-[#E2DDD0]">
+            <div className="flex items-center justify-between border-b pb-2">
+              <div className="flex items-center space-x-2">
+                <FileText className="w-4 h-4 text-[#C9962F]" />
+                <h4 className="font-serif font-bold text-sm text-[#131A2E]">
+                  Verified Evidence Citation
+                </h4>
+              </div>
+              <button
+                onClick={() => setSelectedCitation(null)}
+                className="text-gray-400 hover:text-gray-600 text-sm font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="space-y-3 text-xs">
+              <div>
+                <span className="text-gray-500 font-mono text-[10px] uppercase">Document:</span>
+                <div className="font-bold text-[#131A2E]">{selectedCitation.document}</div>
+              </div>
+
+              <div>
+                <span className="text-gray-500 font-mono text-[10px] uppercase">Exact Source Excerpt:</span>
+                <div className="p-3 bg-amber-50/60 border border-amber-200 rounded italic text-gray-800 mt-1 leading-relaxed">
+                  "{selectedCitation.excerpt}"
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-gray-600 bg-gray-50 p-2.5 rounded border">
+                <div>Sentence Indices: <strong>{selectedCitation.sentence_indices.join(', ')}</strong></div>
+                <div>Document ID: <strong className="truncate block">{selectedCitation.document_id || 'Embedded'}</strong></div>
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-2">
+              <button
+                onClick={() => setSelectedCitation(null)}
+                className="px-4 py-1.5 bg-[#131A2E] text-white rounded text-xs font-semibold hover:bg-[#1D2744]"
+              >
+                Close Inspector
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

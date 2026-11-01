@@ -146,6 +146,7 @@ export interface ContradictionItem {
   previous_review_status?: string;
   review_notes?: string;
   calculation_source?: string;
+  detection_engine?: 'nli' | 'rules' | 'llm_verified' | string;
   source_sentences: string[];
 }
 

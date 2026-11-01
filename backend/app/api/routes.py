@@ -121,6 +121,20 @@ def get_case_documents(case_id: str) -> List[DocumentMetadata]:
     return case_store.get_documents(case_id)
 
 
+def _rollback_batch_uploads(written_paths: List[Path], uploaded_docs: List[DocumentMetadata], case_id: str) -> None:
+    for p in written_paths:
+        try:
+            if p.exists():
+                p.unlink()
+        except Exception:
+            pass
+    for d in uploaded_docs:
+        try:
+            case_store.delete_document(case_id, d.document_id)
+        except Exception:
+            pass
+
+
 @api_router.post("/cases/{case_id}/documents", response_model=List[DocumentMetadata])
 def upload_documents(
     case_id: str,
@@ -142,6 +156,7 @@ def upload_documents(
         )
 
     uploaded_docs: List[DocumentMetadata] = []
+    written_paths: List[Path] = []
     case_uploads_dir = case_store.uploads_dir / case_id
     case_uploads_dir.mkdir(parents=True, exist_ok=True)
 
@@ -162,6 +177,7 @@ def upload_documents(
 
         # Filename sanitization & path traversal defense (Task 3)
         if "\x00" in raw_filename or ".." in raw_filename:
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(status_code=400, detail="Invalid filename: illegal path traversal characters detected.")
 
         safe_name = Path(raw_filename).name.strip()
@@ -171,6 +187,7 @@ def upload_documents(
 
         ext = Path(safe_name).suffix.lower()
         if ext not in ALLOWED_EXTENSIONS:
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(
                 status_code=400,
                 detail=f"Unsupported file extension '{ext}'. Allowed extensions are: {', '.join(sorted(ALLOWED_EXTENSIONS))}"
@@ -179,19 +196,29 @@ def upload_documents(
         dest_path = (case_uploads_dir / safe_name).resolve()
         # Verify resolved destination path stays strictly inside case_uploads_dir
         if not dest_path.is_relative_to(case_uploads_dir.resolve()):
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(status_code=400, detail="Security violation: Path traversal detected.")
 
         file_bytes = file.file.read()
         file_size = len(file_bytes)
         total_batch_size += file_size
 
+        if file_size == 0:
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
+            raise HTTPException(
+                status_code=400,
+                detail=f"File '{safe_name}' is empty (0 bytes). Empty documents cannot be processed."
+            )
+
         if file_size > MAX_FILE_SIZE_BYTES:
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(
                 status_code=413,
                 detail=f"File '{safe_name}' ({file_size} bytes) exceeds maximum limit of {MAX_FILE_SIZE_BYTES // (1024*1024)}MB."
             )
 
         if total_batch_size > MAX_BATCH_SIZE_BYTES:
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(
                 status_code=413,
                 detail=f"Batch size exceeds maximum limit of {MAX_BATCH_SIZE_BYTES // (1024*1024)}MB."
@@ -200,6 +227,7 @@ def upload_documents(
         try:
             with open(dest_path, "wb") as f_out:
                 f_out.write(file_bytes)
+            written_paths.append(dest_path)
 
             doc_meta = process_uploaded_file(
                 case_id=case_id,
@@ -215,6 +243,9 @@ def upload_documents(
             uploaded_docs.append(doc_meta)
         except Exception as e:
             logger.error(f"Failed to process file '{safe_name}': {e}")
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
+            if isinstance(e, HTTPException):
+                raise e
             raise HTTPException(status_code=400, detail=f"Failed to process '{safe_name}': {str(e)}")
 
     return uploaded_docs

@@ -50,6 +50,20 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
             Review: {reviewStatus.replace(/_/g, ' ')}
           </span>
 
+          {/* Detection Engine Badge */}
+          <span
+            className={`text-[10px] px-2 py-0.5 rounded font-mono uppercase font-semibold ${
+              item.detection_engine === 'nli'
+                ? 'bg-blue-100 text-blue-800 border border-blue-300'
+                : item.detection_engine === 'llm_verified'
+                ? 'bg-purple-100 text-purple-800 border border-purple-300'
+                : 'bg-amber-50 text-amber-900 border border-amber-300'
+            }`}
+            title={`Detection Engine: ${item.detection_engine || 'rules'}`}
+          >
+            Engine: {item.detection_engine === 'nli' ? 'NLI Model' : item.detection_engine === 'llm_verified' ? 'LLM Judge' : 'Rules'}
+          </span>
+
           <span
             className={`stamp-label text-[10px] ${
               item.contradiction_type === 'confirmed_contradiction'

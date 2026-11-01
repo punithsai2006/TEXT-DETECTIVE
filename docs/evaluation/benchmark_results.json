@@ -1,5 +1,5 @@
 {
-  "evaluation_date": "2026-10-31T22:38:09.346166+00:00",
+  "evaluation_date": "2026-11-01T15:15:20.091622+00:00",
   "llm_provider": "mock",
   "llm_model": "mock-investigator-v1",
   "is_mock": true,
@@ -11,7 +11,7 @@
     "average_retrieval_mrr": 0.975,
     "average_retrieval_recall_at_5": 1.0,
     "average_entity_f1": 0.2962,
-    "average_event_f1": 0.6488
+    "average_event_f1": 0.4292
   },
   "held_out_cases": [
     "case_03_helios",
@@ -53,9 +53,19 @@
       "event_metrics": {
         "total_extracted": 67,
         "grounded_events": 37,
-        "precision": 0.5522,
+        "true_events_count": 12,
+        "tp": 12,
+        "fp": 55,
+        "fn": 0,
+        "precision": 0.1791,
         "recall": 1.0,
-        "f1": 0.7115
+        "f1": 0.3038,
+        "matched_examples": [
+          "Bob Chen enters Building 4 via Main Entr",
+          "David Wright enters Building 4 via Main ",
+          "Alice Vance enters Building 4 via Main E"
+        ],
+        "unmatched_examples": []
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -120,7 +130,10 @@
         "grounded_events": 18,
         "precision": 0.5143,
         "recall": 1.0,
-        "f1": 0.6793
+        "f1": 0.5143,
+        "tp": 18,
+        "fp": 17,
+        "fn": 0
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -183,7 +196,10 @@
         "grounded_events": 6,
         "precision": 0.2857,
         "recall": 1.0,
-        "f1": 0.4444
+        "f1": 0.2857,
+        "tp": 6,
+        "fp": 15,
+        "fn": 0
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {
@@ -245,7 +261,10 @@
         "grounded_events": 19,
         "precision": 0.6129,
         "recall": 1.0,
-        "f1": 0.76
+        "f1": 0.6129,
+        "tp": 19,
+        "fp": 12,
+        "fn": 0
       },
       "timeline_order_accuracy": 1.0,
       "retrieval_metrics": {

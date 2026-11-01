@@ -9,6 +9,7 @@ export const TimelinePage: React.FC = () => {
   const [timeline, setTimeline] = useState<TimelineEntry[]>([]);
   const [participantFilter, setParticipantFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'timeline' | 'table'>('timeline');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -91,6 +92,26 @@ export const TimelinePage: React.FC = () => {
               </option>
             ))}
           </select>
+
+          {/* View Mode Toggle */}
+          <div className="flex items-center rounded border border-gray-300 overflow-hidden bg-white">
+            <button
+              onClick={() => setViewMode('timeline')}
+              className={`px-2.5 py-1 text-xs font-semibold ${
+                viewMode === 'timeline' ? 'bg-[#131A2E] text-white' : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              Timeline
+            </button>
+            <button
+              onClick={() => setViewMode('table')}
+              className={`px-2.5 py-1 text-xs font-semibold ${
+                viewMode === 'table' ? 'bg-[#131A2E] text-white' : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              Data Table
+            </button>
+          </div>
         </div>
       </div>
 
@@ -109,6 +130,46 @@ export const TimelinePage: React.FC = () => {
           <p className="text-xs text-gray-500 mt-1">
             Try adjusting your search query or selecting "All People".
           </p>
+        </div>
+      ) : viewMode === 'table' ? (
+        <div className="case-card p-4 rounded-lg bg-white overflow-x-auto border border-gray-200">
+          <table className="w-full text-left text-xs border-collapse">
+            <thead className="bg-[#FAF8F3] text-gray-700 font-mono text-[10px] uppercase border-b border-gray-200">
+              <tr>
+                <th className="p-2.5">#</th>
+                <th className="p-2.5">Timestamp</th>
+                <th className="p-2.5">Event Description</th>
+                <th className="p-2.5">Participants</th>
+                <th className="p-2.5">Location</th>
+                <th className="p-2.5">Source Document</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 font-serif">
+              {filteredTimeline.map((entry, idx) => (
+                <tr key={entry.entry_id || idx} className="hover:bg-amber-50/40">
+                  <td className="p-2.5 font-mono text-[10px] text-gray-400">{idx + 1}</td>
+                  <td className="p-2.5 font-mono font-bold text-[#131A2E] whitespace-nowrap">
+                    {entry.timestamp_display}
+                    {entry.is_uncertain && (
+                      <span className="ml-1 text-[9px] text-amber-600 bg-amber-50 px-1 py-0.2 rounded font-sans">
+                        approx
+                      </span>
+                    )}
+                  </td>
+                  <td className="p-2.5 text-[#131A2E] max-w-xs">{entry.event_description}</td>
+                  <td className="p-2.5 text-amber-800 whitespace-nowrap font-sans font-medium">
+                    {entry.participants && entry.participants.length > 0 ? entry.participants.join(', ') : '—'}
+                  </td>
+                  <td className="p-2.5 text-emerald-800 whitespace-nowrap font-sans">
+                    {entry.location || '—'}
+                  </td>
+                  <td className="p-2.5 font-mono text-[10px] text-gray-500 whitespace-nowrap">
+                    {entry.document_name}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       ) : (
         <div className="relative border-l-2 border-[#C9962F]/40 ml-4 pl-6 space-y-6 py-2">

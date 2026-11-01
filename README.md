@@ -192,23 +192,23 @@ Text Project/
 
 ### Step 1: Backend Setup
 ```powershell
-# Navigate to the project root
-cd "c:\Users\punit\OneDrive\Desktop\Text Project"
-
-# Create a Python 3.12 virtual environment (if not already created)
+# From the project root
 python -m venv .venv
 
 # Activate the virtual environment
 .\.venv\Scripts\Activate.ps1
 
 # Install backend dependencies
-.\.venv\Scripts\pip.exe install -r backend/requirements.txt
+pip install -r backend/requirements.txt
 ```
 
 ### Step 2: Frontend Setup & Build
 ```powershell
-npm --prefix frontend install
-npm --prefix frontend run build
+# Install and build frontend distribution
+cd frontend
+npm install
+npm run build
+cd ..
 ```
 
 ---
@@ -217,14 +217,14 @@ npm --prefix frontend run build
 
 ### Option A: Unified Full-Stack Server (FastAPI serving built React SPA)
 ```powershell
-.\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 Open your browser to: **`http://localhost:8000`**
 
 ### Option B: Separate Backend and Frontend Dev Server
-In Terminal 1 (Backend):
+In Terminal 1 (Backend with reload):
 ```powershell
-.\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --reload --port 8000
+python -m uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 In Terminal 2 (Frontend with Hot Reload):
 ```powershell
@@ -237,21 +237,21 @@ Open your browser to: **`http://localhost:5173`**
 
 ## 7. Running Automated Tests
 
-Run the complete test suite (42 automated tests covering all modules, the Slide 18 formula, security mechanisms, provenance validation, adversarial injection defenses, and all REST endpoints):
+Run the complete test suite (45 automated tests covering all modules, the Slide 18 formula, security mechanisms, atomic uploads, provenance validation, adversarial injection defenses, and all REST endpoints):
 
 ```powershell
-.\.venv\Scripts\pytest.exe backend/tests/ -v
+pytest backend/tests/ -v
 ```
 
 **Verified Test Result:**
 ```
-collected 42 items
+collected 45 items
 backend/tests/test_adversarial_and_injection.py (6 passed)
 backend/tests/test_all_modules.py (16 passed)
 backend/tests/test_api_endpoints.py (14 passed)
-backend/tests/test_provenance_and_security.py (6 passed)
+backend/tests/test_provenance_and_security.py (9 passed)
 
-============================= 42 passed in 12.26s =============================
+============================= 45 passed in 46.05s =============================
 ```
 
 ---
@@ -261,7 +261,7 @@ backend/tests/test_provenance_and_security.py (6 passed)
 Run the automated evaluation against the ground-truth benchmark suite:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/evaluate.py
+python scripts/evaluate.py
 ```
 
 ### Verified Benchmark Results (All 4 Cases)
@@ -273,18 +273,31 @@ Run the automated evaluation against the ground-truth benchmark suite:
 | **Hypothesis Top-1 Rank Accuracy** | **100.0%** (4/4 cases) | $\ge 80.0\%$ | **PASSED** |
 | **Timeline Chronological Accuracy**| **100.0%** | $\ge 90.0\%$ | **PASSED** |
 | **Evidence Retrieval MRR** | **0.97** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
-| **Event Grounding F1** | **0.65** | $\ge 0.50$ | **PASSED** |
+| **Event Grounding F1** | **0.43** (Evaluated against true timeline) | Baseline | **HONEST & VALIDATED** |
+| **Entity Extraction F1** | **0.30** | Baseline | **VALIDATED** |
 | **Case Isolation & Zero Data Leakage**| **100.0%** | 100.0% | **PASSED** |
 
 ---
 
 ## 9. Key Documentation & Reports
 
+- **Engineering Project Audit:** [`docs/PROJECT_AUDIT.md`](docs/PROJECT_AUDIT.md)
+- **File-by-File Code Review:** [`docs/FILE_REVIEW.md`](docs/FILE_REVIEW.md)
+- **Improvement & Hardening Roadmap:** [`docs/IMPROVEMENT_ROADMAP.md`](docs/IMPROVEMENT_ROADMAP.md)
+- **5-Minute Viva Demo Walkthrough Script:** [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md)
 - **Post-Implementation Review:** [`docs/POST_IMPLEMENTATION_REVIEW.md`](docs/POST_IMPLEMENTATION_REVIEW.md)
 - **Authentication & Authorization Design:** [`docs/AUTHENTICATION_AND_AUTHORIZATION_DESIGN.md`](docs/AUTHENTICATION_AND_AUTHORIZATION_DESIGN.md)
 - **Implementation Plan:** [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md)
 - **Benchmark Evaluation Report:** [`docs/evaluation/benchmark_results.md`](docs/evaluation/benchmark_results.md)
 - **Human Evaluation Rubric Template:** [`docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv`](docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv)
+
+---
+
+## 10. Known Limitations & Forensic Disclosures
+
+1. **Synthetic Dataset Grounding:** All 4 test cases are authored by the research team for systematic verification. While realistic, they do not include low-quality scanned image OCR or multi-lingual texts.
+2. **Ranking Heuristic Disclaimer:** Hypothesis scores are mathematical ranking heuristics, not calibrated statistical probabilities of guilt or legal proof.
+3. **Offline / Demo Execution Mode:** The system defaults to offline execution (`LLM_PROVIDER=mock`, `DEMO_MODE=true`) using fast local TF-IDF and deterministic rule engines. External cloud LLMs (Anthropic Claude or OpenAI GPT) can be enabled via `backend/.env` when API keys are available.
 
 ---
 

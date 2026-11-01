@@ -250,6 +250,7 @@ class ContradictionItem(BaseModel):
     nli_label: NLILabel
     confidence: float
     calculation_source: str = "cross_encoder_nli_and_conflict_rules"
+    detection_engine: str = "rules"  # nli, rules, llm_verified
     explanation: str
     resolution_status: str = "unresolved"  # unresolved, resolved, investigating
     review_status: ReviewStatus = ReviewStatus.PENDING_REVIEW
