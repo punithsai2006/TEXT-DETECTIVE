@@ -64,6 +64,36 @@ export const AskQuestionPage: React.FC = () => {
 
   const sampleQuestions = getDynamicSuggestions();
 
+  const getSufficiencyBadge = (sufficiency?: string) => {
+    switch (sufficiency) {
+      case 'directly_established':
+        return {
+          label: 'Directly established',
+          className: 'text-emerald-400 bg-emerald-950/80 border border-emerald-800/80',
+        };
+      case 'partially_established':
+        return {
+          label: 'Partially established',
+          className: 'text-orange-400 bg-orange-950/80 border border-orange-800/80',
+        };
+      case 'multiple_events_found':
+        return {
+          label: 'Multiple events found',
+          className: 'text-sky-400 bg-sky-950/80 border border-sky-800/80',
+        };
+      case 'insufficient_evidence':
+        return {
+          label: 'Insufficient evidence',
+          className: 'text-rose-400 bg-rose-950/80 border border-rose-800/80',
+        };
+      default:
+        return {
+          label: 'Verified findings',
+          className: 'text-slate-300 bg-slate-800 border border-slate-700',
+        };
+    }
+  };
+
   const handleAsk = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!activeCaseId || !question.trim()) return;
@@ -141,54 +171,158 @@ export const AskQuestionPage: React.FC = () => {
       </div>
 
       {/* Answer & Evidence Display */}
-      {response && (
-        <div className="space-y-4">
-          {/* Answer Card */}
-          <div className="case-card p-5 sm:p-6 rounded-2xl border-l-4 border-l-blue-600 space-y-3 shadow-sm">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 flex-wrap gap-2">
-              <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-900">
-                <ShieldCheck className="w-4 h-4 text-blue-600" />
-                <span>Verified Evidence Synthesis</span>
+      {response && (() => {
+        const badge = getSufficiencyBadge(response.evidence_sufficiency);
+        return (
+          <div className="space-y-5">
+            {/* AI Investigation Answer Card */}
+            <div className="bg-slate-950 text-slate-100 p-6 sm:p-7 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+              {/* Top row: Title & Pill badge */}
+              <div className="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-slate-800/80">
+                <div className="flex items-center space-x-2 text-sm font-semibold text-slate-300">
+                  <ShieldCheck className="w-4 h-4 text-blue-400" />
+                  <span>AI Investigation Answer</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className={`px-3 py-0.5 rounded-full text-xs font-semibold ${badge.className}`}>
+                    {badge.label}
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-mono bg-slate-900 px-2.5 py-0.5 rounded-full border border-slate-800">
+                    {response.model_used} {response.is_mock ? '(Offline Mode)' : ''}
+                  </span>
+                </div>
               </div>
-              <span className="text-[10px] text-slate-500 font-mono bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
-                Model: {response.model_used} {response.is_mock ? '(Mock Offline)' : ''}
-              </span>
+
+              {/* Question as title */}
+              <h2 className="text-lg sm:text-xl font-bold text-slate-100">
+                {response.question}
+              </h2>
+
+              {/* Direct Answer */}
+              <p className="text-sm text-slate-200 leading-relaxed whitespace-pre-line">
+                {response.direct_answer || response.answer}
+              </p>
+
+              {/* Supporting Evidence */}
+              {response.supporting_evidence && response.supporting_evidence.length > 0 && (
+                <div className="pt-2 space-y-3">
+                  <h3 className="text-sm font-bold text-slate-200 tracking-wide">
+                    Supporting evidence
+                  </h3>
+                  <div className="space-y-3">
+                    {response.supporting_evidence.map((item, idx) => (
+                      <div key={idx} className="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3.5 space-y-1.5">
+                        <div className="flex items-center gap-2 text-xs text-slate-300">
+                          <span className="font-bold text-slate-300">Source:</span>
+                          <code className="bg-slate-800 text-slate-200 px-2 py-0.5 rounded font-mono text-[11px] border border-slate-700">
+                            {item.source}
+                          </code>
+                          {item.timestamp && (
+                            <span className="text-slate-500 text-[11px] ml-auto font-mono">
+                              {item.timestamp}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-300 italic pl-2.5 border-l-2 border-blue-500/70">
+                          {item.quote}
+                        </p>
+                        {item.additional_detail && (
+                          <p className="text-xs text-slate-400 pt-0.5">
+                            <strong className="text-slate-300">Additional detail:</strong> {item.additional_detail}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Contradicting Evidence */}
+              {response.contradicting_evidence && response.contradicting_evidence.length > 0 && (
+                <div className="pt-2 space-y-3">
+                  <h3 className="text-sm font-bold text-rose-300 tracking-wide flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-rose-400" />
+                    <span>Contradicting evidence</span>
+                  </h3>
+                  <div className="space-y-3">
+                    {response.contradicting_evidence.map((item, idx) => (
+                      <div key={idx} className="bg-rose-950/30 border border-rose-900/60 rounded-xl p-3.5 space-y-1.5">
+                        <div className="flex items-center gap-2 text-xs text-rose-200">
+                          <span className="font-bold text-rose-300">Source:</span>
+                          <code className="bg-rose-900/40 text-rose-200 px-2 py-0.5 rounded font-mono text-[11px] border border-rose-800/60">
+                            {item.source}
+                          </code>
+                          {item.timestamp && (
+                            <span className="text-rose-400/80 text-[11px] ml-auto font-mono">
+                              {item.timestamp}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs sm:text-sm text-rose-200/90 italic pl-2.5 border-l-2 border-rose-500/80">
+                          {item.quote}
+                        </p>
+                        {item.additional_detail && (
+                          <p className="text-xs text-rose-300/80 pt-0.5">
+                            <strong className="text-rose-200">Additional detail:</strong> {item.additional_detail}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Important Limitation */}
+              {response.important_limitations && (
+                <div className="pt-2 space-y-1.5">
+                  <h3 className="text-sm font-bold text-slate-200 tracking-wide">
+                    Important limitation
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {response.important_limitations}
+                  </p>
+                </div>
+              )}
+
+              {/* Unresolved Questions */}
+              {response.unresolved_questions && response.unresolved_questions.length > 0 && (
+                <div className="pt-2 space-y-1.5">
+                  <h3 className="text-sm font-bold text-slate-200 tracking-wide">
+                    Unresolved questions
+                  </h3>
+                  <ul className="text-xs sm:text-sm text-slate-400 list-disc pl-5 space-y-1">
+                    {response.unresolved_questions.map((uq, idx) => (
+                      <li key={idx}>{uq}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Offline Mode Notice */}
+              {response.is_mock && (
+                <div className="text-[11px] text-slate-400 bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 flex items-center gap-1.5 mt-2">
+                  <Cpu className="w-3.5 h-3.5 shrink-0 text-blue-400" />
+                  <span>Model: {response.model_used} (Offline Forensic Verification Mode). Grounded strictly in cross-referenced case files without external cloud hallucination.</span>
+                </div>
+              )}
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed pt-1 whitespace-pre-line">
-              {response.answer}
-            </p>
-
-            {response.is_mock && (
-              <div className="text-[11px] text-blue-700 bg-blue-50/80 p-2.5 rounded-lg border border-blue-200/60 flex items-center gap-1.5 mt-2">
-                <Cpu className="w-3.5 h-3.5 shrink-0 text-blue-600" />
-                <span>Offline Mock Mode: Answer synthesized directly from retrieved passages without live API call.</span>
-              </div>
-            )}
-
-            {response.uncertainty_note && (
-              <div className="text-[11px] text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200/60 flex items-center gap-1.5 mt-2">
-                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                <span>Notice: {response.uncertainty_note}</span>
+            {/* Supporting Evidence Chunks */}
+            {response.evidence.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 px-1">
+                  Direct Source Evidence ({response.evidence.length} passages retrieved)
+                </h3>
+                <div className="space-y-3">
+                  {response.evidence.map((ev, i) => (
+                    <EvidenceCard key={ev.evidence_id || i} evidence={ev} rank={i + 1} />
+                  ))}
+                </div>
               </div>
             )}
           </div>
-
-          {/* Supporting Evidence Chunks */}
-          {response.evidence.length > 0 && (
-            <div className="space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 px-1">
-                Direct Source Evidence ({response.evidence.length} passages retrieved)
-              </h3>
-              <div className="space-y-3">
-                {response.evidence.map((ev, i) => (
-                  <EvidenceCard key={ev.evidence_id || i} evidence={ev} rank={i + 1} />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 };

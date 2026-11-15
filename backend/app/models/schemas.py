@@ -430,12 +430,26 @@ class AskQuestionRequest(BaseModel):
     top_k: int = 5
 
 
+class SupportingEvidenceCard(BaseModel):
+    source: str
+    quote: str
+    timestamp: Optional[str] = None
+    additional_detail: Optional[str] = None
+
+
 class AskQuestionResponse(BaseModel):
     question: str
     answer: str
-    evidence: List[EvidenceItem]
-    sources: List[Dict[str, Any]]
-    model_used: str
+    direct_answer: str = ""
+    evidence_sufficiency: str = "directly_established"
+    supporting_evidence: List[SupportingEvidenceCard] = Field(default_factory=list)
+    contradicting_evidence: List[SupportingEvidenceCard] = Field(default_factory=list)
+    unresolved_questions: List[str] = Field(default_factory=list)
+    important_limitations: Optional[str] = None
+    question_type: str = "general"
+    evidence: List[EvidenceItem] = Field(default_factory=list)
+    sources: List[Dict[str, Any]] = Field(default_factory=list)
+    model_used: str = "mock-investigator-v1"
     is_mock: bool = False
     uncertainty_note: Optional[str] = None
 

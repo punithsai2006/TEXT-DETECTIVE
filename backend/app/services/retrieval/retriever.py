@@ -244,6 +244,38 @@ class HybridRetriever:
             "does", "what", "where", "who", "when", "why", "how", "has", "had", "have",
             "would", "could", "should", "tell", "regarding", "about"
         }
+        SYNONYM_EXPANSIONS = {
+            "open": ["unlock", "unlocked", "access", "unsealing", "entry"],
+            "opened": ["unlock", "unlocked", "access", "unsealed", "entry"],
+            "opening": ["unlock", "unlocking", "access"],
+            "unlock": ["open", "opened", "unlock", "unlocked"],
+            "unlocked": ["open", "opened", "unlock", "unlocked"],
+            "lock": ["secure", "close", "closed", "locked"],
+            "locked": ["secure", "close", "closed", "locked"],
+            "enter": ["access", "entry", "swipe", "swiped", "door", "inside", "arrived"],
+            "entered": ["access", "entry", "swiped", "door", "inside", "arrived"],
+            "entry": ["enter", "entered", "swiped", "access"],
+            "exit": ["leave", "left", "departure", "departed", "out"],
+            "exited": ["leave", "left", "departure", "departed", "out"],
+            "left": ["exit", "exited", "departure", "departed"],
+            "leave": ["exit", "exited", "departure"],
+            "carry": ["tube", "bag", "drive", "device", "item", "holding", "held"],
+            "carrying": ["tube", "bag", "drive", "device", "item", "holding", "held", "carried"],
+            "carried": ["tube", "bag", "drive", "device", "item", "holding", "held", "carrying"],
+            "tube": ["cardboard", "cylinder", "carrying", "carried", "package"],
+            "case": ["case_lock", "display", "cabinet", "vault", "safe"],
+            "display": ["case", "case_lock", "cabinet", "vault"],
+            "building": ["facility", "premises", "staff_door", "door", "entrance"],
+            "alibi": ["claimed", "stated", "home", "dinner", "left", "denied"],
+            "contradict": ["denied", "conflict", "different", "inconsistent", "discrepancy"],
+            "contradicts": ["denied", "conflict", "different", "inconsistent", "discrepancy"],
+        }
+
+        is_question = bool(
+            query.strip().endswith("?")
+            or re.match(r"^(?:who|what|when|where|why|how|which|did|was|were|is)\b", query.strip(), re.I)
+        )
+
         query_norm = re.sub(r"[_:\-]+", " ", query.lower())
         all_terms = set(re.findall(r"\b[A-Za-z0-9]{2,}\b", query_norm))
         filtered_q_terms = {t for t in all_terms if t not in ENGLISH_STOPWORDS}
@@ -254,21 +286,82 @@ class HybridRetriever:
         name_pairs = re.findall(r"\b([a-z]{2,})\s+([a-z]{2,})\b", query_norm)
         for first, last in name_pairs:
             if first in q_terms and last in q_terms:
-                expanded_terms.add(f"{first[0]}{last}")  # e.g. treyes
-                expanded_terms.add(f"{first}_{last}")   # e.g. tom_reyes
+                expanded_terms.add(f"{first[0]}{last}")       # e.g. treyes
+                expanded_terms.add(f"{first}_{last}")        # e.g. tom_reyes
+                expanded_terms.add(f"{first[0]}_{last}")      # e.g. t_reyes
+
+        # Question-specific expansions for natural-language investigative inquiries
+        if is_question:
+            for term in list(q_terms):
+                if term in SYNONYM_EXPANSIONS:
+                    expanded_terms.update(SYNONYM_EXPANSIONS[term])
+
+            # Time token expansion (e.g. 6:02 PM -> 18:02, 06:02; 3:30 PM -> 15:30)
+            time_12 = re.finditer(r"\b(0?[1-9]|1[0-2]):([0-5]\d)(?::([0-5]\d))?\s*(am|pm)\b", query, re.I)
+            for tm in time_12:
+                hr = int(tm.group(1))
+                mn = tm.group(2)
+                ampm = tm.group(4).lower()
+                hr_24 = hr + 12 if (ampm == "pm" and hr < 12) else (0 if (ampm == "am" and hr == 12) else hr)
+                expanded_terms.add(f"{hr_24:02d}:{mn}")
+                expanded_terms.add(f"{hr:02d}:{mn}")
+                expanded_terms.add(f"{hr}:{mn}")
+                expanded_terms.add(f"{hr_24:02d}{mn}")
+
+            time_24 = re.finditer(r"\b([01]?\d|2[0-3]):([0-5]\d)(?::([0-5]\d))?\b", query)
+            for tm in time_24:
+                hr_24 = int(tm.group(1))
+                mn = tm.group(2)
+                expanded_terms.add(f"{hr_24:02d}:{mn}")
+                expanded_terms.add(f"{hr_24}:{mn}")
+                hr_12 = 12 if hr_24 in [0, 12] else (hr_24 - 12 if hr_24 > 12 else hr_24)
+                ampm = "pm" if hr_24 >= 12 else "am"
+                expanded_terms.add(f"{hr_12}:{mn}")
+                expanded_terms.add(f"{hr_12:02d}:{mn}")
 
         keyword_scores = []
         for i in filtered_indices:
-            txt = chunks[i]["text"].lower()
+            txt = chunks[i]["text"]
+            txt_lower = txt.lower()
             doc_name = chunks[i].get("document_name", "").lower()
-            txt_norm = re.sub(r"[_:\-]+", " ", txt)
+            txt_norm = re.sub(r"[_:\-]+", " ", txt_lower)
             overlap_score = 0.0
+
             for term in expanded_terms:
-                count = len(re.findall(rf"\b{re.escape(term)}\b", txt_norm)) or len(re.findall(rf"\b{re.escape(term)}\b", txt))
+                term_clean = term.replace(":", " ")
+                count = len(re.findall(rf"\b{re.escape(term)}\b", txt_lower)) or len(re.findall(rf"\b{re.escape(term_clean)}\b", txt_norm))
+                if not count and ":" in term:
+                    # Check prefix, e.g. "18:02" matching "18:02:19"
+                    count = len(re.findall(rf"\b{re.escape(term)}:\d{{2}}\b", txt_lower))
                 if count:
                     overlap_score += 1.0 + math.log(1.0 + count)
                 if term in doc_name:
                     overlap_score += 1.5
+
+            # Exact multi-word phrase matching
+            query_phrases = re.findall(r"\b[A-Za-z0-9]+(?:\s+[A-Za-z0-9]+)+\b", query_norm)
+            for phrase in query_phrases:
+                if phrase not in ENGLISH_STOPWORDS and phrase in txt_norm:
+                    overlap_score += 2.0
+
+            # In question mode, demote pure document header chunks and boost timestamped action rows
+            if is_question:
+                is_pure_header = (
+                    bool(re.match(r"^(?:DOCUMENT\s+\d+|Document Type:|System:|Author:|Case ID:)", txt.strip(), re.I))
+                    and not re.search(r"\b\d{1,2}:\d{2}(?::\d{2})?\s*-\s*[A-Z_]+", txt)
+                    and not re.search(r"\[\d{1,2}:\d{2}\s*(?:AM|PM)\]\s*[A-Z]+:", txt)
+                    and not re.search(r"\b(?:unlocked|locked|entered|exited|swiped|carried|saw|stated|photo)\b", txt_lower)
+                )
+                has_action_event = bool(
+                    re.search(r"\b(?:UNLOCKED|LOCKED|ENTRY|EXIT|ARMED|DISARMED|SWIPED|ACCESS_GRANTED|OPENED|CARRIED|FLASHED|INSERTED)\b", txt, re.I)
+                    or re.search(r"\b\d{1,2}:\d{2}(?::\d{2})?\b", txt)
+                )
+
+                if is_pure_header:
+                    overlap_score *= 0.35
+                elif has_action_event:
+                    overlap_score *= 1.35
+
             keyword_scores.append((i, overlap_score))
 
         keyword_scores.sort(key=lambda x: x[1], reverse=True)
@@ -292,6 +385,20 @@ class HybridRetriever:
                 rrf_results.append((i, combined_score))
 
         rrf_results.sort(key=lambda x: x[1], reverse=True)
+
+        # Multi-hop credential resolution: If top chunks reference a key or credential,
+        # ensure chunks defining who holds that credential are also retrieved
+        top_indices = [idx for idx, _ in rrf_results[:top_k]]
+        top_text = " ".join(chunks[idx]["text"] for idx in top_indices)
+        referenced_keys = set(re.findall(r"\b(KEY_\d+|CARD_\d+|BADGE_\d+)\b", top_text, re.I))
+
+        if is_question and referenced_keys:
+            for i in filtered_indices:
+                if i not in top_indices:
+                    chunk_txt = chunks[i]["text"]
+                    if any(k.upper() in chunk_txt.upper() and ("assigned to" in chunk_txt.lower() or "held by" in chunk_txt.lower()) for k in referenced_keys):
+                        rrf_results.insert(min(top_k - 1, len(rrf_results)), (i, 0.45))
+                        break
 
         results: List[EvidenceItem] = []
         for i, score in rrf_results[:top_k]:

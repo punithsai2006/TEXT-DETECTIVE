@@ -266,9 +266,23 @@ export interface Case {
   single_document_warning: boolean;
 }
 
+export interface SupportingEvidenceCardItem {
+  source: string;
+  quote: string;
+  timestamp?: string;
+  additional_detail?: string;
+}
+
 export interface AskQuestionResponse {
   question: string;
   answer: string;
+  direct_answer?: string;
+  evidence_sufficiency?: 'directly_established' | 'partially_established' | 'multiple_events_found' | 'insufficient_evidence' | string;
+  supporting_evidence?: SupportingEvidenceCardItem[];
+  contradicting_evidence?: SupportingEvidenceCardItem[];
+  unresolved_questions?: string[];
+  important_limitations?: string;
+  question_type?: string;
   evidence: EvidenceItem[];
   sources: Array<{
     source_num: number;

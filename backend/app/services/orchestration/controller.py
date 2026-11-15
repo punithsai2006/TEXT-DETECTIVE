@@ -18,6 +18,7 @@ from app.models.schemas import (
     HypothesisInput,
     NLILabel,
     ReviewStatus,
+    SupportingEvidenceCard,
     InvestigationReport,
     get_utc_now_iso,
 )
@@ -28,6 +29,7 @@ from app.services.hypothesis.scorer import hypothesis_engine
 from app.services.llm_provider import analysis_model_json, get_llm_provider
 from app.services.reporting.reporter import generate_investigation_report
 from app.services.retrieval.retriever import retriever
+from app.services.orchestration.question_assistant import answer_investigative_question
 from app.storage.case_store import case_store
 
 logger = logging.getLogger(__name__)
@@ -464,12 +466,20 @@ class InvestigationController:
         Natural-language question answering grounded strictly in verified case evidence.
         Never hallucinates citations.
         """
-        evidence_items = retriever.search(case_id=case_id, query=question, top_k=top_k)
+        search_k = max(top_k, 10)
+        evidence_items = retriever.search(case_id=case_id, query=question, top_k=search_k)
 
         if not evidence_items:
             return AskQuestionResponse(
                 question=question,
                 answer="No supporting evidence found in the uploaded case documents for this inquiry.",
+                direct_answer="The available case documents do not contain sufficient evidence to establish this answer.",
+                evidence_sufficiency="insufficient_evidence",
+                supporting_evidence=[],
+                contradicting_evidence=[],
+                unresolved_questions=["The case index contains no passages matching this query."],
+                important_limitations="No relevant records found in the case dossier.",
+                question_type="general",
                 evidence=[],
                 sources=[],
                 model_used="retrieval-verifier",
@@ -477,10 +487,32 @@ class InvestigationController:
                 uncertainty_note="The case index contains no passages matching this query."
             )
 
+        case = case_store.get_case(case_id)
+        case_name = case.name if case else ""
+        qa_result = answer_investigative_question(question=question, evidence_items=evidence_items, case_name=case_name)
+
+        if qa_result.get("evidence_sufficiency") == "insufficient_evidence":
+            return AskQuestionResponse(
+                question=question,
+                answer="The available case documents do not contain sufficient evidence to establish this answer.",
+                direct_answer=qa_result["direct_answer"],
+                evidence_sufficiency="insufficient_evidence",
+                supporting_evidence=[],
+                contradicting_evidence=[],
+                unresolved_questions=qa_result.get("unresolved_questions", []),
+                important_limitations=qa_result.get("important_limitations"),
+                question_type=qa_result.get("question_type", "general"),
+                evidence=[],
+                sources=[],
+                model_used="retrieval-verifier",
+                is_mock=False,
+                uncertainty_note="The uploaded case documents do not contain sufficient evidence to establish this answer."
+            )
+
         provider = get_llm_provider()
         context_blocks = []
         sources = []
-        for idx, ev in enumerate(evidence_items, 1):
+        for idx, ev in enumerate(evidence_items[:top_k], 1):
             src_str = f"[{idx}] Document: {ev.document_name} | Speaker: {ev.speaker or 'N/A'} | Time: {ev.timestamp or 'N/A'}"
             context_blocks.append(f"{src_str}\nExcerpt: \"{ev.text}\"")
             sources.append({
@@ -491,6 +523,29 @@ class InvestigationController:
                 "chunk_id": ev.chunk_id,
             })
 
+        supp_cards = [SupportingEvidenceCard(**item) for item in qa_result.get("supporting_evidence", [])]
+        contra_cards = [SupportingEvidenceCard(**item) for item in qa_result.get("contradicting_evidence", [])]
+
+        if provider.is_mock:
+            direct_ans = qa_result["direct_answer"]
+            return AskQuestionResponse(
+                question=question,
+                answer=direct_ans,
+                direct_answer=direct_ans,
+                evidence_sufficiency=qa_result.get("evidence_sufficiency", "directly_established"),
+                supporting_evidence=supp_cards,
+                contradicting_evidence=contra_cards,
+                unresolved_questions=qa_result.get("unresolved_questions", []),
+                important_limitations=qa_result.get("important_limitations"),
+                question_type=qa_result.get("question_type", "general"),
+                evidence=evidence_items[:top_k],
+                sources=sources,
+                model_used="mock-investigator-v1",
+                is_mock=True,
+                uncertainty_note=qa_result.get("important_limitations") or "Answer is grounded strictly in the cited excerpts above."
+            )
+
+        # Real LLM provider
         context_text = "\n\n".join(context_blocks)
         prompt = (
             f"Question: {question}\n\n"
@@ -512,7 +567,14 @@ class InvestigationController:
         return AskQuestionResponse(
             question=question,
             answer=resp.content,
-            evidence=evidence_items,
+            direct_answer=qa_result.get("direct_answer", resp.content),
+            evidence_sufficiency=qa_result.get("evidence_sufficiency", "directly_established"),
+            supporting_evidence=supp_cards,
+            contradicting_evidence=contra_cards,
+            unresolved_questions=qa_result.get("unresolved_questions", []),
+            important_limitations=qa_result.get("important_limitations"),
+            question_type=qa_result.get("question_type", "general"),
+            evidence=evidence_items[:top_k],
             sources=sources,
             model_used=resp.model,
             is_mock=resp.is_mock,
