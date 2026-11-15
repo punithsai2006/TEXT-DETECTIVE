@@ -12,7 +12,6 @@ import {
   Hypothesis,
   InvestigationReport,
   ProvenanceValidationReport,
-  ReviewStatus,
   TimelineEntry,
 } from '../types';
 
@@ -169,26 +168,29 @@ export const api = {
     return res.json();
   },
 
+  async reviewContradiction(
+    caseId: string,
+    contradictionId: string,
+    reviewStatus: string,
+    reviewNotes?: string
+  ): Promise<ContradictionItem> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/contradictions/${contradictionId}/review`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        review_status: reviewStatus,
+        reviewer_id: 'analyst_1',
+        review_notes: reviewNotes,
+      }),
+    });
+    if (!res.ok) throw new Error('Failed to submit contradiction review');
+    return res.json();
+  },
+
   // Hypotheses
   async getHypotheses(caseId: string): Promise<Hypothesis[]> {
     const res = await fetch(`${API_BASE}/cases/${caseId}/hypotheses`);
     if (!res.ok) throw new Error('Failed to get hypotheses');
-    return res.json();
-  },
-
-  async addHypotheses(caseId: string, hypotheses: Array<{ title: string; description: string }>): Promise<Hypothesis[]> {
-    const res = await fetch(`${API_BASE}/cases/${caseId}/hypotheses`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(hypotheses),
-    });
-    if (!res.ok) throw new Error('Failed to add hypotheses');
-    return res.json();
-  },
-
-  async rescoreHypotheses(caseId: string): Promise<Hypothesis[]> {
-    const res = await fetch(`${API_BASE}/cases/${caseId}/hypotheses/score`, { method: 'POST' });
-    if (!res.ok) throw new Error('Failed to rescore hypotheses');
     return res.json();
   },
 
@@ -218,23 +220,6 @@ export const api = {
 
   getReportDownloadUrl(caseId: string, format: 'markdown' | 'json' | 'html'): string {
     return `${API_BASE}/cases/${caseId}/report/download?format=${format}`;
-  },
-
-  // Contradiction Review (Task 5)
-  async reviewContradiction(
-    caseId: string,
-    contradictionId: string,
-    reviewStatus: ReviewStatus,
-    reviewerId: string = 'analyst_1',
-    reviewNotes?: string
-  ): Promise<ContradictionItem> {
-    const res = await fetch(`${API_BASE}/cases/${caseId}/contradictions/${contradictionId}/review`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ review_status: reviewStatus, reviewer_id: reviewerId, review_notes: reviewNotes }),
-    });
-    if (!res.ok) throw new Error('Failed to update contradiction review');
-    return res.json();
   },
 
   // Provenance Validation (Task 2)

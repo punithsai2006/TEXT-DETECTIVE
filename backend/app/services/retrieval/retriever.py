@@ -39,7 +39,10 @@ class HybridRetriever:
         self._model_load_attempted = True
         try:
             from sentence_transformers import SentenceTransformer
-            self._dense_model = SentenceTransformer(self._dense_model_name)
+            try:
+                self._dense_model = SentenceTransformer(self._dense_model_name, local_files_only=True)
+            except Exception:
+                self._dense_model = SentenceTransformer(self._dense_model_name)
             logger.info(f"Loaded SentenceTransformer model: {self._dense_model_name}")
         except Exception as e:
             logger.info(f"Dense SentenceTransformer unavailable ({e}). Using offline TF-IDF/lexical vectorizer.")
@@ -99,7 +102,11 @@ class HybridRetriever:
         with open(self._index_path(case_id), "w", encoding="utf-8") as f:
             json.dump(data, f)
 
-        # Also attempt ChromaDB persistence if available
+        # Keep optional Chroma persistence for existing installations. FAISS
+        # mode uses the case-local vectors directly and avoids a second index.
+        if settings.USE_FAISS:
+            return len(all_chunks)
+
         try:
             import chromadb
             client = chromadb.PersistentClient(path=str(self.storage_dir / "chroma_db"))
@@ -126,18 +133,20 @@ class HybridRetriever:
     def _compute_lexical_vectors(self, texts: List[str]) -> List[List[float]]:
         """
         Deterministic TF-IDF vectorizer for offline or fallback search.
+        Normalizes token separators (underscores, colons, hyphens) into spaces.
         """
+        clean_texts = [re.sub(r"[_:\-]+", " ", t) for t in texts]
         try:
             from sklearn.feature_extraction.text import TfidfVectorizer
             vec = TfidfVectorizer(max_features=512, stop_words="english")
-            mat = vec.fit_transform(texts)
+            mat = vec.fit_transform(clean_texts)
             return mat.toarray().tolist()
         except Exception:
             # Simple pure-Python bag-of-words fallback
             vocab: Dict[str, int] = {}
             tokenized = []
-            for t in texts:
-                words = re.findall(r"\b[A-Za-z0-9_]{2,}\b", t.lower())
+            for t in clean_texts:
+                words = re.findall(r"\b[A-Za-z0-9]{2,}\b", t.lower())
                 tokenized.append(words)
                 for w in words:
                     if w not in vocab and len(vocab) < 512:
@@ -199,27 +208,67 @@ class HybridRetriever:
             for idx, f_idx in enumerate(filtered_indices):
                 embeddings[f_idx] = all_vecs[idx + 1]
 
-        semantic_scores = []
-        for i in filtered_indices:
-            doc_emb = np.array(embeddings[i])
-            # Cosine similarity
-            denom = (np.linalg.norm(query_emb) * np.linalg.norm(doc_emb))
-            sim = float(np.dot(query_emb, doc_emb) / denom) if denom > 1e-9 else 0.0
-            semantic_scores.append((i, max(0.0, sim)))
+        matrix = np.asarray([embeddings[i] for i in filtered_indices], dtype=np.float32)
+        query_vector = np.asarray(query_emb, dtype=np.float32).reshape(1, -1)
+        if settings.USE_FAISS and matrix.shape[1]:
+            try:
+                import faiss
+            except ImportError as exc:
+                raise RuntimeError(
+                    "USE_FAISS requires compatible faiss-cpu and NumPy installations."
+                ) from exc
 
-        semantic_scores.sort(key=lambda x: x[1], reverse=True)
+            faiss.normalize_L2(matrix)
+            faiss.normalize_L2(query_vector)
+            index = faiss.IndexFlatIP(matrix.shape[1])
+            index.add(matrix)
+            similarities, positions = index.search(query_vector, len(filtered_indices))
+            semantic_scores = [
+                (filtered_indices[position], max(0.0, float(score)))
+                for score, position in zip(similarities[0], positions[0])
+            ]
+        else:
+            dots = (matrix @ query_vector.T).ravel()
+            norms = np.linalg.norm(matrix, axis=1) * np.linalg.norm(query_vector)
+            similarities = np.divide(dots, norms, out=np.zeros_like(dots), where=norms > 1e-9)
+            semantic_scores = [(i, max(0.0, float(score))) for i, score in zip(filtered_indices, similarities)]
+
+        semantic_scores.sort(key=lambda x: (-x[1], x[0]))
         sem_rank = {idx: rank + 1 for rank, (idx, _) in enumerate(semantic_scores)}
 
-        # 2. Keyword / Lexical Ranking (BM25 token overlap)
-        q_terms = set(re.findall(r"\b[A-Za-z0-9_]{2,}\b", query.lower()))
+        # 2. Keyword ranking by token overlap and frequency with stopword suppression and alias expansion
+        ENGLISH_STOPWORDS = {
+            "the", "a", "an", "is", "was", "were", "are", "be", "been", "being",
+            "in", "on", "at", "to", "for", "of", "with", "by", "from", "and", "or",
+            "that", "this", "these", "those", "it", "its", "as", "into", "did", "do",
+            "does", "what", "where", "who", "when", "why", "how", "has", "had", "have",
+            "would", "could", "should", "tell", "regarding", "about"
+        }
+        query_norm = re.sub(r"[_:\-]+", " ", query.lower())
+        all_terms = set(re.findall(r"\b[A-Za-z0-9]{2,}\b", query_norm))
+        filtered_q_terms = {t for t in all_terms if t not in ENGLISH_STOPWORDS}
+        q_terms = filtered_q_terms if filtered_q_terms else all_terms
+
+        # Person name alias expansion (e.g. "tom", "reyes" -> "treyes", "tom_reyes")
+        expanded_terms = set(q_terms)
+        name_pairs = re.findall(r"\b([a-z]{2,})\s+([a-z]{2,})\b", query_norm)
+        for first, last in name_pairs:
+            if first in q_terms and last in q_terms:
+                expanded_terms.add(f"{first[0]}{last}")  # e.g. treyes
+                expanded_terms.add(f"{first}_{last}")   # e.g. tom_reyes
+
         keyword_scores = []
         for i in filtered_indices:
             txt = chunks[i]["text"].lower()
+            doc_name = chunks[i].get("document_name", "").lower()
+            txt_norm = re.sub(r"[_:\-]+", " ", txt)
             overlap_score = 0.0
-            for term in q_terms:
-                if term in txt:
-                    count = len(re.findall(rf"\b{re.escape(term)}\b", txt))
+            for term in expanded_terms:
+                count = len(re.findall(rf"\b{re.escape(term)}\b", txt_norm)) or len(re.findall(rf"\b{re.escape(term)}\b", txt))
+                if count:
                     overlap_score += 1.0 + math.log(1.0 + count)
+                if term in doc_name:
+                    overlap_score += 1.5
             keyword_scores.append((i, overlap_score))
 
         keyword_scores.sort(key=lambda x: x[1], reverse=True)
@@ -227,13 +276,17 @@ class HybridRetriever:
 
         # 3. Reciprocal Rank Fusion (RRF)
         # RRF_Score = 1 / (60 + sem_rank) + 1 / (60 + kw_rank)
+        cosine_by_index = dict(semantic_scores)
+        keyword_by_index = dict(keyword_scores)
         rrf_results = []
         for i in filtered_indices:
+            raw_sim = cosine_by_index[i]
+            if raw_sim == 0.0 and keyword_by_index[i] == 0.0:
+                continue
             s_rank = sem_rank.get(i, 999)
             k_rank = kw_rank.get(i, 999)
             rrf = (1.0 / (60.0 + s_rank)) + (1.0 / (60.0 + k_rank))
             # Also combine with raw cosine similarity for fine-grained ranking
-            raw_sim = next((score for idx, score in semantic_scores if idx == i), 0.0)
             combined_score = round(rrf * 10.0 + raw_sim * 0.5, 4)
             if combined_score >= threshold:
                 rrf_results.append((i, combined_score))

@@ -128,3 +128,56 @@ def test_api_contradiction_review():
     res_html = download_report("case_01_meridian", format="html")
     assert res_html.status_code == 200
     assert b"<!DOCTYPE html>" in res_html.body
+
+
+def test_api_upload_ground_truth_rejected():
+    from io import BytesIO
+    from fastapi import UploadFile, HTTPException
+    from app.api.routes import upload_documents
+
+    gt_payload = b'{"case_id": "fake", "correct_hypothesis": {"title": "X"}, "planted_contradictions": []}'
+    mock_file = UploadFile(filename="ground_truth_test.json", file=BytesIO(gt_payload))
+
+    with pytest.raises(HTTPException) as exc_info:
+        upload_documents("case_01_meridian", files=[mock_file])
+    assert exc_info.value.status_code == 400
+    assert "ground-truth" in exc_info.value.detail.lower()
+
+
+def test_api_upload_unsupported_extension_rejected():
+    from io import BytesIO
+    from fastapi import UploadFile, HTTPException
+    from app.api.routes import upload_documents
+
+    mock_file = UploadFile(filename="malicious_payload.exe", file=BytesIO(b"binary data"))
+    with pytest.raises(HTTPException) as exc_info:
+        upload_documents("case_01_meridian", files=[mock_file])
+    assert exc_info.value.status_code == 400
+    assert "unsupported file extension" in exc_info.value.detail.lower()
+
+
+def test_api_empty_case_handling():
+    from app.api.routes import create_case, delete_case
+    from app.models.schemas import CaseCreateRequest
+
+    req = CaseCreateRequest(name="Empty Test Case", description="Testing clean handling of empty cases.")
+    new_case = create_case(req)
+    cid = new_case.case_id
+
+    try:
+        assert get_case(cid).case_id == cid
+        assert get_case_documents(cid) == []
+        assert get_case_timeline(cid) == []
+        assert get_case_contradictions(cid) == []
+        assert get_case_hypotheses(cid) == []
+    finally:
+        delete_case(cid)
+
+
+def test_api_hypothesis_scoring_formula():
+    from app.services.hypothesis.scorer import compute_exact_hypothesis_score
+
+    # Formula from Slide 18: Score(H) = Support - Conflict + Corroboration - ConflictPenalty
+    assert compute_exact_hypothesis_score(support=10, conflict=2, corroboration=3, conflict_penalty=1) == 10
+    assert compute_exact_hypothesis_score(support=5, conflict=5, corroboration=2, conflict_penalty=2) == 0
+    assert compute_exact_hypothesis_score(support=0, conflict=3, corroboration=0, conflict_penalty=2) == -5

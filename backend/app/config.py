@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = ""
     LLM_MODEL: str = ""
     DEMO_MODE: bool = True
+    SPACY_MODEL: str = ""
+    USE_FAISS: bool = False
+    MODEL_ASSISTED_ANALYSIS: bool = False
     STORAGE_DIR: str = "storage"
     DATA_DIR: str = "data"
     HOST: str = "127.0.0.1"

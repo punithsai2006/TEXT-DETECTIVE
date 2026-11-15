@@ -15,6 +15,8 @@ from app.models.schemas import (
     InvestigationReport,
     TimelineEntry,
 )
+from app.services.llm_provider import analysis_model_json
+from app.services.reporting.suspect_assessment import assess_suspect
 
 
 def generate_investigation_report(
@@ -54,7 +56,7 @@ def generate_investigation_report(
     ]
 
     # 3. Proposed explanation
-    proposed_hyp = next((h for h in hypotheses if h.is_proposed_explanation), (hypotheses[0] if hypotheses else None))
+    proposed_hyp = next((h for h in hypotheses if h.is_proposed_explanation), None)
 
     # 4. Score breakdown
     score_breakdown = []
@@ -102,9 +104,34 @@ def generate_investigation_report(
         f"A total of {len(documents)} documents were processed, revealing {len(entities)} unique named entities "
         f"and {len(timeline)} ordered timeline events. Cross-document comparison established {len(conflicts)} "
         f"conflicts and {len(agreements)} corroborated agreements. "
-        + (f"The system's proposed explanation is '{proposed_hyp.title}' with an evidence score of {proposed_hyp.total_score}."
-           if proposed_hyp else "No candidate hypotheses were evaluated.")
+        + (f"The highest-ranked evidence claim is '{proposed_hyp.title}' with an evidence score of {proposed_hyp.total_score}."
+           if proposed_hyp else (
+               "The leading hypotheses share the highest score. The system did not select a single explanation."
+               if hypotheses else "No candidate hypotheses were evaluated."
+           ))
     )
+    if key_evidence:
+        excerpts = {item.chunk_id: item for item in key_evidence[:12]}
+        selection = analysis_model_json(
+            'Select up to three source excerpts for an extractive executive summary. '
+            'Return {"excerpts":[{"chunk_id":"provided identifier","quote":"verbatim substring"}]}.',
+            {chunk_id: item.text for chunk_id, item in excerpts.items()},
+        )
+        selected = selection.get("excerpts") if selection else None
+        if isinstance(selected, list):
+            for item in selected[:3]:
+                if not isinstance(item, dict):
+                    continue
+                chunk_id, quote = item.get("chunk_id"), item.get("quote")
+                if not isinstance(chunk_id, str) or not isinstance(quote, str):
+                    continue
+                source = excerpts.get(chunk_id)
+                if source and quote.strip() and quote in source.text:
+                    exec_summary += f'\n\n"{quote}" [{source.document_id}, {chunk_id}]'
+
+    suspect_assessment = assess_suspect(documents)
+    if suspect_assessment:
+        exec_summary = f"{suspect_assessment}\n\n{exec_summary}"
 
     limitations = (
         "LIMITATIONS & UNCERTAINTY STATEMENT:\n"

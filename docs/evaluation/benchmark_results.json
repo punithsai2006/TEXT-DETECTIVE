@@ -1,21 +1,22 @@
 {
-  "evaluation_date": "2026-11-01T15:15:20.091622+00:00",
+  "evaluation_date": "2026-11-15T14:33:23.197097+00:00",
   "llm_provider": "mock",
   "llm_model": "mock-investigator-v1",
   "is_mock": true,
-  "total_cases_evaluated": 4,
-  "total_documents": 33,
+  "total_cases_evaluated": 5,
+  "total_documents": 44,
   "aggregate_metrics": {
     "hypothesis_top1_accuracy_percent": 100.0,
     "average_timeline_order_accuracy": 1.0,
-    "average_retrieval_mrr": 0.975,
+    "average_retrieval_mrr": 0.98,
     "average_retrieval_recall_at_5": 1.0,
-    "average_entity_f1": 0.2962,
-    "average_event_f1": 0.4292
+    "average_entity_f1": 0.3027,
+    "average_event_f1": 0.4792
   },
   "held_out_cases": [
     "case_03_helios",
-    "case_04_apex_robotics"
+    "case_04_apex_robotics",
+    "case_05_lakeview"
   ],
   "case_results": [
     {
@@ -24,12 +25,12 @@
       "is_held_out": false,
       "documents_count": 9,
       "entity_metrics": {
-        "tp": 15,
-        "fp": 81,
-        "fn": 3,
-        "precision": 0.1562,
-        "recall": 0.8333,
-        "f1": 0.2632,
+        "tp": 16,
+        "fp": 93,
+        "fn": 2,
+        "precision": 0.1468,
+        "recall": 0.8889,
+        "f1": 0.252,
         "tp_examples": [
           "alice vance",
           "apex solutions",
@@ -38,28 +39,27 @@
           "badge #7810"
         ],
         "fp_examples": [
-          " - local terminal",
-          "0 device",
-          "0 flash drive",
-          "0 flash drive directly mounted at console",
-          "00 - database administrative session initiated on console"
+          "and the electrical tape roll",
+          "apex solutions management",
+          "authorized for secure server rooms",
+          "b door - badge #4092",
+          "badge access"
         ],
         "fn_examples": [
-          "console 2",
           "electrical tape",
           "kingston datatraveler 3.0"
         ]
       },
       "event_metrics": {
-        "total_extracted": 67,
-        "grounded_events": 37,
+        "total_extracted": 52,
+        "grounded_events": 26,
         "true_events_count": 12,
         "tp": 12,
-        "fp": 55,
+        "fp": 40,
         "fn": 0,
-        "precision": 0.1791,
+        "precision": 0.2308,
         "recall": 1.0,
-        "f1": 0.3038,
+        "f1": 0.375,
         "matched_examples": [
           "Bob Chen enters Building 4 via Main Entr",
           "David Wright enters Building 4 via Main ",
@@ -73,19 +73,18 @@
         "mrr": 0.9
       },
       "contradiction_metrics": {
-        "tp": 3,
-        "fp": 196,
-        "fn": 2,
-        "precision": 0.0151,
-        "recall": 0.6,
-        "f1": 0.0295,
+        "tp": 4,
+        "fp": 10,
+        "fn": 1,
+        "precision": 0.2857,
+        "recall": 0.8,
+        "f1": 0.421,
         "matched_examples": [
           "Alice Vance",
           "Bob Chen",
-          "David Wright"
+          "Server Room B Door"
         ],
         "unmatched_examples": [
-          "Server Room B Door",
           "Exfiltration Channel"
         ]
       },
@@ -98,11 +97,11 @@
       "documents_count": 8,
       "entity_metrics": {
         "tp": 8,
-        "fp": 26,
+        "fp": 28,
         "fn": 10,
-        "precision": 0.2353,
+        "precision": 0.2222,
         "recall": 0.4444,
-        "f1": 0.3077,
+        "f1": 0.2963,
         "tp_examples": [
           "apex deliveries",
           "arthur blackwood",
@@ -111,10 +110,10 @@
           "julian vance"
         ],
         "fp_examples": [
-          "00 pm on friday and locked the biometric vault safe",
-          "alarm in zone 4 manually silenced and acknowledged by local console",
+          "acknowledged by local console",
           "arrived blackwood",
           "art heist",
+          "at the security console continuously",
           "badge #8841"
         ],
         "fn_examples": [
@@ -126,13 +125,13 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 35,
-        "grounded_events": 18,
-        "precision": 0.5143,
+        "total_extracted": 30,
+        "grounded_events": 17,
+        "precision": 0.5667,
         "recall": 1.0,
-        "f1": 0.5143,
-        "tp": 18,
-        "fp": 17,
+        "f1": 0.5667,
+        "tp": 17,
+        "fp": 13,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -142,11 +141,11 @@
       },
       "contradiction_metrics": {
         "tp": 1,
-        "fp": 10,
+        "fp": 2,
         "fn": 2,
-        "precision": 0.0909,
+        "precision": 0.3333,
         "recall": 0.3333,
-        "f1": 0.1428,
+        "f1": 0.3333,
         "matched_examples": [
           "Julian Vance"
         ],
@@ -163,12 +162,12 @@
       "is_held_out": true,
       "documents_count": 8,
       "entity_metrics": {
-        "tp": 5,
-        "fp": 11,
-        "fn": 8,
-        "precision": 0.3125,
-        "recall": 0.3846,
-        "f1": 0.3448,
+        "tp": 6,
+        "fp": 15,
+        "fn": 7,
+        "precision": 0.2857,
+        "recall": 0.4615,
+        "f1": 0.3529,
         "tp_examples": [
           "arlo kaufman",
           "helios pharma",
@@ -179,9 +178,9 @@
         "fp_examples": [
           "clinical research",
           "clinical supply",
+          "courier services - waybill #cx",
           "freezer unit",
-          "inspection report",
-          "lead inspector"
+          "helios pharma clinical research site 03"
         ],
         "fn_examples": [
           "batch hl-902b",
@@ -192,13 +191,13 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 21,
+        "total_extracted": 18,
         "grounded_events": 6,
-        "precision": 0.2857,
+        "precision": 0.3333,
         "recall": 1.0,
-        "f1": 0.2857,
+        "f1": 0.3333,
         "tp": 6,
-        "fp": 15,
+        "fp": 12,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -207,16 +206,17 @@
         "mrr": 1.0
       },
       "contradiction_metrics": {
-        "tp": 0,
-        "fp": 5,
-        "fn": 3,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "matched_examples": [],
+        "tp": 1,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "f1": 0.4,
+        "matched_examples": [
+          "Power and Backup Generator"
+        ],
         "unmatched_examples": [
           "Freezer Unit 4 Temperature",
-          "Power and Backup Generator",
           "Courier Dispatch Time"
         ]
       },
@@ -228,42 +228,42 @@
       "is_held_out": true,
       "documents_count": 8,
       "entity_metrics": {
-        "tp": 7,
-        "fp": 30,
-        "fn": 8,
-        "precision": 0.1892,
-        "recall": 0.4667,
-        "f1": 0.2692,
+        "tp": 10,
+        "fp": 42,
+        "fn": 5,
+        "precision": 0.1923,
+        "recall": 0.6667,
+        "f1": 0.2985,
         "tp_examples": [
           "apex robotics",
           "assembly bay",
           "derek cole",
           "elena rostova",
-          "liam vance"
+          "firmware v2.4"
         ],
         "fp_examples": [
-          "assembly hangar",
-          "badge",
-          "bistro laurent",
-          "catastrophic loss",
-          "demonstration milestone"
+          "analysis confirms deliberate firmware sabotage",
+          "assembly hangar 3",
+          "authorization before flashing firmware",
+          "badge authentication",
+          "bay with a laptop and"
         ],
         "fn_examples": [
           "federal aviation board",
-          "firmware v2.4",
-          "hangar 3",
           "kill switch payload",
-          "skyharrier-9"
+          "skyharrier-9",
+          "telemetry bunker",
+          "test range alpha"
         ]
       },
       "event_metrics": {
-        "total_extracted": 31,
-        "grounded_events": 19,
-        "precision": 0.6129,
+        "total_extracted": 32,
+        "grounded_events": 17,
+        "precision": 0.5312,
         "recall": 1.0,
-        "f1": 0.6129,
-        "tp": 19,
-        "fp": 12,
+        "f1": 0.5312,
+        "tp": 17,
+        "fp": 15,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -272,18 +272,91 @@
         "mrr": 1.0
       },
       "contradiction_metrics": {
-        "tp": 0,
-        "fp": 20,
-        "fn": 3,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "matched_examples": [],
+        "tp": 1,
+        "fp": 4,
+        "fn": 2,
+        "precision": 0.2,
+        "recall": 0.3333,
+        "f1": 0.25,
+        "matched_examples": [
+          "Derek Cole Alibi at 20:15"
+        ],
         "unmatched_examples": [
-          "Derek Cole Alibi at 20:15",
           "Firmware Modification",
           "Competitor Affiliation"
         ]
+      },
+      "hypothesis_top1_correct": true
+    },
+    {
+      "case_id": "case_05_lakeview",
+      "case_name": "Lakeview Library Rare Map Theft (LV-3112)",
+      "is_held_out": true,
+      "documents_count": 11,
+      "entity_metrics": {
+        "tp": 8,
+        "fp": 23,
+        "fn": 12,
+        "precision": 0.2581,
+        "recall": 0.4,
+        "f1": 0.3137,
+        "tp_examples": [
+          "greg hall",
+          "laura bennett",
+          "nina patel",
+          "oliver grant",
+          "rare maps room"
+        ],
+        "fp_examples": [
+          "badge used",
+          "camera c-staff-01",
+          "camera inside",
+          "case lock",
+          "custodian greg"
+        ],
+        "fn_examples": [
+          "cardboard tube",
+          "display case",
+          "grant and sons antique maps",
+          "key_01",
+          "key_02"
+        ]
+      },
+      "event_metrics": {
+        "total_extracted": 55,
+        "grounded_events": 39,
+        "true_events_count": 23,
+        "tp": 23,
+        "fp": 32,
+        "fn": 0,
+        "precision": 0.4182,
+        "recall": 1.0,
+        "f1": 0.5898,
+        "matched_examples": [
+          "Tom Reyes emails antique map dealer Oliv",
+          "Sarah Collins enters library through sta",
+          "Tom Reyes enters library through staff d"
+        ],
+        "unmatched_examples": []
+      },
+      "timeline_order_accuracy": 1.0,
+      "retrieval_metrics": {
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "contradiction_metrics": {
+        "tp": 4,
+        "fp": 14,
+        "fn": 0,
+        "precision": 0.2222,
+        "recall": 1.0,
+        "f1": 0.3636,
+        "matched_examples": [
+          "Tom Reyes",
+          "KEY_02",
+          "Greg Hall"
+        ],
+        "unmatched_examples": []
       },
       "hypothesis_top1_correct": true
     }

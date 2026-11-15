@@ -291,7 +291,11 @@ def process_uploaded_file(
     # 5. Metadata extraction
     auto_speaker, auto_timestamp, auto_desc = extract_metadata_heuristics(original_filename, cleaned_text)
     speaker = override_speaker or auto_speaker
-    author = override_author or (speaker if doc_type in [DocumentType.REPORT, DocumentType.EMAIL] else None)
+    if doc_type == DocumentType.LOG:
+        speaker = speaker or "System / Automated Log"
+        author = override_author or "System / Automated Log"
+    else:
+        author = override_author or (speaker if doc_type in [DocumentType.REPORT, DocumentType.EMAIL] else None)
     timestamp = override_timestamp or auto_timestamp
     description = override_description or auto_desc
 

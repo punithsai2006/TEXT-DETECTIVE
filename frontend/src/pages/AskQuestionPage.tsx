@@ -12,12 +12,57 @@ export const AskQuestionPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const sampleQuestions = [
-    'Where was Alice Vance located between 10:00 PM and midnight?',
-    'Did anyone enter Server Room B with a physical USB flash drive?',
-    'What was discovered regarding the lock on the secure door?',
-    'Who saw Bob Chen leave his keycard on the table?',
-  ];
+  const getDynamicSuggestions = (): string[] => {
+    const caseName = activeCase?.name?.toLowerCase() || '';
+    if (caseName.includes('meridian')) {
+      return [
+        'Where was Alice Vance located between 10:00 PM and midnight?',
+        'Did anyone enter Server Room B with a physical USB flash drive?',
+        'What was discovered regarding the lock on the secure door?',
+        'Who saw Bob Chen leave his keycard on the table?',
+      ];
+    }
+    if (caseName.includes('blackwood')) {
+      return [
+        'Where was Julian Vance located during the vault alarm?',
+        'Did the motion sensor alarm trigger in Zone 4?',
+        'Who possesses keys to the basement vault safe?',
+        'What vehicle was seen leaving near the greenhouse?',
+      ];
+    }
+    if (caseName.includes('helios')) {
+      return [
+        'What temperature did Freezer Unit 4 maintain during August?',
+        'Did the backup diesel generator engage during the storm?',
+        'When was Batch HL-902B picked up by the CryoExpress courier?',
+        'Were any adverse events reported for clinical trial patients?',
+      ];
+    }
+    if (caseName.includes('apex')) {
+      return [
+        'Where was lead engineer Derek Cole between 19:45 and 21:30 UTC?',
+        'Was custom firmware flashed to drone SkyHarrier-9?',
+        'What payments or retainers were deposited into Derek Cole overseas account?',
+        'Did the motor kill switch payload trigger at 250 meters?',
+      ];
+    }
+    if (caseName.includes('lakeview')) {
+      return [
+        'Where was archivist Tom Reyes between 7:30 PM and 10:30 PM?',
+        'Who swiped Keycard 104 at the Rare Manuscript Vault Door at 20:45?',
+        'Did the vault temperature sensor trigger a climate excursion alert?',
+        'Was an overseas wire transfer made to Tom Reyes by Ronald Vane?',
+      ];
+    }
+    return [
+      'What chronological timeline of events is documented for this incident?',
+      'Which individuals, access credentials, or keycards were logged at the scene?',
+      'What physical, digital, or sensor evidence was recovered in the case?',
+      'Are there conflicting accounts between witness testimonies and system logs?',
+    ];
+  };
+
+  const sampleQuestions = getDynamicSuggestions();
 
   const handleAsk = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,9 +155,16 @@ export const AskQuestionPage: React.FC = () => {
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed pt-1">
+            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed pt-1 whitespace-pre-line">
               {response.answer}
             </p>
+
+            {response.is_mock && (
+              <div className="text-[11px] text-blue-700 bg-blue-50/80 p-2.5 rounded-lg border border-blue-200/60 flex items-center gap-1.5 mt-2">
+                <Cpu className="w-3.5 h-3.5 shrink-0 text-blue-600" />
+                <span>Offline Mock Mode: Answer synthesized directly from retrieved passages without live API call.</span>
+              </div>
+            )}
 
             {response.uncertainty_note && (
               <div className="text-[11px] text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200/60 flex items-center gap-1.5 mt-2">

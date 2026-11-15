@@ -237,21 +237,65 @@ Open your browser to: **`http://localhost:5173`**
 
 ## 7. Running Automated Tests
 
-Run the complete test suite (45 automated tests covering all modules, the Slide 18 formula, security mechanisms, atomic uploads, provenance validation, adversarial injection defenses, and all REST endpoints):
+### Presentation launch on Windows
+
+From the project folder, create the presentation environment once:
 
 ```powershell
+python -m venv .venv-nlp
+.\.venv-nlp\Scripts\python.exe -m pip install -r backend/requirements-nlp.txt
+.\.venv-nlp\Scripts\python.exe -m spacy download en_core_web_sm
+```
+
+Cache the public Sentence Transformer and RoBERTa-MNLI model files before
+starting an offline presentation. The launcher uses only local weights and
+stores new cases in `%LOCALAPPDATA%\TextDetective\Presentation`.
+Run `powershell -ExecutionPolicy Bypass -File .\start-presentation.ps1` and
+open `http://127.0.0.1:8002`. Add `-Port 8003` if port 8002 is in use.
+
+### Model-assisted configuration
+
+For the proposed NLP stack, create a clean Python 3.11 or 3.12 environment and install
+`backend/requirements-nlp.txt`. Install the spaCy model with
+`python -m spacy download en_core_web_sm`. Set `SPACY_MODEL=en_core_web_sm`
+and `USE_FAISS=true` in the environment. The retriever uses normalized FAISS
+inner-product search for cosine ranking and keeps the per-case JSON index for
+persistence. Sentence Transformers and RoBERTa-MNLI load their pretrained
+weights on first use. Once cached, set `HF_HUB_OFFLINE=1` for offline runs.
+
+To enable model-assisted entity extraction, contradiction judging, contextual
+reassessment, and extractive report summaries, cache the public
+`Qwen/Qwen2.5-0.5B-Instruct` model with Hugging Face Hub, then set
+`LLM_PROVIDER=local` and `MODEL_ASSISTED_ANALYSIS=true`. The local Transformers
+provider loads model files from disk and runs on CPU. Alternatively, run Ollama locally,
+pull `qwen2.5:1.5b`, and set `LLM_PROVIDER=ollama`,
+`LLM_MODEL=qwen2.5:1.5b`, and `MODEL_ASSISTED_ANALYSIS=true`.
+The local provider uses 127.0.0.1. For the rule-based demo, keep the provider
+set to `mock` and model-assisted analysis disabled. Keep demonstration cases
+in a separate `STORAGE_DIR`.
+
+To regenerate benchmark results, seed fresh synthetic cases into a separate
+`STORAGE_DIR` with `python scripts/seed_demo_cases.py`, then run
+`python scripts/evaluate.py` with the same storage setting. Set
+`EVALUATION_OUTPUT_DIR` to save the new results separately.
+
+Run the complete test suite (58 automated tests covering all modules, the Slide 18 formula, security mechanisms, atomic uploads, upload validation, provenance validation, adversarial injection defenses, contradiction review, temporal date resolution, and all REST endpoints):
+
+```bash
+# Windows PowerShell or Linux / macOS Bash
 pytest backend/tests/ -v
 ```
 
 **Verified Test Result:**
 ```
-collected 45 items
+collected 58 items
 backend/tests/test_adversarial_and_injection.py (6 passed)
-backend/tests/test_all_modules.py (16 passed)
-backend/tests/test_api_endpoints.py (14 passed)
+backend/tests/test_all_modules.py (18 passed)
+backend/tests/test_api_endpoints.py (18 passed)
 backend/tests/test_provenance_and_security.py (9 passed)
+backend/tests/test_timeline_and_dates.py (7 passed)
 
-============================= 45 passed in 46.05s =============================
+============================= 58 passed in 15.35s =============================
 ```
 
 ---
@@ -260,21 +304,22 @@ backend/tests/test_provenance_and_security.py (9 passed)
 
 Run the automated evaluation against the ground-truth benchmark suite:
 
-```powershell
+```bash
+# Windows PowerShell or Linux / macOS Bash
 python scripts/evaluate.py
 ```
 
-### Verified Benchmark Results (All 4 Cases)
+### Verified Benchmark Results (All 5 Cases)
 
 | Metric | Result | Benchmark Target | Status |
 |---|---|---|---|
-| **Evaluated Cases** | 4 cases (33 documents total) | $\ge 3$ cases | **PASSED** |
-| **Designated Held-Out Cases** | `case_03_helios`, `case_04_apex_robotics` | $\ge 1$ held-out case | **PASSED** |
-| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (4/4 cases) | $\ge 80.0\%$ | **PASSED** |
+| **Evaluated Cases** | 5 cases (44 documents total) | $\ge 3$ cases | **PASSED** |
+| **Designated Held-Out Cases** | `case_03_helios`, `case_04_apex_robotics`, `case_05_lakeview` | $\ge 1$ held-out case | **PASSED (3 Held-Out)** |
+| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (5/5 cases correct) | $\ge 80.0\%$ | **PASSED** |
 | **Timeline Chronological Accuracy**| **100.0%** | $\ge 90.0\%$ | **PASSED** |
-| **Evidence Retrieval MRR** | **0.97** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
-| **Event Grounding F1** | **0.43** (Evaluated against true timeline) | Baseline | **HONEST & VALIDATED** |
-| **Entity Extraction F1** | **0.30** | Baseline | **VALIDATED** |
+| **Evidence Retrieval MRR** | **0.98** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
+| **Event Grounding F1** | **0.50** (Evaluated against true timeline) | Baseline | **HONEST & VALIDATED** |
+| **Entity Extraction F1** | **0.27** | Baseline | **VALIDATED** |
 | **Case Isolation & Zero Data Leakage**| **100.0%** | 100.0% | **PASSED** |
 
 ---

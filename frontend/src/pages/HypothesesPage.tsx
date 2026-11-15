@@ -3,17 +3,12 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { Hypothesis } from '../types';
 import { HypothesisCard } from '../components/HypothesisCard';
-import { BrainCircuit, PlusCircle, RefreshCw, AlertCircle, Award, Calculator, Info } from 'lucide-react';
+import { BrainCircuit, AlertCircle, Award, Calculator, Info } from 'lucide-react';
 
 export const HypothesesPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
   const [hypotheses, setHypotheses] = useState<Hypothesis[]>([]);
   const [loading, setLoading] = useState(false);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
-  const [rescoring, setRescoring] = useState(false);
-
   useEffect(() => {
     if (!activeCaseId) return;
     setLoading(true);
@@ -23,33 +18,6 @@ export const HypothesesPage: React.FC = () => {
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, [activeCaseId]);
-
-  const handleAddHypothesis = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!activeCaseId || !title.trim()) return;
-    try {
-      const updated = await api.addHypotheses(activeCaseId, [{ title: title.trim(), description: desc.trim() }]);
-      setHypotheses(updated);
-      setShowAddModal(false);
-      setTitle('');
-      setDesc('');
-    } catch (err: any) {
-      alert(`Failed to add hypothesis: ${err.message}`);
-    }
-  };
-
-  const handleRescore = async () => {
-    if (!activeCaseId) return;
-    setRescoring(true);
-    try {
-      const rescored = await api.rescoreHypotheses(activeCaseId);
-      setHypotheses(rescored);
-    } catch (err: any) {
-      alert(`Rescoring failed: ${err.message}`);
-    } finally {
-      setRescoring(false);
-    }
-  };
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
@@ -67,24 +35,7 @@ export const HypothesesPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center space-x-2.5">
-          <button
-            onClick={handleRescore}
-            disabled={rescoring}
-            className="flex items-center space-x-1.5 px-3.5 py-1.5 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm disabled:opacity-50"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${rescoring ? 'animate-spin' : ''}`} />
-            <span>Rescore All</span>
-          </button>
 
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-xs font-semibold transition shadow-sm"
-          >
-            <PlusCircle className="w-3.5 h-3.5" />
-            <span>Add Candidate</span>
-          </button>
-        </div>
       </div>
 
       {/* Slide 18 Scoring Formula Card */}
@@ -145,71 +96,6 @@ export const HypothesesPage: React.FC = () => {
         </div>
       )}
 
-      {/* Add Custom Hypothesis Modal */}
-      {showAddModal && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="font-bold text-base text-slate-900">
-                Add Candidate Hypothesis
-              </h3>
-              <button
-                onClick={() => setShowAddModal(false)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition"
-              >
-                ✕
-              </button>
-            </div>
-
-            <form onSubmit={handleAddHypothesis} className="mt-4 space-y-4 text-xs">
-              <div>
-                <label className="block font-semibold text-slate-700 mb-1.5">
-                  Hypothesis Title *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Subcontractor USB Exfiltration"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block font-semibold text-slate-700 mb-1.5">
-                  Detailed Explanation / Mechanism *
-                </label>
-                <textarea
-                  rows={4}
-                  required
-                  placeholder="Describe how the incident transpired, who was involved, and what evidence supports or challenges this..."
-                  value={desc}
-                  onChange={(e) => setDesc(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none leading-relaxed"
-                />
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
-                <button
-                  type="button"
-                  onClick={() => setShowAddModal(false)}
-                  className="px-3.5 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={!title.trim() || !desc.trim()}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition disabled:opacity-50 shadow-sm"
-                >
-                  Score Against Evidence
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

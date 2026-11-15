@@ -28,7 +28,6 @@ from app.models.schemas import (
     EvidenceItem,
     EvidenceSearchRequest,
     Hypothesis,
-    HypothesisInput,
     InvestigationReport,
     ReviewStatus,
     TimelineEntry,
@@ -45,7 +44,7 @@ logger = logging.getLogger(__name__)
 
 api_router = APIRouter()
 
-MAX_FILES_PER_UPLOAD = 20
+MAX_FILES_PER_UPLOAD = 30
 MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024  # 10 MB per file
 MAX_BATCH_SIZE_BYTES = 50 * 1024 * 1024  # 50 MB per batch
 ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx", ".log", ".csv", ".json"}
@@ -161,11 +160,16 @@ def upload_documents(
     case_uploads_dir.mkdir(parents=True, exist_ok=True)
 
     override_type = None
-    if document_type:
+    if isinstance(document_type, str) and document_type.strip():
         try:
             override_type = DocumentType(document_type.lower().strip())
         except ValueError:
             pass
+
+    speaker_val = speaker if isinstance(speaker, str) and speaker.strip() else None
+    author_val = author if isinstance(author, str) and author.strip() else None
+    timestamp_val = timestamp if isinstance(timestamp, str) and timestamp.strip() else None
+    desc_val = description if isinstance(description, str) and description.strip() else None
 
     total_batch_size = 0
 
@@ -224,6 +228,19 @@ def upload_documents(
                 detail=f"Batch size exceeds maximum limit of {MAX_BATCH_SIZE_BYTES // (1024*1024)}MB."
             )
 
+        # Ground-truth contamination defense (Issue 9)
+        content_preview = file_bytes[:8192].decode("utf-8", errors="ignore").lower()
+        gt_markers = ["correct_hypothesis", "planted_contradictions", "true_entities", "true_timeline", "decoy_hypotheses"]
+        if any(marker in content_preview for marker in gt_markers):
+            _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
+            raise HTTPException(
+                status_code=400,
+                detail=(
+                    f"File '{safe_name}' appears to be a benchmark ground-truth key, not a primary evidence document. "
+                    "Ground-truth files cannot be ingested into case evidence repository."
+                )
+            )
+
         try:
             with open(dest_path, "wb") as f_out:
                 f_out.write(file_bytes)
@@ -234,10 +251,10 @@ def upload_documents(
                 file_path=dest_path,
                 original_filename=safe_name,
                 override_doc_type=override_type,
-                override_speaker=speaker,
-                override_author=author,
-                override_timestamp=timestamp,
-                override_description=description,
+                override_speaker=speaker_val,
+                override_author=author_val,
+                override_timestamp=timestamp_val,
+                override_description=desc_val,
             )
             case_store.add_document(case_id, doc_meta)
             uploaded_docs.append(doc_meta)
@@ -285,7 +302,6 @@ def delete_document(document_id: str) -> Dict[str, Any]:
 @api_router.post("/cases/{case_id}/analyze", response_model=InvestigationReport)
 def run_case_analysis(
     case_id: str,
-    hypotheses: Optional[List[HypothesisInput]] = None
 ) -> InvestigationReport:
     c = case_store.get_case(case_id)
     if not c:
@@ -299,7 +315,7 @@ def run_case_analysis(
         )
 
     try:
-        report = controller.run_investigation(case_id=case_id, custom_hypotheses=hypotheses)
+        report = controller.run_investigation(case_id=case_id)
         return report
     except Exception as e:
         logger.error(f"Investigation analysis failed for case {case_id}: {e}")
@@ -426,60 +442,6 @@ def get_case_hypotheses(case_id: str) -> List[Hypothesis]:
     return case_store.get_hypotheses(case_id)
 
 
-@api_router.post("/cases/{case_id}/hypotheses", response_model=List[Hypothesis])
-def add_case_hypotheses(case_id: str, new_hypotheses: List[HypothesisInput]) -> List[Hypothesis]:
-    c = case_store.get_case(case_id)
-    if not c:
-        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
-
-    stored = case_store.get_hypotheses(case_id)
-    from app.services.hypothesis.scorer import hypothesis_engine
-    contradictions = case_store.get_contradictions(case_id)
-
-    for item in new_hypotheses:
-        h_id = f"hyp_user_{len(stored) + 1}"
-        evaluated = hypothesis_engine.score_hypothesis(
-            case_id=case_id,
-            hypothesis_id=h_id,
-            title=item.title,
-            description=item.description,
-            origin="user",
-            case_contradictions=contradictions,
-        )
-        stored.append(evaluated)
-
-    ranked = hypothesis_engine.rank_hypotheses(stored)
-    case_store.save_hypotheses(case_id, ranked)
-    return ranked
-
-
-@api_router.post("/cases/{case_id}/hypotheses/score", response_model=List[Hypothesis])
-def rescore_case_hypotheses(case_id: str) -> List[Hypothesis]:
-    c = case_store.get_case(case_id)
-    if not c:
-        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
-
-    stored = case_store.get_hypotheses(case_id)
-    if not stored:
-        raise HTTPException(status_code=400, detail="No hypotheses found to rescore.")
-
-    from app.services.hypothesis.scorer import hypothesis_engine
-    contradictions = case_store.get_contradictions(case_id)
-    rescored = []
-    for h in stored:
-        ev = hypothesis_engine.score_hypothesis(
-            case_id=case_id,
-            hypothesis_id=h.hypothesis_id,
-            title=h.title,
-            description=h.description,
-            origin=h.origin,
-            case_contradictions=contradictions,
-        )
-        rescored.append(ev)
-
-    ranked = hypothesis_engine.rank_hypotheses(rescored)
-    case_store.save_hypotheses(case_id, ranked)
-    return ranked
 
 
 # ==========================================
@@ -502,6 +464,7 @@ def ask_question(case_id: str, req: AskQuestionRequest) -> AskQuestionResponse:
 # ==========================================
 
 @api_router.patch("/cases/{case_id}/contradictions/{contradiction_id}/review", response_model=ContradictionItem)
+@api_router.post("/cases/{case_id}/contradictions/{contradiction_id}/review", response_model=ContradictionItem)
 def review_contradiction(
     case_id: str,
     contradiction_id: str,
@@ -519,8 +482,12 @@ def review_contradiction(
         review_notes=req.review_notes,
     )
     if not updated:
-        raise HTTPException(status_code=404, detail=f"Contradiction '{contradiction_id}' not found in case '{case_id}'.")
+        raise HTTPException(
+            status_code=404,
+            detail=f"Contradiction '{contradiction_id}' not found in case '{case_id}'."
+        )
     return updated
+
 
 
 # ==========================================

@@ -13,6 +13,7 @@ if _backend_dir not in sys.path:
 from fastapi import FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import api_router
@@ -108,7 +109,16 @@ app.include_router(api_router, prefix="/api")
 # Mount frontend static distribution if built
 frontend_dist = settings.BASE_DIR / "frontend" / "dist"
 if frontend_dist.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_dist), html=True), name="frontend")
+    assets_dir = frontend_dist / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
+    def serve_spa(full_path: str):
+        target_file = frontend_dist / full_path
+        if full_path and target_file.is_file():
+            return FileResponse(target_file)
+        return FileResponse(frontend_dist / "index.html", headers={"Cache-Control": "no-store"})
 else:
     @app.get("/")
     def read_root():

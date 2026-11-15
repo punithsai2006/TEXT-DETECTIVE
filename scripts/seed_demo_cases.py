@@ -35,7 +35,9 @@ def seed_case(case_id: str, case_name: str, description: str):
     uploads_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\nProcessing documents for {case_name} ({case_id})...")
-    for file_path in sorted(case_folder.glob("*.txt")):
+    allowed_exts = {".txt", ".log", ".csv", ".json"}
+    valid_files = sorted([f for f in case_folder.iterdir() if f.is_file() and f.suffix.lower() in allowed_exts])
+    for file_path in valid_files:
         dest = uploads_dir / file_path.name
         with open(file_path, "r", encoding="utf-8") as fin:
             content = fin.read()
@@ -50,31 +52,8 @@ def seed_case(case_id: str, case_name: str, description: str):
         case_store.add_document(case_id, doc_meta)
         print(f"  + Ingested {file_path.name} ({len(doc_meta.chunks)} chunks)")
 
-    # Load ground-truth candidate hypotheses (1 correct + 2 decoys) to evaluate
-    gt_file = Path(__file__).resolve().parent.parent / "data" / "ground_truth" / f"{case_id}_ground_truth.json"
-    custom_hyps = []
-    if gt_file.exists():
-        with open(gt_file, "r", encoding="utf-8") as fgt:
-            gt_data = json.load(fgt)
-            if "correct_hypothesis" in gt_data:
-                from app.models.schemas import HypothesisInput
-                custom_hyps.append(
-                    HypothesisInput(
-                        title=gt_data["correct_hypothesis"]["title"],
-                        description=gt_data["correct_hypothesis"]["description"]
-                    )
-                )
-            for dec in gt_data.get("decoy_hypotheses", []):
-                from app.models.schemas import HypothesisInput
-                custom_hyps.append(
-                    HypothesisInput(
-                        title=dec["title"],
-                        description=dec["description"]
-                    )
-                )
-
-    print(f"Running full investigation pipeline for {case_name} with {len(custom_hyps)} candidate hypotheses...")
-    report = controller.run_investigation(case_id=case_id, custom_hypotheses=custom_hyps if custom_hyps else None)
+    print(f"Running full self-contained investigation pipeline for {case_name}...")
+    report = controller.run_investigation(case_id=case_id)
     print(f"  => Analysis complete. Proposed Explanation: {report.proposed_explanation.title if report.proposed_explanation else 'None'}")
     print(f"  => Contradictions: {len(report.contradictions)}, Timeline Events: {len(report.chronological_timeline)}")
 
@@ -100,6 +79,11 @@ def main():
         case_id="case_04_apex_robotics",
         case_name="The Apex Robotics Drone Sabotage",
         description="Investigation into unauthorized motor-kill firmware flashing and catastrophic failure of SkyHarrier-9 prototype."
+    )
+    seed_case(
+        case_id="case_05_lakeview",
+        case_name="The Lakeview Library Rare Map Theft",
+        description="Investigation into the theft of the 16th-century Mercator Navigational Folio 1587 from Rare Map Vault B."
     )
     print("\nAll demo cases successfully seeded and analyzed!")
 

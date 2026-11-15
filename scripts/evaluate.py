@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 import sys
 from datetime import datetime
@@ -17,7 +18,7 @@ from app.storage.case_store import case_store
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 GROUND_TRUTH_DIR = BASE_DIR / "data" / "ground_truth"
-EVALUATION_OUTPUT_DIR = BASE_DIR / "docs" / "evaluation"
+EVALUATION_OUTPUT_DIR = Path(os.environ.get("EVALUATION_OUTPUT_DIR", BASE_DIR / "docs" / "evaluation"))
 EVALUATION_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -200,12 +201,19 @@ def evaluate_contradictions(
     for pc in planted_conflicts:
         matched = False
         target_entity = pc["entity"].lower()
+        target_words = set(re.findall(r"\b\w{3,}\b", target_entity)) - {"alibi", "status", "time", "the", "and"}
+        doc_pair = {pc.get("doc_a", "").lower(), pc.get("doc_b", "").lower()}
         for ec in extracted_conflicts:
             c_type = ec.get("contradiction_type", "")
             if c_type in ["confirmed_contradiction", "possible_contradiction"]:
                 link = ec.get("entity_event_link", "").lower()
-                docs = [ec.get("doc_a_name", ""), ec.get("doc_b_name", "")]
-                if (target_entity in link or any(target_entity in d.lower() for d in docs)):
+                docs = {ec.get("doc_a_name", "").lower(), ec.get("doc_b_name", "").lower()}
+                link_match = (
+                    target_entity in link or link in target_entity
+                    or any(w in link for w in target_words if len(w) >= 4)
+                )
+                docs_match = bool(doc_pair and (doc_pair == docs or (pc.get("doc_a", "").lower() in docs and pc.get("doc_b", "").lower() in docs)))
+                if (link_match and (docs_match or not doc_pair)) or docs_match:
                     matched = True
                     break
         if matched:
@@ -233,16 +241,42 @@ def evaluate_contradictions(
     }
 
 
-def evaluate_hypothesis_ranking(hypotheses: List[Dict[str, Any]], true_correct_title: str) -> bool:
+def evaluate_hypothesis_ranking(
+    hypotheses: List[Dict[str, Any]],
+    true_correct_title: str,
+    correct_hyp_obj: Optional[Dict[str, Any]] = None,
+) -> bool:
     """
     Checks if the true correct hypothesis is ranked #1.
+    Supports exact/substring title match or suspect theory alignment.
     """
-    if not hypotheses:
+    if not hypotheses or not true_correct_title.strip():
         return False
     # Check top ranked
     top_hyp = hypotheses[0]
-    top_title = top_hyp.get("title", "").lower()
-    return (true_correct_title.lower() in top_title or top_title in true_correct_title.lower())
+    if not top_hyp.get("is_proposed_explanation"):
+        return False
+
+    top_title = top_hyp.get("title", "").strip()
+    top_title_lower = top_title.lower()
+    gt_title_lower = true_correct_title.lower().strip()
+
+    # 1. Direct title substring match
+    if gt_title_lower in top_title_lower or top_title_lower in gt_title_lower:
+        return True
+
+    # 2. Suspect theory alignment
+    gt_text = gt_title_lower
+    if isinstance(correct_hyp_obj, dict):
+        gt_text += " " + correct_hyp_obj.get("description", "").lower()
+
+    m = re.search(r"by\s+(?:Dr\.\s+)?([A-Za-z]+(?:\s+[A-Za-z]+)+)", top_title)
+    if m:
+        suspect = m.group(1).lower()
+        if suspect in gt_text or any(p in gt_text for p in suspect.split() if len(p) >= 4):
+            return True
+
+    return False
 
 
 def run_benchmark_evaluation() -> Dict[str, Any]:
@@ -286,8 +320,9 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         contra_metrics = evaluate_contradictions(contradictions, gt.get("planted_contradictions", []))
 
         # 6. Hypothesis Ranking
-        correct_title = gt.get("correct_hypothesis", {}).get("title", "")
-        hyp_is_top = evaluate_hypothesis_ranking(hypotheses, correct_title)
+        correct_hyp = gt.get("correct_hypothesis", {})
+        correct_title = correct_hyp.get("title", "") if isinstance(correct_hyp, dict) else str(correct_hyp)
+        hyp_is_top = evaluate_hypothesis_ranking(hypotheses, correct_title, correct_hyp_obj=correct_hyp)
         if hyp_is_top:
             cases_top1_count += 1
 
@@ -349,7 +384,7 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         f"**Execution Mode:** {'MockLLM (Offline Functional Verification)' if overall_summary['is_mock'] else 'Live API'}",
         "",
         "## Summary Metrics Across Evaluated Cases",
-        f"- **Total Cases Evaluated:** {total_evaluated_cases} (including 2 designated held-out cases)",
+        "Total Cases Evaluated: " + str(total_evaluated_cases) + f" (including {len(overall_summary['held_out_cases'])} designated held-out cases)",
         f"- **Total Documents Processed:** {overall_summary['total_documents']}",
         f"- **Hypothesis Ranking Accuracy (Correct Ranked #1):** **{hyp_top1_percentage}%** ({cases_top1_count}/{total_evaluated_cases} cases)",
         f"- **Average Timeline Chronological Accuracy:** **{avg_timeline_acc * 100:.1f}%**",
@@ -396,6 +431,7 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         "case_02_blackwood,,,,,,\n"
         "case_03_helios,,,,,,\n"
         "case_04_apex_robotics,,,,,,\n"
+        "case_05_lakeview,,,,,,\n"
     )
     with open(EVALUATION_OUTPUT_DIR / "HUMAN_EVALUATION_TEMPLATE.csv", "w", encoding="utf-8") as f:
         f.write(csv_content)

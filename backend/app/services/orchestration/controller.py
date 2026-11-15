@@ -16,13 +16,16 @@ from app.models.schemas import (
     EvidenceItem,
     Hypothesis,
     HypothesisInput,
+    NLILabel,
+    ReviewStatus,
     InvestigationReport,
     get_utc_now_iso,
 )
-from app.services.contradiction.detector import contradiction_detector
+from app.services.contradiction.detector import TRANSCRIPT_HEADER, contradiction_detector
+from app.services.ingestion.preprocessor import split_into_sentences
 from app.services.extraction.extractor import run_extraction_pipeline
 from app.services.hypothesis.scorer import hypothesis_engine
-from app.services.llm_provider import get_llm_provider
+from app.services.llm_provider import analysis_model_json, get_llm_provider
 from app.services.reporting.reporter import generate_investigation_report
 from app.services.retrieval.retriever import retriever
 from app.storage.case_store import case_store
@@ -99,7 +102,12 @@ class InvestigationController:
         loop_1_iterations = 0
         while len(evidence_items) < 5 and loop_1_iterations < MAX_FEEDBACK_ITERATIONS:
             loop_1_iterations += 1
-            refined_query = f"incident access security logs statement report {case.name}"
+            entities_for_query = " ".join(entity.name for entity in entities[:5])
+            refined_query = (
+                f"{case.name} {case.description} {entities_for_query}"
+                if loop_1_iterations == 1
+                else f"{entities_for_query} timeline statement report log"
+            )
             case_store.log_controller_event(
                 case_id=case_id,
                 loop_name="Loop 1: Need More Evidence",
@@ -133,24 +141,77 @@ class InvestigationController:
         # FEEDBACK LOOP 2: NEED CLARIFICATION (Slides 13 & 17)
         # ----------------------------------------------------
         loop_2_iterations = 0
-        ambiguous_conflicts = [
-            c for c in contradictions if 0.65 <= c.confidence < 0.85
-        ]
-        if ambiguous_conflicts and loop_2_iterations < MAX_FEEDBACK_ITERATIONS:
-            loop_2_iterations += 1
+        candidates = [c for c in contradictions if c.nli_label == NLILabel.CONTRADICTION]
+        if candidates:
+            loop_2_iterations = 1
+            for comparison in candidates:
+                pair = {comparison.doc_a_id, comparison.doc_b_id}
+                entity = comparison.entity_event_link.casefold()
+                sources = {}
+                for doc in documents:
+                    matched = [
+                        chunk for chunk in doc.chunks
+                        if entity in chunk.text.casefold()
+                    ]
+                    for chunk in matched[:2]:
+                        sources[chunk.chunk_id] = (doc, chunk)
+
+                accepted = comparison.contradiction_type.value == "confirmed_contradiction"
+                checked = {doc.document_id for doc, _ in sources.values()}
+                claim_a = TRANSCRIPT_HEADER.sub("", comparison.statement_a).strip().casefold()
+                claim_b = TRANSCRIPT_HEADER.sub("", comparison.statement_b).strip().casefold()
+                corroborating = set()
+                for doc in documents:
+                    if doc.document_id in pair:
+                        continue
+                    for sentence in split_into_sentences(doc.cleaned_text or doc.raw_text or ""):
+                        statement = TRANSCRIPT_HEADER.sub("", sentence).strip().casefold()
+                        if statement in (claim_a, claim_b):
+                            corroborating.add(doc.filename)
+                if corroborating:
+                    comparison.explanation += " Matching independent passages: " + ", ".join(sorted(corroborating)) + "."
+                    if comparison.explanation.startswith("Temporal discrepancy:"):
+                        accepted = True
+                if pair <= checked:
+                    judgment = analysis_model_json(
+                        'Decide whether these claims conflict about the same event, date and measurement. '
+                        'Ignore interview header timestamps. Weigh all supplied records including logs. '
+                        'Return {"assessment":"conflict|agreement|inconclusive","evidence_ids":["chunk IDs"]}.',
+                        {"claims": [
+                            TRANSCRIPT_HEADER.sub("", comparison.statement_a),
+                            TRANSCRIPT_HEADER.sub("", comparison.statement_b),
+                        ], "passages": {
+                            key: {"document": doc.filename, "type": doc.document_type.value,
+                                  "text": TRANSCRIPT_HEADER.sub("", chunk.text)}
+                            for key, (doc, chunk) in sources.items()
+                        }},
+                    )
+                    if judgment:
+                        verdict, refs = judgment.get("assessment"), judgment.get("evidence_ids")
+                        if isinstance(refs, list):
+                            cited = [sources[ref] for ref in refs if isinstance(ref, str) and ref in sources]
+                            if pair <= {doc.document_id for doc, _ in cited} and verdict in (
+                                "conflict", "agreement", "inconclusive"
+                            ):
+                                accepted = verdict == "conflict"
+                                comparison.explanation += f" Context model assessment: {verdict}."
+
+                comparison.review_status = ReviewStatus.CONFIRMED if accepted else ReviewStatus.REJECTED
+                comparison.reviewer_id = "system"
+                comparison.resolution_status = "unresolved" if accepted else "resolved"
+                if not accepted:
+                    comparison.explanation += " Automatic review found insufficient grounds to count this flag."
+                if sources:
+                    reference = ", ".join(f"{doc.filename}/{chunk.chunk_id}" for doc, chunk in sources.values())
+                    comparison.explanation += f" Context considered: {reference}."
             case_store.log_controller_event(
                 case_id=case_id,
-                loop_name="Loop 2: Need Clarification",
+                loop_name="Loop 2: Automatic discrepancy review",
                 iteration=loop_2_iterations,
-                trigger_reason=f"Identified {len(ambiguous_conflicts)} borderline cross-document statement pairs.",
-                action_taken="Requested context-enriched cross-referencing and verification.",
-                result_summary="Refined confidence scores based on surrounding chunk context.",
+                trigger_reason=f"Detected {len(candidates)} candidate discrepancies.",
+                action_taken="Checked case-wide document context and finalized each candidate automatically.",
+                result_summary=f"Accepted {sum(c.review_status == ReviewStatus.CONFIRMED for c in candidates)} candidates.",
             )
-            # Re-evaluate with expanded entity context
-            for c in ambiguous_conflicts:
-                if c.confidence < 0.85:
-                    c.confidence = min(0.90, c.confidence + 0.08)
-                    c.explanation += " (Verified with surrounding paragraph context)."
 
         case_store.save_contradictions(case_id, contradictions)
 
@@ -182,7 +243,7 @@ class InvestigationController:
                 candidate_hypotheses.append(evaluated)
         else:
             # Check if case has pre-existing stored hypotheses
-            stored_hypotheses = case_store.get_hypotheses(case_id)
+            stored_hypotheses = [h for h in case_store.get_hypotheses(case_id) if h.origin == "user"]
             if stored_hypotheses:
                 for sh in stored_hypotheses:
                     evaluated = hypothesis_engine.score_hypothesis(
@@ -196,7 +257,7 @@ class InvestigationController:
                     candidate_hypotheses.append(evaluated)
             else:
                 # Generate 3 candidate hypotheses (1 evidence-grounded primary, 2 realistic decoys)
-                generated_specs = self._generate_default_hypotheses(case.name, entities, events)
+                generated_specs = self._generate_default_hypotheses(events, contradictions)
                 for spec in generated_specs:
                     h_id = f"hyp_gen_{uuid.uuid4().hex[:6]}"
                     evaluated = hypothesis_engine.score_hypothesis(
@@ -219,35 +280,32 @@ class InvestigationController:
         if len(ranked_hypotheses) >= 2 and ranked_hypotheses[0].total_score == ranked_hypotheses[1].total_score:
             if loop_3_iterations < MAX_FEEDBACK_ITERATIONS:
                 loop_3_iterations += 1
+                rescored = [
+                    hypothesis_engine.score_hypothesis(
+                        case_id=case_id,
+                        hypothesis_id=h.hypothesis_id,
+                        title=h.title,
+                        description=h.description,
+                        origin=h.origin,
+                        case_contradictions=contradictions,
+                        pre_defined_claims=[claim.text for claim in h.claims],
+                        evidence_limit=12,
+                    )
+                    for h in ranked_hypotheses
+                ]
+                ranked_hypotheses = hypothesis_engine.rank_hypotheses(rescored)
                 case_store.log_controller_event(
                     case_id=case_id,
                     loop_name="Loop 3: Need Additional Analysis",
                     iteration=loop_3_iterations,
-                    trigger_reason=f"Tie score between top hypotheses '{ranked_hypotheses[0].title}' and '{ranked_hypotheses[1].title}'.",
-                    action_taken="Re-evaluating claim corroboration across secondary witness statements.",
-                    result_summary="Additional targeted claim queries executed to break ambiguity.",
+                    trigger_reason="Multiple hypotheses shared the highest initial score.",
+                    action_taken="Re-scored every hypothesis with the same rules and up to 12 passages per claim.",
+                    result_summary=(
+                        "The highest score remains tied."
+                        if ranked_hypotheses[0].total_score == ranked_hypotheses[1].total_score
+                        else "The expanded comparison produced a single highest-scoring hypothesis."
+                    ),
                 )
-                # Query specific evidence for top claims to re-check corroboration
-                for claim in ranked_hypotheses[0].claims:
-                    extra = retriever.search(case_id, claim.text, top_k=4)
-                    for e in extra:
-                        if e.evidence_id not in claim.supporting_evidence_ids:
-                            claim.supporting_evidence_ids.append(e.evidence_id)
-                            claim.contributing_documents.append(e.document_name)
-                            if e.speaker:
-                                claim.contributing_speakers.append(e.speaker)
-                    claim.is_corroborated = (len(set(claim.contributing_documents)) >= 2 and len(set(claim.contributing_speakers)) >= 2)
-
-                # Re-calculate score
-                support_s = len(set([eid for cl in ranked_hypotheses[0].claims for eid in cl.supporting_evidence_ids]))
-                corrob_s = sum(1 for cl in ranked_hypotheses[0].claims if cl.is_corroborated)
-                ranked_hypotheses[0].support_score = support_s
-                ranked_hypotheses[0].corroboration_score = corrob_s
-                ranked_hypotheses[0].total_score = (
-                    support_s - ranked_hypotheses[0].conflict_score + corrob_s - ranked_hypotheses[0].conflict_penalty
-                )
-                ranked_hypotheses = hypothesis_engine.rank_hypotheses(ranked_hypotheses)
-
         case_store.save_hypotheses(case_id, ranked_hypotheses)
 
         # ==========================================
@@ -322,52 +380,79 @@ class InvestigationController:
 
     def _generate_default_hypotheses(
         self,
-        case_name: str,
-        entities: List[Entity],
-        events: List[Event]
+        events: List[Event],
+        contradictions: List[ContradictionItem],
     ) -> List[Dict[str, Any]]:
         """
-        Synthesizes 3 candidate hypotheses when none are supplied:
-        1 evidence-grounded primary hypothesis, and 2 believable alternative decoys.
+        Synthesizes suspect-centered and asset-centered candidate investigation theories
+        grounded in participants, access events, and identified contradictions.
         """
-        people = [e.name for e in entities if e.entity_type.value == "person"]
-        locs = [e.name for e in entities if e.entity_type.value == "location"]
-        orgs = [e.name for e in entities if e.entity_type.value == "organization"]
+        # 1. Identify primary people involved from events and contradictions
+        person_counts: Dict[str, int] = {}
+        for ev in events:
+            for p in ev.participants:
+                if len(p.strip()) > 2:
+                    person_counts[p.strip()] = person_counts.get(p.strip(), 0) + 1
 
-        p1 = people[0] if len(people) > 0 else "An unauthorized insider"
-        p2 = people[1] if len(people) > 1 else "A credentialed subcontractor"
-        loc1 = locs[0] if len(locs) > 0 else "the secure facility"
-        org1 = orgs[0] if len(orgs) > 0 else "the organization"
+        for c in contradictions:
+            for spk in (c.speaker_a, c.speaker_b):
+                if spk and len(spk.strip()) > 2 and spk.strip() != "System Reader":
+                    person_counts[spk.strip()] = person_counts.get(spk.strip(), 0) + 2
+            if c.entity_event_link and c.entity_event_link in person_counts:
+                person_counts[c.entity_event_link] += 3
 
-        return [
-            {
-                "title": f"Direct Internal Compromise via {loc1}",
-                "description": f"The incident occurred due to intentional credential misuse and direct physical/digital access to {loc1} by internal personnel.",
+        sorted_people = [p for p, _ in sorted(person_counts.items(), key=lambda x: x[1], reverse=True)]
+
+        candidates: List[Dict[str, Any]] = []
+
+        # 2. Candidate theories for top suspects/actors with access
+        for person in sorted_people[:3]:
+            candidates.append({
+                "title": f"Insider Involvement or Unauthorized Actions by {person}",
+                "description": (
+                    f"Investigate whether {person} was directly responsible for the incident or carried out "
+                    f"unauthorized actions during the critical timeframe, cross-referencing their stated alibi "
+                    f"against physical and digital telemetry."
+                ),
                 "claims": [
-                    f"Access to {loc1} took place during the critical timeframe.",
-                    "Internal security controls and badges were utilized to bypass protocols.",
-                    "Audit logs show data or assets were accessed directly on-site."
-                ]
-            },
-            {
-                "title": f"External Cyber Threat or Remote Infiltration",
-                "description": f"The incident was caused by an external adversary leveraging stolen remote credentials against {org1} infrastructure.",
+                    f"{person} accessed or was present in restricted areas during the incident timeframe.",
+                    f"Physical, digital, or sensor logs document actions or badge usage associated with {person}.",
+                    f"Statements or records concerning {person}'s whereabouts contain verified discrepancies.",
+                ],
+            })
+
+        # 3. Candidate theory from critical asset or equipment contradiction
+        for c in contradictions:
+            if c.contradiction_type.value in ["confirmed_contradiction", "possible_contradiction"]:
+                link = c.entity_event_link or "incident assets"
+                if link not in sorted_people:
+                    candidates.append({
+                        "title": f"Compromise or Operational Failure of {link}",
+                        "description": (
+                            f"Investigate evidence of deliberate compromise or failure concerning {link}: {c.explanation}"
+                        ),
+                        "claims": [
+                            f"The operational status or integrity of {link} was compromised during the incident.",
+                            f"Audit records or telemetry contradict the baseline status reported for {link}.",
+                        ],
+                    })
+                    break
+
+        # 4. Fallback external/technical hypothesis if candidates are sparse
+        if len(candidates) < 3:
+            candidates.append({
+                "title": "External Intrusion or Automated System Malfunction",
+                "description": (
+                    "The incident resulted from external breach, credential harvesting, or automated equipment "
+                    "malfunction rather than direct insider execution."
+                ),
                 "claims": [
-                    "External IP addresses or unauthorized remote sessions initiated the event.",
-                    "Internal personnel were not physically present at the scene.",
-                    "Perimeter firewall or malware activity was the root cause."
-                ]
-            },
-            {
-                "title": "Accidental Procedural Malfunction or Misconfiguration",
-                "description": "The event was the consequence of routine maintenance errors, automated script failure, or inadvertent policy violation.",
-                "claims": [
-                    "Scheduled system maintenance was underway at the time.",
-                    "No malicious intent or unauthorized physical access was involved.",
-                    "System anomalies triggered false security alarms."
-                ]
-            }
-        ]
+                    "External actors or equipment anomalies initiated the security event.",
+                    "Physical and perimeter safeguards failed to detect or record external entry.",
+                ],
+            })
+
+        return candidates[:5]
 
     def ask_case_question(
         self,

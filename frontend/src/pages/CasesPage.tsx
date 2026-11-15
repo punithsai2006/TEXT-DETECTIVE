@@ -244,24 +244,26 @@ export const CasesPage: React.FC = () => {
 
                 {/* Card Action Buttons */}
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-2">
                     <button
                       onClick={() => {
                         setEditingCaseId(c.case_id);
                         setEditName(c.name);
                         setEditDesc(c.description);
                       }}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition"
+                      className="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600 text-xs font-semibold transition"
                       title="Rename Case"
                     >
                       <Edit2 className="w-3.5 h-3.5" />
+                      <span>Rename</span>
                     </button>
                     <button
                       onClick={() => handleDeleteCase(c.case_id, c.name)}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition"
+                      className="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold transition"
                       title="Delete Case"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
+                      <span>Delete</span>
                     </button>
                   </div>
 

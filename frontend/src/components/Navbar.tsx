@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShieldAlert, Cpu, FolderOpen, PlusCircle, AlertCircle, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Search, ShieldAlert, Cpu, FolderOpen, PlusCircle, AlertCircle, ChevronDown, CheckCircle2, Trash2 } from 'lucide-react';
 import { useCase } from '../context/CaseContext';
+import { api } from '../services/api';
 
 export const Navbar: React.FC = () => {
-  const { cases, activeCaseId, activeCase, setActiveCaseId, health } = useCase();
+  const { cases, activeCaseId, activeCase, setActiveCaseId, refreshCases, health } = useCase();
   const navigate = useNavigate();
 
   return (
@@ -51,6 +52,27 @@ export const Navbar: React.FC = () => {
               )}
             </select>
           </div>
+
+          {activeCase && (
+            <button
+              onClick={async () => {
+                if (window.confirm(`Are you sure you want to permanently delete investigation '${activeCase.name}'?`)) {
+                  try {
+                    await api.deleteCase(activeCase.case_id);
+                    await refreshCases();
+                    setActiveCaseId(null);
+                    navigate('/cases');
+                  } catch (err: any) {
+                    alert(`Delete failed: ${err.message}`);
+                  }
+                }
+              }}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/30 transition shrink-0"
+              title="Delete this active investigation"
+            >
+              <Trash2 className="w-4 h-4" />
+            </button>
+          )}
 
           {activeCase?.is_demo && (
             <span className="hidden lg:inline-flex items-center text-[10px] font-semibold tracking-wide px-2 py-1 bg-amber-500/15 text-amber-300 border border-amber-500/30 rounded-full shrink-0">

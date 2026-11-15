@@ -10,3 +10,7 @@ storage/chroma/chroma_db/
 .env
 *.env
 !.env.example
+/.venv-nlp/
+/storage/*
+!/storage/.gitkeep
+/localhost.*.log

@@ -1,14 +1,14 @@
 import React from 'react';
 import { ContradictionItem, ReviewStatus } from '../types';
-import { AlertTriangle, CheckCircle, Scale, User, FileText, CheckSquare, XCircle, HelpCircle, Clock, Cpu } from 'lucide-react';
+import { AlertTriangle, CheckCircle, Scale, User, FileText, Clock, Cpu } from 'lucide-react';
 
 interface ContradictionCardProps {
   item: ContradictionItem;
   index: number;
-  onUpdateReview?: (id: string, newStatus: ReviewStatus, notes?: string) => void;
+  onReview?: (status: ReviewStatus, notes?: string) => void;
 }
 
-export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, index, onUpdateReview }) => {
+export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, index, onReview }) => {
   const isConflict =
     item.contradiction_type === 'confirmed_contradiction' ||
     item.contradiction_type === 'possible_contradiction';
@@ -57,7 +57,7 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
                 : 'bg-slate-100 text-slate-700 border border-slate-200'
             }`}
           >
-            Review: {reviewStatus.replace(/_/g, ' ')}
+            Decision: {item.reviewer_id !== 'system' ? 'Run analysis to update' : reviewStatus === 'confirmed' ? 'Accepted' : 'Rejected'}
           </span>
 
           {/* Detection Engine Badge */}
@@ -148,33 +148,44 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
               Verified by {item.reviewer_id} {item.review_notes ? `(${item.review_notes})` : ''}
             </span>
           )}
+        </div>
 
-          {/* Interactive human review actions */}
-          {onUpdateReview && (
-            <div className="flex items-center space-x-1.5 mt-2 sm:mt-0">
+        {/* Human Review Action Bar */}
+        <div className="pt-2 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-semibold text-slate-500">Analyst Review:</span>
+            <button
+              type="button"
+              onClick={() => onReview?.('confirmed')}
+              className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
+                reviewStatus === 'confirmed'
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200'
+              }`}
+            >
+              Confirm Conflict
+            </button>
+            <button
+              type="button"
+              onClick={() => onReview?.('rejected')}
+              className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
+                reviewStatus === 'rejected'
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
+              }`}
+            >
+              Reject / False Positive
+            </button>
+            {reviewStatus !== 'pending_review' && (
               <button
-                onClick={() => onUpdateReview(item.id, 'confirmed', 'Analyst verified')}
-                className="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-[10px] flex items-center font-medium transition"
-                aria-label="Confirm contradiction"
+                type="button"
+                onClick={() => onReview?.('pending_review')}
+                className="px-2 py-1 rounded text-[11px] font-medium text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200"
               >
-                <CheckSquare className="w-3 h-3 mr-1" /> Confirm
+                Reset to Pending
               </button>
-              <button
-                onClick={() => onUpdateReview(item.id, 'rejected', 'Analyst rejected')}
-                className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-[10px] flex items-center font-medium transition"
-                aria-label="Reject contradiction"
-              >
-                <XCircle className="w-3 h-3 mr-1" /> Dismiss / Reject
-              </button>
-              <button
-                onClick={() => onUpdateReview(item.id, 'needs_further_investigation', 'Requires secondary evidence')}
-                className="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 rounded-lg text-[10px] flex items-center font-medium transition"
-                aria-label="Flag contradiction for further investigation"
-              >
-                <HelpCircle className="w-3 h-3 mr-1" /> Further Review
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

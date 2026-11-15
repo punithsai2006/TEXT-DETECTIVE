@@ -20,6 +20,7 @@ import {
   Network,
   CheckCircle2,
   RotateCw,
+  Trash2,
 } from 'lucide-react';
 
 export const DashboardPage: React.FC = () => {
@@ -111,6 +112,27 @@ export const DashboardPage: React.FC = () => {
               <FileCheck2 className="w-4 h-4 text-blue-400" />
               <span>Audit Dossier</span>
             </button>
+            {activeCase && (
+              <button
+                onClick={async () => {
+                  if (window.confirm(`Are you sure you want to permanently delete investigation '${activeCase.name}'?`)) {
+                    try {
+                      await api.deleteCase(activeCase.case_id);
+                      await refreshCases();
+                      setActiveCaseId(null);
+                      navigate('/cases');
+                    } catch (err: any) {
+                      alert(`Delete failed: ${err.message}`);
+                    }
+                  }
+                }}
+                className="flex items-center space-x-1.5 px-3.5 py-2 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-800/60 text-xs font-medium transition"
+                title="Delete this investigation"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                <span>Delete Case</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

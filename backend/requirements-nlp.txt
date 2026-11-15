@@ -1,0 +1,10 @@
+-r requirements.txt
+numpy>=2,<2.3
+pandas>=2.2.2,<3
+scikit-learn>=1.5,<2
+spacy>=3.8,<4
+faiss-cpu>=1.10,<2
+sentence-transformers>=5,<6
+transformers>=4.51,<6
+pypdf>=4
+python-docx>=1

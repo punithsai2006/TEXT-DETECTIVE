@@ -206,13 +206,13 @@ export const ReportPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 3: Executive Summary */}
+          {/* Section 3: Case conclusion and executive summary */}
           <section className="space-y-2">
             <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2">
-              2. Executive Investigation Summary
+              2. Case Conclusion & Investigation Summary
             </h3>
-            <div className="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200/80 text-xs sm:text-sm text-slate-800 leading-relaxed">
-              {report.investigation_summary}
+            <div className="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200/80 text-xs sm:text-sm text-slate-800 leading-relaxed whitespace-pre-line">
+              {report.investigation_summary.replace("The system's proposed explanation is", "The highest-ranked evidence claim is")}
             </div>
           </section>
 
@@ -220,7 +220,7 @@ export const ReportPage: React.FC = () => {
           {report.proposed_explanation && (
             <section className="space-y-3">
               <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2 flex items-center justify-between">
-                <span>3. System's Proposed Explanation</span>
+                <span>3. Highest-Ranked Evidence Claim</span>
                 <span className="text-xs font-mono text-blue-600 font-bold">
                   Net Formula Score: {report.proposed_explanation.total_score}
                 </span>
@@ -230,9 +230,11 @@ export const ReportPage: React.FC = () => {
                   <Award className="w-4 h-4 text-blue-600" />
                   <span>{report.proposed_explanation.title}</span>
                 </div>
-                <p className="mt-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
-                  {report.proposed_explanation.description}
-                </p>
+                {report.proposed_explanation.description !== 'A candidate account drawn from a source passage.' && (
+                  <p className="mt-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                    {report.proposed_explanation.description}
+                  </p>
+                )}
                 <div className="mt-3 text-[11px] font-mono text-slate-500">
                   {report.proposed_explanation.explanation}
                 </div>
@@ -250,7 +252,13 @@ export const ReportPage: React.FC = () => {
                 <div key={i} className="p-3.5 bg-rose-50/50 border border-rose-200/80 rounded-xl text-xs space-y-1.5">
                   <div className="font-bold text-rose-800 flex items-center justify-between">
                     <span>Discrepancy #{i + 1}: {c.entity_event_link}</span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold uppercase bg-rose-100 text-rose-800 border border-rose-200">{c.contradiction_type}</span>
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold uppercase bg-rose-100 text-rose-800 border border-rose-200">
+                      {c.reviewer_id === 'system' && c.review_status === 'confirmed'
+                        ? 'Confirmed Contradiction'
+                        : c.reviewer_id === 'system' && c.review_status === 'rejected'
+                          ? 'Rejected Candidate'
+                          : c.contradiction_type.replace(/_/g, ' ')}
+                    </span>
                   </div>
                   <p className="text-slate-800 italic bg-white p-2.5 rounded-lg border border-rose-100">
                     "{c.statement_a}" vs "{c.statement_b}"

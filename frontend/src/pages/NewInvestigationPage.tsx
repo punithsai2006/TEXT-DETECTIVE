@@ -48,9 +48,14 @@ export const NewInvestigationPage: React.FC = () => {
   };
 
   const addFiles = (newFiles: File[]) => {
+    const invalidGt = newFiles.find(f => f.name.toLowerCase().includes('ground_truth') || f.name.toLowerCase().endsWith('.json'));
+    if (invalidGt) {
+      setError(`File "${invalidGt.name}" cannot be uploaded as case evidence. Benchmark ground-truth files are rejected to prevent analysis contamination.`);
+      return;
+    }
     const valid = newFiles.filter((f) => {
       const ext = f.name.toLowerCase().split('.').pop();
-      return ['txt', 'pdf', 'docx', 'csv', 'json', 'log', 'md'].includes(ext || '');
+      return ['txt', 'pdf', 'docx', 'csv', 'log'].includes(ext || '');
     });
     setFilesToUpload((prev) => [...prev, ...valid]);
   };
@@ -163,7 +168,7 @@ export const NewInvestigationPage: React.FC = () => {
           Drag and Drop Case Files Here
         </h3>
         <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
-          Supports <strong>TXT, PDF, DOCX, CSV, JSON, and LOG</strong> files. Extracted sentences retain strict offsets and IDs.
+          Supports <strong>TXT, PDF, DOCX, CSV, and LOG</strong> files. Extracted sentences retain strict offsets and IDs.
         </p>
 
         <label className="mt-4 inline-block px-4 py-2 bg-slate-900 text-white text-xs font-semibold rounded-xl cursor-pointer hover:bg-slate-800 transition shadow-sm">
@@ -171,7 +176,7 @@ export const NewInvestigationPage: React.FC = () => {
           <input
             type="file"
             multiple
-            accept=".txt,.pdf,.docx,.csv,.json,.log,.md"
+            accept=".txt,.pdf,.docx,.csv,.log"
             onChange={handleFileChange}
             className="hidden"
           />

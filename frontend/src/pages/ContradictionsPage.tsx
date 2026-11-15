@@ -3,12 +3,12 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { ContradictionItem, ReviewStatus } from '../types';
 import { ContradictionCard } from '../components/ContradictionCard';
-import { Scale, AlertTriangle, CheckCircle, ShieldAlert, Filter, AlertOctagon } from 'lucide-react';
+import { Scale, ShieldAlert, Filter, AlertOctagon } from 'lucide-react';
 
 export const ContradictionsPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
   const [contradictions, setContradictions] = useState<ContradictionItem[]>([]);
-  const [filter, setFilter] = useState<'all' | 'confirmed' | 'possible' | 'agreement'>('all');
+  const [filter, setFilter] = useState<'all' | 'confirmed' | 'possible'>('all');
   const [reviewFilter, setReviewFilter] = useState<'all' | ReviewStatus>('all');
   const [loading, setLoading] = useState(false);
 
@@ -17,30 +17,34 @@ export const ContradictionsPage: React.FC = () => {
     setLoading(true);
     api
       .getContradictions(activeCaseId)
-      .then((items) => setContradictions(items))
+      .then((items) => setContradictions(items.filter((item) => item.nli_label === 'contradiction').map((item) => (
+        item.reviewer_id === 'system' && item.review_status === 'confirmed'
+          ? { ...item, contradiction_type: 'confirmed_contradiction' as const }
+          : item
+      ))))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, [activeCaseId]);
 
-  const handleReviewUpdate = async (id: string, newStatus: ReviewStatus, notes?: string) => {
+  const handleReview = async (contradictionId: string, status: ReviewStatus, notes?: string) => {
     if (!activeCaseId) return;
     try {
-      const updated = await api.reviewContradiction(activeCaseId, id, newStatus, 'forensic_analyst', notes);
-      setContradictions((prev) => prev.map((item) => (item.id === id ? updated : item)));
+      const updated = await api.reviewContradiction(activeCaseId, contradictionId, status, notes);
+      setContradictions((prev) =>
+        prev.map((c) => (c.id === contradictionId ? { ...c, ...updated } : c))
+      );
     } catch (err) {
-      console.error('Failed to update review status:', err);
+      console.error('Failed to submit review:', err);
     }
   };
 
   const confirmedCount = contradictions.filter((c) => c.contradiction_type === 'confirmed_contradiction').length;
   const possibleCount = contradictions.filter((c) => c.contradiction_type === 'possible_contradiction').length;
-  const agreementCount = contradictions.filter((c) => c.contradiction_type === 'agreement').length;
 
   const filtered = contradictions.filter((c) => {
     // Type filter
     if (filter === 'confirmed' && c.contradiction_type !== 'confirmed_contradiction') return false;
     if (filter === 'possible' && c.contradiction_type !== 'possible_contradiction') return false;
-    if (filter === 'agreement' && c.contradiction_type !== 'agreement') return false;
 
     // Review status filter
     if (reviewFilter !== 'all') {
@@ -89,15 +93,6 @@ export const ContradictionsPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="case-card p-4 rounded-xl border-l-4 border-l-emerald-600 flex items-center justify-between shadow-sm">
-          <div>
-            <div className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">Corroborated Agreements</div>
-            <div className="text-2xl font-bold font-mono text-emerald-600 mt-0.5">{agreementCount}</div>
-          </div>
-          <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600">
-            <CheckCircle className="w-6 h-6" aria-hidden="true" />
-          </div>
-        </div>
       </div>
 
       {/* Filter Bar */}
@@ -138,32 +133,20 @@ export const ContradictionsPage: React.FC = () => {
             >
               Possible ({possibleCount})
             </button>
-            <button
-              onClick={() => setFilter('agreement')}
-              className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-                filter === 'agreement'
-                  ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              Agreements ({agreementCount})
-            </button>
           </div>
 
           {/* Review Status Filter */}
           <div className="flex items-center gap-2 text-[11px]">
-            <span className="text-slate-500 font-medium">Review Status:</span>
+            <span className="text-slate-500 font-medium">Decision:</span>
             <select
               value={reviewFilter}
               onChange={(e) => setReviewFilter(e.target.value as any)}
               className="px-2.5 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm cursor-pointer"
-              aria-label="Filter contradictions by human review status"
+              aria-label="Filter contradictions by automatic decision"
             >
               <option value="all">All Review Statuses</option>
-              <option value="pending_review">Pending Review</option>
-              <option value="confirmed">Confirmed Valid</option>
-              <option value="rejected">Rejected / Dismissed</option>
-              <option value="needs_further_investigation">Needs Investigation</option>
+              <option value="confirmed">Accepted</option>
+              <option value="rejected">Rejected</option>
             </select>
           </div>
         </div>
@@ -189,7 +172,7 @@ export const ContradictionsPage: React.FC = () => {
               key={item.id}
               item={item}
               index={idx + 1}
-              onUpdateReview={handleReviewUpdate}
+              onReview={(status, notes) => handleReview(item.id, status, notes)}
             />
           ))}
         </div>

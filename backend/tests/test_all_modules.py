@@ -117,7 +117,8 @@ def test_hypothesis_ambiguity_warning_on_tie():
 
     ranked = hypothesis_engine.rank_hypotheses([h1, h2])
     assert ranked[0].uncertainty_warning is not None
-    assert "identical score" in ranked[0].uncertainty_warning
+    assert "share the highest score" in ranked[0].uncertainty_warning
+    assert not any(h.is_proposed_explanation for h in ranked)
 
 
 # ==========================================
@@ -216,10 +217,11 @@ def test_temporal_parsing():
 # 4. EVIDENCE RETRIEVAL TESTS (MODULE 3)
 # ==========================================
 
-def test_retriever_case_isolation(tmp_path):
+def test_retriever_case_isolation(tmp_path, monkeypatch):
     temp_store = tmp_path / "chroma"
     from app.services.retrieval.retriever import HybridRetriever
     r = HybridRetriever(storage_dir=temp_store)
+    monkeypatch.setattr(r, "_get_dense_model", lambda: None)
 
     doc_case_a = TextChunk(
         chunk_id="c_a1", case_id="case_A", document_id="doc_a", filename="a.txt",
@@ -247,10 +249,10 @@ def test_retriever_case_isolation(tmp_path):
 
     # Search in case_A should never find content from case_B
     results_a = r.search("case_A", "Blackwood gallery vault")
-    assert not any("Blackwood" in res.text for res in results_a)
+    assert results_a == []
 
     results_b = r.search("case_B", "Kingston USB")
-    assert not any("Kingston" in res.text for res in results_b)
+    assert results_b == []
 
 
 # ==========================================
@@ -278,6 +280,41 @@ def test_contradiction_detection_confirmed_and_agreements():
 # ==========================================
 # 6. REPORT GENERATION & EXPORTS (MODULE 6)
 # ==========================================
+
+def test_model_entity_extraction_requires_a_verbatim_source(monkeypatch):
+    from app.services.extraction import extractor
+
+    monkeypatch.setattr(extractor, "analysis_model_json", lambda *_: {
+        "entities": [
+            {"name": "north archive", "type": "location", "line": 0},
+            {"name": "invented vault", "type": "location", "line": 0},
+        ]
+    })
+    entities = extractor.extract_entities_from_text("They entered the north archive.", "doc")
+    assert "location:north archive" in entities
+    assert "location:invented vault" not in entities
+
+
+def test_interview_contradictions_compare_claims_instead_of_transcript_headers(monkeypatch):
+    monkeypatch.setattr(contradiction_detector, "_get_nli_pipeline", lambda: None)
+    claim = "[09:00 AM] KAUFMAN: Freezer Unit 4 maintained minus 80 Celsius throughout August."
+    question = "[10:30 AM] JENKINS: Priya, tell us about the condition of Freezer Unit 4 on August 14."
+    answer = "[10:30 AM] SHARMA: The display on Freezer Unit 4 rose to plus 4 Celsius between 2:00 AM and 7:45 AM."
+
+    assert contradiction_detector.evaluate_pair(claim, question, "Freezer Unit 4")[0] == NLILabel.NEUTRAL
+    label, _, _, explanation = contradiction_detector.evaluate_pair(claim, answer, "Freezer Unit 4")
+    assert label == NLILabel.CONTRADICTION
+    assert "84 °C" in explanation
+    assert "09:00 AM" not in explanation
+    assert "10:30 AM" not in explanation
+
+    first = "[09:00 AM] KAUFMAN: The freezer lost power at 2:00 AM."
+    second = "[10:30 AM] SHARMA: The freezer lost power at 2:10 AM."
+    assert contradiction_detector.evaluate_pair(first, first.replace("09:00 AM", "10:30 AM"))[0] == NLILabel.ENTAILMENT
+    label, _, _, explanation = contradiction_detector.evaluate_pair(first, second)
+    assert label == NLILabel.CONTRADICTION
+    assert "2:00 AM" in explanation and "2:10 AM" in explanation
+
 
 def test_report_generation_and_markdown_export():
     from app.models.schemas import Case, CaseStatus

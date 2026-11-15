@@ -145,6 +145,14 @@ class Event(BaseModel):
     char_end: int = 0
     source_sentence: str
     uncertainty: bool = False
+    parsed_date: Optional[str] = None
+    parsed_time: Optional[str] = None
+    timezone: Optional[str] = None
+    precision: Optional[str] = None  # second, minute, hour, day, approximate, unknown
+    confidence: float = 1.0
+    is_date_inferred: bool = False
+    raw_timestamp_text: Optional[str] = None
+    secondary_sources: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class TemporalLink(BaseModel):
@@ -171,6 +179,14 @@ class TimelineEntry(BaseModel):
     source_sentence: str
     is_uncertain: bool = False
     sort_key: str = ""
+    parsed_date: Optional[str] = None
+    parsed_time: Optional[str] = None
+    timezone: Optional[str] = None
+    precision: Optional[str] = None
+    confidence: float = 1.0
+    is_date_inferred: bool = False
+    raw_timestamp_text: Optional[str] = None
+    secondary_sources: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class CaseGraphNode(BaseModel):

@@ -78,6 +78,12 @@ export const DocumentsPage: React.FC = () => {
     if (!activeCaseId || uploadFiles.length === 0) return;
     setUploading(true);
     setUploadError(null);
+    const invalidGt = uploadFiles.find(f => f.name.toLowerCase().includes('ground_truth') || f.name.toLowerCase().endsWith('.json'));
+    if (invalidGt) {
+      setUploadError(`File "${invalidGt.name}" cannot be uploaded as evidence. Ground-truth benchmark files are rejected to prevent analysis contamination.`);
+      setUploading(false);
+      return;
+    }
     try {
       const formData = new FormData();
       uploadFiles.forEach((f) => formData.append('files', f));
@@ -375,18 +381,19 @@ export const DocumentsPage: React.FC = () => {
             <form onSubmit={handleUploadSubmit} className="mt-4 space-y-3.5 text-xs">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1.5">
-                  Choose Files (TXT, PDF, DOCX, CSV, JSON, LOG) *
+                  Choose Files (TXT, PDF, DOCX, CSV, LOG) *
                 </label>
                 <input
                   type="file"
                   multiple
                   required
-                  accept=".txt,.pdf,.docx,.csv,.json,.log,.md"
+                  accept=".txt,.pdf,.docx,.csv,.log"
                   onChange={(e) => {
                     if (e.target.files) setUploadFiles(Array.from(e.target.files));
                   }}
                   className="w-full p-2 border border-slate-300 rounded-xl text-xs file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                 />
+                <p className="text-[11px] text-slate-500 mt-1">Ground-truth evaluation JSON files are not supported as evidence files.</p>
               </div>
 
               <div>
