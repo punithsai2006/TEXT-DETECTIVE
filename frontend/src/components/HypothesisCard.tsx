@@ -25,7 +25,7 @@ export const HypothesisCard: React.FC<HypothesisCardProps> = ({ hypothesis }) =>
             <span className="uppercase tracking-wider">Proposed Explanation (Rank #1)</span>
           </div>
           <span className="text-[11px] font-normal text-blue-100 hidden sm:inline">
-            Highest Net Evidence Score under Slide 18 Formula
+            Highest Net Evidence Score under Hypothesis Scoring Formula
           </span>
         </div>
       )}

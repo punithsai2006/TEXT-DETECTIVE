@@ -113,7 +113,7 @@ export const NewInvestigationPage: React.FC = () => {
     { num: 2, name: 'Entity & Event Reconstruction', pct: 35 },
     { num: 3, name: 'RAG Hybrid Evidence Indexing', pct: 50 },
     { num: 4, name: 'Cross-Document Contradiction Engine', pct: 65 },
-    { num: 5, name: 'Slide 18 Hypothesis Scoring', pct: 80 },
+    { num: 5, name: 'Hypothesis Scoring', pct: 80 },
     { num: 6, name: 'Audit Dossier Generation', pct: 100 },
   ];
 

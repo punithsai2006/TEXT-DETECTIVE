@@ -225,7 +225,7 @@ class InvestigationController:
             status=CaseStatus.SCORING_HYPOTHESES,
             current_module="Module 5: Hypothesis Generation & Scoring",
             progress_percentage=80,
-            message="Evaluating and ranking candidate hypotheses using exact Slide 18 formula...",
+            message="Evaluating and ranking candidate hypotheses using hypothesis scoring formula...",
         )
 
         candidate_hypotheses: List[Hypothesis] = []
