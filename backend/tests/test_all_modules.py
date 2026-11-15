@@ -343,3 +343,47 @@ def test_ask_question_with_no_evidence():
     resp = controller.ask_case_question(case_id="non_existent_case", question="Who did it?")
     assert "No supporting evidence found" in resp.answer
     assert len(resp.evidence) == 0
+
+
+def test_forensic_contradiction_edge_cases_and_semantic_disambiguation():
+    """
+    Validates:
+    1. Human conversational departure estimates vs exit telemetry (tolerance window + agreement).
+    2. Non-conflicting cross-shift room exit vs late-night staff door exit.
+    3. Semantic object disambiguation: Barrier/dock door secured vs opening beverage/wine.
+    4. Legitimate planted contradiction capture on cage unlock, vehicle getaway, and broker contact.
+    """
+    det = contradiction_detector
+
+    # 1. Estimation agreement (10:15 vs 10:12 exit)
+    _, c_type1, _, _ = det.evaluate_pair(
+        "Marcus: paperwork until I left at about 10:15 PM.",
+        "22:12:30 - MARCUS_WEBB - STAFF_DOOR - EXIT - ACCESS_GRANTED",
+        entity_context="Marcus Webb"
+    )
+    assert c_type1 == ContradictionType.AGREEMENT
+
+    # 2. Daytime room exit vs late staff door exit (non-conflicting)
+    _, c_type2, _, _ = det.evaluate_pair(
+        "Priya: We left at about 02:40 PM.",
+        "23:41:25 - PRIYA_NAIR - STAFF_DOOR - EXIT - ACCESS_GRANTED",
+        entity_context="Priya Nair"
+    )
+    assert c_type2 == ContradictionType.NEUTRAL
+
+    # 3. Disambiguation: Dock door secured vs open wine bottle
+    _, c_type3, _, _ = det.evaluate_pair(
+        "At about 09:05 PM I went back to check the dock door was secured.",
+        "Radio: Marcus, I need approval to open the reserve Cabernet for table 6.",
+        entity_context="Marcus Webb"
+    )
+    assert c_type3 == ContradictionType.NEUTRAL
+
+    # 4. Genuine planted denial vs KEY_B unlock
+    _, c_type4, conf4, _ = det.evaluate_pair(
+        "I did not touch the vintage cage on Saturday.",
+        "20:41:17 - CAGE_LOCK - UNLOCKED - KEY_B",
+        entity_context="Marcus Webb"
+    )
+    assert c_type4 == ContradictionType.CONFIRMED_CONTRADICTION
+    assert conf4 >= 0.90

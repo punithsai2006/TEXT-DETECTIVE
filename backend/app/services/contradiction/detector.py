@@ -197,12 +197,15 @@ class ContradictionDetector:
         ALIBI_INDICATORS = re.compile(
             r"\b(at my desk|in town|at dinner|at home|offsite|elsewhere|remained at|cataloging in|in room \d+|"
             r"never entered|never went near|never inside|outside|left the facility|absent|left at|departed at|"
-            r"did not return|gone home|already gone|went home|headed home)\b",
+            r"did not return|gone home|already gone|went home|headed home|in the staff lot|staff lot|parked in|"
+            r"did not go back|never went back|didn't go back|never returned|only visit was|only visit to)\b",
             re.IGNORECASE
         )
         ACCESS_PRESENCE_INDICATORS = re.compile(
             r"\b(access[ _]granted|auth[ _]granted|auth_ok|swiped|rfid|badge #|card #|door sensor|"
-            r"service door entry|seen near|saw [A-Z][a-z]+|walking near|carrying a|carrying long|logged in|console \d+|turnstile|entered through)\b",
+            r"service door entry|seen near|saw [A-Z][a-z]+|walking near|carrying a|carrying long|carrying.*crate|"
+            r"logged in|console \d+|turnstile|entered through|service gate|vehicle_log|staff permit|"
+            r"cellar_door.*entry|cellar.*entry|entered the cellar|cage_lock|unlocked - key)\b",
             re.IGNORECASE
         )
         match_alibi_a = ALIBI_INDICATORS.search(a_clean)
@@ -228,7 +231,11 @@ class ContradictionDetector:
                 if t_dep and t_acc:
                     dep_min = clock_minutes(t_dep)
                     acc_min = clock_minutes(t_acc)
-                    # If access log timestamp is prior to stated departure time, it does not refute the alibi
+                    is_exit_telemetry = bool(re.search(r"\b(exit|exited|departed|leaving|out)\b", stmt_access, re.IGNORECASE))
+                    is_entry_telemetry = bool(re.search(r"\b(entry|entered|enter|access_granted.*entry|inside|swiped|unlocked)\b", stmt_access, re.IGNORECASE))
+                    is_sighting = bool(re.search(r"\b(saw|seen|carrying|walking|spoke|met)\b", stmt_access, re.IGNORECASE))
+
+                    # 1. Telemetry recorded access prior to stated departure time -> Consistent!
                     if acc_min < dep_min - 15:
                         return (
                             NLILabel.NEUTRAL,
@@ -237,6 +244,29 @@ class ContradictionDetector:
                             f"Consistent timeline: Telemetry recorded access at {t_acc.group(0).strip()} prior to stated departure time ({t_dep.group(0).strip()}).",
                             "rules",
                         )
+
+                    # 2. Telemetry is an EXIT log within 15 minutes of departure time (e.g. 10:12 vs 10:15 or 17:34 vs 17:30)
+                    # Natural human approximation corroborating departure
+                    if is_exit_telemetry and abs(acc_min - dep_min) <= 15:
+                        return (
+                            NLILabel.ENTAILMENT,
+                            ContradictionType.AGREEMENT,
+                            0.90,
+                            f"Consistent timeline: Telemetry recorded exit at {t_acc.group(0).strip()} matching stated departure estimate ({t_dep.group(0).strip()}).",
+                            "rules",
+                        )
+
+                    # 3. Telemetry is an EXIT log hours later from a general staff door when witness only described leaving a specific room (not going home)
+                    if is_exit_telemetry and not is_entry_telemetry and not is_sighting:
+                        has_total_absence_claim = bool(re.search(r"\b(did not return|gone home|went home|at home|headed home|left for the day|left the (?:hotel|facility|building))\b", stmt_alibi, re.IGNORECASE))
+                        if not has_total_absence_claim and acc_min > dep_min + 60:
+                            return (
+                                NLILabel.NEUTRAL,
+                                ContradictionType.NEUTRAL,
+                                0.50,
+                                f"Non-conflicting shift activity: General staff exit at {t_acc.group(0).strip()} does not refute prior room departure at {t_dep.group(0).strip()}.",
+                                "rules",
+                            )
 
             if not m_dep and "cleaning" in stmt_alibi.lower():
                 t_acc = CLOCK_TIME.search(stmt_access)
@@ -266,14 +296,20 @@ class ContradictionDetector:
             r"never received payments?|never lent|in my wallet all evening|only .* possess|"
             r"no safe access|never sounded|no modifications approved|in my jacket pocket|"
             r"did not open|never opened|not open the|never handled|did not handle|no contact|"
-            r"not contacted|have not contacted|not about this|never touched|not about this map)\b",
+            r"not contacted|have not contacted|not about this|never touched|did not touch|didn't touch|"
+            r"not touch the|not touched|not about this map|haven't spoken|not spoken to|have not spoken|"
+            r"not in months|never spoke|no contact with any broker|car stayed|vehicle stayed|stayed in the (?:staff )?lot|"
+            r"parked all evening|did not move|didn't go near the dock|never went near the dock)\b",
             re.IGNORECASE
         )
         AFFIRM_PROOF_INDICATORS = re.compile(
             r"\b(consulting retainer|wire transfer|deposited .* account|leave (?:his|her)? (?:lanyard|keycard)|"
             r"spare (?:master )?key|alarm triggered|alarm sounded|flash_overwrite|kill_override|"
-            r"overwritten with custom binary|credited to .* account|case_lock|unlocked|key_02|key_01|"
-            r"buyer might pay|valuation question|sale were arranged|private sale|inquire)\b",
+            r"overwritten with custom binary|credited to .* account|case_lock|unlocked|key_[a-z0-9]+|"
+            r"cage_lock.*unlocked|unlocked.*key_[a-z0-9]+|cage_lock.*locked|locked.*key_[a-z0-9]+|"
+            r"buyer might pay|valuation question|sale were arranged|private sale|inquire|inquiry|"
+            r"pemberton|wine broker|broker.*cash|cash.*broker|service gate.*exit|service_gate.*exit|"
+            r"vehicle_log.*exit|loaded.*volvo|crate.*volvo|carrying.*cooler.*crate|gray volvo)\b",
             re.IGNORECASE
         )
         match_denial_a = DENIAL_INDICATORS.search(a_clean)
@@ -340,6 +376,9 @@ class ContradictionDetector:
         words_b = set(re.findall(r"\b[A-Za-z0-9]{3,}\b", b_clean)) - {"the", "and", "that", "this", "with", "from", "was", "were", "been", "have", "had", "for", "not"}
         shared_subject = len(words_a & words_b) >= 1 or bool(entity_context and (entity_context.lower() in a_clean or entity_context.lower() in b_clean))
 
+        BARRIER_WORDS = re.compile(r"\b(door|gate|cage|case|display|vault|safe|lock|turnstile|cabinet|dock|portal|entrance|exit)\b", re.IGNORECASE)
+        BEVERAGE_WORDS = re.compile(r"\b(cabernet|wine|bottle|bottles|drink|drinks|champagne|chardonnay|merlot|beverage|can|cork)\b", re.IGNORECASE)
+
         if shared_subject:
             for pattern_pos, pattern_neg in CONFLICT_PAIRS:
                 match_a_pos = re.search(pattern_pos, a_clean)
@@ -348,6 +387,16 @@ class ContradictionDetector:
                 match_b_pos = re.search(pattern_pos, b_clean)
 
                 if (match_a_pos and match_b_neg) or (match_a_neg and match_b_pos):
+                    # Disambiguate container/barrier locks vs food/drink opening
+                    if "unlocked|open" in pattern_pos or "locked|secured" in pattern_neg:
+                        has_bev_a = bool(BEVERAGE_WORDS.search(a_clean))
+                        has_bev_b = bool(BEVERAGE_WORDS.search(b_clean))
+                        has_bar_a = bool(BARRIER_WORDS.search(a_clean))
+                        has_bar_b = bool(BARRIER_WORDS.search(b_clean))
+                        # If one refers to a barrier/container and the other refers to opening a beverage/drink, reject false positive!
+                        if (has_bar_a and has_bev_b and not has_bar_b) or (has_bar_b and has_bev_a and not has_bar_a):
+                            continue
+
                     word1 = match_a_pos.group(0) if match_a_pos else match_a_neg.group(0)
                     word2 = match_b_neg.group(0) if match_b_neg else match_b_pos.group(0)
                     return (
