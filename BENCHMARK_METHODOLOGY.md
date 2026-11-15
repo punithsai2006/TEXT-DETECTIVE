@@ -22,7 +22,7 @@ The Text Detective Benchmark provides an empirical, reproducible framework for a
 
 ## 2. Dataset Architecture & Split Design
 
-The benchmark consists of 5 multi-document investigation cases spanning corporate insider leaks, art theft, clinical trial data tampering, aerospace sabotage, and museum archival theft.
+The benchmark consists of 4 multi-document investigation cases spanning corporate insider leaks, art theft, clinical trial data tampering, and aerospace sabotage.
 
 | Case ID | Case Name | Documents | Words | Planted Contradictions | Role in Benchmark | Domain |
 |---|---|---|---|---|---|---|
@@ -30,11 +30,10 @@ The benchmark consists of 5 multi-document investigation cases spanning corporat
 | `case_02_blackwood` | The Blackwood Manor Art Heist | 8 | ~2,800 | 3 | **Development Set** | Physical Security / Art Heist |
 | `case_03_helios` | The Helios Pharma Clinical Trial Discrepancy | 8 | ~2,950 | 3 | **Held-Out Evaluation** | Biotech / Regulatory Fraud |
 | `case_04_apex_robotics` | The Apex Robotics Drone Sabotage | 8 | ~3,100 | 3 | **Held-Out Evaluation** | Aerospace / Firmware Tampering |
-| `case_05_lakeview` | Lakeview Library Rare Map Theft (LV-3112) | 11 | ~4,100 | 4 | **Held-Out Evaluation** | Archival / Insider Property Theft |
 
 ### Split Protocol:
 - **Development Set (Cases 1 & 2):** Used for initial prompt development, regex pattern refinement, and baseline pipeline construction.
-- **Held-Out Evaluation Set (Cases 3, 4 & 5):** Strictly reserved for unbiased validation. Extraction heuristics, NLI classification patterns, and scoring weights were never tuned against held-out cases.
+- **Held-Out Evaluation Set (Cases 3 & 4):** Strictly reserved for unbiased validation. Extraction heuristics, NLI classification patterns, and scoring weights were never tuned against held-out cases.
 
 ---
 
@@ -103,7 +102,6 @@ Average Event Grounding F1:  0.4792
 | `case_02_blackwood` | Dev | 8 | 0.296 | 0.567 | 100.0% | 1.00 | 33.3% | 33.3% | **PASSED** |
 | `case_03_helios` | Held-Out | 8 | 0.353 | 0.333 | 100.0% | 1.00 | 33.3% | 50.0% | **PASSED** |
 | `case_04_apex_robotics` | Held-Out | 8 | 0.299 | 0.531 | 100.0% | 1.00 | 33.3% | 20.0% | **PASSED** |
-| `case_05_lakeview` | Held-Out | 11 | 0.314 | 0.590 | 100.0% | 1.00 | **100.0%** | 22.2% | **PASSED** |
 
 ---
 

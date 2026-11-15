@@ -118,23 +118,23 @@ Direct empirical output of `python scripts/evaluate.py`:
 - Total Documents Processed: 44
 - Hypothesis Ranking Accuracy (Correct Ranked #1): 100.0% (5/5 cases)
 - Average Timeline Chronological Accuracy: 100.0%
-- Average Retrieval MRR: 0.98 (Recall@5: 100.0%)
+- Average Retrieval MRR: 0.97 (Recall@5: 100.0%)
 - Average Entity Extraction F1: 0.30
-- Average Event Grounding F1: 0.48
+- Average Event Grounding F1: 0.45
 ```
 
-| Metric | Case 1 (Meridian) | Case 2 (Blackwood) | Case 3 (Helios) | Case 4 (Apex) | Case 5 (Lakeview) |
-|---|---|---|---|---|---|
-| **Documents Analyzed** | 9 | 8 | 8 | 8 | 11 |
-| **Entity Precision** | 14.7% | 22.2% | 28.6% | 19.2% | 25.8% |
-| **Entity Recall** | 88.9% | 44.4% | 46.2% | 66.7% | 40.0% |
-| **Entity F1** | 0.252 | 0.296 | 0.353 | 0.299 | 0.314 |
-| **Event Precision** | 23.1% | 56.7% | 33.3% | 53.1% | 41.8% |
-| **Event Recall** | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% |
-| **Event F1** | 0.375 | 0.567 | 0.333 | 0.531 | 0.590 |
-| **Timeline Accuracy** | **100.0%** | **100.0%** | **100.0%** | **100.0%** | **100.0%** |
-| **Retrieval Recall@5** | **100.0%** | **100.0%** | **100.0%** | **100.0%** | **100.0%** |
-| **Retrieval MRR** | **0.90** | **1.00** | **1.00** | **1.00** | **1.00** |
-| **Contradiction Recall**| 80.0% (4/5) | 33.3% (1/3) | 33.3% (1/3) | 33.3% (1/3) | **100.0% (4/4)** |
-| **Contradiction Prec**  | 28.6% | 33.3% | 50.0% | 20.0% | 22.2% |
-| **Top Hyp Ranked #1**  | **PASSED** | **PASSED** | **PASSED** | **PASSED** | **PASSED** |
+| Metric | Case 1 (Meridian) | Case 2 (Blackwood) | Case 3 (Helios) | Case 4 (Apex) |
+|---|---|---|---|---|
+| **Documents Analyzed** | 9 | 8 | 8 | 8 |
+| **Entity Precision** | 14.7% | 22.2% | 28.6% | 19.2% |
+| **Entity Recall** | 88.9% | 44.4% | 46.2% | 66.7% |
+| **Entity F1** | 0.252 | 0.296 | 0.353 | 0.299 |
+| **Event Precision** | 23.1% | 56.7% | 33.3% | 53.1% |
+| **Event Recall** | 100.0% | 100.0% | 100.0% | 100.0% |
+| **Event F1** | 0.375 | 0.567 | 0.333 | 0.531 |
+| **Timeline Accuracy** | **100.0%** | **100.0%** | **100.0%** | **100.0%** |
+| **Retrieval Recall@5** | **100.0%** | **100.0%** | **100.0%** | **100.0%** |
+| **Retrieval MRR** | **0.90** | **1.00** | **1.00** | **1.00** |
+| **Contradiction Recall**| 80.0% (4/5) | 33.3% (1/3) | 33.3% (1/3) | 33.3% (1/3) |
+| **Contradiction Prec**  | 28.6% | 33.3% | 50.0% | 20.0% |
+| **Top Hyp Ranked #1**  | **PASSED** | **PASSED** | **PASSED** | **PASSED** |

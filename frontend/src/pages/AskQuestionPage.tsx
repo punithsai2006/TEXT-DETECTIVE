@@ -46,14 +46,6 @@ export const AskQuestionPage: React.FC = () => {
         'Did the motor kill switch payload trigger at 250 meters?',
       ];
     }
-    if (caseName.includes('lakeview')) {
-      return [
-        'Where was archivist Tom Reyes between 7:30 PM and 10:30 PM?',
-        'Who swiped Keycard 104 at the Rare Manuscript Vault Door at 20:45?',
-        'Did the vault temperature sensor trigger a climate excursion alert?',
-        'Was an overseas wire transfer made to Tom Reyes by Ronald Vane?',
-      ];
-    }
     return [
       'What chronological timeline of events is documented for this incident?',
       'Which individuals, access credentials, or keycards were logged at the scene?',

@@ -109,24 +109,23 @@ The system was evaluated using an automated benchmark harness (`scripts/evaluate
 
 | Metric | Overall Benchmark Score |
 |---|:---:|
-| **Total Cases Evaluated** | **5 Cases** |
-| **Total Investigation Documents** | **44 Documents** |
-| **Hypothesis Top-1 Ranking Accuracy** | **100.0% (5 / 5 cases correct)** |
+| **Total Cases Evaluated** | **4 Cases** |
+| **Total Investigation Documents** | **33 Documents** |
+| **Hypothesis Top-1 Ranking Accuracy** | **100.0% (4 / 4 cases correct)** |
 | **Timeline Chronological Accuracy** | **100.0%** |
-| **Evidence Retrieval MRR (Mean Reciprocal Rank)** | **0.98** |
+| **Evidence Retrieval MRR (Mean Reciprocal Rank)** | **0.97** |
 | **Evidence Retrieval Recall@5** | **100.0%** |
-| **Average Event Grounding F1** | **0.48** |
+| **Average Event Grounding F1** | **0.45** |
 | **Average Entity Extraction F1** | **0.30** |
 
 ### Per-Case Evaluation Breakdown
 
 | Case ID | Case Name | Dataset Role | Top Hyp #1 | Timeline Acc | Retrieval MRR | Event F1 | Entity F1 |
 |---|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| `case_01_meridian` | **The Meridian Tech Data Leak** | Benchmark | **PASSED (Rank #1)** | **100.0%** | 0.90 | 0.38 | 0.25 |
+| `case_01_meridian` | **The Meridian Tech Data Leak** | Benchmark | **PASSED (Rank #1)** | **100.0%** | 0.90 | 0.37 | 0.25 |
 | `case_02_blackwood` | **The Blackwood Manor Art Heist** | Benchmark | **PASSED (Rank #1)** | **100.0%** | 1.00 | 0.57 | 0.30 |
 | `case_03_helios` | **The Helios Clinical Trial Discrepancy** | Held-Out Test | **PASSED (Rank #1)** | **100.0%** | 1.00 | 0.33 | 0.35 |
 | `case_04_apex_robotics`| **The Apex Robotics Drone Sabotage** | Held-Out Test | **PASSED (Rank #1)** | **100.0%** | 1.00 | 0.53 | 0.30 |
-| `case_05_lakeview` | **The Lakeview Library Rare Map Theft** | Held-Out Test | **PASSED (Rank #1)** | **100.0%** | 1.00 | 0.59 | 0.31 |
 
 ---
 

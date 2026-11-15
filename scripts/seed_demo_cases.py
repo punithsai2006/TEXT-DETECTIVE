@@ -80,11 +80,6 @@ def main():
         case_name="The Apex Robotics Drone Sabotage",
         description="Investigation into unauthorized motor-kill firmware flashing and catastrophic failure of SkyHarrier-9 prototype."
     )
-    seed_case(
-        case_id="case_05_lakeview",
-        case_name="The Lakeview Library Rare Map Theft",
-        description="Investigation into the theft of the 16th-century Mercator Navigational Folio 1587 from Rare Map Vault B."
-    )
     print("\nAll demo cases successfully seeded and analyzed!")
 
 

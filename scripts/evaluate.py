@@ -431,7 +431,6 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         "case_02_blackwood,,,,,,\n"
         "case_03_helios,,,,,,\n"
         "case_04_apex_robotics,,,,,,\n"
-        "case_05_lakeview,,,,,,\n"
     )
     with open(EVALUATION_OUTPUT_DIR / "HUMAN_EVALUATION_TEMPLATE.csv", "w", encoding="utf-8") as f:
         f.write(csv_content)

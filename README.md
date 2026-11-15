@@ -309,17 +309,17 @@ Run the automated evaluation against the ground-truth benchmark suite:
 python scripts/evaluate.py
 ```
 
-### Verified Benchmark Results (All 5 Cases)
+### Verified Benchmark Results (All 4 Cases)
 
 | Metric | Result | Benchmark Target | Status |
 |---|---|---|---|
-| **Evaluated Cases** | 5 cases (44 documents total) | $\ge 3$ cases | **PASSED** |
-| **Designated Held-Out Cases** | `case_03_helios`, `case_04_apex_robotics`, `case_05_lakeview` | $\ge 1$ held-out case | **PASSED (3 Held-Out)** |
-| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (5/5 cases correct) | $\ge 80.0\%$ | **PASSED** |
+| **Evaluated Cases** | 4 cases (33 documents total) | $\ge 3$ cases | **PASSED** |
+| **Designated Held-Out Cases** | `case_03_helios`, `case_04_apex_robotics` | $\ge 1$ held-out case | **PASSED (2 Held-Out)** |
+| **Hypothesis Top-1 Rank Accuracy** | **100.0%** (4/4 cases correct) | $\ge 80.0\%$ | **PASSED** |
 | **Timeline Chronological Accuracy**| **100.0%** | $\ge 90.0\%$ | **PASSED** |
-| **Evidence Retrieval MRR** | **0.98** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
-| **Event Grounding F1** | **0.50** (Evaluated against true timeline) | Baseline | **HONEST & VALIDATED** |
-| **Entity Extraction F1** | **0.27** | Baseline | **VALIDATED** |
+| **Evidence Retrieval MRR** | **0.97** (Recall@5: 100.0%) | $\ge 0.70$ | **PASSED** |
+| **Event Grounding F1** | **0.45** (Evaluated against true timeline) | Baseline | **HONEST & VALIDATED** |
+| **Entity Extraction F1** | **0.30** | Baseline | **VALIDATED** |
 | **Case Isolation & Zero Data Leakage**| **100.0%** | 100.0% | **PASSED** |
 
 ---

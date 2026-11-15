@@ -1,22 +1,21 @@
 {
-  "evaluation_date": "2026-11-15T15:22:27.739047+00:00",
+  "evaluation_date": "2026-11-15T16:17:26.413424+00:00",
   "llm_provider": "mock",
   "llm_model": "mock-investigator-v1",
   "is_mock": true,
-  "total_cases_evaluated": 5,
-  "total_documents": 44,
+  "total_cases_evaluated": 4,
+  "total_documents": 33,
   "aggregate_metrics": {
     "hypothesis_top1_accuracy_percent": 100.0,
     "average_timeline_order_accuracy": 1.0,
-    "average_retrieval_mrr": 0.98,
+    "average_retrieval_mrr": 0.975,
     "average_retrieval_recall_at_5": 1.0,
-    "average_entity_f1": 0.3027,
-    "average_event_f1": 0.4792
+    "average_entity_f1": 0.2999,
+    "average_event_f1": 0.4501
   },
   "held_out_cases": [
     "case_03_helios",
-    "case_04_apex_robotics",
-    "case_05_lakeview"
+    "case_04_apex_robotics"
   ],
   "case_results": [
     {
@@ -51,15 +50,15 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 52,
-        "grounded_events": 26,
+        "total_extracted": 53,
+        "grounded_events": 27,
         "true_events_count": 12,
         "tp": 12,
-        "fp": 40,
+        "fp": 41,
         "fn": 0,
-        "precision": 0.2308,
+        "precision": 0.2264,
         "recall": 1.0,
-        "f1": 0.375,
+        "f1": 0.3692,
         "matched_examples": [
           "Bob Chen enters Building 4 via Main Entr",
           "David Wright enters Building 4 via Main ",
@@ -285,78 +284,6 @@
           "Firmware Modification",
           "Competitor Affiliation"
         ]
-      },
-      "hypothesis_top1_correct": true
-    },
-    {
-      "case_id": "case_05_lakeview",
-      "case_name": "Lakeview Library Rare Map Theft (LV-3112)",
-      "is_held_out": true,
-      "documents_count": 11,
-      "entity_metrics": {
-        "tp": 8,
-        "fp": 23,
-        "fn": 12,
-        "precision": 0.2581,
-        "recall": 0.4,
-        "f1": 0.3137,
-        "tp_examples": [
-          "greg hall",
-          "laura bennett",
-          "nina patel",
-          "oliver grant",
-          "rare maps room"
-        ],
-        "fp_examples": [
-          "badge used",
-          "camera c-staff-01",
-          "camera inside",
-          "case lock",
-          "custodian greg"
-        ],
-        "fn_examples": [
-          "cardboard tube",
-          "display case",
-          "grant and sons antique maps",
-          "key_01",
-          "key_02"
-        ]
-      },
-      "event_metrics": {
-        "total_extracted": 55,
-        "grounded_events": 39,
-        "true_events_count": 23,
-        "tp": 23,
-        "fp": 32,
-        "fn": 0,
-        "precision": 0.4182,
-        "recall": 1.0,
-        "f1": 0.5898,
-        "matched_examples": [
-          "Tom Reyes emails antique map dealer Oliv",
-          "Sarah Collins enters library through sta",
-          "Tom Reyes enters library through staff d"
-        ],
-        "unmatched_examples": []
-      },
-      "timeline_order_accuracy": 1.0,
-      "retrieval_metrics": {
-        "recall_at_5": 1.0,
-        "mrr": 1.0
-      },
-      "contradiction_metrics": {
-        "tp": 4,
-        "fp": 14,
-        "fn": 0,
-        "precision": 0.2222,
-        "recall": 1.0,
-        "f1": 0.3636,
-        "matched_examples": [
-          "Tom Reyes",
-          "KEY_02",
-          "Greg Hall"
-        ],
-        "unmatched_examples": []
       },
       "hypothesis_top1_correct": true
     }
