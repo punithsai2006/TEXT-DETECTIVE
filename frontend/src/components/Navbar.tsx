@@ -87,15 +87,8 @@ export const Navbar: React.FC = () => {
           )}
         </div>
 
-        {/* Right Actions: LLM Provider & New Investigation */}
+        {/* Right Actions: New Investigation */}
         <div className="flex items-center space-x-3 shrink-0">
-          <div className="hidden md:flex items-center text-xs text-slate-300 bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700/70">
-            <span className={`w-2 h-2 rounded-full mr-2 ${health?.is_mock ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse'}`} />
-            <span className="text-slate-400 mr-1.5">Model:</span>
-            <strong className="text-white font-mono text-[11px]">{health?.llm_provider?.toUpperCase() || 'MOCK'}</strong>
-            {health?.is_mock && <span className="text-amber-400 text-[10px] ml-1.5">(Offline)</span>}
-          </div>
-
           <button
             onClick={() => navigate('/new')}
             className="flex items-center space-x-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white transition-all shadow-sm hover:shadow"
