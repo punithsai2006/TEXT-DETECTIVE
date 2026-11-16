@@ -16,6 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldAlert,
+  Bot,
 } from 'lucide-react';
 import { useCase } from '../context/CaseContext';
 
@@ -59,6 +60,7 @@ export const Sidebar: React.FC = () => {
     {
       title: 'INTELLIGENCE & AUDIT',
       items: [
+        { to: '/agents', label: 'Agent Swarm (MAS)', icon: Bot, badge: 5 },
         { to: '/report', label: 'Investigation Report', icon: FileCheck2 },
         { to: '/ask', label: 'Ask AI Assistant', icon: HelpCircle },
         { to: '/settings', label: 'Settings & Accuracy', icon: SlidersHorizontal },

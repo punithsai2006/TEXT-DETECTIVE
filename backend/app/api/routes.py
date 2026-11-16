@@ -27,8 +27,10 @@ from app.models.schemas import (
     Event,
     EvidenceItem,
     EvidenceSearchRequest,
+    ForensicSummaryMilestone,
     Hypothesis,
     InvestigationReport,
+    MultiAgentDeliberation,
     ReviewStatus,
     TimelineEntry,
 )
@@ -379,6 +381,75 @@ def get_case_events(case_id: str) -> List[Event]:
 def get_case_timeline(case_id: str) -> List[TimelineEntry]:
     ext = case_store.get_extraction(case_id)
     return [TimelineEntry(**t) for t in ext.get("timeline", [])]
+
+
+@api_router.get("/cases/{case_id}/summary-timeline", response_model=List[ForensicSummaryMilestone])
+def get_case_summary_timeline(case_id: str) -> List[ForensicSummaryMilestone]:
+    """
+    Retrieves the executive Forensic Summary Timeline derived from the Case Graph
+    and clustered into 5 strategic crime phases by the ForensicTimelineAgent.
+    """
+    milestones = case_store.get_summary_timeline(case_id)
+    if milestones:
+        return milestones
+    
+    # On-demand synthesis if case has already undergone extraction
+    ext = case_store.get_extraction(case_id)
+    raw_entries = [TimelineEntry(**t) for t in ext.get("timeline", [])]
+    if not raw_entries:
+        return []
+    case_graph = CaseGraph(**ext.get("case_graph", {})) if ext.get("case_graph") else CaseGraph()
+    entities = [Entity(**e) for e in ext.get("entities", [])]
+    events = [Event(**ev) for ev in ext.get("events", [])]
+    contradictions = case_store.get_contradictions(case_id)
+
+    from app.services.agents.timeline_agent import forensic_timeline_agent
+    synthesized = forensic_timeline_agent.synthesize_summary_timeline(
+        case_graph=case_graph,
+        raw_timeline=raw_entries,
+        events=events,
+        entities=entities,
+        contradictions=contradictions,
+    )
+    if synthesized:
+        case_store.save_summary_timeline(case_id, synthesized)
+    return synthesized
+
+
+@api_router.get("/cases/{case_id}/agents/deliberation", response_model=Optional[MultiAgentDeliberation])
+def get_case_agent_deliberation(case_id: str) -> Optional[MultiAgentDeliberation]:
+    """
+    Retrieves the complete Multi-Agent System (MAS) deliberation record,
+    inter-agent communication transcripts, and prosecution vs. defense debate.
+    """
+    delib = case_store.get_agent_deliberations(case_id)
+    if delib:
+        return delib
+    
+    hypotheses = case_store.get_hypotheses(case_id)
+    if not hypotheses:
+        return None
+    case = case_store.get_case(case_id)
+    ext = case_store.get_extraction(case_id)
+    raw_entries = [TimelineEntry(**t) for t in ext.get("timeline", [])]
+    case_graph = CaseGraph(**ext.get("case_graph", {})) if ext.get("case_graph") else CaseGraph()
+    entities = [Entity(**e) for e in ext.get("entities", [])]
+    events = [Event(**ev) for ev in ext.get("events", [])]
+    contradictions = case_store.get_contradictions(case_id)
+
+    from app.services.agents.orchestrator import agent_swarm_orchestrator
+    _, delib = agent_swarm_orchestrator.run_multi_agent_investigation(
+        case_id=case_id,
+        case_name=case.name if case else case_id,
+        case_graph=case_graph,
+        raw_timeline=raw_entries,
+        events=events,
+        entities=entities,
+        contradictions=contradictions,
+        hypotheses=hypotheses,
+    )
+    case_store.save_agent_deliberations(case_id, delib)
+    return delib
 
 
 @api_router.get("/cases/{case_id}/case-graph", response_model=CaseGraph)

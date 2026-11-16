@@ -9,8 +9,10 @@ import {
   Entity,
   Event,
   EvidenceItem,
+  ForensicSummaryMilestone,
   Hypothesis,
   InvestigationReport,
+  MultiAgentDeliberation,
   ProvenanceValidationReport,
   TimelineEntry,
 } from '../types';
@@ -123,6 +125,18 @@ export const api = {
   async getTimeline(caseId: string): Promise<TimelineEntry[]> {
     const res = await fetch(`${API_BASE}/cases/${caseId}/timeline`);
     if (!res.ok) throw new Error('Failed to get timeline');
+    return res.json();
+  },
+
+  async getSummaryTimeline(caseId: string): Promise<ForensicSummaryMilestone[]> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/summary-timeline`);
+    if (!res.ok) throw new Error('Failed to get summary timeline');
+    return res.json();
+  },
+
+  async getAgentDeliberations(caseId: string): Promise<MultiAgentDeliberation | null> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/agents/deliberation`);
+    if (!res.ok) return null;
     return res.json();
   },
 

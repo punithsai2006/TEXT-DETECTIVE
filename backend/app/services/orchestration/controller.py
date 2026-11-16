@@ -311,6 +311,30 @@ class InvestigationController:
         case_store.save_hypotheses(case_id, ranked_hypotheses)
 
         # ==========================================
+        # STEP 5.5: MULTI-AGENT SWARM DELIBERATION (MAS)
+        # ==========================================
+        case_store.update_case_status(
+            case_id=case_id,
+            status=CaseStatus.SCORING_HYPOTHESES,
+            current_module="Multi-Agent Swarm Deliberation & Graph-RAG Timeline Synthesis",
+            progress_percentage=90,
+            message="Executing multi-agent debate (Prosecution vs Defense) and synthesizing graph-derived summary timeline...",
+        )
+        from app.services.agents.orchestrator import agent_swarm_orchestrator
+        summary_timeline, agent_deliberation = agent_swarm_orchestrator.run_multi_agent_investigation(
+            case_id=case_id,
+            case_name=case.name,
+            case_graph=case_graph,
+            raw_timeline=timeline,
+            events=events,
+            entities=entities,
+            contradictions=contradictions,
+            hypotheses=ranked_hypotheses,
+        )
+        case_store.save_agent_deliberations(case_id, agent_deliberation)
+        case_store.save_summary_timeline(case_id, summary_timeline)
+
+        # ==========================================
         # STEP 6: REPORT GENERATION (MOD 6)
         # ==========================================
         case_store.update_case_status(
@@ -329,6 +353,8 @@ class InvestigationController:
             key_evidence=evidence_items,
             contradictions=contradictions,
             hypotheses=ranked_hypotheses,
+            summary_timeline=summary_timeline,
+            agent_deliberations=agent_deliberation,
         )
         case_store.save_report(case_id, report)
 

@@ -341,18 +341,6 @@ export const CasesPage: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center space-x-2 pt-1">
-                <input
-                  type="checkbox"
-                  id="isDemo"
-                  checked={isDemoCase}
-                  onChange={(e) => setIsDemoCase(e.target.checked)}
-                  className="rounded text-blue-600 focus:ring-blue-500 h-4 w-4"
-                />
-                <label htmlFor="isDemo" className="text-slate-600 select-none cursor-pointer">
-                  Mark as Benchmark / Evaluation Case
-                </label>
-              </div>
 
               <div className="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
                 <button

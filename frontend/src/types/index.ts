@@ -218,6 +218,7 @@ export interface InvestigationReport {
   extracted_entities: Entity[];
   important_events: Event[];
   chronological_timeline: TimelineEntry[];
+  summary_timeline?: ForensicSummaryMilestone[];
   key_evidence: EvidenceItem[];
   agreements: ContradictionItem[];
   contradictions: ContradictionItem[];
@@ -248,6 +249,7 @@ export interface InvestigationReport {
     sentence_indices: number[];
     excerpt: string;
   }>;
+  agent_deliberations?: MultiAgentDeliberation;
 }
 
 export interface Case {
@@ -330,3 +332,50 @@ export interface ProvenanceValidationReport {
   warnings: string[];
   breakdown_by_module: Record<string, { passed: number; failed: number }>;
 }
+
+export interface ForensicSummaryMilestone {
+  milestone_id: string;
+  phase: string;
+  phase_order: number;
+  title: string;
+  timestamp_range: string;
+  summary: string;
+  graph_entities: string[];
+  graph_relationships: string[];
+  corroborating_sources: Array<{
+    document: string;
+    type: string;
+    timestamp?: string;
+    excerpt?: string;
+  }>;
+  contradicted_suspect_claims: string[];
+  confidence_score: number;
+  status: 'CORROBORATED_FACT' | 'DISPROVEN_ALIBI' | 'SUSPICIOUS_ANOMALY' | string;
+  primary_actor?: string;
+  target_location?: string;
+  raw_event_ids: string[];
+}
+
+export interface AgentMessage {
+  message_id: string;
+  sender: string;
+  recipient: string;
+  message_type: string;
+  thought_process: string;
+  content: string;
+  timestamp: string;
+  evidence_citations: string[];
+  subgraph_nodes: string[];
+}
+
+export interface MultiAgentDeliberation {
+  case_id: string;
+  run_timestamp: string;
+  agents_involved: string[];
+  messages: AgentMessage[];
+  prosecution_argument: Record<string, any>;
+  defense_argument: Record<string, any>;
+  judicial_verdict: Record<string, any>;
+  confidence_score: number;
+}
+

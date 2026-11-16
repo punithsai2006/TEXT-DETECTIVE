@@ -13,6 +13,7 @@ import { EvidencePage } from './pages/EvidencePage';
 import { ContradictionsPage } from './pages/ContradictionsPage';
 import { HypothesesPage } from './pages/HypothesesPage';
 import { CaseGraphPage } from './pages/CaseGraphPage';
+import { AgentSwarmPage } from './pages/AgentSwarmPage';
 import { ReportPage } from './pages/ReportPage';
 import { AskQuestionPage } from './pages/AskQuestionPage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -37,6 +38,7 @@ export const App: React.FC = () => {
                   <Route path="/contradictions" element={<ContradictionsPage />} />
                   <Route path="/hypotheses" element={<HypothesesPage />} />
                   <Route path="/graph" element={<CaseGraphPage />} />
+                  <Route path="/agents" element={<AgentSwarmPage />} />
                   <Route path="/report" element={<ReportPage />} />
                   <Route path="/ask" element={<AskQuestionPage />} />
                   <Route path="/settings" element={<SettingsPage />} />

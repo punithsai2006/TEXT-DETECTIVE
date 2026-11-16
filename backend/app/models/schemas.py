@@ -321,6 +321,60 @@ class HypothesisInput(BaseModel):
     description: str
 
 
+
+# ==========================================
+# MULTI-AGENT SYSTEM & GRAPH-RAG TIMELINE SCHEMAS
+# ==========================================
+
+class AgentRole(str, Enum):
+    LEAD_INVESTIGATOR = "LeadInvestigatorAgent"
+    GRAPH_RAG_SPECIALIST = "KnowledgeGraphRAGAgent"
+    FORENSIC_TIMELINE = "ForensicTimelineAgent"
+    CROSS_EXAMINATION = "CrossExaminationAgent"
+    ADVERSARIAL_HYPOTHESIS = "AdversarialHypothesisAgent"
+
+
+class ForensicSummaryMilestone(BaseModel):
+    milestone_id: str
+    phase: str
+    phase_order: int = 1
+    title: str
+    timestamp_range: str
+    summary: str
+    graph_entities: List[str] = Field(default_factory=list)
+    graph_relationships: List[str] = Field(default_factory=list)
+    corroborating_sources: List[Dict[str, Any]] = Field(default_factory=list)
+    contradicted_suspect_claims: List[str] = Field(default_factory=list)
+    confidence_score: float = 1.0
+    status: str = "CORROBORATED_FACT"  # CORROBORATED_FACT, DISPROVEN_ALIBI, SUSPICIOUS_ANOMALY
+    primary_actor: Optional[str] = None
+    target_location: Optional[str] = None
+    raw_event_ids: List[str] = Field(default_factory=list)
+
+
+class AgentMessage(BaseModel):
+    message_id: str
+    sender: str
+    recipient: str
+    message_type: str  # task_delegation, graph_retrieval, contradiction_alert, hypothesis_debate, consensus
+    thought_process: str = ""
+    content: str
+    timestamp: str = Field(default_factory=get_utc_now_iso)
+    evidence_citations: List[str] = Field(default_factory=list)
+    subgraph_nodes: List[str] = Field(default_factory=list)
+
+
+class MultiAgentDeliberation(BaseModel):
+    case_id: str
+    run_timestamp: str = Field(default_factory=get_utc_now_iso)
+    agents_involved: List[str] = Field(default_factory=list)
+    messages: List[AgentMessage] = Field(default_factory=list)
+    prosecution_argument: Dict[str, Any] = Field(default_factory=dict)
+    defense_argument: Dict[str, Any] = Field(default_factory=dict)
+    judicial_verdict: Dict[str, Any] = Field(default_factory=dict)
+    confidence_score: float = 0.95
+
+
 # ==========================================
 # MODULE 6: REPORT & CITATIONS
 # ==========================================
@@ -336,6 +390,7 @@ class InvestigationReport(BaseModel):
     extracted_entities: List[Entity]
     important_events: List[Event]
     chronological_timeline: List[TimelineEntry]
+    summary_timeline: List[ForensicSummaryMilestone] = Field(default_factory=list)
     key_evidence: List[EvidenceItem]
     agreements: List[ContradictionItem]
     contradictions: List[ContradictionItem]
@@ -347,6 +402,7 @@ class InvestigationReport(BaseModel):
     unresolved_questions: List[str] = Field(default_factory=list)
     limitations_and_uncertainty: str
     source_references: List[Dict[str, Any]]
+    agent_deliberations: Optional[MultiAgentDeliberation] = None
 
 
 # ==========================================
@@ -452,4 +508,5 @@ class AskQuestionResponse(BaseModel):
     model_used: str = "mock-investigator-v1"
     is_mock: bool = False
     uncertainty_note: Optional[str] = None
+
 

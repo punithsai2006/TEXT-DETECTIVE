@@ -11,8 +11,10 @@ from app.models.schemas import (
     Entity,
     Event,
     EvidenceItem,
+    ForensicSummaryMilestone,
     Hypothesis,
     InvestigationReport,
+    MultiAgentDeliberation,
     TimelineEntry,
 )
 from app.services.llm_provider import analysis_model_json
@@ -28,6 +30,8 @@ def generate_investigation_report(
     key_evidence: List[EvidenceItem],
     contradictions: List[ContradictionItem],
     hypotheses: List[Hypothesis],
+    summary_timeline: Optional[List[ForensicSummaryMilestone]] = None,
+    agent_deliberations: Optional[MultiAgentDeliberation] = None,
 ) -> InvestigationReport:
     """
     Generates the complete 18-section investigation report as specified in Slide 15.
@@ -167,6 +171,7 @@ def generate_investigation_report(
         extracted_entities=entities,
         important_events=events,
         chronological_timeline=timeline,
+        summary_timeline=summary_timeline or [],
         key_evidence=key_evidence,
         agreements=agreements,
         contradictions=conflicts,
@@ -178,6 +183,7 @@ def generate_investigation_report(
         unresolved_questions=unresolved_questions,
         limitations_and_uncertainty=limitations,
         source_references=source_refs,
+        agent_deliberations=agent_deliberations,
     )
 
 

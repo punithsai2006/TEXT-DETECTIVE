@@ -19,8 +19,10 @@ from app.models.schemas import (
     DocumentMetadata,
     Entity,
     Event,
+    ForensicSummaryMilestone,
     Hypothesis,
     InvestigationReport,
+    MultiAgentDeliberation,
     ReviewStatus,
     TimelineEntry,
     get_utc_now_iso,
@@ -60,6 +62,12 @@ class CaseStore:
 
     def _report_file(self, case_id: str) -> Path:
         return self._case_dir(case_id) / "report.json"
+
+    def _summary_timeline_file(self, case_id: str) -> Path:
+        return self._case_dir(case_id) / "summary_timeline.json"
+
+    def _agent_deliberations_file(self, case_id: str) -> Path:
+        return self._case_dir(case_id) / "agent_deliberations.json"
 
     def _audit_file(self, case_id: str) -> Path:
         return self._case_dir(case_id) / "audit_log.json"
@@ -345,6 +353,44 @@ class CaseStore:
         with open(f, "r", encoding="utf-8") as fp:
             data = json.load(fp)
             return InvestigationReport(**data)
+
+    # ==========================================
+    # MULTI-AGENT SWARM & FORENSIC SUMMARY TIMELINE
+    # ==========================================
+
+    def save_summary_timeline(self, case_id: str, milestones: List[ForensicSummaryMilestone]) -> None:
+        data = [m.model_dump() for m in milestones]
+        self._atomic_write_json(self._summary_timeline_file(case_id), data)
+
+    def get_summary_timeline(self, case_id: str) -> List[ForensicSummaryMilestone]:
+        f = self._summary_timeline_file(case_id)
+        if not f.exists():
+            # If not yet saved explicitly, see if report contains it
+            rep = self.get_report(case_id)
+            if rep and rep.summary_timeline:
+                return rep.summary_timeline
+            return []
+        try:
+            with open(f, "r", encoding="utf-8") as fp:
+                return [ForensicSummaryMilestone(**item) for item in json.load(fp)]
+        except Exception:
+            return []
+
+    def save_agent_deliberations(self, case_id: str, deliberation: MultiAgentDeliberation) -> None:
+        self._atomic_write_json(self._agent_deliberations_file(case_id), deliberation.model_dump())
+
+    def get_agent_deliberations(self, case_id: str) -> Optional[MultiAgentDeliberation]:
+        f = self._agent_deliberations_file(case_id)
+        if not f.exists():
+            rep = self.get_report(case_id)
+            if rep and rep.agent_deliberations:
+                return rep.agent_deliberations
+            return None
+        try:
+            with open(f, "r", encoding="utf-8") as fp:
+                return MultiAgentDeliberation(**json.load(fp))
+        except Exception:
+            return None
 
     # ==========================================
     # REPRODUCIBLE ANALYSIS RUN RECORDS (TASK 6)
