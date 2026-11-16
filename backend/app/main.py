@@ -116,6 +116,14 @@ if frontend_dist.exists():
     if assets_dir.exists():
         app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
 
+    @app.get("/favicon.ico", include_in_schema=False)
+    @app.head("/favicon.ico", include_in_schema=False)
+    def favicon():
+        fav = frontend_dist / "magnifier.svg"
+        if fav.exists():
+            return FileResponse(fav, media_type="image/svg+xml")
+        return Response(status_code=204)
+
     @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
     def serve_spa(full_path: str):
         target_file = (frontend_dist / full_path).resolve()
