@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
-import { api } from '../services/api';
+import { api, API_BASE } from '../services/api';
 import {
   SlidersHorizontal,
   Cpu,
@@ -23,7 +23,7 @@ export const SettingsPage: React.FC = () => {
   const runEvaluation = async () => {
     setEvaluating(true);
     try {
-      const res = await fetch('/api/evaluate', { method: 'POST' });
+      const res = await fetch(`${API_BASE}/evaluate`, { method: 'POST' });
       if (res.ok) {
         const data = await res.json();
         setBenchmarkData(data);

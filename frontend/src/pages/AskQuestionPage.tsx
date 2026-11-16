@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
-import { api } from '../services/api';
+import { api, API_BASE } from '../services/api';
 import { AskQuestionResponse } from '../types';
 import { EvidenceCard } from '../components/EvidenceCard';
 import { HelpCircle, Send, Sparkles, AlertCircle, ShieldCheck, FileText, Cpu } from 'lucide-react';
@@ -13,7 +13,7 @@ export const AskQuestionPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<{ answer_id: string; question: string; stale: boolean; status: string; timestamp: string }[]>([]);
   const refreshHistory = () => {
-    if (activeCaseId) fetch(`/api/cases/${activeCaseId}/answers`).then(r => r.ok ? r.json() : []).then(setHistory).catch(() => {});
+    if (activeCaseId) fetch(`${API_BASE}/cases/${activeCaseId}/answers`).then(r => r.ok ? r.json() : []).then(setHistory).catch(() => {});
   };
   useEffect(refreshHistory, [activeCaseId]);
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCase } from '../context/CaseContext';
 import { SourceCitation } from './SourceCitation';
+import { API_BASE } from '../services/api';
 
 type Claim = { claim_id: string; subject: string; predicate: string; object: string; speaker: string | null;
   polarity: string; attribution: string; source_span_ids: string[]; uncertainty: string[] };
@@ -21,7 +22,7 @@ const Details: React.FC<{ section: 'status' | 'claims' | 'actions'; fallback?: R
   const [error, setError] = useState('');
   const [correction, setCorrection] = useState<{ id: string; text: string } | null>(null);
   const [saving, setSaving] = useState(false);
-  const base = `/api/cases/${activeCaseId}/evidence-review`;
+  const base = `${API_BASE}/cases/${activeCaseId}/evidence-review`;
   useEffect(() => {
     let current = true;
     if (!activeCaseId) { setLoaded(true); return; }

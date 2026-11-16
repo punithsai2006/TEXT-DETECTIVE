@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCase } from '../context/CaseContext';
-import { api } from '../services/api';
+import { api, API_BASE } from '../services/api';
 import { SourceCitation } from './SourceCitation';
 import {
   Award,
@@ -174,7 +174,7 @@ export const AgentInvestigation: React.FC = () => {
   const [provider, setProvider] = useState<{ status: string; model: string; is_mock: boolean } | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'debate' | 'graph' | 'timeline' | 'actions'>('overview');
 
-  const endpoint = `/api/cases/${activeCaseId}`;
+  const endpoint = `${API_BASE}/cases/${activeCaseId}`;
 
   const load = async () => {
     if (!activeCaseId) return;
@@ -187,7 +187,7 @@ export const AgentInvestigation: React.FC = () => {
   useEffect(() => {
     if (!activeCaseId) return;
     load().catch((e) => setError(e.message));
-    fetch('/api/provider/readiness')
+    fetch(`${API_BASE}/provider/readiness`)
       .then((r) => r.json())
       .then(setProvider)
       .catch(() => {});

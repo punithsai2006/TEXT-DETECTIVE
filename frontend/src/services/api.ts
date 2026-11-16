@@ -17,7 +17,9 @@ import {
   TimelineEntry,
 } from '../types';
 
-const API_BASE = '/api';
+export const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL
+  ? `${(import.meta as any).env.VITE_API_BASE_URL.replace(/\/+$/, '')}/api`
+  : '/api';
 
 export const api = {
   // Health

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useCase } from '../context/CaseContext';
+import { API_BASE } from '../services/api';
 
 type Span = { filename: string; quote: string; page_number: number | null; paragraph: number;
   char_start: number; char_end: number; raw_text: string; extraction_version: string; original_url: string };
@@ -14,7 +15,7 @@ export const SourceCitation: React.FC<{ spanId?: string; label?: string }> = ({ 
   const load = async (event: React.MouseEvent) => {
     event.stopPropagation(); setOpen(true); setSpan(null); setError('');
     try {
-      const response = await fetch(`/api/cases/${activeCaseId}/evidence-review/sources/${encodeURIComponent(spanId)}`);
+      const response = await fetch(`${API_BASE}/cases/${activeCaseId}/evidence-review/sources/${encodeURIComponent(spanId)}`);
       const data = await response.json();
       if (!response.ok) throw new Error(data.detail || 'Source unavailable');
       setSpan(data);
