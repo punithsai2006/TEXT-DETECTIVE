@@ -74,8 +74,10 @@ def markdown_report(report):
     lines += ["## 6. Entity relationships", "Edges are derived from their originating passages, not independent evidence."]
     if report.graph_snapshot:
         labels = {n.id: n.label for n in report.graph_snapshot.nodes}
-        for edge in report.graph_snapshot.edges:
+        for edge in report.graph_snapshot.edges[:40]:
             lines.append(f"- {labels[edge.source]} -- {edge.relation} --> {labels[edge.target]}. " + cite(edge.source_span_ids))
+        if len(report.graph_snapshot.edges) > 40:
+            lines.append(f"Showing 40 of {len(report.graph_snapshot.edges)} relationships. Inspect the complete graph and JSON export for the remaining sourced edges.")
     lines.append("## 7. Verified model narrative")
     for section in report.llm_narrative.get("sections", []):
         lines.append("### " + section["title"])
@@ -111,8 +113,10 @@ def markdown_report(report):
         lines.append("## 13. Graph-RAG findings")
         for finding in deliberation.graph_findings:
             lines += [finding.summary, cite(finding.supporting_span_ids)]
-            for path in finding.graph_paths:
+            for path in finding.graph_paths[:12]:
                 lines.append(" -> ".join(path["node_ids"]) + " " + cite(path["source_span_ids"]))
+            if len(finding.graph_paths) > 12:
+                lines.append(f"Showing 12 of {len(finding.graph_paths)} paths; complete paths remain in the JSON export.")
         lines.append("## 14. Adversarial hypothesis arguments")
         for title, items in [("Supporting Advocate", deliberation.supporting_arguments),
                              ("Challenging Advocate", deliberation.challenging_arguments),

@@ -28,6 +28,7 @@ export const DashboardPage: React.FC = () => {
   const { cases, activeCase, activeCaseId, setActiveCaseId, refreshCases } = useCase();
   const navigate = useNavigate();
   const [analyzing, setAnalyzing] = useState(false);
+  const [analysisError, setAnalysisError] = useState('');
 
   // Aggregate stats from stored cases
   const totalCases = cases.length;
@@ -50,11 +51,16 @@ export const DashboardPage: React.FC = () => {
     if (!activeCaseId) return;
     setAnalyzing(true);
     try {
+      setAnalysisError('');
+      const response = await fetch('/api/provider/readiness');
+      if (!response.ok) throw new Error('Unable to check model configuration.');
+      const provider = await response.json();
+      if (!provider.can_analyze) throw new Error(provider.message);
       await api.runAnalysis(activeCaseId);
       await refreshCases();
       navigate('/report');
     } catch (e: any) {
-      alert(`Analysis run failed: ${e.message}`);
+      setAnalysisError(e.message || 'Analysis did not complete.');
     } finally {
       setAnalyzing(false);
     }
@@ -72,6 +78,7 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      {analysisError && <div role="alert" className="border border-amber-300 bg-amber-50 p-4 rounded-xl text-sm"><p>{analysisError}</p><button className="underline mt-2" onClick={() => navigate('/new')}>View configuration guidance and preserved evidence</button></div>}
       {/* Top Welcome / Hero Banner */}
       <div className="bg-slate-900 text-white p-6 sm:p-7 rounded-2xl border border-slate-800 shadow-sm relative overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/10 to-transparent pointer-events-none hidden md:block" />

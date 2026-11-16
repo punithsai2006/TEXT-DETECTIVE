@@ -33,6 +33,13 @@ export const NewInvestigationPage: React.FC = () => {
   const [analyzing, setAnalyzing] = useState(false);
   const [status, setStatus] = useState<AnalysisStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [readiness, setReadiness] = useState<{can_analyze: boolean; status: string; message: string; model: string} | null>(null);
+  const checkProvider = async (probe = false) => {
+    const response = await fetch(`/api/provider/readiness?probe=${probe}`);
+    if (!response.ok) throw new Error('Unable to check provider configuration');
+    const value = await response.json(); setReadiness(value); return value;
+  };
+  useEffect(() => { checkProvider().catch(e => setError(e.message)); }, []);
 
   useEffect(() => {
     if (!analyzing || !activeCaseId) return;
@@ -57,6 +64,10 @@ export const NewInvestigationPage: React.FC = () => {
   };
 
   const addFiles = (newFiles: File[]) => {
+    if (newFiles.some(f => f.name.toLowerCase().endsWith('.zip'))) {
+      setError('Extract the ZIP first. Upload only the files inside its documents folder; keep the ground_truth folder outside the evidence corpus.');
+      return;
+    }
     const invalidGt = newFiles.find(f => f.name.toLowerCase().includes('ground_truth') || f.name.toLowerCase().endsWith('.json'));
     if (invalidGt) {
       setError(`File "${invalidGt.name}" cannot be uploaded as case evidence. Benchmark ground-truth files are rejected to prevent analysis contamination.`);
@@ -66,6 +77,7 @@ export const NewInvestigationPage: React.FC = () => {
       const ext = f.name.toLowerCase().split('.').pop();
       return ['txt', 'pdf', 'docx', 'csv', 'log'].includes(ext || '');
     });
+    if (valid.length !== newFiles.length) setError('Some files use unsupported formats. Supported uploads: TXT, PDF, DOCX, CSV and LOG.');
     setFilesToUpload((prev) => [...prev, ...valid]);
   };
 
@@ -73,7 +85,7 @@ export const NewInvestigationPage: React.FC = () => {
     setFilesToUpload((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  const handleUploadAndAnalyze = async () => {
+  const handleUploadAndAnalyze = async (uploadOnly = false) => {
     if (!activeCaseId) {
       setError('Please select or create an active case first.');
       return;
@@ -101,6 +113,10 @@ export const NewInvestigationPage: React.FC = () => {
       }
 
       setUploading(false);
+      await refreshCases();
+      if (uploadOnly) { setError(null); return; }
+      const provider = await checkProvider();
+      if (!provider.can_analyze) throw new Error(provider.message + ' Retrying cannot fix configuration. Uploaded files are preserved.');
       setStatus(null);
       setAnalyzing(true);
 
@@ -150,6 +166,13 @@ export const NewInvestigationPage: React.FC = () => {
           Upload case files and run the source-grounded pipeline. Failed model stages can be retried without duplicating completed outputs.
         </p>
       </div>
+
+      {readiness && <section className={`p-4 rounded-xl border ${readiness.can_analyze ? 'bg-blue-50 border-blue-200' : 'bg-amber-50 border-amber-300'}`} aria-label="Model configuration">
+        <h2 className="font-semibold">{readiness.can_analyze ? 'Model configuration' : 'AI analysis requires configuration'}</h2>
+        <p className="text-sm">{readiness.message}</p><p className="text-xs mt-2">Configured model: {readiness.model || 'not set'}. Evidence upload and search do not require a generative model.</p>
+        <button className="underline text-sm mt-2" onClick={() => checkProvider(true).catch(e => setError(e.message))}>Check provider again</button>
+        <button className="underline text-sm ml-4" onClick={() => navigate('/evidence')}>Inspect uploaded evidence</button>
+      </section>}
 
       {error && (
         <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 flex items-center shadow-sm">
@@ -295,8 +318,8 @@ export const NewInvestigationPage: React.FC = () => {
         </span>
 
         <button
-          onClick={handleUploadAndAnalyze}
-          disabled={uploading || analyzing}
+          onClick={() => handleUploadAndAnalyze()}
+          disabled={uploading || analyzing || readiness?.can_analyze === false}
           className="flex items-center space-x-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-xs font-semibold rounded-xl transition shadow-sm disabled:opacity-50"
         >
           {uploading ? (
@@ -312,10 +335,11 @@ export const NewInvestigationPage: React.FC = () => {
           ) : (
             <>
               <Play className="w-4 h-4 fill-current" />
-              <span>{status?.status === 'failed' ? 'Retry Failed Stages' : 'Run Full Investigation Pipeline'}</span>
+              <span>{readiness?.can_analyze === false ? 'Configure model to run analysis' : status?.status === 'failed' ? 'Retry Failed Stages' : 'Run Full Investigation Pipeline'}</span>
             </>
           )}
         </button>
+        <button disabled={uploading || analyzing || !filesToUpload.length} onClick={() => handleUploadAndAnalyze(true)} className="text-sm text-blue-700 underline disabled:opacity-50">Upload files without AI analysis</button>
       </div>
 
       {/* Progress & Feedback Loops Display */}

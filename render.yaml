@@ -13,7 +13,12 @@ services:
       - key: PORT
         value: 10000
       - key: LLM_PROVIDER
-        value: mock
+        value: openai
+      - key: LLM_MODEL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
       - key: DEMO_MODE
-        value: "true"
-      # Optional: Add OPENAI_API_KEY or ANTHROPIC_API_KEY in Render Dashboard
+        value: "false"
+      # Enter an available model ID and API key in Render's environment settings.
+      # For Anthropic, change LLM_PROVIDER and set ANTHROPIC_API_KEY instead.

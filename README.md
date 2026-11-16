@@ -372,3 +372,7 @@ python scripts/evaluate.py
   year={2024}
 }
 ```
+# Lakeview case troubleshooting
+
+For the supplied LV-3112 archive, see [verified recovery steps and source review](docs/LAKEVIEW_RECOVERY.md).
+The deployed app needs a configured real provider; repeating mock-mode retries cannot enable AI analysis.

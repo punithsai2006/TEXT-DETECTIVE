@@ -325,6 +325,23 @@ def run_case_analysis(
             detail="Cannot analyze case: no documents have been uploaded yet. Please upload files first."
         )
 
+    from app.services.provider_readiness import provider_readiness
+    from app.api.evidence_review import service
+    readiness = provider_readiness(provider_factory=service.provider_factory)
+    if readiness["status"] in {"invalid_provider", "missing_credentials", "explicit_mock_ai_analysis_unavailable"}:
+        # Fail before creating another doomed run. Evidence remains searchable.
+        # Test/demo service subclasses explicitly inject their own fixture provider.
+        from app.api.evidence_review import service
+        try:
+            configured = service.provider_factory()
+        except ValueError:
+            configured = None
+        if configured is None or type(configured).__name__ in {"MockLLMProvider", "OpenAIProvider", "AnthropicProvider"}:
+            message = ("AI analysis is unavailable: " + readiness["message"]
+                       + " Retrying will not fix configuration. Your uploaded documents are preserved; Evidence Search remains available.")
+            case_store.update_case_status(case_id, CaseStatus.FAILED, "Provider configuration required", 15, message, error=message)
+            raise HTTPException(409, message)
+
     try:
         from app.api.evidence_review import service
         from app.services.orchestration.integrated_pipeline import run_pipeline
@@ -616,9 +633,11 @@ def resume_contradiction_analysis(case_id: str) -> Dict[str, Any]:
         raise HTTPException(status_code=400, detail="No prior analysis run found. Run analysis first.")
     if run.get("stale"):
         raise HTTPException(status_code=409, detail="Analysis is stale because sources changed. Please rerun full analysis.")
-    updated_run = service.run(case_id, allow_fixture=run.get("is_mock", False))
-    if updated_run.get("status") in ("completed", "partial"):
+    updated_run = service.run(case_id)
+    if updated_run.get("status") == "completed":
         publish(service, case_id, updated_run, score=True)
+    elif updated_run.get("status") == "partial":
+        publish(service, case_id, updated_run, score=False, partial=True)
     return {
         "status": updated_run.get("status"),
         "processed_comparisons": updated_run.get("processed_comparisons", len(updated_run.get("comparisons", []))),

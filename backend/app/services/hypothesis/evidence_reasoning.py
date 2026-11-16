@@ -13,7 +13,7 @@ from app.models.case_analysis import (
 from app.models.schemas import CaseStatus
 from app.services.orchestration.evidence_review import Budget, WorkflowError, call_json, digest, now, case_lock
 
-PROMPT_VERSION = "case-reasoning-v3.0"
+PROMPT_VERSION = "case-reasoning-v3.1"
 SCORE_KEYS = ("support", "conflict", "temporal", "relationships", "coverage", "assumptions")
 
 
@@ -161,6 +161,13 @@ def reason_case(service, case_id, run):
             service.store.update_case_status(case_id, CaseStatus.SCORING_HYPOTHESES, "Hypothesis generation and scoring", 75,
                                              "Generating competing interpretations and investigating necessary claims.")
             initial = service.retrieve(case_id, " ".join(c["subject"] for c in run["claims"][:8]), run["claims"], actions, run["run_id"], 10)
+            if not initial:
+                # Report initialization is not a user-question relevance claim.
+                # A case may contain only unknown subjects or no extracted claims;
+                # still supply bounded original text rather than an empty report.
+                initial = list(sources.values())[:min(8, settings.EVIDENCE_CONTEXT_LIMIT)]
+                actions.append({"role": "evidence_agent", "run_id": run["run_id"],
+                    "tool": "load_initial_source_context", "source_span_ids": [s["span_id"] for s in initial], "timestamp": now()})
             proposals = checkpoint("hypotheses", HypothesisDraft, lambda: call_json(provider, HypothesisDraft,
                 "Generate a SMALL set of competing case explanations using only the claims, timeline, graph and original passages. "
                 "They must explain the evidence jointly, not merely restate each source as a hypothesis. Use qualified language. "

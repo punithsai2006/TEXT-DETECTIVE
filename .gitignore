@@ -16,3 +16,4 @@ storage/chroma/chroma_db/
 /.baseline-check/
 /tmp/
 /output/
+/data/benchmark_cases/

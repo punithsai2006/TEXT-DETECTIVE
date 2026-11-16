@@ -52,6 +52,14 @@ class MockLLMProvider(BaseLLMProvider):
 
     def generate(self, prompt: str, system_prompt: Optional[str] = None) -> LLMResponse:
         p_lower = prompt.lower()
+        sys_str = system_prompt or ""
+        # Modern mock requests must never fabricate dates, identities, findings or
+        # approve arbitrary assertions. Legacy plain-text demos remain separate.
+        if any(re.search(r'"title"\s*:\s*"' + name + r'"', sys_str) for name in (
+            "Extraction", "ToolDecision", "Comparison", "HypothesisDraft", "ReportDraft",
+            "VerificationBatch", "DebateDraft", "AnswerDraft", "SupportDecision")):
+            from app.services.offline_preview import OfflinePreviewProvider
+            return OfflinePreviewProvider().generate(prompt, system_prompt)
 
         # Prompt injection & secret revelation defense (Task 4)
         if ("reveal" in p_lower or "show" in p_lower or "what is" in p_lower) and ("api key" in p_lower or "secret" in p_lower or "password" in p_lower):

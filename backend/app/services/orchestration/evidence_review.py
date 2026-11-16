@@ -23,7 +23,7 @@ from app.services.provenance.source_spans import build_source_spans, PARSER_VERS
 
 _locks = {}
 _locks_guard = threading.Lock()
-EXTRACTION_PROMPT_VERSION = "evidence-review-v3.2"
+EXTRACTION_PROMPT_VERSION = "evidence-review-v3.3"
 
 
 def case_lock(case_id):
@@ -297,7 +297,10 @@ class EvidenceReviewService:
             "Use canonical predicates; quantity/unit only when explicit. Preserve hearsay and questions. "
             "Extract explicit person, organization, place and object mentions with source references. "
             "Set event_basis to logged only for explicitly logged records, observed for direct observation, "
-            "reported for attributed accounts, inferred for interpretations; none establishes factual truth.",
+            "reported for attributed accounts, inferred for interpretations; none establishes factual truth. "
+            "For badge/key/user-ID records preserve credential activity as a source claim; assignment to a person does not prove personal use. "
+            "Interview dialogue timestamps are record times, not the times of events being recounted. "
+            "Unknown timezones remain unknown; never add UTC solely to make a timestamp sortable.",
             payload, budget, run["actions"], "evidence_agent", run["run_id"])
         allowed = {s["span_id"] for s in group}
         if any(not set(c.source_span_ids) <= allowed for c in result.claims + result.entities):

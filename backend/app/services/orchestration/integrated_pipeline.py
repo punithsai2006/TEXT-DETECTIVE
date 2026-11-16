@@ -26,7 +26,7 @@ def timeline_order(claim):
     return (1, "")  # Stable input order; no invented dates or order for uncertain events.
 
 
-def publish(service, case_id, run, score=True):
+def publish(service, case_id, run, score=True, partial=False):
     """One canonical projection shared by existing pages, reviews and exports."""
     store = service.store
     docs = {d.document_id: d for d in service.documents(case_id)}
@@ -104,6 +104,12 @@ def publish(service, case_id, run, score=True):
                 char_start=s["char_start"], char_end=s["char_end"], score=0, retrieval_method="source_span")
                 for s in sources.values()]
     service._index(case_id, list(docs.values()))
+    if partial:
+        # Publish only mechanically sourced intermediate records. Never ask
+        # reasoning/report synthesis to treat incomplete comparisons as complete.
+        store.update_case_status(case_id, CaseStatus.FAILED, "Comparison batch paused", 60,
+            "; ".join(run["failures"]) or "Comparisons remain pending; continue the next batch.")
+        return None
     reasoning_run = {**run, "graph": graph.model_dump()}
     artifact = reason_case(service, case_id, reasoning_run) if score else load_reasoning(service, case_id, run)
     if not artifact or artifact["status"] != "completed":
@@ -161,7 +167,7 @@ def publish(service, case_id, run, score=True):
     return report
 
 
-def run_pipeline(service, case_id):
+def run_pipeline(service, case_id, allow_fixture=False):
     previous = service.load(case_id)
     provider = service.provider_factory()
     if (previous and not previous["stale"] and previous["status"] == "completed"
@@ -176,22 +182,15 @@ def run_pipeline(service, case_id):
             and previous["prompt_version"] == EXTRACTION_PROMPT_VERSION):
         run = previous
     else:
-        run = service.run(case_id)
-        # Resumable candidate batching: iterate remaining comparison batches
-        max_batches = 25
-        batch_num = 0
-        while run["status"] == "partial" and run.get("pending_comparisons", 0) > 0 and batch_num < max_batches:
-            batch_num += 1
-            prev_comparisons = len(run.get("comparisons", []))
-            run = service.run(case_id, allow_fixture=run.get("is_mock", False))
-            if len(run.get("comparisons", [])) <= prev_comparisons:
-                break
-
-    # If partial due solely to pending candidate comparisons (e.g. bounded budget), allow publication with warnings
-    is_partial_comparison = run["status"] == "partial" and all("Partial analysis" in f for f in run.get("failures", []))
-    if run["stale"] or (run["status"] not in ("completed", "partial") or (run["status"] == "partial" and not is_partial_comparison)):
+        # Each request has one bounded batch. The next explicit retry advances
+        # persistent checkpoints instead of silently resetting the budget 26 times.
+        run = service.run(case_id, allow_fixture=True) if allow_fixture else service.run(case_id)
+    if run["stale"] or run["status"] != "completed":
         message = "; ".join(run["failures"]) or "Analysis is incomplete or stale"
-        service.store.update_case_status(case_id, CaseStatus.FAILED, "Evidence analysis blocked", 15, message, error=message)
+        if run["status"] == "partial" and not run["stale"]:
+            publish(service, case_id, run, score=False, partial=True)
+        else:
+            service.store.update_case_status(case_id, CaseStatus.FAILED, "Evidence analysis blocked", 15, message, error=message)
         raise ValueError(message)
     return publish(service, case_id, run)
 

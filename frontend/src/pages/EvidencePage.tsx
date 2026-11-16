@@ -81,7 +81,8 @@ export const EvidencePage: React.FC = () => {
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
             <input
               type="text"
-              placeholder="Query investigative claims, timestamps, locations, or suspect actions..."
+              aria-label="Evidence search query"
+              placeholder="Query investigative claims, timestamps, locations, or reported actions..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none shadow-sm"
