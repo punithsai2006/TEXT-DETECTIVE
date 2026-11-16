@@ -71,14 +71,15 @@ class AdversarialHypothesisAgent:
             "model_role": "Defense Advocate Model",
             "defense_strategy": "Presumption of Innocence & Alternative Access Assessment",
             "rebuttal_points": [
-                f"Key possession does not conclusively prove sole custody; access credentials could be duplicated or compromised.",
-                f"Alternative staff members ({alt_str}) had authorized baseline access to the facility corridors during the gala event.",
-                f"Witness statements must be evaluated for human memory decay rather than presumed malicious perjury.",
+                f"Credential or key possession does not conclusively prove exclusive custody; credentials could be borrowed or compromised.",
+                f"Alternative individuals ({alt_str}) had potential access to the facility perimeter during the operational window.",
+                f"Witness recollections must be evaluated for normal perceptual drift rather than presumed intentional fabrication.",
             ],
-            "reasonable_doubt_assessment": "Moderate to Low. While access could theoretically be shared, the ANPR vehicle departure and broker email records tightly bind the suspect to the disposition.",
+            "reasonable_doubt_assessment": "Moderate to Low. While credential duplication is theoretically argued, the multi-source physical telemetry tightly binds the primary suspect to the scene.",
         }
 
         # 3. Judicial Arbiter Verdict
+        refuting_docs = ", ".join({c.doc_b_name for c in confirmed_contradictions[:3]}) if confirmed_contradictions else "sensor audit logs"
         judicial_verdict = {
             "model_role": "Judicial Arbiter Model",
             "verdict": f"CULPABILITY AFFIRMED: {lead_hypothesis.title if lead_hypothesis else 'Primary Hypothesis'}",
@@ -87,8 +88,8 @@ class AdversarialHypothesisAgent:
             "legal_sufficiency_standard": "Beyond a Reasonable Doubt (Physical sensor corroboration overrules testimonial denial)",
             "final_determination": (
                 f"The defense claims of credential sharing are fatally compromised by multi-sensor concurrence: "
-                f"the suspect's specific key (KEY_B), personal vehicle license plate (6MDK221), and prior broker email headers "
-                f"form an unbroken chain of physical custody."
+                f"objective physical telemetry recorded in {refuting_docs} and cross-document evidence "
+                f"form an unbroken chain of physical custody directly refuting {suspect_name}'s alibi."
             ),
         }
 

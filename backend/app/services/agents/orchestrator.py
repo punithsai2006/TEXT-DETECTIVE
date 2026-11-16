@@ -123,6 +123,7 @@ class MultiAgentSwarmOrchestrator:
             contradictions=contradictions,
         )
 
+        time_window = summary_timeline[1].timestamp_range if len(summary_timeline) > 1 else "critical incident window"
         log_msg(
             sender=AgentRole.FORENSIC_TIMELINE.value,
             recipient=AgentRole.LEAD_INVESTIGATOR.value,
@@ -130,7 +131,7 @@ class MultiAgentSwarmOrchestrator:
             thought="Successfully clustered events into 5 sequential crime phases: Preparation, Breach, Seizure, Egress, and Fabrication.",
             content=(
                 f"Forensic Summary Timeline synthesized: {len(summary_timeline)} strategic crime phases identified. "
-                f"Physical access window isolated between 20:36 and 20:49; egress transit window confirmed at 21:09."
+                f"Physical breach window isolated during: {time_window}."
             ),
             citations=[m.corroborating_sources[0]["document"] for m in summary_timeline if m.corroborating_sources],
             nodes=[m.primary_actor for m in summary_timeline if m.primary_actor],
@@ -157,7 +158,7 @@ class MultiAgentSwarmOrchestrator:
             sender=AgentRole.CROSS_EXAMINATION.value,
             recipient=AgentRole.LEAD_INVESTIGATOR.value,
             m_type="contradiction_alert",
-            thought="Detected multiple confirmed physical contradictions. Testimonial claims of not touching the cage or driving are conclusively refuted.",
+            thought="Detected confirmed physical contradictions. Suspect testimonial claims are refuted by objective physical telemetry.",
             content=(
                 f"Cross-examination identified {crossexam_result.get('total_confirmed_lies', 0)} confirmed perjury points. "
                 f"Suspect credibility is severely compromised by physical RFID and ANPR sensor telemetry."
@@ -188,7 +189,7 @@ class MultiAgentSwarmOrchestrator:
             sender=AgentRole.ADVERSARIAL_HYPOTHESIS.value,
             recipient=AgentRole.LEAD_INVESTIGATOR.value,
             m_type="hypothesis_debate",
-            thought="Debate concluded. Defense raised credential-sharing questions, but multi-sensor concurrence (KEY_B + Volvo 6MDK221 + Broker emails) confirms guilt beyond reasonable doubt.",
+            thought="Debate concluded. Defense argued alternative theories, but multi-sensor concurrence and physical telemetry confirm guilt beyond reasonable doubt.",
             content=(
                 f"Multi-LLM Debate Concluded. Verdict: {debate_result.get('verdict', {}).get('verdict', 'Guilty')}. "
                 f"Confidence: {debate_result.get('verdict', {}).get('confidence_percentage', 95)}%. "

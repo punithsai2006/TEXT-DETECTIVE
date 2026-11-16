@@ -211,13 +211,19 @@ def is_non_event_sentence(sentence: str) -> bool:
         "system note:", "audit note:", "audit:", "note:", "notes:",
         "image file:", "uploaded by:", "document ", "document type:",
         "author:", "interviewer:", "interviewee:", "system:", "facility:",
-        "subsystem:", "review date:", "date:", "time:", "subject:",
+        "subsystem:", "review date:", "interview date:", "interview time:", "date:", "time:", "subject:",
         "from:", "to:", "case id:", "reporting officer:", "case:", "location:"
     ]
     if any(s_lower.startswith(p) for p in prefixes):
         return True
     # Pure interview questions asking for times/events (the reply holds the event)
-    if re.match(r"^\[\d{1,2}:\d{2}\s*(?:AM|PM)?\]\s*[A-Z0-9_ -]+:\s*(?:When|What time|Where were|Did you|Have you|Who|How|Was it|Why)\b.*\?$", s, re.IGNORECASE):
+    if re.match(r"^\[\d{1,2}:\d{2}\s*(?:AM|PM)?\]\s*[A-Z0-9_ -]+:.*\?$", s, re.IGNORECASE):
+        return True
+    # Conversational salutations, closings, and short dialogue turn-taking without action
+    content = re.sub(r"^\[\d{1,2}:\d{2}\s*(?:AM|PM)?\]\s*[A-Z0-9_ -]+:\s*", "", s).strip()
+    if len(content.split()) < 4 and not any(k in content.lower() for k in ["left", "enter", "came", "went", "saw", "unlocked", "locked", "took", "stole", "badged", "opened", "swiped"]):
+        return True
+    if any(cl in content.lower() for cl in ["thank you", "that is all for now", "walk us through your whereabouts", "good morning", "can you confirm"]):
         return True
     # Short conversational replies without action
     if s_lower in {"yes.", "no.", "no, absolutely not.", "not about this map.", "hello mr. grant,", "please keep this between us for now.", "best regards,"}:
@@ -313,15 +319,28 @@ def extract_events_and_timeline(
             )
             events.append(email_event)
 
+        is_interview = doc.document_type == DocumentType.INTERVIEW or "interview" in doc.filename.lower()
         sentences = [s.strip() for s in doc.cleaned_text.split("\n") if s.strip()]
         for sentence in sentences:
-            if is_non_event_sentence(sentence):
-                continue
-
+            # Check for explicit date mentions in every sentence to keep contextual date updated
             ts_obj, updated_context = resolve_sentence_timestamp(
                 sentence, doc_header_date, current_context_date, doc.document_type.value
             )
             current_context_date = updated_context
+
+            if is_non_event_sentence(sentence):
+                continue
+
+            # In interview transcripts, testimonial Q&A lines are subjective claims for cross-examination,
+            # not physical timeline events, UNLESS they describe direct third-party physical sightings
+            # (saw, witnessed, spotted, carrying).
+            if is_interview and TRANSCRIPT_HEADER.match(sentence):
+                s_lower = sentence.lower()
+                has_sighting = any(k in s_lower for k in [
+                    "saw ", "sees ", "spotted ", "witnessed ", "carrying "
+                ])
+                if not has_sighting:
+                    continue
 
             event_text = TRANSCRIPT_HEADER.sub("", sentence).strip()
             has_verb = bool(verb_pattern.search(event_text))

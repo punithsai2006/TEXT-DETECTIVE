@@ -17,6 +17,10 @@ import {
   Copy,
   Check,
   ShieldCheck,
+  ShieldAlert,
+  User,
+  Cpu,
+  Sparkles,
 } from 'lucide-react';
 
 export const ReportPage: React.FC = () => {
@@ -243,29 +247,92 @@ export const ReportPage: React.FC = () => {
           )}
 
           {/* Section 6: Contradictions & Conflicts */}
-          <section className="space-y-3">
-            <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2">
-              4. Cross-Document Contradictions ({report.contradictions.length})
-            </h3>
-            <div className="space-y-3">
-              {report.contradictions.slice(0, 6).map((c, i) => (
-                <div key={i} className="p-3.5 bg-rose-50/50 border border-rose-200/80 rounded-xl text-xs space-y-1.5">
-                  <div className="font-bold text-rose-800 flex items-center justify-between">
-                    <span>Discrepancy #{i + 1}: {c.entity_event_link}</span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold uppercase bg-rose-100 text-rose-800 border border-rose-200">
-                      {c.reviewer_id === 'system' && c.review_status === 'confirmed'
-                        ? 'Confirmed Contradiction'
-                        : c.reviewer_id === 'system' && c.review_status === 'rejected'
-                          ? 'Rejected Candidate'
+          <section className="space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-700 flex items-center space-x-1.5">
+                <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
+                <span>4. Cross-Document Forensic Contradictions ({report.contradictions.length})</span>
+              </h3>
+              <span className="text-[10px] text-slate-400 font-mono">
+                Cross-referenced against physical RFID, lock telemetry & digital audits
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              {report.contradictions.slice(0, 8).map((c, i) => (
+                <div key={i} className="p-4 bg-white border border-rose-200/90 rounded-2xl text-xs space-y-3 shadow-sm hover:border-rose-400/80 transition">
+                  {/* Card Header */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+                    <div className="flex items-center space-x-2">
+                      <span className="w-5 h-5 rounded-md bg-rose-100 text-rose-800 font-mono font-bold text-[10px] flex items-center justify-center">
+                        #{i + 1}
+                      </span>
+                      <span className="font-bold text-slate-900 text-sm">
+                        {c.conflict_title || `Discrepancy: ${c.entity_event_link}`}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      {c.alibi_impact && (
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-amber-50 text-amber-800 border border-amber-200">
+                          {c.alibi_impact}
+                        </span>
+                      )}
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200">
+                        {c.reviewer_id === 'system' && c.review_status === 'confirmed'
+                          ? 'Confirmed Contradiction'
                           : c.contradiction_type.replace(/_/g, ' ')}
-                    </span>
+                      </span>
+                    </div>
                   </div>
-                  <p className="text-slate-800 italic bg-white p-2.5 rounded-lg border border-rose-100">
-                    "{c.statement_a}" vs "{c.statement_b}"
-                  </p>
-                  <p className="text-[11px] text-slate-500">
-                    Sources: {c.doc_a_name} ({c.speaker_a || 'Unknown'}) & {c.doc_b_name} ({c.speaker_b || 'Unknown'})
-                  </p>
+
+                  {/* Opposing Statements Comparison Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {/* Statement A: Testimonial Claim */}
+                    <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-200/80 space-y-1.5">
+                      <div className="flex items-center space-x-1.5 text-[11px] font-bold text-amber-900">
+                        <User className="w-3.5 h-3.5 text-amber-700" />
+                        <span>Subjective Testimonial Claim</span>
+                      </div>
+                      <p className="text-slate-800 italic font-medium bg-white p-2 rounded-lg border border-amber-100 text-xs">
+                        "{c.statement_a}"
+                      </p>
+                      <div className="text-[10px] text-amber-800/80 font-mono flex items-center justify-between">
+                        <span>Source: {c.doc_a_name}</span>
+                        <span>Speaker: {c.speaker_a || 'Subject'}</span>
+                      </div>
+                    </div>
+
+                    {/* Statement B: Objective Rebuttal / Sensor Fact */}
+                    <div className="p-3 bg-rose-50/60 rounded-xl border border-rose-200/80 space-y-1.5">
+                      <div className="flex items-center space-x-1.5 text-[11px] font-bold text-rose-900">
+                        <Cpu className="w-3.5 h-3.5 text-rose-700" />
+                        <span>Objective Physical Sensor / Telemetry Rebuttal</span>
+                      </div>
+                      <p className="text-slate-800 font-mono bg-white p-2 rounded-lg border border-rose-100 text-xs font-semibold">
+                        "{c.statement_b}"
+                      </p>
+                      <div className="text-[10px] text-rose-800/80 font-mono flex items-center justify-between">
+                        <span>Source: {c.doc_b_name}</span>
+                        <span>Operator: {c.speaker_b || 'System Telemetry'}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Forensic Plain-English Explanation */}
+                  <div className="p-3 rounded-xl bg-slate-900 text-slate-100 border border-slate-800 space-y-1.5">
+                    <div className="flex items-center space-x-1.5 text-[11px] font-bold text-blue-300">
+                      <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                      <span>Investigative Forensic Analysis & Alibi Impact</span>
+                    </div>
+                    <p className="text-xs text-slate-200 leading-relaxed font-normal">
+                      {c.forensic_analysis || c.explanation}
+                    </p>
+                    <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800">
+                      <span>NLI Model Confidence: {(c.confidence * 100).toFixed(1)}%</span>
+                      <span>Category: {c.evidentiary_category || 'Cross-Document Conflict'}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

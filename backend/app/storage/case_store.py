@@ -66,6 +66,9 @@ class CaseStore:
     def _summary_timeline_file(self, case_id: str) -> Path:
         return self._case_dir(case_id) / "summary_timeline.json"
 
+    def _ground_truth_timeline_file(self, case_id: str) -> Path:
+        return self._case_dir(case_id) / "ground_truth_timeline.json"
+
     def _agent_deliberations_file(self, case_id: str) -> Path:
         return self._case_dir(case_id) / "agent_deliberations.json"
 
@@ -361,6 +364,22 @@ class CaseStore:
     def save_summary_timeline(self, case_id: str, milestones: List[ForensicSummaryMilestone]) -> None:
         data = [m.model_dump() for m in milestones]
         self._atomic_write_json(self._summary_timeline_file(case_id), data)
+
+    def save_ground_truth_timeline(self, case_id: str, timeline: List[List[str]]) -> None:
+        self._atomic_write_json(self._ground_truth_timeline_file(case_id), timeline)
+
+    def get_ground_truth_timeline(self, case_id: str) -> Optional[List[List[str]]]:
+        f = self._ground_truth_timeline_file(case_id)
+        if not f.exists():
+            return None
+        try:
+            with open(f, "r", encoding="utf-8") as fp:
+                data = json.load(fp)
+                if isinstance(data, list):
+                    return data
+                return None
+        except Exception:
+            return None
 
     def get_summary_timeline(self, case_id: str) -> List[ForensicSummaryMilestone]:
         f = self._summary_timeline_file(case_id)

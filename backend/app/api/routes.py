@@ -388,31 +388,30 @@ def get_case_timeline_ground_truth(case_id: str) -> List[List[str]]:
     """
     Returns the timeline formatted exactly in the ground-truth benchmark style:
     [ [ "YYYY-MM-DD HH:MM", "Concise active-voice event summary" ], ... ]
+    Synthesized dynamically via Graph-RAG and the Main LLM.
     """
+    cached = case_store.get_ground_truth_timeline(case_id)
+    if cached:
+        return cached
+
     ext = case_store.get_extraction(case_id)
     raw_entries = [TimelineEntry(**t) for t in ext.get("timeline", [])]
-    from app.services.extraction.event_summarizer import summarize_event_to_ground_truth
-    
-    result = []
-    for t in raw_entries:
-        t_str = t.timestamp_display
-        if t.parsed_date and t.parsed_time:
-            time_part = t.parsed_time[:5] if len(t.parsed_time) >= 5 else t.parsed_time
-            t_str = f"{t.parsed_date} {time_part}"
-        elif " " in t_str and len(t_str) > 16:
-            t_str = t_str[:16]
-            
-        desc = t.clean_summary or t.event_description
-        if not desc or len(desc) > 80 or any(p in desc for p in ["ACCESS_GRANTED", "UNLOCKED - KEY", "ENTRY - STAFF"]):
-            desc = summarize_event_to_ground_truth(
-                sentence=t.source_sentence,
-                participants=t.participants,
-                location=t.location,
-                time_str=t.timestamp_display,
-                document_name=t.document_name,
-            )
-        result.append([t_str, desc])
-    return result
+    if not raw_entries:
+        return []
+
+    case_graph = CaseGraph(**ext.get("case_graph", {})) if ext.get("case_graph") else CaseGraph()
+    documents = case_store.get_documents(case_id)
+
+    from app.services.agents.timeline_agent import forensic_timeline_agent
+    synthesized = forensic_timeline_agent.synthesize_llm_ground_truth_timeline(
+        case_id=case_id,
+        case_graph=case_graph,
+        raw_timeline=raw_entries,
+        documents=documents,
+    )
+    if synthesized:
+        case_store.save_ground_truth_timeline(case_id, synthesized)
+    return synthesized
 
 
 @api_router.get("/cases/{case_id}/summary-timeline", response_model=List[ForensicSummaryMilestone])

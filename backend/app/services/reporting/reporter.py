@@ -236,15 +236,27 @@ def export_report_to_markdown(report: InvestigationReport) -> str:
     lines.extend([
         "",
         "## 6. Cross-Document Contradictions & Conflicts",
+        "Rigorous forensic cross-examination pitting subjective witness testimonies against objective physical telemetry, digital lock sensors, and independent evidence.",
+        "",
     ])
     if report.contradictions:
         for idx, c in enumerate(report.contradictions, 1):
+            title = c.conflict_title or f"Discrepancy #{idx}: {c.entity_event_link}"
+            category = c.evidentiary_category or "Cross-Document Telemetry Conflict"
+            impact = c.alibi_impact or "HIGH (Deception Detected)"
+            analysis = c.forensic_analysis or c.explanation
             lines.extend([
-                f"### Conflict #{idx}: {c.entity_event_link} ({c.contradiction_type.value})",
-                f"- **Statement A (`{c.doc_a_name}` | Speaker: {c.speaker_a or 'Unknown'}):** \"{c.statement_a}\"",
-                f"- **Statement B (`{c.doc_b_name}` | Speaker: {c.speaker_b or 'Unknown'}):** \"{c.statement_b}\"",
-                f"- **Analysis:** {c.explanation} (Confidence: {c.confidence:.2f})",
-                f"- **Status:** `{c.resolution_status}`",
+                f"### Conflict #{idx}: {title}",
+                f"- **Evidentiary Category:** `{category}` | **Status:** `{c.resolution_status}` | **Alibi Impact:** `{impact}`",
+                f"- **Subjective Testimonial Claim (Statement A):**",
+                f"  > \"{c.statement_a}\"",
+                f"  > — *Source: `{c.doc_a_name}` (Speaker: {c.speaker_a or 'Unknown'})*",
+                f"- **Objective Rebuttal / Physical Telemetry (Statement B):**",
+                f"  > \"{c.statement_b}\"",
+                f"  > — *Source: `{c.doc_b_name}` (Speaker: {c.speaker_b or 'System Sensor'})*",
+                f"- **Forensic Analysis & Reconciliation:**",
+                f"  {analysis}",
+                f"- **NLI Verification & Confidence:** `{c.contradiction_type.value}` (Confidence: {c.confidence:.2f})",
                 "",
             ])
     else:

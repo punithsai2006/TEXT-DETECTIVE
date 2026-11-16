@@ -63,6 +63,54 @@ class MockLLMProvider(BaseLLMProvider):
                 metadata={"type": "security_refusal"}
             )
 
+        # 0. Timeline Synthesis / Ground Truth Timeline Generation
+        if "forensic timeline analyst" in p_lower or "ground truth timeline" in p_lower or "synthesize a natural, concise, active-voice" in p_lower:
+            from app.services.extraction.event_summarizer import summarize_event_to_ground_truth
+            timeline_pairs = []
+            try:
+                # Find JSON payload in prompt
+                json_match = re.search(r"EVENTS & EVIDENCE DATA:\s*(\[\s*\{.*?\}\s*\])", prompt, re.DOTALL)
+                if json_match:
+                    raw_items = json.loads(json_match.group(1))
+                    has_exit_before = False
+                    for item in raw_items:
+                        t_str = item.get("timestamp", "Time unspecified")
+                        sentence = item.get("sentence", "")
+                        participants = item.get("participants", [])
+                        location = item.get("location")
+                        doc_name = item.get("document", "")
+
+                        # Track if prior exit occurred for this person
+                        if "exit" in sentence.lower():
+                            has_exit_before = True
+
+                        clean_summary = summarize_event_to_ground_truth(
+                            sentence=sentence,
+                            participants=participants,
+                            location=location,
+                            time_str=t_str,
+                            document_name=doc_name,
+                            has_prior_exit=has_exit_before and "entry" in sentence.lower(),
+                        )
+                        timeline_pairs.append([t_str, clean_summary])
+            except Exception as e:
+                logger.warning(f"MockLLMProvider timeline extraction fallback: {e}")
+
+            if not timeline_pairs:
+                # Extract simple [timestamp, text] regex lines
+                for match in re.finditer(r"([0-9]{4}-[0-9]{2}-[0-9]{2}\s+[0-9]{2}:[0-9]{2})\s*\|\s*([^\n]+)", prompt):
+                    t_val, desc_val = match.groups()
+                    clean_desc = summarize_event_to_ground_truth(sentence=desc_val.strip())
+                    timeline_pairs.append([t_val, clean_desc])
+
+            return LLMResponse(
+                content=json.dumps(timeline_pairs),
+                provider="mock",
+                model=self._model,
+                is_mock=True,
+                metadata={"type": "timeline_synthesis", "count": len(timeline_pairs)}
+            )
+
         # 1. Hypothesis claim decomposition
         if "decompose" in p_lower or "claims" in p_lower or "break into claims" in p_lower:
             # Deterministic extraction of claims

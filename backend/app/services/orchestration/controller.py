@@ -334,6 +334,16 @@ class InvestigationController:
         case_store.save_agent_deliberations(case_id, agent_deliberation)
         case_store.save_summary_timeline(case_id, summary_timeline)
 
+        from app.services.agents.timeline_agent import forensic_timeline_agent
+        gt_timeline = forensic_timeline_agent.synthesize_llm_ground_truth_timeline(
+            case_id=case_id,
+            case_graph=case_graph,
+            raw_timeline=timeline,
+            documents=documents,
+        )
+        if gt_timeline:
+            case_store.save_ground_truth_timeline(case_id, gt_timeline)
+
         # ==========================================
         # STEP 6: REPORT GENERATION (MOD 6)
         # ==========================================

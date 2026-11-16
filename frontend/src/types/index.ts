@@ -52,6 +52,10 @@ export interface Entity {
   mentions_count: number;
   document_ids: string[];
   source_sentences: string[];
+  forensic_analysis?: string;
+  alibi_impact?: string;
+  conflict_title?: string;
+  evidentiary_category?: string;
   metadata?: Record<string, any>;
 }
 
@@ -148,6 +152,10 @@ export interface ContradictionItem {
   calculation_source?: string;
   detection_engine?: 'nli' | 'rules' | 'llm_verified' | string;
   source_sentences: string[];
+  forensic_analysis?: string;
+  alibi_impact?: string;
+  conflict_title?: string;
+  evidentiary_category?: string;
 }
 
 export interface HypothesisClaim {

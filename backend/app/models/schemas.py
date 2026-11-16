@@ -276,6 +276,10 @@ class ContradictionItem(BaseModel):
     previous_review_status: Optional[str] = None
     review_notes: Optional[str] = None
     source_sentences: List[str] = Field(default_factory=list)
+    forensic_analysis: Optional[str] = None
+    alibi_impact: Optional[str] = None
+    conflict_title: Optional[str] = None
+    evidentiary_category: Optional[str] = None
 
 
 class ContradictionReviewRequest(BaseModel):
