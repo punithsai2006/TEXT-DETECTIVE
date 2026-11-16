@@ -250,7 +250,10 @@ def summarize_event_to_ground_truth(
             cam_id = f" ({cam_match.group(1)})"
         
         # Check items carried
-        if "tube" in text.lower():
+        if "no bag or tube" in text.lower():
+            person = first_name or "Tom"
+            return f"{person} exits building through staff door"
+        elif "tube" in text.lower() and any(k in text.lower() for k in ["carrying", "with", "holding", "cardboard"]):
             person = first_name or "Tom"
             return f"{person} exits staff door carrying tube (CCTV)"
         elif "crate" in text.lower() or "cooler" in text.lower():
