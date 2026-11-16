@@ -167,6 +167,7 @@ class TimelineEntry(BaseModel):
     event_id: str
     timestamp_display: str
     event_description: str
+    clean_summary: Optional[str] = None
     participants: List[str] = Field(default_factory=list)
     location: Optional[str] = None
     document_name: str

@@ -83,6 +83,11 @@ def normalize_ground_truth_data(raw_data: Dict[str, Any]) -> GroundTruthCase:
             ev = str(item.get("event", "")).strip()
             if ev:
                 timeline.append(GroundTruthTimelineEvent(time=t, event=ev))
+        elif isinstance(item, (list, tuple)) and len(item) >= 2:
+            t = str(item[0]).strip()
+            ev = str(item[1]).strip()
+            if ev:
+                timeline.append(GroundTruthTimelineEvent(time=t, event=ev))
 
     # 3. Normalize contradictions
     c_raw = raw_data.get("planted_contradictions", raw_data.get("contradictions", []))

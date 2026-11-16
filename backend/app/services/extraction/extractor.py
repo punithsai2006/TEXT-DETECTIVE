@@ -14,6 +14,7 @@ from app.services.extraction.date_parser import (
     resolve_sentence_timestamp,
     ParsedEventTimestamp,
 )
+from app.services.extraction.event_summarizer import summarize_event_to_ground_truth
 
 from app.models.schemas import (
     CaseGraph,
@@ -435,11 +436,21 @@ def extract_events_and_timeline(
             if (ev.parsed_date and ev.parsed_time)
             else "99999999999999"
         )
+        clean_desc = summarize_event_to_ground_truth(
+            sentence=ev.source_sentence,
+            speaker=ev.participants[0] if ev.participants else None,
+            participants=ev.participants,
+            location=ev.location,
+            objects=ev.uses_objects,
+            time_str=ev.time_str,
+            document_name=ev.document_name,
+        )
         tl_entry = TimelineEntry(
             entry_id=f"tl_{ev.event_id}",
             event_id=ev.event_id,
             timestamp_display=ev.time_str or "Time unspecified",
-            event_description=ev.description,
+            event_description=clean_desc,
+            clean_summary=clean_desc,
             participants=ev.participants,
             location=ev.location,
             document_name=ev.document_name,

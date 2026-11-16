@@ -19,17 +19,23 @@ import {
   GitBranch,
   CheckCircle2,
   XCircle,
-  ChevronRight,
+  Copy,
+  Download,
+  Check,
+  FileCode,
+  Layers,
 } from 'lucide-react';
 
 export const TimelinePage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
   const [timeline, setTimeline] = useState<TimelineEntry[]>([]);
   const [summaryTimeline, setSummaryTimeline] = useState<ForensicSummaryMilestone[]>([]);
+  const [groundTruthTimeline, setGroundTruthTimeline] = useState<[string, string][]>([]);
   const [participantFilter, setParticipantFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [viewMode, setViewMode] = useState<'summary' | 'timeline' | 'table'>('summary');
+  const [viewMode, setViewMode] = useState<'groundtruth' | 'summary' | 'timeline' | 'table'>('groundtruth');
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!activeCaseId) return;
@@ -37,10 +43,12 @@ export const TimelinePage: React.FC = () => {
     Promise.all([
       api.getTimeline(activeCaseId).catch(() => []),
       api.getSummaryTimeline(activeCaseId).catch(() => []),
+      api.getTimelineGroundTruth(activeCaseId).catch(() => []),
     ])
-      .then(([entries, summary]) => {
+      .then(([entries, summary, gt]) => {
         setTimeline(entries);
         setSummaryTimeline(summary);
+        setGroundTruthTimeline(gt);
       })
       .finally(() => setLoading(false));
   }, [activeCaseId]);
@@ -72,6 +80,23 @@ export const TimelinePage: React.FC = () => {
     });
   }, [timeline, participantFilter, searchQuery]);
 
+  const handleCopyJson = () => {
+    const jsonStr = JSON.stringify(groundTruthTimeline, null, 2);
+    navigator.clipboard.writeText(jsonStr);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadJson = () => {
+    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(groundTruthTimeline, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute('href', dataStr);
+    downloadAnchor.setAttribute('download', `${activeCase?.name || 'case'}_ground_truth_timeline.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+  };
+
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header */}
@@ -79,15 +104,19 @@ export const TimelinePage: React.FC = () => {
         <div>
           <div className="flex items-center space-x-2 text-xs uppercase font-bold tracking-wider text-blue-600">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Graph-RAG & Forensic Sequence Intelligence</span>
+            <span>Forensic Event Sequence Analysis</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
             Forensic Investigation Timeline
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            {viewMode === 'summary' ? (
+            {viewMode === 'groundtruth' ? (
               <span>
-                <strong>{summaryTimeline.length} strategic crime phases</strong> synthesized from the Case Knowledge Graph for case <strong>{activeCase?.name}</strong>.
+                <strong>{groundTruthTimeline.length} ground-truth milestone summaries</strong> for case <strong>{activeCase?.name}</strong>.
+              </span>
+            ) : viewMode === 'summary' ? (
+              <span>
+                <strong>{summaryTimeline.length} strategic crime phases</strong> synthesized from the Case Knowledge Graph for <strong>{activeCase?.name}</strong>.
               </span>
             ) : (
               <span>
@@ -99,7 +128,26 @@ export const TimelinePage: React.FC = () => {
 
         {/* View Mode & Filter Controls */}
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
-          {viewMode !== 'summary' && (
+          {viewMode === 'groundtruth' ? (
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={handleCopyJson}
+                className="flex items-center space-x-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg transition border border-slate-300 shadow-sm"
+                title="Copy Ground-Truth JSON to clipboard"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? 'Copied JSON!' : 'Copy JSON'}</span>
+              </button>
+              <button
+                onClick={handleDownloadJson}
+                className="flex items-center space-x-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition shadow-sm"
+                title="Download Ground-Truth Timeline JSON"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download JSON</span>
+              </button>
+            </div>
+          ) : viewMode !== 'summary' ? (
             <>
               <div className="relative">
                 <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
@@ -127,23 +175,33 @@ export const TimelinePage: React.FC = () => {
                 ))}
               </select>
             </>
-          )}
+          ) : null}
 
-          {/* View Mode Toggle: Summary vs Detailed Timeline vs Table */}
+          {/* View Mode Toggle: Ground Truth vs Graph Summary vs Detailed Timeline vs Table */}
           <div className="flex items-center rounded-lg border border-slate-300 overflow-hidden bg-white shadow-sm p-0.5">
             <button
+              onClick={() => setViewMode('groundtruth')}
+              className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
+                viewMode === 'groundtruth' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              }`}
+              title="Ground-Truth concise summary format"
+            >
+              <FileCode className="w-3.5 h-3.5" />
+              <span>Ground Truth</span>
+            </button>
+            <button
               onClick={() => setViewMode('summary')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition ${
-                viewMode === 'summary' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
+                viewMode === 'summary' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
               title="Forensic Summary Timeline synthesized from Case Graph"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Summary (Graph-RAG)</span>
+              <Layers className="w-3.5 h-3.5" />
+              <span>Crime Phases</span>
             </button>
             <button
               onClick={() => setViewMode('timeline')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition ${
+              className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
                 viewMode === 'timeline' ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
               title="Raw sequenced log events"
@@ -153,7 +211,7 @@ export const TimelinePage: React.FC = () => {
             </button>
             <button
               onClick={() => setViewMode('table')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition ${
+              className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
                 viewMode === 'table' ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
               title="Tabular telemetry format"
@@ -168,11 +226,81 @@ export const TimelinePage: React.FC = () => {
       {loading ? (
         <div className="case-card p-12 text-center rounded-2xl">
           <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-xs text-slate-500">Traversing Case Knowledge Graph & synthesizing timeline milestones...</p>
+          <p className="text-xs text-slate-500">Synthesizing ground-truth timeline events...</p>
         </div>
+      ) : viewMode === 'groundtruth' ? (
+        /* ==============================================================
+           GROUND TRUTH TIMELINE SUMMARY FORMAT
+           [ [ "YYYY-MM-DD HH:MM", "Event Description" ], ... ]
+           ============================================================== */
+        groundTruthTimeline.length === 0 ? (
+          <div className="case-card p-12 text-center rounded-2xl">
+            <Calendar className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-slate-800">No Ground Truth Summary Generated</h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Run the investigation analysis pipeline on uploaded documents to extract and summarize ground-truth events.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {/* Informational Callout */}
+            <div className="p-3.5 rounded-xl bg-slate-900 text-slate-200 border border-slate-800 shadow-sm flex items-center justify-between flex-wrap gap-2 text-xs">
+              <div className="flex items-center space-x-2">
+                <FileCode className="w-4 h-4 text-blue-400" />
+                <span className="font-semibold text-white">Ground-Truth Benchmark Timeline Representation</span>
+                <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full border border-blue-400/30 font-mono">
+                  {groundTruthTimeline.length} Milestones
+                </span>
+              </div>
+              <div className="text-[11px] text-slate-400 font-mono">
+                Format: <code>[timestamp, concise_event_action]</code>
+              </div>
+            </div>
+
+            {/* List of Ground-Truth Event Rows */}
+            <div className="space-y-2">
+              {groundTruthTimeline.map(([timeVal, eventDesc], idx) => (
+                <div
+                  key={idx}
+                  className="case-card p-3 sm:p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-sm flex items-start sm:items-center justify-between gap-3 hover:border-blue-400/80 transition-all group"
+                >
+                  <div className="flex items-start sm:items-center space-x-3 flex-1 min-w-0">
+                    <span className="w-6 h-6 rounded-lg bg-slate-100 text-slate-600 font-mono text-[11px] font-bold flex items-center justify-center shrink-0 border border-slate-200">
+                      {idx + 1}
+                    </span>
+
+                    <div className="font-mono text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 shrink-0 flex items-center space-x-1">
+                      <Clock className="w-3 h-3 text-blue-600" />
+                      <span>{timeVal}</span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm font-semibold text-slate-900 truncate sm:whitespace-normal leading-snug">
+                      {eventDesc}
+                    </p>
+                  </div>
+
+                  <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold shrink-0 hidden sm:inline-flex items-center">
+                    <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" /> Ground Truth
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* JSON Code Preview Card */}
+            <div className="case-card p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs space-y-2">
+              <div className="flex items-center justify-between text-[11px] text-slate-400 pb-1 border-b border-slate-800">
+                <span className="font-bold text-slate-200">Raw JSON Ground-Truth Data</span>
+                <span>{groundTruthTimeline.length} Items</span>
+              </div>
+              <pre className="max-h-60 overflow-y-auto text-[11px] text-blue-200 p-2 bg-slate-950/80 rounded-lg">
+                {JSON.stringify(groundTruthTimeline, null, 2)}
+              </pre>
+            </div>
+          </div>
+        )
       ) : viewMode === 'summary' ? (
         /* ==============================================================
-           FORENSIC SUMMARY TIMELINE (GRAPH-RAG SYNTHESIZED)
+           FORENSIC SUMMARY TIMELINE (GRAPH-RAG SYNTHESIZED CRIME PHASES)
            ============================================================== */
         summaryTimeline.length === 0 ? (
           <div className="case-card p-12 text-center rounded-2xl">
@@ -184,7 +312,6 @@ export const TimelinePage: React.FC = () => {
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Informational Methodology Callout */}
             <div className="p-4 rounded-xl bg-gradient-to-r from-blue-900/90 to-indigo-900/90 text-white border border-blue-700/60 shadow-sm flex items-start gap-3">
               <Sparkles className="w-5 h-5 text-blue-300 shrink-0 mt-0.5" />
               <div className="text-xs space-y-1">
@@ -200,14 +327,12 @@ export const TimelinePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Milestones Sequence */}
             <div className="space-y-6">
               {summaryTimeline.map((milestone, idx) => (
                 <div
                   key={milestone.milestone_id || idx}
                   className="case-card p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-4 hover:border-slate-300 transition-all bg-white"
                 >
-                  {/* Top Bar: Phase Tag, Status Badge, Timestamp Range */}
                   <div className="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-slate-100">
                     <div className="flex items-center space-x-2">
                       <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200/80">
@@ -235,7 +360,6 @@ export const TimelinePage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Title & Core Narrative */}
                   <div>
                     <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       {milestone.title}
@@ -245,7 +369,6 @@ export const TimelinePage: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Knowledge Graph Subgraph Paths */}
                   {milestone.graph_relationships && milestone.graph_relationships.length > 0 && (
                     <div className="pt-1 space-y-2">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
@@ -265,7 +388,6 @@ export const TimelinePage: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Multi-Source Corroboration Chips */}
                   {milestone.corroborating_sources && milestone.corroborating_sources.length > 0 && (
                     <div className="pt-1 space-y-2">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
@@ -290,7 +412,6 @@ export const TimelinePage: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Refuted Suspect Claims (If any) */}
                   {milestone.contradicted_suspect_claims && milestone.contradicted_suspect_claims.length > 0 && (
                     <div className="pt-2 p-3.5 bg-rose-50/90 border border-rose-200 rounded-xl space-y-2">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-rose-800 flex items-center gap-1.5">

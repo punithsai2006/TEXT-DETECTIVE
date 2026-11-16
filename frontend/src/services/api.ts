@@ -128,6 +128,12 @@ export const api = {
     return res.json();
   },
 
+  async getTimelineGroundTruth(caseId: string): Promise<[string, string][]> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/timeline/ground-truth`);
+    if (!res.ok) throw new Error('Failed to get ground-truth timeline');
+    return res.json();
+  },
+
   async getSummaryTimeline(caseId: string): Promise<ForensicSummaryMilestone[]> {
     const res = await fetch(`${API_BASE}/cases/${caseId}/summary-timeline`);
     if (!res.ok) throw new Error('Failed to get summary timeline');
