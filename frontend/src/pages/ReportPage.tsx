@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
+import { SourceCitation } from '../components/SourceCitation';
+import { HypothesisCard } from '../components/HypothesisCard';
+import { Link } from 'react-router-dom';
 import { InvestigationReport } from '../types';
 import {
   FileCheck2,
@@ -24,13 +27,27 @@ import {
 } from 'lucide-react';
 
 export const ReportPage: React.FC = () => {
-  const { activeCaseId, activeCase } = useCase();
+  const { activeCaseId, activeCase, refreshCases } = useCase();
   const [report, setReport] = useState<InvestigationReport | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'preview' | 'markdown' | 'json'>('preview');
   const [markdownText, setMarkdownText] = useState<string>('');
   const [selectedCitation, setSelectedCitation] = useState<any | null>(null);
   const [copied, setCopied] = useState(false);
+  const [generating, setGenerating] = useState(false);
+  const [error, setError] = useState('');
+  const generate = async () => {
+    if (!activeCaseId) return;
+    setGenerating(true); setError('');
+    try {
+      const generated = await api.generateReport(activeCaseId);
+      setReport(generated); setActiveTab('preview');
+      const markdown = await fetch(api.getReportDownloadUrl(activeCaseId, 'markdown'));
+      if (!markdown.ok) throw new Error('Report is not available for download');
+      setMarkdownText(await markdown.text()); await refreshCases();
+    } catch (e) { setError(e instanceof Error ? e.message : 'Report generation failed'); }
+    finally { setGenerating(false); }
+  };
 
   useEffect(() => {
     if (!activeCaseId) return;
@@ -45,7 +62,7 @@ export const ReportPage: React.FC = () => {
           .then((text) => setMarkdownText(text))
           .catch(() => {});
       })
-      .catch((e) => console.error(e))
+      .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, [activeCaseId]);
 
@@ -63,12 +80,15 @@ export const ReportPage: React.FC = () => {
         <p className="text-xs text-slate-500 mt-1">
           Run the investigation pipeline in "New Investigation" or Dashboard to generate the full dossier.
         </p>
+        {error && <p role="alert" className="text-red-700 my-3">{error}</p>}
+        <button disabled={generating || !activeCaseId} onClick={generate} className="mt-3 px-4 py-2 bg-blue-600 text-white rounded-lg">{generating ? 'Generating…' : 'Generate Report / Retry Synthesis'}</button>
       </div>
     );
   }
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
+      {error && <p role="alert" className="text-red-700 bg-red-50 p-3 rounded-lg">{error}</p>}
       {/* Header & Export Toolbar */}
       <div className="flex items-center justify-between flex-wrap gap-4 border-b border-slate-200 pb-4">
         <div>
@@ -85,6 +105,9 @@ export const ReportPage: React.FC = () => {
 
         {/* Export Buttons */}
         <div className="flex items-center space-x-2">
+          <button disabled={generating} onClick={generate} className="px-3 py-2 bg-blue-600 text-white rounded-lg text-xs">{generating ? 'Generating…' : 'Generate Report'}</button>
+          <button onClick={() => setActiveTab('preview')} className="px-3 py-2 border rounded-lg text-xs">Preview Report</button>
+          <a href={api.getReportDownloadUrl(report.case_id, 'pdf')} className="px-3 py-2 border rounded-lg text-xs text-blue-700" download>Download PDF</a>
           <a
             href={api.getReportDownloadUrl(report.case_id, 'markdown')}
             download
@@ -120,11 +143,11 @@ export const ReportPage: React.FC = () => {
         <div className="flex items-center space-x-2">
           <ShieldCheck className="w-4 h-4 text-emerald-700" />
           <span className="font-semibold text-emerald-900">
-            Provenance Verification Audit: 100% Traceable Source Citations
+            Source provenance: inspect citations and originals; semantic support requires review
           </span>
         </div>
         <span className="font-mono text-emerald-800 text-[11px] font-medium">
-          {report.source_references.length} Document Excerpts Verified
+          {report.source_references.length} Source References Available
         </span>
       </div>
 
@@ -138,7 +161,7 @@ export const ReportPage: React.FC = () => {
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
-          Dossier View (18 Sections)
+          Dossier View
         </button>
         <button
           onClick={() => setActiveTab('markdown')}
@@ -213,10 +236,11 @@ export const ReportPage: React.FC = () => {
           {/* Section 3: Case conclusion and executive summary */}
           <section className="space-y-2">
             <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2">
-              2. Case Conclusion & Investigation Summary
+              2. Source Claims & Investigation Summary
             </h3>
             <div className="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200/80 text-xs sm:text-sm text-slate-800 leading-relaxed whitespace-pre-line">
               {report.investigation_summary.replace("The system's proposed explanation is", "The highest-ranked evidence claim is")}
+              {report.case_summary?.summary.source_span_ids.map(id => <div key={id}><SourceCitation spanId={id} label="Executive-summary source" /></div>)}
             </div>
           </section>
 
@@ -226,7 +250,7 @@ export const ReportPage: React.FC = () => {
               <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2 flex items-center justify-between">
                 <span>3. Highest-Ranked Evidence Claim</span>
                 <span className="text-xs font-mono text-blue-600 font-bold">
-                  Net Formula Score: {report.proposed_explanation.total_score}
+                  Evidence-support score: {report.proposed_explanation.evidence_support_score ?? report.proposed_explanation.total_score}
                 </span>
               </h3>
               <div className="case-card p-5 rounded-xl border border-blue-500/40 bg-blue-50/20 shadow-sm">
@@ -246,15 +270,25 @@ export const ReportPage: React.FC = () => {
             </section>
           )}
 
+          {report.case_summary && <section className="space-y-3">
+            <h3 className="font-bold text-sm">3. Competing hypotheses and score explanations</h3>
+            {!report.case_summary.leading_hypothesis && <p className="text-sm text-amber-800">No leading explanation is designated. The evidence remains tied or inadequate.</p>}
+            {report.candidate_hypotheses.map(h => <HypothesisCard key={h.hypothesis_id} hypothesis={h} />)}
+          </section>}
+          {!report.case_summary && !report.proposed_explanation && report.candidate_hypotheses.length > 0 && <section className="space-y-3">
+            <h3 className="font-bold text-xs uppercase tracking-wider text-slate-700">3. Hypothesis Scoring — Candidate Source Accounts</h3>
+            <p className="text-xs text-slate-600">Scores are uncalibrated ranking heuristics. No account is designated as the actual explanation.</p>
+            {report.candidate_hypotheses.map(h => <p key={h.hypothesis_id} className="text-xs border rounded p-3">#{h.rank} · {h.title} · Score: {h.score_method_version ? (h.evidence_support_score ?? 'Not scored') : h.total_score}</p>)}
+          </section>}
           {/* Section 6: Contradictions & Conflicts */}
           <section className="space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-2">
               <h3 className="font-bold text-xs uppercase tracking-wider text-slate-700 flex items-center space-x-1.5">
                 <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
-                <span>4. Cross-Document Forensic Contradictions ({report.contradictions.length})</span>
+                <span>4. Claim Comparisons & Possible Conflicts ({report.contradictions.length})</span>
               </h3>
               <span className="text-[10px] text-slate-400 font-mono">
-                Cross-referenced against physical RFID, lock telemetry & digital audits
+                Attributed passages, comparison assumptions and human review
               </span>
             </div>
 
@@ -292,11 +326,12 @@ export const ReportPage: React.FC = () => {
                     <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-200/80 space-y-1.5">
                       <div className="flex items-center space-x-1.5 text-[11px] font-bold text-amber-900">
                         <User className="w-3.5 h-3.5 text-amber-700" />
-                        <span>Subjective Testimonial Claim</span>
+                        <span>Source Account A</span>
                       </div>
                       <p className="text-slate-800 italic font-medium bg-white p-2 rounded-lg border border-amber-100 text-xs">
                         "{c.statement_a}"
                       </p>
+                      <SourceCitation spanId={c.chunk_a_id} />
                       <div className="text-[10px] text-amber-800/80 font-mono flex items-center justify-between">
                         <span>Source: {c.doc_a_name}</span>
                         <span>Speaker: {c.speaker_a || 'Subject'}</span>
@@ -307,14 +342,15 @@ export const ReportPage: React.FC = () => {
                     <div className="p-3 bg-rose-50/60 rounded-xl border border-rose-200/80 space-y-1.5">
                       <div className="flex items-center space-x-1.5 text-[11px] font-bold text-rose-900">
                         <Cpu className="w-3.5 h-3.5 text-rose-700" />
-                        <span>Objective Physical Sensor / Telemetry Rebuttal</span>
+                        <span>Source Account B</span>
                       </div>
                       <p className="text-slate-800 font-mono bg-white p-2 rounded-lg border border-rose-100 text-xs font-semibold">
                         "{c.statement_b}"
                       </p>
+                      <SourceCitation spanId={c.chunk_b_id} />
                       <div className="text-[10px] text-rose-800/80 font-mono flex items-center justify-between">
                         <span>Source: {c.doc_b_name}</span>
-                        <span>Operator: {c.speaker_b || 'System Telemetry'}</span>
+                        <span>Attribution: {c.speaker_b || 'Source document'}</span>
                       </div>
                     </div>
                   </div>
@@ -323,13 +359,13 @@ export const ReportPage: React.FC = () => {
                   <div className="p-3 rounded-xl bg-slate-900 text-slate-100 border border-slate-800 space-y-1.5">
                     <div className="flex items-center space-x-1.5 text-[11px] font-bold text-blue-300">
                       <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                      <span>Investigative Forensic Analysis & Alibi Impact</span>
+                      <span>Evidence Comparison & Uncertainty</span>
                     </div>
                     <p className="text-xs text-slate-200 leading-relaxed font-normal">
                       {c.forensic_analysis || c.explanation}
                     </p>
                     <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-slate-800">
-                      <span>NLI Model Confidence: {(c.confidence * 100).toFixed(1)}%</span>
+                      <span>{c.outcome ? `${c.outcome} · ${c.review_action || 'pending human review'}` : 'Legacy comparison; human review required'}</span>
                       <span>Category: {c.evidentiary_category || 'Cross-Document Conflict'}</span>
                     </div>
                   </div>
@@ -350,6 +386,23 @@ export const ReportPage: React.FC = () => {
             </ul>
           </section>
 
+          {report.case_summary && <section className="space-y-3">
+            <h3 className="font-bold text-sm">Detailed chronological timeline</h3>
+            <p className="text-xs text-slate-500">Reported event times are separate from record times; uncertain events remain unordered.</p>
+            {report.chronological_timeline.map(event => <article key={event.event_id} className="border rounded-lg p-3 text-sm space-y-1">
+              <p className="font-semibold">{event.timestamp_display}</p><p>{event.event_description}</p>
+              <p className="text-xs text-slate-500">{event.event_basis} · {event.ordering_group} · record time: {event.record_time || 'unknown'}{event.event_end ? ` · interval end: ${event.event_end}` : ''}</p>
+              {(event.source_span_ids || [event.chunk_id || '']).map(id => <div key={id}><SourceCitation spanId={id} /></div>)}
+            </article>)}
+          </section>}
+          {report.graph_snapshot && <section className="space-y-3">
+            <h3 className="font-bold text-sm">Relevant entity relationships</h3>
+            <p className="text-xs">{report.graph_snapshot.nodes.length} nodes and {report.graph_snapshot.edges.length} sourced relationships. The PDF includes a graph snapshot. <Link to="/graph" className="text-blue-700 underline">Explore the interactive graph</Link></p>
+            <details><summary className="cursor-pointer text-xs font-semibold">Inspect relationship evidence</summary>{report.graph_snapshot.edges.map(edge => <div key={edge.id} className="border-t p-2 text-xs">
+              <p>{report.graph_snapshot!.nodes.find(n => n.id === edge.source)?.label} → {edge.relation.replace(/_/g, ' ')} → {report.graph_snapshot!.nodes.find(n => n.id === edge.target)?.label}</p>
+              {edge.source_span_ids?.map(id => <div key={id}><SourceCitation spanId={id} /></div>)}
+            </div>)}</details>
+          </section>}
           {/* Section 8: Source References Citations */}
           <section className="space-y-3">
             <h3 className="font-bold text-xs uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-2 flex items-center justify-between">
@@ -368,6 +421,7 @@ export const ReportPage: React.FC = () => {
                 >
                   <div className="truncate max-w-lg">
                     <strong className="text-slate-900">[{ref.document}]</strong> {ref.excerpt}
+                    <div><SourceCitation spanId={ref.chunk_id} /></div>
                   </div>
                   <span className="text-slate-500 shrink-0 ml-2 font-mono">
                     Sentences: {ref.sentence_indices.join(', ')}
@@ -377,6 +431,11 @@ export const ReportPage: React.FC = () => {
             </div>
           </section>
 
+          {report.llm_narrative?.sections.map((section, i) => <section className="space-y-2" key={i}>
+            <h3 className="font-bold text-sm">{section.title}</h3>
+            {section.assertions.map((assertion, j) => <div key={j} className="text-sm"><p>{assertion.kind}: {assertion.text}</p>{assertion.source_span_ids.map(id => <div key={id}><SourceCitation spanId={id} /></div>)}</div>)}
+            {section.unknowns.map((unknown, j) => <p key={j} className="text-xs text-amber-800">Unknown: {unknown}</p>)}
+          </section>)}
           {/* Section 9: Limitations & Disclaimer */}
           <section className="pt-4 border-t border-slate-200 text-xs text-slate-500 font-mono">
             <pre className="whitespace-pre-wrap bg-slate-50 p-4 rounded-xl border border-slate-200 text-[11px] text-slate-600 leading-relaxed">

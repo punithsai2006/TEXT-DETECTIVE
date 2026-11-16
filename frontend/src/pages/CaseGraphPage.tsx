@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
-import { CaseGraph } from '../types';
+import { CaseGraph, Hypothesis } from '../types';
+import { useSearchParams } from 'react-router-dom';
+import { SourceCitation } from '../components/SourceCitation';
 import { CaseGraphViewer } from '../components/CaseGraphViewer';
 import { Network, Info, RefreshCw, Table, Share2 } from 'lucide-react';
 
@@ -10,9 +12,15 @@ export const CaseGraphPage: React.FC = () => {
   const [graph, setGraph] = useState<CaseGraph>({ nodes: [], edges: [] });
   const [viewMode, setViewMode] = useState<'graph' | 'table'>('graph');
   const [loading, setLoading] = useState(false);
+  const [params, setParams] = useSearchParams();
+  const [hypotheses, setHypotheses] = useState<Hypothesis[]>([]);
+  const selectedHypothesis = hypotheses.find(h => h.hypothesis_id === params.get('hypothesis_id'));
+  const focusIds = selectedHypothesis?.relevant_graph_node_ids || (params.get('node_id') ? [params.get('node_id')!] : []);
+  const connectedIds = Array.from(new Set([...focusIds, ...graph.edges.filter(e => focusIds.includes(e.source) || focusIds.includes(e.target)).flatMap(e => [e.source, e.target])]));
 
   useEffect(() => {
     if (!activeCaseId) return;
+    api.getHypotheses(activeCaseId).then(setHypotheses).catch(() => setHypotheses([]));
     setLoading(true);
     api
       .getCaseGraph(activeCaseId)
@@ -65,6 +73,12 @@ export const CaseGraphPage: React.FC = () => {
         </div>
       </div>
 
+      <label className="block text-xs font-semibold">Explore a hypothesis's connected evidence
+        <select className="block border rounded-lg p-2 mt-1" value={params.get('hypothesis_id') || ''} onChange={e => setParams(e.target.value ? { hypothesis_id: e.target.value } : {})}>
+          <option value="">All case connections</option>{hypotheses.filter(h => !h.is_other).map(h => <option key={h.hypothesis_id} value={h.hypothesis_id}>{h.title}</option>)}
+        </select>
+      </label>
+      <p className="text-xs text-slate-500">Red highlights identify claims involved in potential conflicts, not established falsehoods. Selecting a node or relationship opens its evidence references.</p>
       {/* Legend & Instructions */}
       <div className="case-card p-4 rounded-xl flex items-center justify-between flex-wrap gap-3 text-xs shadow-sm border border-slate-200/80">
         <div className="flex items-center space-x-4 flex-wrap gap-2 text-slate-700">
@@ -135,7 +149,7 @@ export const CaseGraphPage: React.FC = () => {
                     <tr key={e.id} className="hover:bg-slate-50">
                       <td className="p-2.5 text-slate-800 text-[11px] truncate max-w-[120px]">{e.source}</td>
                       <td className="p-2.5 font-mono text-[10px] font-bold text-blue-600 whitespace-nowrap">{e.relation}</td>
-                      <td className="p-2.5 text-slate-800 text-[11px] truncate max-w-[120px]">{e.target}</td>
+                      <td className="p-2.5 text-slate-800 text-[11px] truncate max-w-[120px]">{e.target}{e.source_span_ids?.map(id => <div key={id}><SourceCitation spanId={id} /></div>)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -144,7 +158,7 @@ export const CaseGraphPage: React.FC = () => {
           </div>
         </div>
       ) : (
-        <CaseGraphViewer graph={graph} />
+        <CaseGraphViewer graph={graph} highlightNodeIds={connectedIds} />
       )}
     </div>
   );

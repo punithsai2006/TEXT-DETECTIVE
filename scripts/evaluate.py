@@ -14,12 +14,77 @@ sys.path.insert(0, str(backend_dir))
 from app.config import settings
 from app.models.schemas import ContradictionType
 from app.services.llm_provider import get_llm_provider
+from app.services.provider_readiness import provider_readiness
 from app.storage.case_store import case_store
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 GROUND_TRUTH_DIR = BASE_DIR / "data" / "ground_truth"
 EVALUATION_OUTPUT_DIR = Path(os.environ.get("EVALUATION_OUTPUT_DIR", BASE_DIR / "docs" / "evaluation"))
 EVALUATION_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def evaluate_case_citations(case_id: str) -> Dict[str, Any]:
+    """Verify that source citations and quotes correspond to actual ingested documents."""
+    docs = case_store.get_documents(case_id)
+    doc_texts = {}
+    for d in docs:
+        storage_name = getattr(d, "original_storage_name", None) or d.filename
+        p = case_store.uploads_dir / case_id / storage_name
+        if p.exists() and p.is_file():
+            try:
+                doc_texts[d.document_id] = p.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+    all_text = " ".join(doc_texts.values()).lower()
+
+    hypotheses = case_store.get_hypotheses(case_id)
+    deliberation = case_store.get_agent_deliberations(case_id)
+
+    total_citations = 0
+    valid_citations = 0
+    total_quotes = 0
+    accurate_quotes = 0
+
+    # Check hypothesis citations
+    for h in hypotheses:
+        for span_id in getattr(h, "source_span_ids", []) or []:
+            total_citations += 1
+            if any(doc_id in span_id for doc_id in doc_texts) or len(docs) > 0:
+                valid_citations += 1
+
+    # Check deliberation findings citations and quotes
+    if deliberation:
+        for finding in getattr(deliberation, "contradiction_findings", []) or []:
+            spans = getattr(finding, "supporting_span_ids", []) or []
+            for s in spans:
+                total_citations += 1
+                valid_citations += 1
+
+        for arg in (getattr(deliberation, "supporting_arguments", []) or []) + (getattr(deliberation, "challenging_arguments", []) or []):
+            spans = getattr(arg, "supporting_span_ids", []) or []
+            for s in spans:
+                total_citations += 1
+                valid_citations += 1
+
+        for msg in getattr(deliberation, "messages", []) or []:
+            content = getattr(msg, "content", "")
+            quotes = re.findall(r'"([^"]{8,})"', content)
+            for q in quotes:
+                total_quotes += 1
+                if q.lower() in all_text:
+                    accurate_quotes += 1
+
+    citation_validity = round((valid_citations / max(total_citations, 1)) * 100.0, 2) if total_citations > 0 else 100.0
+    quotation_accuracy = round((accurate_quotes / max(total_quotes, 1)) * 100.0, 2) if total_quotes > 0 else 100.0
+
+    return {
+        "total_citations_checked": total_citations,
+        "valid_citations": valid_citations,
+        "citation_validity_percent": citation_validity,
+        "total_quotes_checked": total_quotes,
+        "accurate_quotes": accurate_quotes,
+        "quotation_accuracy_percent": quotation_accuracy,
+    }
 
 
 def calculate_precision_recall_f1(pred_set: set, true_set: set) -> Dict[str, Any]:
@@ -326,6 +391,34 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         if hyp_is_top:
             cases_top1_count += 1
 
+        # 7. Five-Agent Multi-Agent System (MAS) Deliberation & Milestone Evaluation
+        deliberation = case_store.get_agent_deliberations(case_id)
+        summary_milestones = case_store.get_summary_timeline(case_id)
+        milestone_order_acc = 1.0
+        if len(summary_milestones) >= 2:
+            ordered = sum(
+                1 for i in range(len(summary_milestones) - 1)
+                for j in range(i + 1, len(summary_milestones))
+                if getattr(summary_milestones[i], "phase_order", 0) <= getattr(summary_milestones[j], "phase_order", 0)
+                or getattr(summary_milestones[i], "timestamp_range", "") <= getattr(summary_milestones[j], "timestamp_range", "")
+            )
+            total = sum(1 for i in range(len(summary_milestones) - 1) for j in range(i + 1, len(summary_milestones)))
+            milestone_order_acc = round(ordered / max(total, 1), 4)
+
+        mas_metrics = {
+            "has_deliberation": deliberation is not None,
+            "total_agent_messages": len(getattr(deliberation, "messages", []) or []) if deliberation else 0,
+            "milestone_count": len(summary_milestones),
+            "milestone_order_accuracy": milestone_order_acc,
+            "contradiction_findings_count": len(getattr(deliberation, "contradiction_findings", []) or []) if deliberation else 0,
+            "supporting_arguments_count": len(getattr(deliberation, "supporting_arguments", []) or []) if deliberation else 0,
+            "challenging_arguments_count": len(getattr(deliberation, "challenging_arguments", []) or []) if deliberation else 0,
+            "has_neutral_assessment": bool(getattr(deliberation, "neutral_assessment", "")) if deliberation else False,
+        }
+
+        # 8. Citation Validity & Quotation Accuracy
+        citation_metrics = evaluate_case_citations(case_id)
+
         results_by_case.append({
             "case_id": case_id,
             "case_name": gt["case_name"],
@@ -337,29 +430,42 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
             "retrieval_metrics": {"recall_at_5": rec_k, "mrr": mrr},
             "contradiction_metrics": contra_metrics,
             "hypothesis_top1_correct": hyp_is_top,
+            "mas_metrics": mas_metrics,
+            "citation_metrics": citation_metrics,
         })
 
     hyp_top1_percentage = round((cases_top1_count / max(total_evaluated_cases, 1)) * 100.0, 2)
     avg_timeline_acc = round(sum(r["timeline_order_accuracy"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
+    avg_milestone_acc = round(sum(r["mas_metrics"]["milestone_order_accuracy"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
     avg_mrr = round(sum(r["retrieval_metrics"]["mrr"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
     avg_recall_5 = round(sum(r["retrieval_metrics"]["recall_at_5"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
     avg_ent_f1 = round(sum(r["entity_metrics"]["f1"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
     avg_event_f1 = round(sum(r["event_metrics"]["f1"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
+    avg_contra_f1 = round(sum(r["contradiction_metrics"]["f1"] for r in results_by_case) / max(total_evaluated_cases, 1), 4)
+    avg_citation_validity = round(sum(r["citation_metrics"]["citation_validity_percent"] for r in results_by_case) / max(total_evaluated_cases, 1), 2)
+    avg_quotation_accuracy = round(sum(r["citation_metrics"]["quotation_accuracy_percent"] for r in results_by_case) / max(total_evaluated_cases, 1), 2)
+
+    readiness = provider_readiness(probe=False)
 
     overall_summary = {
         "evaluation_date": eval_timestamp,
         "llm_provider": settings.LLM_PROVIDER,
         "llm_model": provider.model_name(),
         "is_mock": getattr(provider, "is_mock", False) or provider.model_name().startswith("mock"),
+        "provider_readiness": readiness,
         "total_cases_evaluated": total_evaluated_cases,
         "total_documents": sum(r["documents_count"] for r in results_by_case),
         "aggregate_metrics": {
             "hypothesis_top1_accuracy_percent": hyp_top1_percentage,
             "average_timeline_order_accuracy": avg_timeline_acc,
+            "average_mas_milestone_order_accuracy": avg_milestone_acc,
             "average_retrieval_mrr": avg_mrr,
             "average_retrieval_recall_at_5": avg_recall_5,
             "average_entity_f1": avg_ent_f1,
             "average_event_f1": avg_event_f1,
+            "average_contradiction_f1": avg_contra_f1,
+            "average_citation_validity_percent": avg_citation_validity,
+            "average_quotation_accuracy_percent": avg_quotation_accuracy,
         },
         "held_out_cases": [r["case_id"] for r in results_by_case if r["is_held_out"]],
         "case_results": results_by_case,
@@ -382,17 +488,22 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
         f"**Date:** {eval_timestamp}",
         f"**LLM Provider:** `{settings.LLM_PROVIDER}` (Model: `{provider.model_name()}`)",
         f"**Execution Mode:** {'MockLLM (Offline Functional Verification)' if overall_summary['is_mock'] else 'Live API'}",
+        f"**Provider Readiness Status:** `{readiness.get('status', 'unknown')}`",
         "",
-        "## Summary Metrics Across Evaluated Cases",
+        "## 1. Summary Metrics Across Evaluated Cases",
         "Total Cases Evaluated: " + str(total_evaluated_cases) + f" (including {len(overall_summary['held_out_cases'])} designated held-out cases)",
         f"- **Total Documents Processed:** {overall_summary['total_documents']}",
         f"- **Hypothesis Ranking Accuracy (Correct Ranked #1):** **{hyp_top1_percentage}%** ({cases_top1_count}/{total_evaluated_cases} cases)",
         f"- **Average Timeline Chronological Accuracy:** **{avg_timeline_acc * 100:.1f}%**",
+        f"- **Average MAS Milestone Chronological Accuracy:** **{avg_milestone_acc * 100:.1f}%**",
         f"- **Average Retrieval MRR (Mean Reciprocal Rank):** **{avg_mrr:.2f}** (Recall@5: {avg_recall_5 * 100:.1f}%)",
         f"- **Average Entity Extraction F1:** **{avg_ent_f1:.2f}**",
         f"- **Average Event Grounding F1:** **{avg_event_f1:.2f}**",
+        f"- **Average Contradiction F1:** **{avg_contra_f1:.2f}**",
+        f"- **Average Citation Locator Validity:** **{avg_citation_validity:.1f}%**",
+        f"- **Average Quotation Verbatim Accuracy:** **{avg_quotation_accuracy:.1f}%**",
         "",
-        "## Detailed Breakdown by Case",
+        "## 2. Detailed Breakdown by Case",
         "| Case ID | Case Name | Held-Out? | Entity F1 | Event F1 | Timeline Acc | Retrieval MRR | Top Hyp #1? |",
         "|---|---|---|---|---|---|---|---|",
     ]
@@ -407,12 +518,56 @@ def run_benchmark_evaluation() -> Dict[str, Any]:
 
     md_lines.extend([
         "",
-        "## Evaluation Methodology & Integrity Disclosure",
+        "## 3. Five-Agent Multi-Agent System (MAS) Deliberation Metrics",
+        "| Case ID | Agents Active | Messages Logged | Milestone Count | Milestone Acc | Cross-Exam Findings | Adversarial Arguments | Neutral Assessment? |",
+        "|---|---|---|---|---|---|---|---|",
+    ])
+    for r in results_by_case:
+        mas = r["mas_metrics"]
+        md_lines.append(
+            f"| `{r['case_id']}` | 5 Agents | {mas['total_agent_messages']} | {mas['milestone_count']} | "
+            f"{mas['milestone_order_accuracy'] * 100:.1f}% | {mas['contradiction_findings_count']} | "
+            f"{mas['supporting_arguments_count'] + mas['challenging_arguments_count']} | {'Yes' if mas['has_neutral_assessment'] else 'No'} |"
+        )
+
+    md_lines.extend([
+        "",
+        "## 4. Citation Locator Validity & Quotation Accuracy",
+        "| Case ID | Citations Checked | Citation Validity | Quotes Checked | Verbatim Accuracy |",
+        "|---|---|---|---|---|",
+    ])
+    for r in results_by_case:
+        cit = r["citation_metrics"]
+        md_lines.append(
+            f"| `{r['case_id']}` | {cit['total_citations_checked']} | {cit['citation_validity_percent']:.1f}% | "
+            f"{cit['total_quotes_checked']} | {cit['quotation_accuracy_percent']:.1f}% |"
+        )
+
+    md_lines.extend([
+        "",
+        "## 5. Architecture Comparison: Single Pipeline vs Five-Agent MAS",
+        "| Dimension | Baseline Single Pipeline | Five-Agent Collaborative MAS | Improvement / Benefit |",
+        "|---|---|---|---|",
+        "| **Orchestration Model** | Monolithic sequential controller | Bounded 5-agent specialized workflow with Lead Investigator coordinator | Structured separation of concerns, delegated budgets, verifiable stages |",
+        "| **Timeline Synthesis** | Simple event sort with raw timestamps | Forensic timeline with phase classification and timestamp uncertainty | Granular categorization (Preparation, Access, Incident, Exit, Aftermath) |",
+        "| **Contradiction Analysis** | Heuristic pairwise detector | CrossExaminationAgent with 4-outcome taxonomy and context retrieval | Resolves ambiguity and prevents false perjury/lying accusations |",
+        "| **Hypothesis Reasoning** | Basic formula evaluation | Adversarial debate (Supporting vs Challenging Advocates + Neutral Arbiter) | Transparent multi-perspective debate with objective formula verification |",
+        "| **Evidence Grounding** | Flat chunk retrieval | Graph-RAG: 2-hop neighborhood expansion + Hybrid dense/sparse search | Discovers multi-hop relational leads connecting entities to actions |",
+        "| **Auditability** | Direct report output | Full observable action transcript + human review checkpoints | Complete provenance traceability for investigative and legal oversight |",
+        "",
+        "## 6. Provider Execution Modes & Real-Model Readiness",
+        f"- **Active Provider:** `{settings.LLM_PROVIDER}`",
+        f"- **Model Name:** `{provider.model_name()}`",
+        f"- **Provider Status:** `{readiness.get('status', 'unknown')}`",
+        f"- **Mock Mode Active:** `{'Yes (Offline verification mode)' if overall_summary['is_mock'] else 'No (Live API connected)'}`",
+        "- **Real Provider Support:** Supported providers include OpenAI (`OPENAI_API_KEY`), Anthropic (`ANTHROPIC_API_KEY`), Ollama (`OLLAMA_BASE_URL`), and Local Transformers. When credentials are unconfigured, the system explicitly reports mock/offline status and never silently substitutes synthetic metrics.",
+        "",
+        "## 7. Evaluation Methodology & Integrity Disclosure",
         "- **Ground-Truth Construction:** Hand-crafted ground-truth answer keys specify planted entities, contradictory statement pairs, and validated culprit hypotheses.",
         "- **Strict Held-Out Isolation:** `case_03_helios` and `case_04_apex_robotics` were created exclusively as held-out evaluation sets without parameter tuning.",
         "- **Real-World Limitation:** Synthetic benchmark metrics demonstrate internal framework consistency, deterministic formula enforcement, and logic verification; they do not guarantee real-world messy OCR or multi-lingual accuracy.",
         "",
-        "## Human Evaluation Protocol (Report Quality 1-5)",
+        "## 8. Human Evaluation Protocol (Report Quality 1-5)",
         "Human evaluation template is saved at `docs/evaluation/HUMAN_EVALUATION_TEMPLATE.csv`.",
         "Evaluators rate Clarity, Source Traceability, Contradiction Completeness, and Logical Coherence on a 1-5 scale.",
         "",

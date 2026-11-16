@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CaseProvider } from './context/CaseContext';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { CaseProvider, useCase } from './context/CaseContext';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 
@@ -17,6 +17,12 @@ import { AgentSwarmPage } from './pages/AgentSwarmPage';
 import { ReportPage } from './pages/ReportPage';
 import { AskQuestionPage } from './pages/AskQuestionPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { CaseEvidenceDetails } from './components/CaseEvidenceDetails';
+
+const CaseRoutes: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { activeCaseId } = useCase();
+  return <Routes key={activeCaseId || 'none'}>{children}</Routes>;
+};
 
 export const App: React.FC = () => {
   return (
@@ -28,11 +34,13 @@ export const App: React.FC = () => {
             <Sidebar />
             <main className="flex-1 p-6 lg:p-8 overflow-y-auto bg-slate-50">
               <div className="max-w-7xl mx-auto">
-                <Routes>
+                <CaseEvidenceDetails section="status" />
+                <CaseRoutes>
                   <Route path="/" element={<DashboardPage />} />
                   <Route path="/cases" element={<CasesPage />} />
                   <Route path="/new" element={<NewInvestigationPage />} />
                   <Route path="/documents" element={<DocumentsPage />} />
+                  <Route path="/review" element={<Navigate to="/documents" replace />} />
                   <Route path="/timeline" element={<TimelinePage />} />
                   <Route path="/evidence" element={<EvidencePage />} />
                   <Route path="/contradictions" element={<ContradictionsPage />} />
@@ -42,7 +50,7 @@ export const App: React.FC = () => {
                   <Route path="/report" element={<ReportPage />} />
                   <Route path="/ask" element={<AskQuestionPage />} />
                   <Route path="/settings" element={<SettingsPage />} />
-                </Routes>
+                </CaseRoutes>
               </div>
             </main>
           </div>

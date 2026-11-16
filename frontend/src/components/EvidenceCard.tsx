@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { SourceCitation } from './SourceCitation';
+import { Link } from 'react-router-dom';
 import { EvidenceItem } from '../types';
 import { FileText, User, Clock, Check, Copy, Hash } from 'lucide-react';
 
@@ -32,6 +34,7 @@ export const EvidenceCard: React.FC<EvidenceCardProps> = ({ evidence, rank }) =>
           <span className="text-xs font-semibold text-slate-800 truncate max-w-[220px]" title={evidence.document_name}>
             {evidence.document_name}
           </span>
+          {(evidence.page_number || evidence.paragraph) && <span className="text-xs text-slate-500">{evidence.page_number ? `PDF page ${evidence.page_number} · ` : ''}{evidence.paragraph ? `extracted paragraph ${evidence.paragraph}` : ''}</span>}
         </div>
 
         <div className="flex items-center space-x-2">
@@ -53,6 +56,13 @@ export const EvidenceCard: React.FC<EvidenceCardProps> = ({ evidence, rank }) =>
         "{evidence.text}"
       </blockquote>
 
+      <div className="mt-2"><SourceCitation spanId={evidence.chunk_id} label="Inspect exact source and original" /></div>
+      <div className="flex flex-wrap gap-3 text-xs mt-2">
+        {!!evidence.related_event_ids?.length && <Link className="text-blue-700 underline" to={`/timeline?event_id=${encodeURIComponent(evidence.related_event_ids[0])}`}>Related timeline</Link>}
+        {!!evidence.related_graph_node_ids?.length && <Link className="text-blue-700 underline" to={`/graph?node_id=${encodeURIComponent(evidence.related_graph_node_ids[0])}`}>Graph connections</Link>}
+        {!!evidence.related_contradiction_ids?.length && <Link className="text-blue-700 underline" to="/contradictions">Related comparisons</Link>}
+        <span className="text-slate-500">{evidence.retrieval_method}</span>
+      </div>
       {/* Source Meta Footer */}
       <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 flex-wrap gap-2">
         <div className="flex items-center space-x-4">
@@ -72,7 +82,7 @@ export const EvidenceCard: React.FC<EvidenceCardProps> = ({ evidence, rank }) =>
 
         <span className="text-[10px] text-slate-400 font-mono flex items-center gap-1">
           <Hash className="w-2.5 h-2.5" />
-          <span>Sentences: {evidence.sentence_indices.map((i) => `#${i + 1}`).join(', ')}</span>
+          <span>{evidence.chunk_id.startsWith('sp_') ? 'Versioned extracted source span' : `Sentences: ${evidence.sentence_indices.map((i) => `#${i + 1}`).join(', ')}`}</span>
         </span>
       </div>
     </div>

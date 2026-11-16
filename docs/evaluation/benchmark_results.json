@@ -1,17 +1,29 @@
 {
-  "evaluation_date": "2026-11-15T16:17:26.413424+00:00",
+  "evaluation_date": "2026-11-16T19:01:26.650525+00:00",
   "llm_provider": "mock",
   "llm_model": "mock-investigator-v1",
   "is_mock": true,
+  "provider_readiness": {
+    "provider": "mock",
+    "model": "mock-investigator-v1",
+    "is_mock": true,
+    "ready": false,
+    "status": "explicit_mock_ai_analysis_unavailable",
+    "generation_tested": false
+  },
   "total_cases_evaluated": 4,
   "total_documents": 33,
   "aggregate_metrics": {
     "hypothesis_top1_accuracy_percent": 100.0,
     "average_timeline_order_accuracy": 1.0,
+    "average_mas_milestone_order_accuracy": 1.0,
     "average_retrieval_mrr": 0.975,
     "average_retrieval_recall_at_5": 1.0,
     "average_entity_f1": 0.2999,
-    "average_event_f1": 0.4501
+    "average_event_f1": 0.5338,
+    "average_contradiction_f1": 0.36,
+    "average_citation_validity_percent": 100.0,
+    "average_quotation_accuracy_percent": 0.0
   },
   "held_out_cases": [
     "case_03_helios",
@@ -50,15 +62,15 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 53,
-        "grounded_events": 27,
+        "total_extracted": 31,
+        "grounded_events": 16,
         "true_events_count": 12,
         "tp": 12,
-        "fp": 41,
+        "fp": 19,
         "fn": 0,
-        "precision": 0.2264,
+        "precision": 0.3871,
         "recall": 1.0,
-        "f1": 0.3692,
+        "f1": 0.5581,
         "matched_examples": [
           "Bob Chen enters Building 4 via Main Entr",
           "David Wright enters Building 4 via Main ",
@@ -87,7 +99,25 @@
           "Exfiltration Channel"
         ]
       },
-      "hypothesis_top1_correct": true
+      "hypothesis_top1_correct": true,
+      "mas_metrics": {
+        "has_deliberation": true,
+        "total_agent_messages": 8,
+        "milestone_count": 3,
+        "milestone_order_accuracy": 1.0,
+        "contradiction_findings_count": 0,
+        "supporting_arguments_count": 0,
+        "challenging_arguments_count": 0,
+        "has_neutral_assessment": false
+      },
+      "citation_metrics": {
+        "total_citations_checked": 0,
+        "valid_citations": 0,
+        "citation_validity_percent": 100.0,
+        "total_quotes_checked": 1,
+        "accurate_quotes": 0,
+        "quotation_accuracy_percent": 0.0
+      }
     },
     {
       "case_id": "case_02_blackwood",
@@ -124,13 +154,13 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 30,
-        "grounded_events": 17,
-        "precision": 0.5667,
+        "total_extracted": 14,
+        "grounded_events": 9,
+        "precision": 0.6429,
         "recall": 1.0,
-        "f1": 0.5667,
-        "tp": 17,
-        "fp": 13,
+        "f1": 0.6429,
+        "tp": 9,
+        "fp": 5,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -153,7 +183,25 @@
           "Vault Key Security"
         ]
       },
-      "hypothesis_top1_correct": true
+      "hypothesis_top1_correct": true,
+      "mas_metrics": {
+        "has_deliberation": true,
+        "total_agent_messages": 8,
+        "milestone_count": 3,
+        "milestone_order_accuracy": 1.0,
+        "contradiction_findings_count": 0,
+        "supporting_arguments_count": 0,
+        "challenging_arguments_count": 0,
+        "has_neutral_assessment": false
+      },
+      "citation_metrics": {
+        "total_citations_checked": 0,
+        "valid_citations": 0,
+        "citation_validity_percent": 100.0,
+        "total_quotes_checked": 1,
+        "accurate_quotes": 0,
+        "quotation_accuracy_percent": 0.0
+      }
     },
     {
       "case_id": "case_03_helios",
@@ -190,13 +238,13 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 18,
-        "grounded_events": 6,
-        "precision": 0.3333,
+        "total_extracted": 8,
+        "grounded_events": 2,
+        "precision": 0.25,
         "recall": 1.0,
-        "f1": 0.3333,
-        "tp": 6,
-        "fp": 12,
+        "f1": 0.25,
+        "tp": 2,
+        "fp": 6,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -219,7 +267,25 @@
           "Courier Dispatch Time"
         ]
       },
-      "hypothesis_top1_correct": true
+      "hypothesis_top1_correct": true,
+      "mas_metrics": {
+        "has_deliberation": true,
+        "total_agent_messages": 8,
+        "milestone_count": 2,
+        "milestone_order_accuracy": 1.0,
+        "contradiction_findings_count": 0,
+        "supporting_arguments_count": 0,
+        "challenging_arguments_count": 0,
+        "has_neutral_assessment": false
+      },
+      "citation_metrics": {
+        "total_citations_checked": 0,
+        "valid_citations": 0,
+        "citation_validity_percent": 100.0,
+        "total_quotes_checked": 1,
+        "accurate_quotes": 0,
+        "quotation_accuracy_percent": 0.0
+      }
     },
     {
       "case_id": "case_04_apex_robotics",
@@ -256,13 +322,13 @@
         ]
       },
       "event_metrics": {
-        "total_extracted": 32,
-        "grounded_events": 17,
-        "precision": 0.5312,
+        "total_extracted": 19,
+        "grounded_events": 13,
+        "precision": 0.6842,
         "recall": 1.0,
-        "f1": 0.5312,
-        "tp": 17,
-        "fp": 15,
+        "f1": 0.6842,
+        "tp": 13,
+        "fp": 6,
         "fn": 0
       },
       "timeline_order_accuracy": 1.0,
@@ -272,11 +338,11 @@
       },
       "contradiction_metrics": {
         "tp": 1,
-        "fp": 4,
+        "fp": 3,
         "fn": 2,
-        "precision": 0.2,
+        "precision": 0.25,
         "recall": 0.3333,
-        "f1": 0.25,
+        "f1": 0.2857,
         "matched_examples": [
           "Derek Cole Alibi at 20:15"
         ],
@@ -285,7 +351,25 @@
           "Competitor Affiliation"
         ]
       },
-      "hypothesis_top1_correct": true
+      "hypothesis_top1_correct": true,
+      "mas_metrics": {
+        "has_deliberation": true,
+        "total_agent_messages": 8,
+        "milestone_count": 1,
+        "milestone_order_accuracy": 1.0,
+        "contradiction_findings_count": 0,
+        "supporting_arguments_count": 0,
+        "challenging_arguments_count": 0,
+        "has_neutral_assessment": false
+      },
+      "citation_metrics": {
+        "total_citations_checked": 0,
+        "valid_citations": 0,
+        "citation_validity_percent": 100.0,
+        "total_quotes_checked": 1,
+        "accurate_quotes": 0,
+        "quotation_accuracy_percent": 0.0
+      }
     }
   ],
   "methodology_notes": "Ground truth was curated manually for all 4 benchmark cases. Case 3 (Helios Pharma) and Case 4 (Apex Robotics) serve as strictly held-out evaluation datasets and were never used to tune extraction heuristics, NLI rules, or scoring formulas. Note: Performance on synthetic benchmark datasets should not be equated directly with real-world operational accuracy.",

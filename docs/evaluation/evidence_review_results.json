@@ -1,0 +1,117 @@
+{
+  "dataset": "12 manually labelled pilot pairs; development/reserved pilot only, not an unseen benchmark",
+  "matching_policy": "Rule checks: exact expected safeguard outcome or defer. Real run: any potential contradiction for the one labelled pair per case; missing comparison counts as not flagged.",
+  "mode": "deterministic_safeguards_only",
+  "cases": [
+    {
+      "case_id": "direct",
+      "split": "development",
+      "rule_outcome": null,
+      "expected_safeguard": null,
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "POTENTIAL_CONTRADICTION"
+    },
+    {
+      "case_id": "compatible",
+      "split": "development",
+      "rule_outcome": null,
+      "expected_safeguard": null,
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "COMPATIBLE"
+    },
+    {
+      "case_id": "approximate",
+      "split": "development",
+      "rule_outcome": null,
+      "expected_safeguard": null,
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "COMPATIBLE"
+    },
+    {
+      "case_id": "identity",
+      "split": "development",
+      "rule_outcome": "INSUFFICIENT_EVIDENCE",
+      "expected_safeguard": "INSUFFICIENT_EVIDENCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "case_id": "hearsay",
+      "split": "development",
+      "rule_outcome": null,
+      "expected_safeguard": null,
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "case_id": "units",
+      "split": "development",
+      "rule_outcome": "COMPATIBLE",
+      "expected_safeguard": "COMPATIBLE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "COMPATIBLE"
+    },
+    {
+      "case_id": "missing",
+      "split": "development",
+      "rule_outcome": "INSUFFICIENT_EVIDENCE",
+      "expected_safeguard": "INSUFFICIENT_EVIDENCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "case_id": "within_document",
+      "split": "development",
+      "rule_outcome": null,
+      "expected_safeguard": null,
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "POTENTIAL_CONTRADICTION"
+    },
+    {
+      "case_id": "separate_events",
+      "split": "reserved_pilot",
+      "rule_outcome": "EXPLAINABLE_VARIANCE",
+      "expected_safeguard": "EXPLAINABLE_VARIANCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "EXPLAINABLE_VARIANCE"
+    },
+    {
+      "case_id": "unknown_timezone",
+      "split": "reserved_pilot",
+      "rule_outcome": "INSUFFICIENT_EVIDENCE",
+      "expected_safeguard": "INSUFFICIENT_EVIDENCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "case_id": "non_observation",
+      "split": "reserved_pilot",
+      "rule_outcome": "INSUFFICIENT_EVIDENCE",
+      "expected_safeguard": "INSUFFICIENT_EVIDENCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "COMPATIBLE"
+    },
+    {
+      "case_id": "question",
+      "split": "reserved_pilot",
+      "rule_outcome": "INSUFFICIENT_EVIDENCE",
+      "expected_safeguard": "INSUFFICIENT_EVIDENCE",
+      "safeguard_correct": true,
+      "gold_contextual_outcome": "INSUFFICIENT_EVIDENCE"
+    }
+  ],
+  "safeguards": {
+    "passed": 12,
+    "total": 12,
+    "deferred_to_contextual_judge": 5
+  },
+  "model_metrics": null,
+  "not_measured": [
+    "real extraction/entity F1",
+    "human-labelled answer support",
+    "retrieval Recall@k",
+    "timeline comparable-pair accuracy",
+    "real-model injection resilience",
+    "controlled ablations"
+  ]
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
+import { SourceCitation } from '../components/SourceCitation';
+import { useSearchParams, Link } from 'react-router-dom';
 import { ForensicSummaryMilestone, TimelineEntry } from '../types';
 import {
   Clock,
@@ -33,9 +35,21 @@ export const TimelinePage: React.FC = () => {
   const [groundTruthTimeline, setGroundTruthTimeline] = useState<[string, string][]>([]);
   const [participantFilter, setParticipantFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [viewMode, setViewMode] = useState<'groundtruth' | 'summary' | 'timeline' | 'table'>('groundtruth');
+  const [viewMode, setViewMode] = useState<'groundtruth' | 'summary' | 'timeline' | 'table'>('table');
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [params] = useSearchParams();
+  const [linkedEvents, setLinkedEvents] = useState<string[] | null>(null);
+  useEffect(() => {
+    let current = true;
+    const hypothesis = params.get('hypothesis_id');
+    const event = params.get('event_id');
+    setLinkedEvents(event ? [event] : null);
+    if (hypothesis && activeCaseId) api.getHypotheses(activeCaseId).then(items => {
+      if (current) setLinkedEvents(items.find(h => h.hypothesis_id === hypothesis)?.relevant_event_ids || []);
+    });
+    return () => { current = false; };
+  }, [activeCaseId, params]);
 
   useEffect(() => {
     if (!activeCaseId) return;
@@ -64,6 +78,7 @@ export const TimelinePage: React.FC = () => {
 
   const filteredTimeline = useMemo(() => {
     return timeline.filter((entry) => {
+      if (linkedEvents && !linkedEvents.includes(entry.event_id)) return false;
       if (participantFilter !== 'all') {
         if (!entry.participants || !entry.participants.includes(participantFilter)) {
           return false;
@@ -78,7 +93,7 @@ export const TimelinePage: React.FC = () => {
       }
       return true;
     });
-  }, [timeline, participantFilter, searchQuery]);
+  }, [timeline, participantFilter, searchQuery, linkedEvents]);
 
   const handleCopyJson = () => {
     const jsonStr = JSON.stringify(groundTruthTimeline, null, 2);
@@ -91,7 +106,7 @@ export const TimelinePage: React.FC = () => {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(groundTruthTimeline, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `${activeCase?.name || 'case'}_ground_truth_timeline.json`);
+    downloadAnchor.setAttribute('download', `${activeCase?.name || 'case'}_reported_timeline.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
@@ -99,6 +114,7 @@ export const TimelinePage: React.FC = () => {
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
+      {linkedEvents && <p className="text-sm text-blue-700">Showing linked events. <Link to="/timeline" className="underline">Show all events</Link></p>}
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
@@ -120,7 +136,7 @@ export const TimelinePage: React.FC = () => {
               </span>
             ) : (
               <span>
-                <strong>{timeline.length} sequenced chronological events</strong> extracted across case documents for <strong>{activeCase?.name}</strong>.
+                <strong>{timeline.length} source-backed events</strong> for <strong>{activeCase?.name}</strong>. Uncertain dates and intervals remain explicitly unordered.
               </span>
             )}
           </p>
@@ -133,7 +149,7 @@ export const TimelinePage: React.FC = () => {
               <button
                 onClick={handleCopyJson}
                 className="flex items-center space-x-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg transition border border-slate-300 shadow-sm"
-                title="Copy Ground-Truth JSON to clipboard"
+                title="Copy Reported JSON to clipboard"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? 'Copied JSON!' : 'Copy JSON'}</span>
@@ -141,7 +157,7 @@ export const TimelinePage: React.FC = () => {
               <button
                 onClick={handleDownloadJson}
                 className="flex items-center space-x-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition shadow-sm"
-                title="Download Ground-Truth Timeline JSON"
+                title="Download Reported Timeline JSON"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download JSON</span>
@@ -167,7 +183,7 @@ export const TimelinePage: React.FC = () => {
                 className="px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm cursor-pointer"
                 aria-label="Filter timeline events by participant"
               >
-                <option value="all">All People ({allParticipants.length})</option>
+                <option value="all">All Participants / Entities ({allParticipants.length})</option>
                 {allParticipants.map((p) => (
                   <option key={p} value={p}>
                     {p}
@@ -177,19 +193,19 @@ export const TimelinePage: React.FC = () => {
             </>
           ) : null}
 
-          {/* View Mode Toggle: Ground Truth vs Graph Summary vs Detailed Timeline vs Table */}
+          {/* View Mode Toggle: Reported Timeline vs Graph Summary vs Detailed Timeline vs Table */}
           <div className="flex items-center rounded-lg border border-slate-300 overflow-hidden bg-white shadow-sm p-0.5">
             <button
               onClick={() => setViewMode('groundtruth')}
               className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
                 viewMode === 'groundtruth' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
-              title="Ground-Truth concise summary format"
+              title="Reported concise summary format"
             >
               <FileCode className="w-3.5 h-3.5" />
-              <span>Ground Truth</span>
+              <span>Reported Timeline</span>
             </button>
-            <button
+            {!timeline.some(entry => entry.chunk_id?.startsWith('sp_')) && <button
               onClick={() => setViewMode('summary')}
               className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
                 viewMode === 'summary' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
@@ -198,7 +214,7 @@ export const TimelinePage: React.FC = () => {
             >
               <Layers className="w-3.5 h-3.5" />
               <span>Crime Phases</span>
-            </button>
+            </button>}
             <button
               onClick={() => setViewMode('timeline')}
               className={`flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition ${
@@ -236,9 +252,9 @@ export const TimelinePage: React.FC = () => {
         groundTruthTimeline.length === 0 ? (
           <div className="case-card p-12 text-center rounded-2xl">
             <Calendar className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-base font-bold text-slate-800">No Ground Truth Summary Generated</h3>
+            <h3 className="text-base font-bold text-slate-800">No Reported Timeline Summary Generated</h3>
             <p className="text-xs text-slate-500 mt-1">
-              Run the investigation analysis pipeline on uploaded documents to extract and summarize ground-truth events.
+              Run the investigation analysis pipeline on uploaded documents to extract and summarize attributed events.
             </p>
           </div>
         ) : (
@@ -247,7 +263,7 @@ export const TimelinePage: React.FC = () => {
             <div className="p-3.5 rounded-xl bg-slate-900 text-slate-200 border border-slate-800 shadow-sm flex items-center justify-between flex-wrap gap-2 text-xs">
               <div className="flex items-center space-x-2">
                 <FileCode className="w-4 h-4 text-blue-400" />
-                <span className="font-semibold text-white">Ground-Truth Benchmark Timeline Representation</span>
+                <span className="font-semibold text-white">Reported Benchmark Timeline Representation</span>
                 <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full border border-blue-400/30 font-mono">
                   {groundTruthTimeline.length} Milestones
                 </span>
@@ -257,7 +273,7 @@ export const TimelinePage: React.FC = () => {
               </div>
             </div>
 
-            {/* List of Ground-Truth Event Rows */}
+            {/* List of Reported Event Rows */}
             <div className="space-y-2">
               {groundTruthTimeline.map(([timeVal, eventDesc], idx) => (
                 <div
@@ -277,10 +293,11 @@ export const TimelinePage: React.FC = () => {
                     <p className="text-xs sm:text-sm font-semibold text-slate-900 truncate sm:whitespace-normal leading-snug">
                       {eventDesc}
                     </p>
+                    <SourceCitation spanId={timeline.find(entry => entry.event_description === eventDesc)?.chunk_id} />
                   </div>
 
                   <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-semibold shrink-0 hidden sm:inline-flex items-center">
-                    <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" /> Ground Truth
+                    <CheckCircle2 className="w-3 h-3 mr-1 text-emerald-600" /> Reported Timeline
                   </span>
                 </div>
               ))}
@@ -289,7 +306,7 @@ export const TimelinePage: React.FC = () => {
             {/* JSON Code Preview Card */}
             <div className="case-card p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs space-y-2">
               <div className="flex items-center justify-between text-[11px] text-slate-400 pb-1 border-b border-slate-800">
-                <span className="font-bold text-slate-200">Raw JSON Ground-Truth Data</span>
+                <span className="font-bold text-slate-200">Raw JSON Reported Data</span>
                 <span>{groundTruthTimeline.length} Items</span>
               </div>
               <pre className="max-h-60 overflow-y-auto text-[11px] text-blue-200 p-2 bg-slate-950/80 rounded-lg">
@@ -455,13 +472,16 @@ export const TimelinePage: React.FC = () => {
                   <td className="p-3 font-mono text-[10px] text-slate-400">{idx + 1}</td>
                   <td className="p-3 font-mono font-bold text-slate-900 whitespace-nowrap">
                     {entry.timestamp_display}
+                    {entry.chunk_id?.startsWith('sp_') && <div className="font-normal text-slate-500">Record time: {entry.record_time || 'Unknown'}{entry.event_end ? ` · interval end: ${entry.event_end}` : ''}</div>}
                     {entry.is_uncertain && (
                       <span className="ml-1.5 text-[9px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded-full font-sans border border-amber-200">
                         approx
                       </span>
                     )}
                   </td>
-                  <td className="p-3 text-slate-800 max-w-sm leading-relaxed">{entry.event_description}</td>
+                  <td className="p-3 text-slate-800 max-w-sm leading-relaxed">{entry.chunk_id?.startsWith('sp_') ? <SourceCitation spanId={entry.chunk_id} label={entry.event_description} /> : entry.event_description}
+                    <p className="text-xs text-slate-500">{entry.event_basis || 'reported'} · {entry.ordering_group || 'Review time uncertainty'}</p>
+                  </td>
                   <td className="p-3 text-blue-700 whitespace-nowrap font-medium">
                     {entry.participants && entry.participants.length > 0 ? entry.participants.join(', ') : '—'}
                   </td>
@@ -470,6 +490,7 @@ export const TimelinePage: React.FC = () => {
                   </td>
                   <td className="p-3 font-mono text-[10px] text-slate-500 whitespace-nowrap">
                     {entry.document_name}
+                    <div><SourceCitation spanId={entry.chunk_id} /></div>
                   </td>
                 </tr>
               ))}
@@ -531,6 +552,7 @@ export const TimelinePage: React.FC = () => {
                   <span className="flex items-center text-slate-400 font-mono text-[10px]">
                     <FileText className="w-3 h-3 mr-1 text-slate-400" aria-hidden="true" />
                     <span>{entry.document_name}</span>
+                    <SourceCitation spanId={entry.chunk_id} />
                   </span>
                 </div>
               </div>

@@ -60,7 +60,7 @@ export const Sidebar: React.FC = () => {
     {
       title: 'INTELLIGENCE & AUDIT',
       items: [
-        { to: '/agents', label: 'Agent Swarm (MAS)', icon: Bot, badge: 5 },
+        { to: '/agents', label: 'Agent Swarm (MAS)', icon: Bot },
         { to: '/report', label: 'Investigation Report', icon: FileCheck2 },
         { to: '/ask', label: 'Ask AI Assistant', icon: HelpCircle },
         { to: '/settings', label: 'Settings & Accuracy', icon: SlidersHorizontal },
@@ -96,7 +96,7 @@ export const Sidebar: React.FC = () => {
           </div>
           <div className="text-[10px] text-slate-400 mt-1 flex items-center justify-between">
             <span>{activeCase?.document_count || 0} docs</span>
-            <span>{activeCase?.contradiction_count || 0} conflicts</span>
+            <span>{activeCase?.contradiction_count || 0} potential conflicts</span>
           </div>
         </div>
       ) : (

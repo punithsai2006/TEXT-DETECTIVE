@@ -2,6 +2,8 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
+from app.models.case_analysis import CaseSummary
+from app.models.agent_review import AgentFinding, AgentState, TimelineMilestone
 
 
 def get_utc_now_iso() -> str:
@@ -113,6 +115,9 @@ class DocumentMetadata(BaseModel):
     uploaded_at: str = Field(default_factory=get_utc_now_iso)
     status: str = "processed"
     warning: Optional[str] = None
+    extraction_version: str = "legacy"
+    source_spans: List[Dict[str, Any]] = Field(default_factory=list)
+    original_storage_name: Optional[str] = None
 
 
 # ==========================================
@@ -187,6 +192,11 @@ class TimelineEntry(BaseModel):
     confidence: float = 1.0
     is_date_inferred: bool = False
     raw_timestamp_text: Optional[str] = None
+    record_time: Optional[str] = None
+    event_end: Optional[str] = None
+    event_basis: str = "reported"
+    source_span_ids: List[str] = Field(default_factory=list)
+    ordering_group: str = "unknown"
     secondary_sources: List[Dict[str, Any]] = Field(default_factory=list)
 
 
@@ -204,6 +214,9 @@ class CaseGraphEdge(BaseModel):
     target: str
     relation: str  # stated_in, involved_in, works_for, before, after, overlap, same_time, occurs_at_time, located_at, uses, provides_evidence
     evidence_sentence: Optional[str] = None
+    source_span_ids: List[str] = Field(default_factory=list)
+    claim_ids: List[str] = Field(default_factory=list)
+    conflict_ids: List[str] = Field(default_factory=list)
 
 
 class CaseGraph(BaseModel):
@@ -229,9 +242,13 @@ class EvidenceItem(BaseModel):
     char_start: int = 0
     char_end: int = 0
     page_number: Optional[int] = None
+    paragraph: Optional[int] = None
     score: float
     retrieval_method: str = "hybrid"  # semantic, keyword, hybrid
     classification: EvidenceClassification = EvidenceClassification.SUPPORTING_EVIDENCE
+    related_event_ids: List[str] = Field(default_factory=list)
+    related_graph_node_ids: List[str] = Field(default_factory=list)
+    related_contradiction_ids: List[str] = Field(default_factory=list)
 
 
 class EvidenceSearchRequest(BaseModel):
@@ -239,6 +256,11 @@ class EvidenceSearchRequest(BaseModel):
     top_k: int = 10
     document_ids: Optional[List[str]] = None
     threshold: Optional[float] = 0.0
+    mode: str = "hybrid"
+    entity: Optional[str] = None
+    date_from: Optional[str] = None
+    date_to: Optional[str] = None
+    evidence_type: Optional[str] = None
 
 
 # ==========================================
@@ -280,12 +302,19 @@ class ContradictionItem(BaseModel):
     alibi_impact: Optional[str] = None
     conflict_title: Optional[str] = None
     evidentiary_category: Optional[str] = None
+    outcome: Optional[str] = None
+    assumptions: List[str] = Field(default_factory=list)
+    ambiguities: List[str] = Field(default_factory=list)
+    stale: bool = False
+    run_id: Optional[str] = None
+    review_action: Optional[str] = None
 
 
 class ContradictionReviewRequest(BaseModel):
     review_status: ReviewStatus
     reviewer_id: Optional[str] = "analyst_1"
     review_notes: Optional[str] = None
+    action: Optional[str] = None
 
 
 # ==========================================
@@ -319,6 +348,20 @@ class Hypothesis(BaseModel):
     is_proposed_explanation: bool = False
     explanation: str = ""
     uncertainty_warning: Optional[str] = None
+    evidence_support_score: Optional[float] = None
+    description_source_span_ids: List[str] = Field(default_factory=list)
+    score_method_version: Optional[str] = None
+    score_breakdown: Dict[str, Any] = Field(default_factory=dict)
+    supporting_source_span_ids: List[str] = Field(default_factory=list)
+    contrary_source_span_ids: List[str] = Field(default_factory=list)
+    assumptions: List[str] = Field(default_factory=list)
+    missing_evidence: List[str] = Field(default_factory=list)
+    relevant_claim_ids: List[str] = Field(default_factory=list)
+    relevant_event_ids: List[str] = Field(default_factory=list)
+    relevant_graph_node_ids: List[str] = Field(default_factory=list)
+    is_other: bool = False
+    necessary_claims: List[Dict[str, Any]] = Field(default_factory=list)
+    requirement_assessments: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class HypothesisInput(BaseModel):
@@ -367,6 +410,14 @@ class AgentMessage(BaseModel):
     timestamp: str = Field(default_factory=get_utc_now_iso)
     evidence_citations: List[str] = Field(default_factory=list)
     subgraph_nodes: List[str] = Field(default_factory=list)
+    case_id: Optional[str] = None
+    analysis_run_id: Optional[str] = None
+    decision_summary: str = ""
+    evidence_span_ids: List[str] = Field(default_factory=list)
+    related_graph_node_ids: List[str] = Field(default_factory=list)
+    tool_name: Optional[str] = None
+    success: bool = True
+    error_message: Optional[str] = None
 
 
 class MultiAgentDeliberation(BaseModel):
@@ -378,6 +429,27 @@ class MultiAgentDeliberation(BaseModel):
     defense_argument: Dict[str, Any] = Field(default_factory=dict)
     judicial_verdict: Dict[str, Any] = Field(default_factory=dict)
     confidence_score: float = 0.95
+    schema_version: str = "legacy"
+    run_id: Optional[str] = None
+    deliberation_id: Optional[str] = None
+    processing_status: str = "completed"
+    model_provider: str = "unknown"
+    model_name: str = "unknown"
+    is_mock: bool = False
+    stale: bool = False
+    agent_states: List[AgentState] = Field(default_factory=list)
+    graph_findings: List[AgentFinding] = Field(default_factory=list)
+    timeline_milestones: List[TimelineMilestone] = Field(default_factory=list)
+    contradiction_findings: List[AgentFinding] = Field(default_factory=list)
+    supporting_arguments: List[AgentFinding] = Field(default_factory=list)
+    challenging_arguments: List[AgentFinding] = Field(default_factory=list)
+    neutral_assessment: List[AgentFinding] = Field(default_factory=list)
+    lead_summary: List[AgentFinding] = Field(default_factory=list)
+    unresolved_questions: List[str] = Field(default_factory=list)
+    warnings: List[str] = Field(default_factory=list)
+    configuration: Dict[str, Any] = Field(default_factory=dict)
+    model_calls: int = 0
+    tool_calls: int = 0
 
 
 # ==========================================
@@ -408,6 +480,12 @@ class InvestigationReport(BaseModel):
     limitations_and_uncertainty: str
     source_references: List[Dict[str, Any]]
     agent_deliberations: Optional[MultiAgentDeliberation] = None
+    analysis_run_id: Optional[str] = None
+    case_summary: Optional[CaseSummary] = None
+    llm_narrative: Dict[str, Any] = Field(default_factory=dict)
+    graph_snapshot: Optional[CaseGraph] = None
+    is_mock: bool = False
+    model_name: str = ""
 
 
 # ==========================================

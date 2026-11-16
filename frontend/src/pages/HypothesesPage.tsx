@@ -38,6 +38,12 @@ export const HypothesesPage: React.FC = () => {
 
       </div>
 
+      {hypotheses.some(h => h.score_method_version) ? <section className="case-card p-5 rounded-2xl text-sm space-y-2">
+        <h2 className="font-bold">Evidence-support scoring</h2>
+        <p>Deterministic sum of normalized necessary-claim support, conflicts, temporal feasibility, relationship/access constraints, coverage and unresolved assumptions, multiplied by explicit versioned weights.</p>
+        <p className="text-xs">Inspect each breakdown below. Distinct passages are not automatically independent sources.</p>
+        {!hypotheses.some(h => h.is_proposed_explanation) && <p className="text-amber-800 font-semibold">No leading hypothesis: the accounts are tied, inadequately covered, conflicting, or depend on unresolved assumptions. Alternatives remain open.</p>}
+      </section> : <>
       {/* Slide 18 Scoring Formula Card */}
       <div className="case-card p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm text-xs space-y-3">
         <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 flex-wrap gap-2">
@@ -79,6 +85,7 @@ export const HypothesesPage: React.FC = () => {
         </div>
       </div>
 
+      </>}
       {/* Hypotheses List */}
       {hypotheses.length === 0 ? (
         <div className="case-card p-12 text-center rounded-2xl text-slate-500 text-xs">

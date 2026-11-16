@@ -3,6 +3,7 @@ import logging
 import os
 import re
 import shutil
+import uuid
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -10,6 +11,7 @@ from fastapi import APIRouter, File, Form, HTTPException, Query, UploadFile, sta
 from fastapi.responses import PlainTextResponse, Response
 
 from app.config import settings
+from app.models.case_analysis import CaseSummary
 from app.models.schemas import (
     AnalysisRunRecord,
     AnalysisStatus,
@@ -18,6 +20,7 @@ from app.models.schemas import (
     Case,
     CaseCreateRequest,
     CaseGraph,
+    CaseStatus,
     CaseUpdateRequest,
     ContradictionItem,
     ContradictionReviewRequest,
@@ -199,13 +202,15 @@ def upload_documents(
                 detail=f"Unsupported file extension '{ext}'. Allowed extensions are: {', '.join(sorted(ALLOWED_EXTENSIONS))}"
             )
 
-        dest_path = (case_uploads_dir / safe_name).resolve()
+        # Keep previous originals intact during replacements and failed batches.
+        storage_name = f"{uuid.uuid4().hex}_{safe_name}"
+        dest_path = (case_uploads_dir / storage_name).resolve()
         # Verify resolved destination path stays strictly inside case_uploads_dir
         if not dest_path.is_relative_to(case_uploads_dir.resolve()):
             _rollback_batch_uploads(written_paths, uploaded_docs, case_id)
             raise HTTPException(status_code=400, detail="Security violation: Path traversal detected.")
 
-        file_bytes = file.file.read()
+        file_bytes = file.file.read(MAX_FILE_SIZE_BYTES + 1)
         file_size = len(file_bytes)
         total_batch_size += file_size
 
@@ -258,7 +263,7 @@ def upload_documents(
                 override_timestamp=timestamp_val,
                 override_description=desc_val,
             )
-            case_store.add_document(case_id, doc_meta)
+            doc_meta.original_storage_name = storage_name
             uploaded_docs.append(doc_meta)
         except Exception as e:
             logger.error(f"Failed to process file '{safe_name}': {e}")
@@ -267,6 +272,10 @@ def upload_documents(
                 raise e
             raise HTTPException(status_code=400, detail=f"Failed to process '{safe_name}': {str(e)}")
 
+    # Commit metadata only after the entire batch passed parsing/validation.
+    # A failed later upload must not remove an earlier version of the same name.
+    for doc_meta in uploaded_docs:
+        case_store.add_document(case_id, doc_meta)
     return uploaded_docs
 
 
@@ -317,19 +326,21 @@ def run_case_analysis(
         )
 
     try:
-        report = controller.run_investigation(case_id=case_id)
-        return report
+        from app.api.evidence_review import service
+        from app.services.orchestration.integrated_pipeline import run_pipeline
+        return run_pipeline(service, case_id)
     except Exception as e:
         logger.error(f"Investigation analysis failed for case {case_id}: {e}")
+        current_status = case_store.get_analysis_status(case_id)
         case_store.update_case_status(
             case_id=case_id,
             status=CaseStatus.FAILED,
-            current_module="Error",
-            progress_percentage=0,
-            message=f"Analysis failed: {str(e)}",
+            current_module=f"Failed: {current_status.current_module}",
+            progress_percentage=current_status.progress_percentage,
+            message=f"Analysis failed: {str(e)}. Retry to resume completed checkpoints.",
             error=str(e),
         )
-        raise HTTPException(status_code=500, detail=f"Analysis pipeline failed: {str(e)}")
+        raise HTTPException(status_code=503, detail=f"Analysis pipeline did not complete: {str(e)}")
 
 
 @api_router.get("/cases/{case_id}/analysis-status", response_model=AnalysisStatus)
@@ -420,6 +431,9 @@ def get_case_summary_timeline(case_id: str) -> List[ForensicSummaryMilestone]:
     Retrieves the executive Forensic Summary Timeline derived from the Case Graph
     and clustered into 5 strategic crime phases by the ForensicTimelineAgent.
     """
+    from app.api.evidence_review import service
+    if service.load(case_id):
+        return []  # Attributed events are already available; never synthesize crime phases.
     milestones = case_store.get_summary_timeline(case_id)
     if milestones:
         return milestones
@@ -453,6 +467,19 @@ def get_case_agent_deliberation(case_id: str) -> Optional[MultiAgentDeliberation
     Retrieves the complete Multi-Agent System (MAS) deliberation record,
     inter-agent communication transcripts, and prosecution vs. defense debate.
     """
+    from app.api.evidence_review import service
+    from app.models.schemas import AgentMessage
+    run = service.load(case_id)
+    if run:
+        from app.services.agents.evidence_orchestrator import load_deliberation
+        saved = load_deliberation(service, case_id, run)
+        if saved:
+            return saved
+        roles = ["evidence_agent", "contradiction_agent", "hypothesis_analysis_agent", "verification_reporting_agent"]
+        return MultiAgentDeliberation(case_id=case_id, agents_involved=roles, confidence_score=0,
+            messages=[AgentMessage(message_id=f"action_{i}", sender=str(action["role"]), recipient="case_review",
+                       message_type=str(action["tool"]), content=json.dumps(action, ensure_ascii=False),
+                       evidence_citations=action.get("source_span_ids", [])) for i, action in enumerate(run["actions"])])
     delib = case_store.get_agent_deliberations(case_id)
     if delib:
         return delib
@@ -483,6 +510,37 @@ def get_case_agent_deliberation(case_id: str) -> Optional[MultiAgentDeliberation
     return delib
 
 
+@api_router.get("/provider/readiness")
+def check_provider_readiness(probe: bool = False):
+    from app.services.provider_readiness import provider_readiness
+    return provider_readiness(probe)
+
+
+@api_router.post("/cases/{case_id}/agents/run", response_model=MultiAgentDeliberation)
+def run_case_agents(case_id: str, force: bool = False):
+    from app.api.evidence_review import service
+    from app.services.agents.evidence_orchestrator import LeadInvestigatorAgent
+    from app.services.hypothesis.evidence_reasoning import load_reasoning
+    from app.services.orchestration.integrated_pipeline import publish
+    run = service.load(case_id)
+    if not run or run["stale"] or run["status"] != "completed":
+        raise HTTPException(409, "Complete current case analysis before running agents")
+    report = case_store.get_report(case_id)
+    artifact = load_reasoning(service, case_id, run)
+    if not artifact or artifact["status"] != "completed":
+        raise HTTPException(409, "Complete hypothesis reasoning first; retry Run Pipeline")
+    graph = report.graph_snapshot if report and report.analysis_run_id == run["run_id"] else None
+    if not graph:
+        from app.services.extraction.source_graph import build_source_graph
+        graph = build_source_graph(run, service.sources(case_id), {d.document_id: d for d in service.documents(case_id)})
+    from app.models.schemas import TimelineEntry
+    timeline = report.chronological_timeline if report else [TimelineEntry(**e) for e in case_store.get_extraction(case_id).get("timeline", [])]
+    result = LeadInvestigatorAgent().run(service, case_id, run, graph.model_dump(), timeline, artifact, force=force)
+    if result.processing_status == "completed":
+        publish(service, case_id, run, score=False)
+    return result
+
+
 @api_router.get("/cases/{case_id}/case-graph", response_model=CaseGraph)
 def get_case_graph(case_id: str) -> CaseGraph:
     ext = case_store.get_extraction(case_id)
@@ -499,6 +557,13 @@ def search_evidence(case_id: str, req: EvidenceSearchRequest) -> List[EvidenceIt
     c = case_store.get_case(case_id)
     if not c:
         raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+    from app.api.evidence_review import service
+    from app.services.retrieval.case_search import search_case
+    if service.sources(case_id):
+        try:
+            return search_case(service, case_id, req)
+        except ValueError as exc:
+            raise HTTPException(400, str(exc)) from exc
     return retriever.search(
         case_id=case_id,
         query=req.query,
@@ -529,7 +594,38 @@ def get_case_contradictions(case_id: str) -> List[ContradictionItem]:
     c = case_store.get_case(case_id)
     if not c:
         raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
-    return case_store.get_contradictions(case_id)
+    items = case_store.get_contradictions(case_id)
+    from app.api.evidence_review import service
+    run = service.load(case_id)
+    if run:
+        for item in items:
+            item.stale = run["stale"] or item.run_id != run["run_id"]
+    return items
+
+
+@api_router.post("/cases/{case_id}/contradictions/resume")
+def resume_contradiction_analysis(case_id: str) -> Dict[str, Any]:
+    """Resume evaluating pending candidate contradiction comparisons in batches."""
+    c = case_store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
+    from app.api.evidence_review import service
+    from app.services.orchestration.integrated_pipeline import publish
+    run = service.load(case_id)
+    if not run:
+        raise HTTPException(status_code=400, detail="No prior analysis run found. Run analysis first.")
+    if run.get("stale"):
+        raise HTTPException(status_code=409, detail="Analysis is stale because sources changed. Please rerun full analysis.")
+    updated_run = service.run(case_id, allow_fixture=run.get("is_mock", False))
+    if updated_run.get("status") in ("completed", "partial"):
+        publish(service, case_id, updated_run, score=True)
+    return {
+        "status": updated_run.get("status"),
+        "processed_comparisons": updated_run.get("processed_comparisons", len(updated_run.get("comparisons", []))),
+        "pending_comparisons": updated_run.get("pending_comparisons", 0),
+        "total_candidates": updated_run.get("candidate_count", 0),
+        "failures": updated_run.get("failures", []),
+    }
 
 
 # ==========================================
@@ -550,6 +646,13 @@ def get_case_hypotheses(case_id: str) -> List[Hypothesis]:
 # QUESTION ANSWERING
 # ==========================================
 
+@api_router.get("/cases/{case_id}/answers")
+def case_answer_history(case_id: str):
+    from app.api.evidence_review import service
+    if not case_store.get_case(case_id):
+        raise HTTPException(404, "Case not found")
+    return service.answer_history(case_id)
+
 @api_router.post("/cases/{case_id}/ask", response_model=AskQuestionResponse)
 def ask_question(case_id: str, req: AskQuestionRequest) -> AskQuestionResponse:
     c = case_store.get_case(case_id)
@@ -558,6 +661,13 @@ def ask_question(case_id: str, req: AskQuestionRequest) -> AskQuestionResponse:
     if not req.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
+    from app.api.evidence_review import service
+    from app.services.orchestration.integrated_pipeline import answer_existing
+    if service.load(case_id):
+        try:
+            return answer_existing(service, case_id, req.question.strip(), min(max(req.top_k, 1), 10))
+        except (ValueError, RuntimeError) as exc:
+            raise HTTPException(409, str(exc)) from exc
     return controller.ask_case_question(case_id=case_id, question=req.question.strip(), top_k=req.top_k)
 
 
@@ -576,6 +686,20 @@ def review_contradiction(
     if not c:
         raise HTTPException(status_code=404, detail=f"Case '{case_id}' not found.")
 
+    from app.api.evidence_review import service
+    from app.models.evidence_review import ReviewRequest
+    from app.services.orchestration.integrated_pipeline import publish
+    run = service.load(case_id)
+    if run and any(f["id"] == contradiction_id for f in run["comparisons"]):
+        actions = {"confirmed": "accept_lead", "rejected": "reject", "needs_further_investigation": "request_context",
+                   "pending_review": "request_context"}
+        try:
+            service.review(case_id, run["run_id"], contradiction_id,
+                ReviewRequest(action=req.action or actions[req.review_status.value], reviewer=req.reviewer_id or "local_reviewer", notes=req.review_notes or ""))
+            publish(service, case_id, service.load(case_id, run["run_id"]), score=False)
+            return next(item for item in case_store.get_contradictions(case_id) if item.id == contradiction_id)
+        except ValueError as exc:
+            raise HTTPException(409, str(exc)) from exc
     updated = case_store.update_contradiction_review(
         case_id=case_id,
         contradiction_id=contradiction_id,
@@ -664,19 +788,59 @@ def get_report(case_id: str) -> InvestigationReport:
             status_code=404,
             detail=f"Report has not been generated yet for case '{case_id}'. Run analysis first."
         )
+    from app.api.evidence_review import service
+    run = service.load(case_id)
+    if run and (run["stale"] or report.report_id != "rep_" + run["run_id"]):
+        report.limitations_and_uncertainty += " STALE: sources or analysis changed; rerun before using these findings."
+        for comparison in report.contradictions:
+            comparison.stale = True
     return report
 
 
+@api_router.post("/cases/{case_id}/report/generate", response_model=InvestigationReport)
+def generate_current_report(case_id: str):
+    from app.api.evidence_review import service
+    from app.services.orchestration.integrated_pipeline import run_pipeline
+    run = service.load(case_id)
+    if not run or run["stale"] or run["status"] != "completed":
+        raise HTTPException(409, "Run the current investigation analysis before generating its report")
+    try:
+        return run_pipeline(service, case_id)
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(503, str(exc)) from exc
+
+
+@api_router.get("/cases/{case_id}/summary", response_model=CaseSummary)
+def structured_case_summary(case_id: str):
+    report = get_report(case_id)
+    if not report.case_summary:
+        raise HTTPException(409, "Run the updated analysis to generate a validated case summary")
+    return report.case_summary
+
+
 @api_router.get("/cases/{case_id}/report/download")
-def download_report(case_id: str, format: str = Query("markdown", pattern="^(markdown|json|html)$")):
-    rep = case_store.get_report(case_id)
+def download_report(case_id: str, format: str = Query("markdown", pattern="^(markdown|json|html|pdf)$")):
+    rep = get_report(case_id)
     if not rep:
         raise HTTPException(status_code=404, detail="No report available for download. Run analysis first.")
 
-    safe_name = rep.case_name.replace(" ", "_").lower()
+    safe_name = re.sub(r"[^a-zA-Z0-9_-]", "_", rep.case_id)
 
+    from app.api.evidence_review import service
+    run = service.load(case_id)
+    if run and (run["stale"] or rep.analysis_run_id and rep.analysis_run_id != run["run_id"]):
+        raise HTTPException(409, "Report is stale; rerun the investigation before downloading")
+    from app.services.reporting.evidence_report import markdown_report, pdf_report
+    md = markdown_report(rep) if rep.case_summary else service.report(case_id) if run else export_report_to_markdown(rep)
+    if run and not rep.case_summary:
+        md += "\n\n## Hypothesis Scoring (uncalibrated heuristic)\n"
+        md += "\n".join(f"- {h.title}: {h.total_score}. {h.uncertainty_warning or ''}" for h in rep.candidate_hypotheses)
+    if format == "pdf":
+        if not rep.case_summary:
+            raise HTTPException(409, "Run updated analysis before requesting a PDF report")
+        return Response(content=pdf_report(rep), media_type="application/pdf",
+                        headers={"Content-Disposition": f'attachment; filename="report_{safe_name}.pdf"'})
     if format == "markdown":
-        md = export_report_to_markdown(rep)
         return Response(
             content=md,
             media_type="text/markdown",
@@ -691,8 +855,9 @@ def download_report(case_id: str, format: str = Query("markdown", pattern="^(mar
         )
     else:
         # HTML preview
-        md = export_report_to_markdown(rep)
-        html_content = f"<!DOCTYPE html><html><head><title>Report: {rep.case_name}</title><style>body{{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;color:#131A2E;background:#FDFBF7;padding:1rem;}}pre{{background:#EEE;padding:1rem;overflow-x:auto;}}table{{border-collapse:collapse;width:100%;margin:1rem 0;}}th,td{{border:1px solid #CCC;padding:8px;text-align:left;}}th{{background:#EAE4D3;}}</style></head><body><pre>{md}</pre></body></html>"
+        import html
+        md = html.escape(md)
+        html_content = f"<!DOCTYPE html><html><head><title>Report: {html.escape(rep.case_name)}</title><style>body{{font-family:sans-serif;max-width:900px;margin:2rem auto;line-height:1.6;color:#131A2E;background:#FDFBF7;padding:1rem;}}pre{{background:#EEE;padding:1rem;overflow-x:auto;}}table{{border-collapse:collapse;width:100%;margin:1rem 0;}}th,td{{border:1px solid #CCC;padding:8px;text-align:left;}}th{{background:#EAE4D3;}}</style></head><body><pre>{md}</pre></body></html>"
         return Response(
             content=html_content,
             media_type="text/html",

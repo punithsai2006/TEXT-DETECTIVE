@@ -3,7 +3,7 @@ import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { ContradictionItem, ReviewStatus } from '../types';
 import { ContradictionCard } from '../components/ContradictionCard';
-import { Scale, ShieldAlert, Filter, AlertOctagon } from 'lucide-react';
+import { Scale, ShieldAlert, Filter, AlertOctagon, RefreshCw } from 'lucide-react';
 
 export const ContradictionsPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
@@ -11,25 +11,46 @@ export const ContradictionsPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'confirmed' | 'possible'>('all');
   const [reviewFilter, setReviewFilter] = useState<'all' | ReviewStatus>('all');
   const [loading, setLoading] = useState(false);
+  const [resuming, setResuming] = useState(false);
+  const [batchStatus, setBatchStatus] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchContradictions = () => {
     if (!activeCaseId) return;
     setLoading(true);
     api
       .getContradictions(activeCaseId)
-      .then((items) => setContradictions(items.filter((item) => item.nli_label === 'contradiction').map((item) => (
+      .then((items) => setContradictions(items.filter((item) => item.outcome || item.nli_label === 'contradiction').map((item) => (
         item.reviewer_id === 'system' && item.review_status === 'confirmed'
           ? { ...item, contradiction_type: 'confirmed_contradiction' as const }
           : item
       ))))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    fetchContradictions();
   }, [activeCaseId]);
 
-  const handleReview = async (contradictionId: string, status: ReviewStatus, notes?: string) => {
+  const handleResumeBatch = async () => {
+    if (!activeCaseId) return;
+    setResuming(true);
+    setBatchStatus(null);
+    try {
+      const res = await api.resumeContradictions(activeCaseId);
+      setBatchStatus(`Evaluated batch: ${res.processed_comparisons}/${res.total_candidates} candidates processed (${res.pending_comparisons} pending).`);
+      fetchContradictions();
+    } catch (e: any) {
+      setBatchStatus(`Resume failed: ${e.message}`);
+    } finally {
+      setResuming(false);
+    }
+  };
+
+  const handleReview = async (contradictionId: string, status: ReviewStatus, notes?: string, action?: string) => {
     if (!activeCaseId) return;
     try {
-      const updated = await api.reviewContradiction(activeCaseId, contradictionId, status, notes);
+      const updated = await api.reviewContradiction(activeCaseId, contradictionId, status, notes, action);
       setContradictions((prev) =>
         prev.map((c) => (c.id === contradictionId ? { ...c, ...updated } : c))
       );
@@ -38,12 +59,12 @@ export const ContradictionsPage: React.FC = () => {
     }
   };
 
-  const confirmedCount = contradictions.filter((c) => c.contradiction_type === 'confirmed_contradiction').length;
+  const confirmedCount = contradictions.filter((c) => c.review_status === 'confirmed').length;
   const possibleCount = contradictions.filter((c) => c.contradiction_type === 'possible_contradiction').length;
 
   const filtered = contradictions.filter((c) => {
     // Type filter
-    if (filter === 'confirmed' && c.contradiction_type !== 'confirmed_contradiction') return false;
+    if (filter === 'confirmed' && c.review_status !== 'confirmed') return false;
     if (filter === 'possible' && c.contradiction_type !== 'possible_contradiction') return false;
 
     // Review status filter
@@ -66,8 +87,8 @@ export const ContradictionsPage: React.FC = () => {
           Contradictions & Factual Conflicts
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-          RoBERTa-MNLI and rule engine evaluating pairwise claims across files in <strong>{activeCase?.name}</strong>.
-          Confidence scores indicate heuristic discrepancy severity.
+          Contextual comparisons of attributed claims within and across files in <strong>{activeCase?.name}</strong>.
+          Accepted leads require human investigation; neither account is automatically selected as true.
         </p>
       </div>
 
@@ -75,7 +96,7 @@ export const ContradictionsPage: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
         <div className="case-card p-4 rounded-xl border-l-4 border-l-rose-600 flex items-center justify-between shadow-sm">
           <div>
-            <div className="text-[10px] uppercase font-bold text-rose-700 tracking-wider">Confirmed Conflicts</div>
+            <div className="text-[10px] uppercase font-bold text-rose-700 tracking-wider">Human-Accepted Leads</div>
             <div className="text-2xl font-bold font-mono text-rose-600 mt-0.5">{confirmedCount}</div>
           </div>
           <div className="p-2 rounded-lg bg-rose-50 text-rose-600">
@@ -93,7 +114,28 @@ export const ContradictionsPage: React.FC = () => {
           </div>
         </div>
 
+        <div className="case-card p-4 rounded-xl border-l-4 border-l-blue-600 flex flex-col justify-between shadow-sm">
+          <div>
+            <div className="text-[10px] uppercase font-bold text-blue-700 tracking-wider">Candidate Coverage</div>
+            <div className="text-xs text-slate-500 mt-1">Multi-batch processing with persistent checkpoints.</div>
+          </div>
+          <button
+            onClick={handleResumeBatch}
+            disabled={resuming || !activeCaseId}
+            className="mt-2 flex items-center justify-center space-x-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition disabled:opacity-50"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${resuming ? 'animate-spin' : ''}`} />
+            <span>{resuming ? 'Evaluating…' : 'Process Next Batch'}</span>
+          </button>
+        </div>
+
       </div>
+
+      {batchStatus && (
+        <div role="status" className="p-3 bg-blue-50 border border-blue-200 text-blue-800 text-xs rounded-xl font-mono">
+          {batchStatus}
+        </div>
+      )}
 
       {/* Filter Bar */}
       <div className="case-card p-3.5 rounded-xl border border-slate-200/80 shadow-sm space-y-2.5">
@@ -121,7 +163,7 @@ export const ContradictionsPage: React.FC = () => {
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              Confirmed ({confirmedCount})
+              Accepted Leads ({confirmedCount})
             </button>
             <button
               onClick={() => setFilter('possible')}
@@ -142,7 +184,7 @@ export const ContradictionsPage: React.FC = () => {
               value={reviewFilter}
               onChange={(e) => setReviewFilter(e.target.value as any)}
               className="px-2.5 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm cursor-pointer"
-              aria-label="Filter contradictions by automatic decision"
+              aria-label="Filter comparisons by human review status"
             >
               <option value="all">All Review Statuses</option>
               <option value="confirmed">Accepted</option>
@@ -172,7 +214,7 @@ export const ContradictionsPage: React.FC = () => {
               key={item.id}
               item={item}
               index={idx + 1}
-              onReview={(status, notes) => handleReview(item.id, status, notes)}
+              onReview={(status, notes, action) => handleReview(item.id, status, notes, action)}
             />
           ))}
         </div>

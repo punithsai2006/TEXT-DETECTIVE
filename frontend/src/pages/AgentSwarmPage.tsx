@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
+import { CaseEvidenceDetails } from '../components/CaseEvidenceDetails';
 import { MultiAgentDeliberation } from '../types';
+import { AgentInvestigation } from '../components/AgentInvestigation';
 import {
   Bot,
   BrainCircuit,
@@ -20,7 +22,9 @@ import {
   Zap,
 } from 'lucide-react';
 
-export const AgentSwarmPage: React.FC = () => {
+export const AgentSwarmPage: React.FC = () => <AgentInvestigation />;
+
+const ExistingAgentSwarmPage: React.FC = () => {
   const { activeCaseId, activeCase } = useCase();
   const [deliberation, setDeliberation] = useState<MultiAgentDeliberation | null>(null);
   const [loading, setLoading] = useState(false);

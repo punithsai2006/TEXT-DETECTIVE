@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { SourceCitation } from './SourceCitation';
 import { Hypothesis } from '../types';
 import { Award, ChevronDown, ChevronUp, AlertCircle, CheckCircle2, XCircle, FileText, Check } from 'lucide-react';
 
@@ -8,6 +10,29 @@ interface HypothesisCardProps {
 
 export const HypothesisCard: React.FC<HypothesisCardProps> = ({ hypothesis }) => {
   const [expanded, setExpanded] = useState(false);
+
+  if (hypothesis.score_method_version) return <article className="case-card p-5 rounded-2xl border border-slate-200 space-y-4">
+    <div className="flex justify-between gap-4"><div>
+      <h3 className="text-lg font-bold">{hypothesis.title}</h3>
+      <p className="text-sm text-slate-600 mt-2">{hypothesis.description}</p>
+      {hypothesis.description_source_span_ids?.map(id => <div key={id}><SourceCitation spanId={id} label="Sources for this proposed interpretation" /></div>)}
+    </div><strong className="text-xl whitespace-nowrap">{hypothesis.evidence_support_score == null ? 'Not scored' : hypothesis.evidence_support_score.toFixed(3)}</strong></div>
+    <p className="text-xs text-amber-800">Evidence-support score — not a probability of guilt. {hypothesis.score_method_version}</p>
+    {hypothesis.is_proposed_explanation && <p className="text-sm font-semibold text-blue-700">Most supported qualified interpretation; human review required.</p>}
+    {hypothesis.score_breakdown?.weights && <div className="overflow-auto"><table className="text-xs w-full text-left"><thead><tr><th>Component</th><th>Normalized input</th><th>Weight</th><th>Contribution</th></tr></thead><tbody>
+      {(['support', 'conflict', 'temporal', 'relationships', 'coverage', 'assumptions'] as const).map(key => <tr className="border-t" key={key}>
+        <td className="py-2 capitalize">{key}</td><td>{hypothesis.score_breakdown![key].toFixed(3)}</td><td>{hypothesis.score_breakdown!.weights[key]}</td><td>{hypothesis.score_breakdown!.weighted_components[key].toFixed(3)}</td>
+      </tr>)}
+    </tbody></table><p className="text-xs text-slate-500">{hypothesis.score_breakdown.distinct_lineage_count} distinct text lineages; repeated passages and graph projections add no corroboration bonus.</p></div>}
+    <div className="grid md:grid-cols-2 gap-4 text-sm"><div><h4 className="font-semibold">Supporting passages</h4>{hypothesis.supporting_source_span_ids?.length ? hypothesis.supporting_source_span_ids.map(id => <div key={id}><SourceCitation spanId={id} /></div>) : <p>None established.</p>}</div>
+      <div><h4 className="font-semibold">Contrary passages</h4>{hypothesis.contrary_source_span_ids?.length ? hypothesis.contrary_source_span_ids.map(id => <div key={id}><SourceCitation spanId={id} /></div>) : <p>None established.</p>}</div></div>
+    <p className="text-xs"><strong>Assumptions:</strong> {hypothesis.assumptions?.join('; ') || 'None reported'}</p>
+    {!!hypothesis.necessary_claims?.length && <details className="text-xs"><summary className="cursor-pointer font-semibold">Inspect necessary claims and assessments</summary>
+      {hypothesis.necessary_claims.map(requirement => <div key={requirement.requirement_id} className="border-t py-2"><p>{requirement.text}</p><p className="text-slate-500">{hypothesis.requirement_assessments?.find(a => a.requirement_id === requirement.requirement_id)?.explanation}</p></div>)}
+    </details>}
+    <p className="text-xs"><strong>Missing evidence:</strong> {hypothesis.missing_evidence?.join('; ') || 'Review evidence coverage'}</p>
+    {!hypothesis.is_other && <div className="flex gap-4 text-xs"><Link className="text-blue-700 underline" to={`/graph?hypothesis_id=${encodeURIComponent(hypothesis.hypothesis_id)}`}>Explore connected evidence</Link><Link className="text-blue-700 underline" to={`/timeline?hypothesis_id=${encodeURIComponent(hypothesis.hypothesis_id)}`}>Inspect relevant timeline</Link></div>}
+  </article>;
 
   return (
     <div

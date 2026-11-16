@@ -1,0 +1,43 @@
+{
+  "mode": "fixture_mechanics_only",
+  "case_count": 1,
+  "document_count": 2,
+  "retrieval": {
+    "method": "lexical_tfidf_bm25",
+    "queries": [
+      {
+        "query": "archive door locked",
+        "relevant_count": 1,
+        "retrieved_relevant_at_1": 1
+      },
+      {
+        "query": "archive door open",
+        "relevant_count": 1,
+        "retrieved_relevant_at_1": 1
+      }
+    ],
+    "recall_at_1_numerator": 2,
+    "recall_at_1_denominator": 2,
+    "recall_at_1": 1.0
+  },
+  "citation_locator_validity": {
+    "passed": 2,
+    "total": 2
+  },
+  "quotation_accuracy": {
+    "passed": 2,
+    "total": 2
+  },
+  "fixture_pipeline_latency_seconds": 3.018,
+  "fixture_provider_calls": 16,
+  "real_model_usage": null,
+  "cost": null,
+  "real_contradiction_precision": null,
+  "real_contradiction_recall": null,
+  "real_semantic_support_accuracy": null,
+  "limitations": [
+    "One tiny synthetic mechanics case, not an unseen model benchmark.",
+    "Scripted hypothesis/verification results are not accuracy measurements.",
+    "No real-model latency, semantic support or cost was measured."
+  ]
+}

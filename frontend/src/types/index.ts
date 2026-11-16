@@ -74,6 +74,12 @@ export interface Event {
 }
 
 export interface TimelineEntry {
+  event_basis?: string;
+  source_span_ids?: string[];
+  ordering_group?: string;
+  record_time?: string;
+  event_end?: string;
+  chunk_id?: string;
   entry_id: string;
   event_id: string;
   timestamp_display: string;
@@ -96,6 +102,9 @@ export interface CaseGraphNode {
 }
 
 export interface CaseGraphEdge {
+  source_span_ids?: string[];
+  claim_ids?: string[];
+  conflict_ids?: string[];
   id: string;
   source: string;
   target: string;
@@ -109,6 +118,11 @@ export interface CaseGraph {
 }
 
 export interface EvidenceItem {
+  page_number?: number | null;
+  paragraph?: number | null;
+  related_event_ids?: string[];
+  related_graph_node_ids?: string[];
+  related_contradiction_ids?: string[];
   evidence_id: string;
   case_id: string;
   document_id: string;
@@ -126,6 +140,13 @@ export interface EvidenceItem {
 export type ReviewStatus = 'pending_review' | 'confirmed' | 'rejected' | 'needs_further_investigation';
 
 export interface ContradictionItem {
+  chunk_a_id?: string;
+  chunk_b_id?: string;
+  outcome?: string;
+  assumptions?: string[];
+  ambiguities?: string[];
+  stale?: boolean;
+  review_action?: string;
   id: string;
   case_id: string;
   statement_a: string;
@@ -170,6 +191,24 @@ export interface HypothesisClaim {
 }
 
 export interface Hypothesis {
+  necessary_claims?: { requirement_id: string; text: string }[];
+  requirement_assessments?: { requirement_id: string; supporting_source_span_ids: string[]; contrary_source_span_ids: string[]; explanation: string }[];
+  description_source_span_ids?: string[];
+  evidence_support_score?: number | null;
+  score_method_version?: string;
+  score_breakdown?: {
+    support: number; conflict: number; temporal: number; relationships: number; coverage: number; assumptions: number;
+    weights: Record<string, number>; weighted_components: Record<string, number>; distinct_lineage_count: number;
+    necessary_claim_count: number; supported_claim_count: number; conflicting_claim_count: number;
+  };
+  supporting_source_span_ids?: string[];
+  contrary_source_span_ids?: string[];
+  assumptions?: string[];
+  missing_evidence?: string[];
+  relevant_claim_ids?: string[];
+  relevant_event_ids?: string[];
+  relevant_graph_node_ids?: string[];
+  is_other?: boolean;
   hypothesis_id: string;
   case_id: string;
   title: string;
@@ -208,6 +247,17 @@ export interface AnalysisStatus {
 }
 
 export interface InvestigationReport {
+  graph_snapshot?: CaseGraph;
+  analysis_run_id?: string;
+  is_mock?: boolean;
+  case_summary?: {
+    analysis_run_id: string; analysis_status: string;
+    summary: { text: string; source_span_ids: string[] };
+    leading_hypothesis: { hypothesis_id: string; title: string } | null;
+    unanswered_questions: string[];
+  };
+  llm_narrative?: { executive_summary: { text: string; kind: string; source_span_ids: string[] }[];
+    sections: { title: string; assertions: { text: string; kind: string; source_span_ids: string[] }[]; unknowns: string[] }[] };
   report_id: string;
   case_id: string;
   case_name: string;
@@ -249,6 +299,7 @@ export interface InvestigationReport {
   unresolved_questions: string[];
   limitations_and_uncertainty: string;
   source_references: Array<{
+    chunk_id?: string;
     ref_id: string;
     document: string;
     document_type: string;

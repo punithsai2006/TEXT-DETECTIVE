@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
-import { EvidenceItem } from '../types';
+import { EvidenceItem, DocumentMetadata } from '../types';
 import { EvidenceCard } from '../components/EvidenceCard';
 import { Search, Sliders, Sparkles, AlertCircle, Database, Layers } from 'lucide-react';
 
@@ -12,9 +12,19 @@ export const EvidencePage: React.FC = () => {
   const [evidenceList, setEvidenceList] = useState<EvidenceItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [documents, setDocuments] = useState<DocumentMetadata[]>([]);
+  const [documentId, setDocumentId] = useState('');
+  const [mode, setMode] = useState('hybrid');
+  const [entity, setEntity] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  const [evidenceType, setEvidenceType] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!activeCaseId) return;
+    setEvidenceList([]); setDocumentId(''); setHasSearched(false);
+    api.getCaseDocuments(activeCaseId).then(setDocuments).catch(e => setError(e.message));
     // Load initial baseline key evidence
     api
       .getKeyEvidence(activeCaseId)
@@ -26,22 +36,26 @@ export const EvidencePage: React.FC = () => {
     e.preventDefault();
     if (!activeCaseId || !query.trim()) return;
     setLoading(true);
+    setError('');
     setHasSearched(true);
     try {
-      const results = await api.searchEvidence(activeCaseId, query.trim(), topK);
+      const results = await api.searchEvidence(activeCaseId, query.trim(), topK, 0, {
+        mode, ...(documentId ? { document_ids: [documentId] } : {}), entity: entity || undefined,
+        date_from: dateFrom || undefined, date_to: dateTo || undefined, evidence_type: evidenceType || undefined,
+      });
       setEvidenceList(results);
     } catch (err) {
-      console.error(err);
+      setError(err instanceof Error ? err.message : 'Search failed; existing results are retained.');
     } finally {
       setLoading(false);
     }
   };
 
   const sampleQueries = [
-    'Who entered Server Room B and at what time?',
-    'What physical USB or mass storage device was plugged in?',
-    'Where was the master keycard seen in the breakroom?',
-    'What time did the contractor exit the facility?',
+    'Which passages describe access to the location?',
+    'What objects or credentials are mentioned?',
+    'Which accounts describe different event times?',
+    'What context is available for a reported event?',
   ];
 
   return (
@@ -55,12 +69,13 @@ export const EvidencePage: React.FC = () => {
           Semantic Evidence Search
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-          Query persistent ChromaDB vector store and BM25 lexical index using Reciprocal Rank Fusion (RRF).
+          Inspect original case passages. Semantic retrieval is used when a local embedding model is available; lexical retrieval remains available without an LLM.
         </p>
       </div>
 
       {/* Search Bar Card */}
       <div className="case-card p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-slate-200/80">
+        {error && <p role="alert" className="text-red-700 text-sm">{error}</p>}
         <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2.5">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
@@ -82,6 +97,16 @@ export const EvidencePage: React.FC = () => {
           </button>
         </form>
 
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+          <label>Search mode<select aria-label="Search mode" className="block w-full border rounded p-2" value={mode} onChange={e => setMode(e.target.value)}><option value="hybrid">Natural-language retrieval</option><option value="exact">Exact phrase (case-insensitive)</option></select></label>
+          <label>Document<select className="block w-full border rounded p-2" value={documentId} onChange={e => setDocumentId(e.target.value)}><option value="">All documents</option>{documents.map(d => <option key={d.document_id} value={d.document_id}>{d.filename}</option>)}</select></label>
+          <label>Entity / location<input className="block w-full border rounded p-2" value={entity} onChange={e => setEntity(e.target.value)} placeholder="Exact extracted name" /></label>
+          <label>Event date from<input type="date" className="block w-full border rounded p-2" value={dateFrom} onChange={e => setDateFrom(e.target.value)} /></label>
+          <label>Event date to<input type="date" className="block w-full border rounded p-2" value={dateTo} onChange={e => setDateTo(e.target.value)} /></label>
+          <label>Evidence type<select className="block w-full border rounded p-2" value={evidenceType} onChange={e => setEvidenceType(e.target.value)}><option value="">All types</option>{['interview', 'email', 'report', 'log', 'other'].map(t => <option key={t}>{t}</option>)}</select></label>
+          <label>Maximum results<input type="number" min={1} max={50} className="block w-full border rounded p-2" value={topK} onChange={e => setTopK(Math.max(1, Math.min(50, Number(e.target.value))))} /></label>
+        </div>
+        <p className="text-xs text-slate-500">Date/entity filters use current extracted claims. Unknown event dates are excluded when filtering; document dates are not substituted.</p>
         {/* Quick Query Pills */}
         <div className="flex items-center space-x-1.5 flex-wrap gap-1.5 text-[11px] text-slate-500 pt-1">
           <span className="font-semibold text-slate-700 flex items-center mr-1">
@@ -105,7 +130,7 @@ export const EvidencePage: React.FC = () => {
       {/* Results Header */}
       <div className="flex items-center justify-between px-1 text-xs font-bold uppercase tracking-wider text-slate-500">
         <span>{hasSearched ? 'Search Results' : 'Key Baseline Evidence'} ({evidenceList.length})</span>
-        <span className="text-[10px] font-mono text-slate-400">Hybrid Dense + Lexical RRF</span>
+        <span className="text-[10px] font-mono text-slate-400">Original passages remain visible independently of synthesis</span>
       </div>
 
       {/* Evidence Items List */}

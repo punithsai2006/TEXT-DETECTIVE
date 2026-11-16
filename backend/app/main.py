@@ -104,6 +104,8 @@ app.add_middleware(
 
 # Mount API routes
 app.include_router(api_router, prefix="/api")
+from app.api.evidence_review import router as evidence_review_router
+app.include_router(evidence_review_router, prefix="/api")
 
 
 # Mount frontend static distribution if built
@@ -115,8 +117,8 @@ if frontend_dist.exists():
 
     @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
     def serve_spa(full_path: str):
-        target_file = frontend_dist / full_path
-        if full_path and target_file.is_file():
+        target_file = (frontend_dist / full_path).resolve()
+        if full_path and target_file.is_relative_to(frontend_dist.resolve()) and target_file.is_file():
             return FileResponse(target_file)
         return FileResponse(frontend_dist / "index.html", headers={"Cache-Control": "no-store"})
 else:

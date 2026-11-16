@@ -255,8 +255,8 @@ class AnthropicProvider(BaseLLMProvider):
                     metadata={"usage": data.get("usage", {})}
                 )
         except Exception as e:
-            logger.error(f"Anthropic API error: {e}")
-            raise RuntimeError(f"Anthropic API call failed: {str(e)}")
+            logger.error("Anthropic API request failed (%s)", type(e).__name__)
+            raise RuntimeError("Anthropic request failed; check model access, credentials and connectivity.") from None
 
 
 class OpenAIProvider(BaseLLMProvider):
@@ -306,8 +306,8 @@ class OpenAIProvider(BaseLLMProvider):
                     metadata={"usage": data.get("usage", {})}
                 )
         except Exception as e:
-            logger.error(f"OpenAI API error: {e}")
-            raise RuntimeError(f"OpenAI API call failed: {str(e)}")
+            logger.error("OpenAI API request failed (%s)", type(e).__name__)
+            raise RuntimeError("OpenAI request failed; check model access, credentials and connectivity.") from None
 
 
 @lru_cache(maxsize=1)
@@ -392,9 +392,6 @@ def get_llm_provider() -> BaseLLMProvider:
     elif provider == "mock":
         return MockLLMProvider(model_name_override=settings.LLM_MODEL or "mock-investigator-v1")
     else:
-        if settings.DEMO_MODE:
-            logger.warning(f"Unknown provider '{provider}'. Falling back to MockLLMProvider in demo mode.")
-            return MockLLMProvider()
         raise ValueError(
             f"Unsupported LLM provider '{provider}'. Supported providers are: 'mock', 'anthropic', 'openai', 'ollama', 'local'."
         )

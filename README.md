@@ -1,5 +1,21 @@
 # Text Detective: An Agentic Text Analytics Framework for Evidence-Based Investigation
 
+> **Current workflow and verification:** see [CASE_WORKFLOW.md](docs/CASE_WORKFLOW.md)
+> for the integrated ten-stage flow, deterministic evidence-support scoring,
+> resumable model stages, separate Evidence Search/Q&A, and PDF/Markdown reports.
+> Earlier scoring/presentation sections below describe the original baseline;
+> they are not the scoring method used by the updated pipeline.
+
+> **Updated existing workflow:** use **New Investigation** to run the six-stage
+> pipeline. Versioned text/PDF sources, attributed claims, contextual comparison,
+> bounded agents, human review and verified-citation RAG are integrated into the
+> existing Documents, Timeline, Contradictions, Graph, Q&A and Report pages. See
+> [setup, demo, validation and limitations](docs/EVIDENCE_REVIEW_V2.md).
+> Hypothesis Scoring remains in the existing pipeline. There is no separate
+> Evidence Review sidebar entry or workflow.
+> No output establishes guilt, deception, or what actually happened. Mock/fixture
+> execution is not real-model validation.
+
 > **Research & Implementation Project**  
 > Based on the official research presentation by:
 > - **Makka Lokesh** (AM.SC.U4CSE24233)
@@ -95,7 +111,7 @@ Text Detective solves this through an autonomous agentic framework combining:
 │   - Loop 2: Need Clarification (Ambiguous contradictions re-analyzed)  │
 │   - Loop 3: Need Additional Analysis (Hypothesis tie-breaker trigger)   │
 │   - Hard execution safety cap: Max 2 iterations per loop               │
-│   - Zero-Hallucination Case Q&A with strict evidence boundary checks   │
+│   - Source-constrained Q&A with reviewable evidence boundaries         │
 │   - Immutable Analysis Run Records with SHA-256 document fingerprints │
 └────────────────────────────────────────────────────────────────────────┘
 ```

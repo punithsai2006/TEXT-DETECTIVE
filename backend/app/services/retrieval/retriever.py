@@ -42,6 +42,8 @@ class HybridRetriever:
             try:
                 self._dense_model = SentenceTransformer(self._dense_model_name, local_files_only=True)
             except Exception:
+                if not settings.ALLOW_MODEL_DOWNLOADS:
+                    raise
                 self._dense_model = SentenceTransformer(self._dense_model_name)
             logger.info(f"Loaded SentenceTransformer model: {self._dense_model_name}")
         except Exception as e:
@@ -54,7 +56,7 @@ class HybridRetriever:
         p.mkdir(parents=True, exist_ok=True)
         return p / "vector_index.json"
 
-    def index_case_chunks(self, case_id: str, documents: List[DocumentMetadata]) -> int:
+    def index_case_chunks(self, case_id: str, documents: List[DocumentMetadata], persist_chroma: bool = True) -> int:
         """
         Indexes all text chunks belonging to a case into case-isolated persistent storage.
         """
@@ -71,6 +73,9 @@ class HybridRetriever:
                     "timestamp": chk.timestamp,
                     "text": chk.text,
                     "sentence_indices": chk.sentence_indices,
+                    "page_number": chk.page_number,
+                    "char_start": chk.char_start,
+                    "char_end": chk.char_end,
                 })
 
         if not all_chunks:
@@ -104,7 +109,7 @@ class HybridRetriever:
 
         # Keep optional Chroma persistence for existing installations. FAISS
         # mode uses the case-local vectors directly and avoids a second index.
-        if settings.USE_FAISS:
+        if settings.USE_FAISS or not persist_chroma:
             return len(all_chunks)
 
         try:
@@ -417,6 +422,9 @@ class HybridRetriever:
                     sentence_indices=c.get("sentence_indices", []),
                     score=score,
                     retrieval_method="hybrid",
+                    page_number=c.get("page_number"),
+                    char_start=c.get("char_start"),
+                    char_end=c.get("char_end"),
                 )
             )
 

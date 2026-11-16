@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
@@ -33,6 +33,15 @@ export const NewInvestigationPage: React.FC = () => {
   const [analyzing, setAnalyzing] = useState(false);
   const [status, setStatus] = useState<AnalysisStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!analyzing || !activeCaseId) return;
+    let current = true;
+    const poll = () => api.getAnalysisStatus(activeCaseId).then(value => { if (current && value.status !== 'completed') setStatus(value); }).catch(() => {});
+    poll();
+    const timer = window.setInterval(poll, 1000);
+    return () => { current = false; window.clearInterval(timer); };
+  }, [analyzing, activeCaseId]);
 
   const handleFileDrop = (e: React.DragEvent) => {
     e.preventDefault();
@@ -92,6 +101,7 @@ export const NewInvestigationPage: React.FC = () => {
       }
 
       setUploading(false);
+      setStatus(null);
       setAnalyzing(true);
 
       // Run full controller pipeline
@@ -102,6 +112,11 @@ export const NewInvestigationPage: React.FC = () => {
       setStatus(finalStatus);
     } catch (err: any) {
       setError(err.message || 'Investigation execution failed.');
+      if (activeCaseId) {
+        const failedStatus = await api.getAnalysisStatus(activeCaseId).catch(() => null);
+        setStatus(failedStatus);
+        await refreshCases();
+      }
     } finally {
       setUploading(false);
       setAnalyzing(false);
@@ -109,12 +124,16 @@ export const NewInvestigationPage: React.FC = () => {
   };
 
   const moduleSteps = [
-    { num: 1, name: 'Ingestion & Sentence Parsing', pct: 15 },
-    { num: 2, name: 'Entity & Event Reconstruction', pct: 35 },
-    { num: 3, name: 'RAG Hybrid Evidence Indexing', pct: 50 },
-    { num: 4, name: 'Cross-Document Contradiction Engine', pct: 65 },
-    { num: 5, name: 'Hypothesis Scoring', pct: 80 },
-    { num: 6, name: 'Audit Dossier Generation', pct: 100 },
+    { num: 1, name: 'Ingestion', pct: 5 },
+    { num: 2, name: 'Versioned Source Spans', pct: 15 },
+    { num: 3, name: 'Structured Claim & Entity Extraction', pct: 35 },
+    { num: 4, name: 'Conservative Entity Resolution', pct: 40 },
+    { num: 5, name: 'Detailed Timeline Construction', pct: 45 },
+    { num: 6, name: 'Case Graph & Evidence Indexing', pct: 50 },
+    { num: 7, name: 'Contextual Contradiction Analysis', pct: 65 },
+    { num: 8, name: 'Hypothesis Generation & Evidence-Support Scoring', pct: 80 },
+    { num: 9, name: 'Evidence & Citation Verification', pct: 90 },
+    { num: 10, name: 'LLM Report Generation', pct: 100 },
   ];
 
   return (
@@ -128,7 +147,7 @@ export const NewInvestigationPage: React.FC = () => {
           Document Ingestion & Automated Investigation
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-          Upload heterogeneous files (interviews, emails, reports, logs) and trigger the 6-module agentic pipeline.
+          Upload case files and run the source-grounded pipeline. Failed model stages can be retried without duplicating completed outputs.
         </p>
       </div>
 
@@ -293,7 +312,7 @@ export const NewInvestigationPage: React.FC = () => {
           ) : (
             <>
               <Play className="w-4 h-4 fill-current" />
-              <span>Run Full Investigation Pipeline</span>
+              <span>{status?.status === 'failed' ? 'Retry Failed Stages' : 'Run Full Investigation Pipeline'}</span>
             </>
           )}
         </button>
@@ -310,16 +329,16 @@ export const NewInvestigationPage: React.FC = () => {
               </h3>
             </div>
             <span className="text-xs font-bold font-mono text-blue-600 uppercase bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
-              {status?.status?.toUpperCase() || (analyzing ? 'PROCESSING' : 'DONE')}
+              {status?.status?.toUpperCase() || (analyzing ? 'PROCESSING' : 'PENDING')}
             </span>
           </div>
 
           {/* Module Step Indicator */}
           <div className="space-y-2">
             {moduleSteps.map((s) => {
-              const currentProgress = status?.progress_percentage || (analyzing ? 45 : 100);
+              const currentProgress = status?.progress_percentage || 0;
               const isDone = currentProgress >= s.pct;
-              const isCurrent = currentProgress >= s.pct - 20 && currentProgress < s.pct;
+              const isCurrent = moduleSteps.find(step => currentProgress < step.pct)?.num === s.num;
 
               return (
                 <div key={s.num} className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
@@ -334,7 +353,7 @@ export const NewInvestigationPage: React.FC = () => {
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-400">
-                    {isDone ? 'COMPLETED' : isCurrent ? 'RUNNING...' : 'PENDING'}
+                    {isDone ? 'COMPLETED' : status?.status === 'failed' && isCurrent ? 'BLOCKED' : isCurrent && analyzing ? 'RUNNING...' : 'PENDING'}
                   </span>
                 </div>
               );

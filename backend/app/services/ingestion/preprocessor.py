@@ -168,10 +168,11 @@ def extract_text_from_file(file_path: Path, filename: str) -> Tuple[str, Optiona
                 page_text = page.extract_text() or ""
                 pages_text.append(page_text)
 
-            full_text = "\n\n".join(pages_text).strip()
-            if len(full_text) < 25:
+            full_text = "\f".join(pages_text)
+            if not full_text.strip():
                 warning = f"Warning: PDF '{filename}' contains no extractable text. Scanned document detected; OCR is not enabled."
-                full_text = f"[UNREADABLE SCANNED PDF: {filename}]"
+            elif any(not page.strip() for page in pages_text):
+                warning = "Some PDF pages contain no extractable text; OCR is not enabled."
 
             return full_text, warning
         except Exception as e:
@@ -281,6 +282,9 @@ def process_uploaded_file(
 
     # 2. Extract raw text
     raw_text, warning = extract_text_from_file(file_path, original_filename)
+    forbidden_keys = ("correct_hypothesis", "decoy_hypotheses", "planted_contradictions", "true_entities", "true_timeline")
+    if any(marker in raw_text.lower() for marker in forbidden_keys):
+        raise ValueError("Benchmark answer keys cannot be included in the evidence corpus")
 
     # 3. Clean and normalize
     cleaned_text = normalize_whitespace_and_noise(raw_text)
@@ -311,6 +315,13 @@ def process_uploaded_file(
         timestamp=timestamp,
     )
 
+    import hashlib
+    from app.services.provenance.source_spans import build_source_spans
+    content_hash = hashlib.sha256(file_path.read_bytes()).hexdigest()
+    extraction_version, source_spans = build_source_spans(
+        case_id, document_id, raw_text, content_hash,
+        is_pdf=Path(original_filename).suffix.lower() == ".pdf",
+    )
     return DocumentMetadata(
         document_id=document_id,
         case_id=case_id,
@@ -324,6 +335,9 @@ def process_uploaded_file(
         raw_text=raw_text,
         cleaned_text=cleaned_text,
         chunks=chunks,
-        status="processed",
+        sha256_hash=content_hash,
+        extraction_version=extraction_version,
+        source_spans=source_spans,
+        status="processed" if source_spans else "empty_extraction",
         warning=warning,
     )

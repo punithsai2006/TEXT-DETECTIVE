@@ -41,6 +41,9 @@ class CaseStore:
         self.chroma_dir.mkdir(parents=True, exist_ok=True)
 
     def _case_dir(self, case_id: str) -> Path:
+        import re
+        if not re.fullmatch(r"[A-Za-z0-9_-]{1,160}", case_id):
+            raise ValueError("Invalid case identifier")
         d = self.cases_dir / case_id
         d.mkdir(parents=True, exist_ok=True)
         return d
@@ -157,6 +160,9 @@ class CaseStore:
         return case
 
     def delete_case(self, case_id: str) -> bool:
+        import re
+        if not re.fullmatch(r"[A-Za-z0-9_-]{1,160}", case_id):
+            return False
         case_folder = self.cases_dir / case_id
         upload_folder = self.uploads_dir / case_id
         deleted = False
@@ -204,7 +210,7 @@ class CaseStore:
             return False
 
         # 1. Remove physical file from uploads folder if it exists
-        uploaded_path = self.uploads_dir / case_id / target_doc.filename
+        uploaded_path = self.uploads_dir / case_id / (target_doc.original_storage_name or target_doc.filename)
         if uploaded_path.exists() and uploaded_path.is_file():
             try:
                 uploaded_path.unlink()

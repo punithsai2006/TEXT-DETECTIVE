@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
 import { AskQuestionResponse } from '../types';
@@ -11,53 +11,23 @@ export const AskQuestionPage: React.FC = () => {
   const [response, setResponse] = useState<AskQuestionResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const getDynamicSuggestions = (): string[] => {
-    const caseName = activeCase?.name?.toLowerCase() || '';
-    if (caseName.includes('meridian')) {
-      return [
-        'Where was Alice Vance located between 10:00 PM and midnight?',
-        'Did anyone enter Server Room B with a physical USB flash drive?',
-        'What was discovered regarding the lock on the secure door?',
-        'Who saw Bob Chen leave his keycard on the table?',
-      ];
-    }
-    if (caseName.includes('blackwood')) {
-      return [
-        'Where was Julian Vance located during the vault alarm?',
-        'Did the motion sensor alarm trigger in Zone 4?',
-        'Who possesses keys to the basement vault safe?',
-        'What vehicle was seen leaving near the greenhouse?',
-      ];
-    }
-    if (caseName.includes('helios')) {
-      return [
-        'What temperature did Freezer Unit 4 maintain during August?',
-        'Did the backup diesel generator engage during the storm?',
-        'When was Batch HL-902B picked up by the CryoExpress courier?',
-        'Were any adverse events reported for clinical trial patients?',
-      ];
-    }
-    if (caseName.includes('apex')) {
-      return [
-        'Where was lead engineer Derek Cole between 19:45 and 21:30 UTC?',
-        'Was custom firmware flashed to drone SkyHarrier-9?',
-        'What payments or retainers were deposited into Derek Cole overseas account?',
-        'Did the motor kill switch payload trigger at 250 meters?',
-      ];
-    }
-    return [
-      'What chronological timeline of events is documented for this incident?',
-      'Which individuals, access credentials, or keycards were logged at the scene?',
-      'What physical, digital, or sensor evidence was recovered in the case?',
-      'Are there conflicting accounts between witness testimonies and system logs?',
-    ];
+  const [history, setHistory] = useState<{ answer_id: string; question: string; stale: boolean; status: string; timestamp: string }[]>([]);
+  const refreshHistory = () => {
+    if (activeCaseId) fetch(`/api/cases/${activeCaseId}/answers`).then(r => r.ok ? r.json() : []).then(setHistory).catch(() => {});
   };
+  useEffect(refreshHistory, [activeCaseId]);
 
-  const sampleQuestions = getDynamicSuggestions();
+  const sampleQuestions = [
+    'What most likely happened according to the available evidence?',
+    'Which hypothesis is best supported, and why?',
+    'What evidence weakens an alternative explanation?',
+    'What information is still missing?',
+  ];
 
   const getSufficiencyBadge = (sufficiency?: string) => {
     switch (sufficiency) {
+      case 'source_supported_unreviewed':
+        return { label: 'Source-supported · human review required', className: 'text-sky-300 bg-slate-900 border border-sky-800' };
       case 'directly_established':
         return {
           label: 'Directly established',
@@ -94,6 +64,7 @@ export const AskQuestionPage: React.FC = () => {
     try {
       const resp = await api.askQuestion(activeCaseId, question.trim(), 5);
       setResponse(resp);
+      refreshHistory();
     } catch (err: any) {
       setError(err.message || 'Failed to answer question');
     } finally {
@@ -103,6 +74,10 @@ export const AskQuestionPage: React.FC = () => {
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
+      {history.length > 0 && <details className="case-card p-4 rounded-xl text-xs"><summary className="font-semibold cursor-pointer">Saved questions in this investigation ({history.length})</summary>
+        <p className="my-2 text-slate-500">The last three supported answers from the current run provide follow-up context. Earlier or stale answers are never treated as current evidence.</p>
+        {history.map(item => <p key={item.answer_id} className="border-t py-2"><button onClick={() => setQuestion(item.question)} className="text-blue-700 underline">{item.question}</button> · {item.stale ? 'stale' : item.status}</p>)}
+      </details>}
       {/* Header */}
       <div className="border-b border-slate-200 pb-4">
         <div className="text-xs uppercase font-bold tracking-wider text-blue-600">
@@ -294,7 +269,7 @@ export const AskQuestionPage: React.FC = () => {
               {response.is_mock && (
                 <div className="text-[11px] text-slate-400 bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 flex items-center gap-1.5 mt-2">
                   <Cpu className="w-3.5 h-3.5 shrink-0 text-blue-400" />
-                  <span>Model: {response.model_used} (Offline Forensic Verification Mode). Grounded strictly in cross-referenced case files without external cloud hallucination.</span>
+                  <span>FIXTURE/MOCK: {response.model_used}. Scripted workflow outputs; no real-model inference or accuracy claim.</span>
                 </div>
               )}
             </div>

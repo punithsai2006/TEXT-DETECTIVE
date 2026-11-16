@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { SourceCitation } from './SourceCitation';
 import { ContradictionItem, ReviewStatus } from '../types';
 import { AlertTriangle, CheckCircle, Scale, User, FileText, Clock, Cpu } from 'lucide-react';
 
 interface ContradictionCardProps {
   item: ContradictionItem;
   index: number;
-  onReview?: (status: ReviewStatus, notes?: string) => void;
+  onReview?: (status: ReviewStatus, notes?: string, action?: string) => void;
 }
 
 export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, index, onReview }) => {
+  const [notes, setNotes] = useState(item.review_notes || '');
   const isConflict =
     item.contradiction_type === 'confirmed_contradiction' ||
     item.contradiction_type === 'possible_contradiction';
@@ -57,7 +59,7 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
                 : 'bg-slate-100 text-slate-700 border border-slate-200'
             }`}
           >
-            Decision: {item.reviewer_id !== 'system' ? 'Run analysis to update' : reviewStatus === 'confirmed' ? 'Accepted' : 'Rejected'}
+            Review: {item.stale ? 'Stale — rerun required' : item.review_action?.replace(/_/g, ' ') || (reviewStatus === 'confirmed' ? 'Accepted as lead' : reviewStatus.replace(/_/g, ' '))}
           </span>
 
           {/* Detection Engine Badge */}
@@ -66,7 +68,7 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
             title={`Detection Engine: ${item.detection_engine || 'rules'}`}
           >
             <Cpu className="w-3 h-3" />
-            <span>{item.detection_engine === 'nli' ? 'NLI DeBERTa' : item.detection_engine === 'llm_verified' ? 'LLM Judge' : 'Rule Engine'}</span>
+            <span>{item.detection_engine === 'contextual_comparison' ? 'Contextual Review' : item.detection_engine === 'nli' ? 'NLI DeBERTa' : item.detection_engine === 'llm_verified' ? 'LLM Judge' : 'Rule Engine'}</span>
           </span>
 
           <span
@@ -78,11 +80,11 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
                 : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
             }`}
           >
-            {item.contradiction_type.replace(/_/g, ' ')}
+            {(item.outcome || item.contradiction_type).replace(/_/g, ' ')}
           </span>
-          <span className="text-[11px] text-slate-500 font-mono font-medium">
+          {!item.outcome && <span className="text-[11px] text-slate-500 font-mono font-medium">
             Conf: {(item.confidence * 100).toFixed(0)}%
-          </span>
+          </span>}
         </div>
       </div>
 
@@ -105,6 +107,7 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
           <p className="text-slate-800 leading-relaxed font-normal bg-white p-2.5 rounded-lg border border-slate-200/50">
             "{item.statement_a}"
           </p>
+          <SourceCitation spanId={item.chunk_a_id} />
         </div>
 
         {/* Statement B */}
@@ -124,6 +127,7 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
           <p className="text-slate-800 leading-relaxed font-normal bg-white p-2.5 rounded-lg border border-slate-200/50">
             "{item.statement_b}"
           </p>
+          <SourceCitation spanId={item.chunk_b_id} />
         </div>
       </div>
 
@@ -134,6 +138,10 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
           <div className="text-slate-700">
             <span className="font-semibold text-slate-900">Analysis: </span>
             <span>{item.explanation}</span>
+            {item.outcome && <div className="mt-2 space-y-1">
+              <p>Assumptions: {item.assumptions?.join('; ') || 'None reported'}</p>
+              <p>Unresolved ambiguity: {item.ambiguities?.join('; ') || 'Inspect original sources'}</p>
+            </div>}
           </div>
         </div>
 
@@ -145,29 +153,32 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
           {item.reviewer_id && (
             <span className="flex items-center text-slate-500 text-[10px]">
               <Clock className="w-3 h-3 mr-1" aria-hidden="true" />
-              Verified by {item.reviewer_id} {item.review_notes ? `(${item.review_notes})` : ''}
+              Reviewed by {item.reviewer_id} {item.review_notes ? `(${item.review_notes})` : ''}
             </span>
           )}
         </div>
 
+        {item.outcome && <label className="block text-xs">Review notes<textarea value={notes} onChange={event => setNotes(event.target.value)} className="block border rounded p-2 w-full" /></label>}
         {/* Human Review Action Bar */}
         <div className="pt-2 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-semibold text-slate-500">Analyst Review:</span>
             <button
               type="button"
-              onClick={() => onReview?.('confirmed')}
+              disabled={item.stale}
+              onClick={() => onReview?.('confirmed', notes)}
               className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
                 reviewStatus === 'confirmed'
                   ? 'bg-emerald-600 text-white shadow-sm'
                   : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200'
               }`}
             >
-              Confirm Conflict
+              Accept as Investigative Lead
             </button>
             <button
               type="button"
-              onClick={() => onReview?.('rejected')}
+              disabled={item.stale}
+              onClick={() => onReview?.('rejected', notes)}
               className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
                 reviewStatus === 'rejected'
                   ? 'bg-rose-600 text-white shadow-sm'
@@ -176,10 +187,15 @@ export const ContradictionCard: React.FC<ContradictionCardProps> = ({ item, inde
             >
               Reject / False Positive
             </button>
+            {item.outcome && <>
+              <button type="button" disabled={item.stale} onClick={() => onReview?.('rejected', notes, 'explainable_variance')} className="px-2 py-1 rounded border text-xs">Explainable Variance</button>
+              <button type="button" disabled={item.stale} onClick={() => onReview?.('needs_further_investigation', notes)} className="px-2 py-1 rounded border text-xs">Request More Context</button>
+            </>}
             {reviewStatus !== 'pending_review' && (
               <button
                 type="button"
-                onClick={() => onReview?.('pending_review')}
+                disabled={item.stale}
+                onClick={() => onReview?.('pending_review', notes)}
                 className="px-2 py-1 rounded text-[11px] font-medium text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200"
               >
                 Reset to Pending

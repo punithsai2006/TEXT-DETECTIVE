@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCase } from '../context/CaseContext';
 import { api } from '../services/api';
+import { CaseEvidenceDetails } from '../components/CaseEvidenceDetails';
 import { DocumentMetadata, DocumentType, TextChunk } from '../types';
 import {
   FileText,
@@ -354,6 +355,7 @@ export const DocumentsPage: React.FC = () => {
         </div>
       </div>
 
+      <CaseEvidenceDetails section="claims" />
       {/* Upload Modal */}
       {showUploadModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">

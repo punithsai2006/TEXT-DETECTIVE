@@ -21,6 +21,7 @@ import {
   CheckCircle2,
   RotateCw,
   Trash2,
+  Bot,
 } from 'lucide-react';
 
 export const DashboardPage: React.FC = () => {
@@ -65,7 +66,8 @@ export const DashboardPage: React.FC = () => {
     { num: '03', title: 'Hybrid RAG Index', desc: 'Dense + BM25 Vector', link: '/evidence', icon: Search, done: (activeCase?.document_count || 0) > 0 },
     { num: '04', title: 'Contradiction Engine', desc: `${activeCase?.contradiction_count || 0} Conflicts Found`, link: '/contradictions', icon: Scale, done: (activeCase?.contradiction_count || 0) > 0 },
     { num: '05', title: 'Hypothesis Scorer', desc: `${activeCase?.hypothesis_count || 0} Theories Ranked`, link: '/hypotheses', icon: BrainCircuit, done: (activeCase?.hypothesis_count || 0) > 0 },
-    { num: '06', title: 'Investigation Dossier', desc: 'Traceable Audit Report', link: '/report', icon: FileCheck2, done: activeCase?.status === 'completed' },
+    { num: '06', title: 'Multi-Agent Swarm', desc: '5 Collaborative Agents', link: '/agents', icon: Bot, done: activeCase?.status === 'completed' },
+    { num: '07', title: 'Investigation Dossier', desc: 'Traceable Audit Report', link: '/report', icon: FileCheck2, done: activeCase?.status === 'completed' },
   ];
 
   return (

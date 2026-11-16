@@ -165,11 +165,12 @@ export const api = {
   },
 
   // Evidence Retrieval
-  async searchEvidence(caseId: string, query: string, topK: number = 10, threshold: number = 0.0): Promise<EvidenceItem[]> {
+  async searchEvidence(caseId: string, query: string, topK: number = 10, threshold: number = 0.0,
+    filters: { mode?: string; document_ids?: string[]; entity?: string; date_from?: string; date_to?: string; evidence_type?: string } = {}): Promise<EvidenceItem[]> {
     const res = await fetch(`${API_BASE}/cases/${caseId}/evidence/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, top_k: topK, threshold }),
+      body: JSON.stringify({ query, top_k: topK, threshold, ...filters }),
     });
     if (!res.ok) throw new Error('Failed to search evidence');
     return res.json();
@@ -188,11 +189,23 @@ export const api = {
     return res.json();
   },
 
+  async resumeContradictions(caseId: string): Promise<any> {
+    const res = await fetch(`${API_BASE}/cases/${caseId}/contradictions/resume`, {
+      method: 'POST',
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: 'Failed to resume contradiction analysis' }));
+      throw new Error(err.detail || 'Failed to resume contradiction analysis');
+    }
+    return res.json();
+  },
+
   async reviewContradiction(
     caseId: string,
     contradictionId: string,
     reviewStatus: string,
-    reviewNotes?: string
+    reviewNotes?: string,
+    action?: string
   ): Promise<ContradictionItem> {
     const res = await fetch(`${API_BASE}/cases/${caseId}/contradictions/${contradictionId}/review`, {
       method: 'PATCH',
@@ -201,6 +214,7 @@ export const api = {
         review_status: reviewStatus,
         reviewer_id: 'analyst_1',
         review_notes: reviewNotes,
+        action,
       }),
     });
     if (!res.ok) throw new Error('Failed to submit contradiction review');
@@ -238,7 +252,14 @@ export const api = {
     return res.json();
   },
 
-  getReportDownloadUrl(caseId: string, format: 'markdown' | 'json' | 'html'): string {
+  async generateReport(caseId: string): Promise<InvestigationReport> {
+    const response = await fetch(`${API_BASE}/cases/${caseId}/report/generate`, { method: 'POST' });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || 'Report generation failed');
+    return data;
+  },
+
+  getReportDownloadUrl(caseId: string, format: 'markdown' | 'json' | 'html' | 'pdf'): string {
     return `${API_BASE}/cases/${caseId}/report/download?format=${format}`;
   },
 

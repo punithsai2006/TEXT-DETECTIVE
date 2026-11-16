@@ -96,6 +96,9 @@ class HypothesisScoringEngine:
     contradictions, implementing the exact Slide 18 algorithm.
     """
 
+    def __init__(self, retrieval=None):
+        self.retriever = retrieval or retriever
+
     def evaluate_claim_against_evidence(
         self,
         case_id: str,
@@ -108,7 +111,7 @@ class HypothesisScoringEngine:
         """
         claim_id = f"clm_{uuid.uuid4().hex[:8]}"
         # Retrieve top evidence for this claim
-        evidence_items = retriever.search(case_id=case_id, query=claim_text, top_k=evidence_limit)
+        evidence_items = self.retriever.search(case_id=case_id, query=claim_text, top_k=evidence_limit)
 
         supporting_evidence_ids: List[str] = []
         conflicting_evidence_ids: List[str] = []
