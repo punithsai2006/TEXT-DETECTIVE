@@ -110,8 +110,22 @@ app.include_router(evidence_review_router, prefix="/api")
 
 
 # Mount frontend static distribution if built
-frontend_dist = settings.BASE_DIR / "frontend" / "dist"
-if frontend_dist.exists():
+def find_frontend_dist() -> Path:
+    candidates = [
+        settings.BASE_DIR / "frontend" / "dist",
+        Path(__file__).resolve().parent.parent.parent / "frontend" / "dist",
+        Path.cwd() / "frontend" / "dist",
+        Path.cwd().parent / "frontend" / "dist",
+        Path("frontend/dist").resolve(),
+        Path("../frontend/dist").resolve(),
+    ]
+    for c in candidates:
+        if c.exists() and (c / "index.html").exists():
+            return c
+    return settings.BASE_DIR / "frontend" / "dist"
+
+frontend_dist = find_frontend_dist()
+if frontend_dist.exists() and (frontend_dist / "index.html").exists():
     assets_dir = frontend_dist / "assets"
     if assets_dir.exists():
         app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
@@ -123,6 +137,11 @@ if frontend_dist.exists():
         if fav.exists():
             return FileResponse(fav, media_type="image/svg+xml")
         return Response(status_code=204)
+
+    @app.get("/", include_in_schema=False)
+    @app.head("/", include_in_schema=False)
+    def serve_root():
+        return FileResponse(frontend_dist / "index.html", headers={"Cache-Control": "no-store"})
 
     @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], include_in_schema=False)
     def serve_spa(full_path: str):
